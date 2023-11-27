@@ -1,17 +1,29 @@
-\documentclass{article}
+\documentclass[12pt,openright,twoside,a4paper,english,brazil]{abntex2}
 \usepackage[utf8]{inputenc}
-\usepackage{fancyhdr}
-\usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[brazilian]{babel}
 
-\pagestyle{fancy}
-\fancyhf{}
-\rhead{Cabeçalho Direito}
-\lhead{Cabeçalho Esquerdo}
-\rfoot{Página \thepage}
+\autor{Seu Nome}
+\titulo{Seu Título}
+\orientador{Nome do Orientador}
+\data{Ano}
 
 \begin{document}
 
-\section{Introdução}
-Este é um exemplo de texto.\footnote{Exemplo de nota de rodapé.}
+\pretextual
+\imprimircapa
+\imprimirfolhaderosto
+
+\textual
+\chapter{Introdução}
+Texto da introdução.
+
+\chapter{Desenvolvimento}
+Texto do desenvolvimento.
+
+\chapter{Conclusão}
+Texto da conclusão.
+
+\bibliography{referencias}
 
 \end{document}
