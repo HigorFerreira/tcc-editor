@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.11.27)  27 NOV 2023 20:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.11.27)  27 NOV 2023 20:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -624,28 +624,41 @@ Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \l__lipsum_a_int=\count339
 \l__lipsum_b_int=\count340
 
-(/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (./latex.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and foote
+rs
+\f@nch@headwidth=\skip258
+\f@nch@O@elh=\skip259
+\f@nch@O@erh=\skip260
+\f@nch@O@olh=\skip261
+\f@nch@O@orh=\skip262
+\f@nch@O@elf=\skip263
+\f@nch@O@erf=\skip264
+\f@nch@O@olf=\skip265
+\f@nch@O@orf=\skip266
+) (./latex.aux)
 \openout1 = `latex.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-Package hyperref Info: Link coloring OFF on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+Package hyperref Info: Link coloring OFF on input line 23.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -660,12 +673,12 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 16.
-LaTeX Info: Redefining \ref on input line 16.
-LaTeX Info: Redefining \pageref on input line 16.
-LaTeX Info: Redefining \nameref on input line 16.
+LaTeX Info: Redefining \nameref on input line 23.
+LaTeX Info: Redefining \ref on input line 23.
+LaTeX Info: Redefining \pageref on input line 23.
+LaTeX Info: Redefining \nameref on input line 23.
 \myptabbox=\box57
-\myptabboxwidth=\skip258
+\myptabboxwidth=\skip267
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count342
@@ -688,8 +701,8 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 1
-8.
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 2
+5.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
@@ -701,7 +714,7 @@ File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.20 
+l.27 
       [1
 
 
@@ -709,12 +722,12 @@ l.20
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.20 
+l.27 
       [2
 
 ]
 ! Undefined control sequence.
-l.21 \sumario
+l.28 \sumario
               % Sumário
 ? 
 (./latex.lof
@@ -728,9 +741,9 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 ]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 28.
+(Font)              <7> on input line 35.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 28.
+(Font)              <5> on input line 35.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -742,25 +755,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ] [9] [10
 
 ]
-
-LaTeX Warning: File `exemplo_imagem.jpg' not found on input line 49.
-
-
-! Package pdftex.def Error: File `exemplo_imagem.jpg' not found: using draft se
-tting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.49 ...s[width=0.5\textwidth]{exemplo_imagem.jpg}
-                                                  
-? 
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 4
-9.
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [11] [12
+<untitled.png, id=82, 1927.2pt x 1084.05pt>
+File: untitled.png Graphic file (type png)
+<use untitled.png>
+Package pdftex.def Info: untitled.png  used on input line 56.
+(pdftex.def)             Requested size: 227.5pt x 127.9631pt.
+ [11 <./untitled.png>] [12
 
 ]
 No file latex.bbl.
@@ -773,13 +773,13 @@ No file latex.bbl.
 
  (./latex.aux) ) 
 Here is how much of TeX's memory you used:
- 14377 strings out of 478287
- 227842 string characters out of 5849288
- 645294 words of memory out of 5000000
- 32365 multiletter control sequences out of 15000+600000
- 483280 words of font info for 53 fonts, out of 8000000 for 9000
+ 14490 strings out of 478287
+ 228869 string characters out of 5849288
+ 647588 words of memory out of 5000000
+ 32490 multiletter control sequences out of 15000+600000
+ 482967 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,93p,372b,483s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 75i,12n,93p,372b,487s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</us
 r/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/
 type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-supe
@@ -789,12 +789,11 @@ ype1/public/cm-super/sfss1200.pfb></usr/share/texmf/fonts/type1/public/cm-super
 /sfss1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1728.pfb></usr/
 share/texmf/fonts/type1/public/cm-super/sfss2488.pfb></usr/share/texmf/fonts/ty
 pe1/public/cm-super/sfsx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/
-sfsx2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/s
-hare/texmf/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on latex.pdf (15 pages, 170911 bytes).
+sfsx2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on latex.pdf (15 pages, 1407616 bytes).
 PDF statistics:
- 196 PDF objects out of 1000 (max. 8388607)
- 151 compressed objects within 2 object streams
+ 194 PDF objects out of 1000 (max. 8388607)
+ 149 compressed objects within 2 object streams
  30 named destinations out of 1000 (max. 500000)
- 89 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 94 words of extra memory for PDF output out of 10000 (max. 10000000)
 
