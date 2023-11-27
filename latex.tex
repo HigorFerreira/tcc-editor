@@ -1,28 +1,69 @@
-\documentclass[12pt,openright,twoside,a4paper,english,brazil]{abntex2}
+\documentclass[12pt,openright,twoside,a4paper,brazil]{abntex2}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[brazilian]{babel}
+\usepackage[brazil]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{lipsum} % Gera texto aleatório
 
+\titulo{Exemplo de Documento ABNT}
 \autor{Seu Nome}
-\titulo{Seu Título}
 \orientador{Nome do Orientador}
-\data{Ano}
+\instituicao{Nome da Universidade}
+\local{Cidade - Estado}
+\data{\the\year}
 
 \begin{document}
 
-\pretextual
 \imprimircapa
 \imprimirfolhaderosto
 
-\textual
-\chapter{Introdução}
-Texto da introdução.
+\sumario % Sumário
+\listoffigures   % Lista de Figuras
+\listoftables    % Lista de Tabelas
 
-\chapter{Desenvolvimento}
-Texto do desenvolvimento.
+\textual
+
+\chapter{Introdução}
+\lipsum[1-2]
+
+\section{Subtítulo de Nível 1}
+\lipsum[3]
+\subsection{Subtítulo de Nível 2}
+\lipsum[4]
+\subsubsection{Subtítulo de Nível 3}
+\lipsum[5]
+
+\chapter{Revisão da Literatura}
+\lipsum[6-7]
+
+\chapter{Metodologia}
+\lipsum[8-9]
+
+\chapter{Resultados e Discussão}
+\lipsum[10]
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.5\textwidth]{exemplo_imagem.jpg}
+\caption{Exemplo de Figura}
+\label{fig:exemplo}
+\end{figure}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Coluna 1 & Coluna 2 & Coluna 3 \\ \hline
+Item 1   & Item 2   & Item 3   \\ \hline
+Item 4   & Item 5   & Item 6   \\ \hline
+\end{tabular}
+\caption{Exemplo de Tabela}
+\label{tab:exemplo}
+\end{table}
 
 \chapter{Conclusão}
-Texto da conclusão.
+\lipsum[11-12]
 
 \bibliography{referencias}
 

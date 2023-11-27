@@ -15,6 +15,10 @@ async function main() {
 
     pdf.pipe(output);
     await (() => new Promise((resolve, reject) => {
+        pdf.on('data', data => {
+            console.log("Data");
+            console.log(data);
+        })
         pdf.on('error', err => {
             // console.error("======= PDF ERROR", err);
             reject(err);
