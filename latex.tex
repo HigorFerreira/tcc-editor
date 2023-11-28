@@ -9,6 +9,10 @@
 
 \renewcommand{\familydefault}{\sfdefault}
 
+\hypersetup{
+    hidelinks
+}
+
 \titulo{PLATAFORMA DE EDIÇÃO/AUTOMAÇÃO PARA TRABALHOS ACADÊMICOS}
 \autor{HIGOR FERREIRA ALVES SANTOS}
 \orientador{Nome do Orientador}
@@ -138,11 +142,13 @@
     \bfseries\imprimirdata
 \clearpage % Começa uma nova página para a folha de rosto
 
+
 % Correção: Usar \tableofcontents para o Sumário
 \tableofcontents
 \listoffigures   % Lista de Figuras
 \listoftables    % Lista de Tabelas
 
+\setcounter{page}{1}
 \textual
 
 \justifying
