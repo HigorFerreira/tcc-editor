@@ -17,7 +17,8 @@
     \par
     ESCOLA POLITÉCNICA E DE ARTES
     \par
-    ENGENHARIA DE COMPUTAÇÃO}
+    ENGENHARIA DE COMPUTAÇÃO
+    }
 \local{GOIÂNIA - GO}
 \data{2023}
 
@@ -51,16 +52,58 @@
     \bfseries\imprimirdata
 \end{capa}
 
-
 % Folha de rosto personalizada
 \begin{folhaderosto}
+
+    \centering
+
+    \imprimirautor
+
+    \vfill
+
+    \ABNTEXchapterfont\bfseries\imprimirtitulo
+
+    \vfill
+
+    % \justifying
+    % \noindent\hspace*{70mm}%
+    % \begin{minipage}{\dimexpr\textwidth-70mm}
+    %     \textnormal{Trabalho de Conclusão de Curso apresentado à
+    %     Escola Politécnica e de Artes, da Pontifícia
+    %     Universidade Católica de Goiás, como parte dos
+    %     requisitos para a obtenção do título de Bacharel em
+    %     Engenharia de Computação.% \\
+
+    %     Orientador:\\
+    %     \begin{flushright}
+    %         Prof. M.E.E. Marcelo Antônio Hadad\\
+    %     \end{flushright}
+    %     Banca examinadora:\\
+    %     \begin{flushright}
+    %         Nome1\\
+    %         Nome2\\
+    %     \end{flushright}
+    %     }
+    % \end{minipage}
+
+    % \vfill
+
+    % \centering
+
+    \bfseries\imprimirlocal
+
+    \bfseries\imprimirdata
+\end{folhaderosto}
+
+% Folha de aprovação
+\clearpage
     \centering
     \imprimirautor
-    
+
     \vfill
-    
+
     \ABNTEXchapterfont\bfseries\imprimirtitulo
-    
+
     \vfill
 
     \justifying
@@ -70,9 +113,9 @@
     Engenharia de Computação, em: \_\_\_/ \_\_\_/ \_\_\_\_\_}
 
     \centering
-    
+
     \vspace*{3cm}
-    
+
     \begin{flushright}
     \rule{10cm}{0.4pt}\\
     \textnormal{Orientador: Prof. M.E.E. Marcelo Antônio Hadad}
@@ -93,7 +136,7 @@
     \bfseries\imprimirlocal
 
     \bfseries\imprimirdata
-\end{folhaderosto}
+\clearpage % Começa uma nova página para a folha de rosto
 
 % Correção: Usar \tableofcontents para o Sumário
 \tableofcontents
@@ -111,6 +154,8 @@ Texto com outra nota de rodapé.\footnote{Outro exemplo de nota de rodapé.} \li
 \subsection{Subtítulo de Nível 2}
 \lipsum[4]
 \subsubsection{Subtítulo de Nível 3}
+\lipsum[5]
+\subsubsubsection{Subtítulo de Nível 4}
 \lipsum[5]
 
 \chapter{Revisão da Literatura}

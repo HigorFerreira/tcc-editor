@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.11.27)  28 NOV 2023 00:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.11.27)  28 NOV 2023 00:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -645,7 +645,7 @@ Package: ragged2e 2021/12/15 v3.1 ragged2e Package
 \RaggedRightParindent=\skip270
 \JustifyingParindent=\skip271
 )
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 25
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 26
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
@@ -653,25 +653,25 @@ File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 ) (./latex.aux)
 \openout1 = `latex.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-Package hyperref Info: Link coloring OFF on input line 25.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+Package hyperref Info: Link coloring OFF on input line 26.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -686,10 +686,10 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 25.
-LaTeX Info: Redefining \ref on input line 25.
-LaTeX Info: Redefining \pageref on input line 25.
-LaTeX Info: Redefining \nameref on input line 25.
+LaTeX Info: Redefining \nameref on input line 26.
+LaTeX Info: Redefining \ref on input line 26.
+LaTeX Info: Redefining \pageref on input line 26.
+LaTeX Info: Redefining \nameref on input line 26.
 \myptabbox=\box57
 \myptabboxwidth=\skip272
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -717,7 +717,7 @@ e
 <./src/assets/logo.png, id=4, 162.6075pt x 301.125pt>
 File: ./src/assets/logo.png Graphic file (type png)
 <use ./src/assets/logo.png>
-Package pdftex.def Info: ./src/assets/logo.png  used on input line 37.
+Package pdftex.def Info: ./src/assets/logo.png  used on input line 38.
 (pdftex.def)             Requested size: 68.24722pt x 126.38432pt.
 
 [1
@@ -732,6 +732,9 @@ l.96 \end{folhaderosto}
 
 
 
+] [2
+
+
 ] (./latex.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 3.
@@ -739,34 +742,34 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 3.
-) (./latex.lof) (./latex.lot) [2
-
-]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 106.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 106.
-
+) (./latex.lof) (./latex.lot)
 [3
 
 ]
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 116.
- [4] [5
-
-] [6
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 149.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 149.
+ [4
 
 ]
-<./src/assets/untitled.png, id=70, 1927.2pt x 1084.05pt>
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 161.
+ [5] [6
+
+] [7
+
+]
+<./src/assets/untitled.png, id=76, 1927.2pt x 1084.05pt>
 File: ./src/assets/untitled.png Graphic file (type png)
 <use ./src/assets/untitled.png>
-Package pdftex.def Info: ./src/assets/untitled.png  used on input line 127.
+Package pdftex.def Info: ./src/assets/untitled.png  used on input line 172.
 (pdftex.def)             Requested size: 227.5pt x 127.9631pt.
- [7
+ [8
 
  <./src/assets/untitled.png>]
 No file latex.bbl.
-[8
+[9
 
 ]
 \tf@toc=\write4
@@ -780,21 +783,21 @@ No file latex.bbl.
 
  (./latex.aux) ) 
 Here is how much of TeX's memory you used:
- 14468 strings out of 478287
- 229199 string characters out of 5849288
- 646642 words of memory out of 5000000
- 32461 multiletter control sequences out of 15000+600000
- 506999 words of font info for 61 fonts, out of 8000000 for 9000
+ 14476 strings out of 478287
+ 229285 string characters out of 5849288
+ 646645 words of memory out of 5000000
+ 32465 multiletter control sequences out of 15000+600000
+ 512299 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,93p,373b,504s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 75i,12n,93p,373b,506s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
 r/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on latex.pdf (9 pages, 1321044 bytes).
+Output written on latex.pdf (10 pages, 1321666 bytes).
 PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
- 119 compressed objects within 2 object streams
- 26 named destinations out of 1000 (max. 500000)
- 107 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 151 PDF objects out of 1000 (max. 8388607)
+ 127 compressed objects within 2 object streams
+ 28 named destinations out of 1000 (max. 500000)
+ 115 words of extra memory for PDF output out of 10000 (max. 10000000)
 
