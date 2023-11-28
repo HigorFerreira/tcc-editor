@@ -21,6 +21,11 @@
 \newcommand{\escola}{Escola Politécnica e de Artes}
 \newcommand{\curso}{Engenharia de Computação}
 
+\newcommand{\grauOrientador}{Prof. M.E.E.}
+\newcommand{\grauAluno}{Bacharel}
+\newcommand{\bancaUm}{Miriam Gusmão}
+\newcommand{\bancaDois}{}
+
 \instituicao{%
     \ies
     \par
@@ -39,7 +44,7 @@
     \center
 
     \OnehalfSpacing
-    \ABNTEXchapterfont\bfseries\textsc{\MakeUppercase{\imprimirinstituicao}}
+    \ABNTEXchapterfont\bfseries{\textsc{\MakeUppercase{\imprimirinstituicao}}}
 
     \vfill
 
@@ -48,7 +53,7 @@
 
     \vfill
 
-    \ABNTEXchapterfont\bfseries\MakeUppercase{\imprimirtitulo}
+    \ABNTEXchapterfont\bfseries{\MakeUppercase{\imprimirtitulo}}
 
     \vfill
 
@@ -56,9 +61,9 @@
 
     \vfill
 
-    \bfseries\MakeUppercase{\imprimirlocal}
+    \bfseries{\MakeUppercase{\imprimirlocal}}
 
-    \bfseries\MakeUppercase{\imprimirdata}
+    \bfseries{\MakeUppercase{\imprimirdata}}
 \end{capa}
 
 % Folha de rosto personalizada
@@ -70,7 +75,7 @@
 
     \vfill
 
-    \ABNTEXchapterfont\bfseries\MakeUppercase{\imprimirtitulo}
+    \ABNTEXchapterfont\bfseries{\MakeUppercase{\imprimirtitulo}}
 
     \vfill
 
@@ -80,16 +85,16 @@
         \textnormal{
             Trabalho de Conclusão de Curso apresentado à
             \escola, da \ies, como parte dos
-            requisitos para a obtenção do título de Bacharel em
+            requisitos para a obtenção do título de \grauAluno\,em
             \curso.\\\\
             Orientador:\\
             \begin{flushright}
-                Prof. M.E.E. Marcelo Antônio Hadad
+                \grauOrientador \imprimirorientador
             \end{flushright}
             Banca examinadora:\\
             \begin{flushright}
-                Nome1\\
-                Nome2
+                \bancaUm
+                \bancaDois
             \end{flushright}
         }
     \end{minipage}
@@ -98,9 +103,9 @@
 
     \centering
 
-    \bfseries\imprimirlocal
+    \bfseries{\imprimirlocal}
 
-    \bfseries\imprimirdata
+    \bfseries{\imprimirdata}
 \end{folhaderosto}
 
 % Folha de aprovação
@@ -110,14 +115,14 @@
 
     \vfill
 
-    \ABNTEXchapterfont\bfseries\MakeUppercase{\imprimirtitulo}
+    \ABNTEXchapterfont\bfseries{\MakeUppercase{\imprimirtitulo}}
 
     \vfill
 
     \justifying
 
     \textnormal{Trabalho de Conclusão de Curso aprovado em sua forma final pela Escola Politécnica e de
-    Artes, da Pontifícia Universidade Católica de Goiás, para obtenção do título de Bacharel em
+    Artes, da Pontifícia Universidade Católica de Goiás, para obtenção do título de \grauAluno\,em
     Engenharia de Computação, em: \_\_\_/ \_\_\_/ \_\_\_\_\_}
 
     \centering
@@ -126,24 +131,24 @@
 
     \begin{flushright}
     \rule{10cm}{0.4pt}\\
-    \textnormal{Orientador: Prof. M.E.E. \imprimirorientador}
+    \textnormal{Orientador: \grauOrientador \imprimirorientador}
 
     \vspace*{10mm}
 
     \rule{10cm}{0.4pt}\\
-    \textnormal{Orientador1:}
+    \textnormal{Orientador1: \bancaUm}
 
     \vspace*{10mm}
 
     \rule{10cm}{0.4pt}\\
-    \textnormal{Orientador2:}
+    \textnormal{Orientador2: \bancaDois}
     \end{flushright}
 
     \vspace*{6cm}
 
-    \bfseries\imprimirlocal
+    \bfseries{\imprimirlocal}
 
-    \bfseries\imprimirdata
+    \bfseries{\imprimirdata}
 \clearpage % Começa uma nova página para a folha de rosto
 
 \pagenumbering{roman}
@@ -161,6 +166,7 @@
 \textual
 
 \justifying
+\normalfont
 
 \chapter{Introdução}
 Este é um exemplo de texto com uma nota de rodapé.\footnote{Aqui está o texto da nota de rodapé.} \lipsum[1]
@@ -189,6 +195,7 @@ Texto com outra nota de rodapé.\footnote{Outro exemplo de nota de rodapé.} \li
     \caption{Exemplo de Figura}
     \includegraphics[width=1.0\textwidth]{./src/assets/untitled.png}
     \label{fig:exemplo}
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
 \end{figure}
 
 \begin{table}[ht]
@@ -201,7 +208,13 @@ Texto com outra nota de rodapé.\footnote{Outro exemplo de nota de rodapé.} \li
         Item 4   & Item 5   & Item 6   \\ \hline
     \end{tabular}
     \label{tab:exemplo}
+    \\\textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
 \end{table}
+
+Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis expedita a distinctio. Culpa quidem dolores suscipit, aspernatur odit possimus voluptatem illo. Fugiat recusandae modi laboriosam qui ut commodi beatae velit?
+Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque recusandae sint repudiandae fuga porro a, similique officiis quas eligendi tenetur ullam reiciendis officia cupiditate neque? Assumenda voluptatem soluta laudantium tempora inventore maiores possimus nam! Ut molestiae tempore quam dolore dolor assumenda. Accusamus, rem deserunt? Earum repellendus officia distinctio harum excepturi voluptatum deleniti rem, consequuntur sint illo voluptatibus quasi. Dolorum dolorem magnam obcaecati, autem consequuntur molestiae vero similique id. Suscipit eum consequuntur optio quisquam dolorum amet mollitia iure unde impedit labore cum dicta modi, voluptatum porro architecto molestiae ipsam maiores accusamus natus nihil? Iusto, dicta praesentium culpa molestias dignissimos nostrum qui excepturi nulla in! Reprehenderit animi, rerum beatae eius iste odio ea dignissimos, aut quaerat ratione voluptates dolorem architecto, autem recusandae!
+
+Gostou? veja de novo a figura \ref{fig:exemplo}
 
 \chapter{Conclusão}
 \lipsum[11-12]
