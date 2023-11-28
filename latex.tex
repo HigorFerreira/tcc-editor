@@ -23,7 +23,10 @@
 
 \newcommand{\grauOrientador}{Prof. M.E.E.}
 \newcommand{\grauAluno}{Bacharel}
+
+\newcommand{\grauBancaUm}{Prof. Dra.}
 \newcommand{\bancaUm}{Miriam Gusmão}
+\newcommand{\grauBancaDois}{}
 \newcommand{\bancaDois}{}
 
 \instituicao{%
@@ -38,6 +41,12 @@
 
 % Início do documento
 \begin{document}
+
+\renewcommand{\listfigurename}{Lista de Figuras}
+% Alterando o título da lista de tabelas
+\renewcommand{\listtablename}{Lista de Tabelas}
+% Alterando o título do sumário
+\renewcommand{\contentsname}{Sumário}
 
 % Capa personalizada
 \begin{capa}
@@ -93,8 +102,8 @@
             \end{flushright}
             Banca examinadora:\\
             \begin{flushright}
-                \bancaUm
-                \bancaDois
+                \grauBancaUm \, \bancaUm
+                \grauBancaDois \, \bancaDois
             \end{flushright}
         }
     \end{minipage}
@@ -123,7 +132,7 @@
 
     \textnormal{Trabalho de Conclusão de Curso aprovado em sua forma final pela Escola Politécnica e de
     Artes, da Pontifícia Universidade Católica de Goiás, para obtenção do título de \grauAluno\,em
-    Engenharia de Computação, em: \_\_\_/ \_\_\_/ \_\_\_\_\_}
+    Engenharia de Computação, em: \rule{8mm}{0.4pt}/ \rule{8mm}{0.4pt}/ \rule{16mm}{0.4pt}}
 
     \centering
 
@@ -136,12 +145,12 @@
     \vspace*{10mm}
 
     \rule{10cm}{0.4pt}\\
-    \textnormal{Orientador1: \bancaUm}
+    \textnormal{Orientador1: \grauBancaUm \, \bancaUm}
 
     \vspace*{10mm}
 
     \rule{10cm}{0.4pt}\\
-    \textnormal{Orientador2: \bancaDois}
+    \textnormal{Orientador2: \grauBancaDois \, \bancaDois}
     \end{flushright}
 
     \vspace*{6cm}
@@ -151,15 +160,66 @@
     \bfseries{\imprimirdata}
 \clearpage % Começa uma nova página para a folha de rosto
 
+%Dedicatória
+\centering
+\ABNTEXchapterfont\bfseries{\textsc{\MakeUppercase{Dedicatória}}}\\
+\vspace*{3cm}
+\justifying
+\normalfont
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae culpa, ad velit molestiae nulla ducimus vero corporis reprehenderit alias praesentium delectus impedit laborum laudantium ea cumque eum atque voluptatem, voluptate voluptatum. Atque, numquam sit, tempora sunt in repellendus vero assumenda ipsum hic vitae consectetur animi magni reiciendis accusantium dicta. In accusantium delectus fugiat, est tempora obcaecati at temporibus exercitationem ea ad laudantium inventore alias velit dolorum debitis eos nihil, dicta voluptatibus voluptatem odit labore cum? Cum facere reprehenderit officia tempore! Cum, quod dolores ipsam nihil temporibus fuga. Eveniet, dicta harum. Nostrum architecto beatae laboriosam veritatis? Iusto ea, rem, aperiam quaerat ipsum maiores alias, eius quas laboriosam velit nihil repellat voluptatem porro natus aspernatur. Rerum illo, dolore voluptatibus perspiciatis quasi nulla assumenda cupiditate, cumque amet, minus ullam saepe a neque. Quas incidunt accusamus ipsum laboriosam veritatis accusantium veniam, ex esse optio. Ullam itaque at magni expedita illo, dolorum sint fugiat pariatur sit eum dolore velit iusto est, iure quibusdam animi corrupti saepe autem tempore. Neque excepturi iste cum tempora nemo nulla omnis perferendis minus ipsam qui adipisci nesciunt maxime reiciendis aperiam vel, aspernatur cumque. Tempora deleniti non ex aperiam in id reiciendis vel. Aspernatur nisi fugit voluptas ipsam vel incidunt accusantium similique dolorum blanditiis amet provident, inventore deleniti veniam aut quam quaerat fugiat consequuntur temporibus illo est, quis at tenetur porro sit. Repudiandae aperiam sapiente enim laborum nam dicta, aliquam dolorum unde quam non corrupti illum molestiae fuga tenetur rerum ratione perspiciatis. Fuga et id modi officiis vero? Molestiae quasi impedit blanditiis voluptas voluptates quo iusto ratione fugiat odit nostrum adipisci, architecto omnis ut quisquam nesciunt earum ab distinctio illo. Error minus voluptatum incidunt consectetur impedit ipsa earum, soluta commodi est, aut architecto perferendis unde similique repudiandae. Fugiat mollitia est consectetur atque veniam dicta nulla dolores provident cupiditate sunt, recusandae perferendis!
+qui adipisci nesciunt maxime reiciendis aperiam vel, aspernatur cumque. Tempora deleniti non ex aperiam in id reiciendis vel. Aspernatur nisi fugit voluptas ipsam vel incidunt accusantium similique dolorum blanditiis amet provident, inventore deleniti veniam aut quam quaerat fugiat consequuntur temporibus illo est, quis at tenetur porro sit. Repudiandae aperiam sapiente enim laborum nam dicta, aliquam dolorum unde quam non corrupti illum molestiae fuga tenetur rerum ratione perspiciatis. Fuga et id modi officiis vero? Molestiae quasi impedit blanditiis voluptas voluptates quo iusto ratione fugiat odit nostrum adipisci, architecto omnis ut quisquam nesciunt earum ab distinctio illo. Error minus voluptatum incidunt consectetur impedit ipsa earum, soluta commodi est, aut architecto perferendis unde similique repudiandae. Fugiat mollitia est consectetur atque veniam dicta nulla dolores provident cupiditate sunt, recusandae perferendis!
+\clearpage
+
+%Agradecimentos
+\centering
+\ABNTEXchapterfont\bfseries{\textsc{\MakeUppercase{Agradecimetos}}}\\
+\vspace*{3cm}
+\justifying
+\normalfont
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum iusto repudiandae ullam, beatae, eveniet ducimus pariatur, culpa in similique doloribus voluptates nulla ut illum quisquam. Sequi alias possimus similique. Dolorum velit maxime veniam perspiciatis culpa atque odit dolore, quaerat voluptatibus sint recusandae non quibusdam a aut tempora, quasi facilis molestiae hic veritatis quas est accusamus sequi? Iure distinctio, sit odio sint soluta magnam amet quisquam tempora cum totam nobis voluptatem. Placeat nemo reiciendis eveniet libero voluptas rerum quis quia? Aperiam autem a sed reiciendis? Molestias tempora velit doloribus nemo laborum! Cupiditate magni ullam, temporibus fuga aperiam dolor asperiores sit quis, quos, unde reprehenderit minima quasi tempore quia explicabo officiis ipsum quam ea. Velit placeat, exercitationem enim porro accusantium rem saepe officiis, incidunt necessitatibus quam corrupti repellat. Repellat, accusantium voluptas esse asperiores provident natus.
+\clearpage
+
+%Epígrafe
+\centering
+\ABNTEXchapterfont\bfseries{\textsc{\MakeUppercase{Epígrafe}}}\\
+\vspace*{3cm}
+\justifying
+\normalfont
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum iusto repudiandae ullam, beatae, eveniet ducimus pariatur, culpa in similique doloribus voluptates nulla ut illum quisquam. Sequi alias possimus similique. Dolorum velit maxime veniam perspiciatis culpa atque odit dolore, quaerat voluptatibus sint recusandae non quibusdam a aut tempora, quasi facilis molestiae hic veritatis quas est accusamus sequi? Iure distinctio, sit odio sint soluta magnam amet quisquam tempora cum totam nobis voluptatem. Placeat nemo reiciendis eveniet libero voluptas rerum quis quia? Aperiam autem a sed reiciendis? Molestias tempora velit doloribus nemo laborum! Cupiditate magni ullam, temporibus fuga aperiam dolor asperiores sit quis, quos, unde reprehenderit minima quasi tempore quia explicabo officiis ipsum quam ea. Velit placeat, exercitationem enim porro accusantium rem saepe officiis, incidunt necessitatibus quam corrupti repellat. Repellat, accusantium voluptas esse asperiores provident natus.
+\clearpage
+
+%Resumo
+\centering
+\ABNTEXchapterfont\bfseries{\textsc{\MakeUppercase{Resumo}}}\\
+\vspace*{3cm}
+\justifying
+\normalfont
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum iusto repudiandae ullam, beatae, eveniet ducimus pariatur, culpa in similique doloribus voluptates nulla ut illum quisquam. Sequi alias possimus similique. Dolorum velit maxime veniam perspiciatis culpa atque odit dolore, quaerat voluptatibus sint recusandae non quibusdam a aut tempora, quasi facilis molestiae hic veritatis quas est accusamus sequi? Iure distinctio, sit odio sint soluta magnam amet quisquam tempora cum totam nobis voluptatem. Placeat nemo reiciendis eveniet libero voluptas rerum quis quia? Aperiam autem a sed reiciendis? Molestias tempora velit doloribus nemo laborum! Cupiditate magni ullam, temporibus fuga aperiam dolor asperiores sit quis, quos, unde reprehenderit minima quasi tempore quia explicabo officiis ipsum quam ea. Velit placeat, exercitationem enim porro accusantium rem saepe officiis, incidunt necessitatibus quam corrupti repellat. Repellat, accusantium voluptas esse asperiores provident natus.
+\clearpage
+
+%Abstract
+\centering
+\ABNTEXchapterfont\bfseries{\textsc{\MakeUppercase{Abstract}}}\\
+\vspace*{3cm}
+\justifying
+\normalfont
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum iusto repudiandae ullam, beatae, eveniet ducimus pariatur, culpa in similique doloribus voluptates nulla ut illum quisquam. Sequi alias possimus similique. Dolorum velit maxime veniam perspiciatis culpa atque odit dolore, quaerat voluptatibus sint recusandae non quibusdam a aut tempora, quasi facilis molestiae hic veritatis quas est accusamus sequi? Iure distinctio, sit odio sint soluta magnam amet quisquam tempora cum totam nobis voluptatem. Placeat nemo reiciendis eveniet libero voluptas rerum quis quia? Aperiam autem a sed reiciendis? Molestias tempora velit doloribus nemo laborum! Cupiditate magni ullam, temporibus fuga aperiam dolor asperiores sit quis, quos, unde reprehenderit minima quasi tempore quia explicabo officiis ipsum quam ea. Velit placeat, exercitationem enim porro accusantium rem saepe officiis, incidunt necessitatibus quam corrupti repellat. Repellat, accusantium voluptas esse asperiores provident natus.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum iusto repudiandae ullam, beatae, eveniet ducimus pariatur, culpa in similique doloribus voluptates nulla ut illum quisquam. Sequi alias possimus similique. Dolorum velit maxime veniam perspiciatis culpa atque odit dolore, quaerat voluptatibus sint recusandae non quibusdam a aut tempora, quasi facilis molestiae hic veritatis quas est accusamus sequi? Iure distinctio, sit odio sint soluta magnam amet quisquam tempora cum totam nobis voluptatem. Placeat nemo reiciendis eveniet libero voluptas rerum quis quia? Aperiam autem a sed reiciendis? Molestias tempora velit doloribus nemo laborum! Cupiditate magni ullam, temporibus fuga aperiam dolor asperiores sit quis, quos, unde reprehenderit minima quasi tempore quia explicabo officiis ipsum quam ea. Velit placeat, exercitationem enim porro accusantium rem saepe officiis, incidunt necessitatibus quam corrupti repellat. Repellat, accusantium voluptas esse asperiores provident natus.
+\clearpage
+
 \pagenumbering{roman}
+
+\listoffigures   % Lista de Figuras
+\clearpage
+
+\listoftables    % Lista de Tabelas
+\clearpage
 
 % Correção: Usar \tableofcontents para o Sumário
 \tableofcontents
 \clearpage
-\listoffigures   % Lista de Figuras
-\clearpage
-\listoftables    % Lista de Tabelas
-\clearpage
+
+
 
 \pagenumbering{arabic}
 \setcounter{page}{1}
@@ -180,6 +240,10 @@ Texto com outra nota de rodapé.\footnote{Outro exemplo de nota de rodapé.} \li
 \lipsum[5]
 \subsubsubsection{Subtítulo de Nível 4}
 \lipsum[5]
+% \subsubsubsubsection{Subtítulo de Nível 5}
+% \subsubsubsubsubsection{Subtítulo de Nível 6}
+
+\subsection{Subtítulo de Nível 2 de novo}
 
 \chapter{Revisão da Literatura}
 \lipsum[6-7]

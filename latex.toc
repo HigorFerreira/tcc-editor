@@ -1,10 +1,10 @@
 \changetocdepth {4}
 \babel@toc {brazil}{}\relax 
-\contentsline {chapter}{Sum\'ario}{i}{section*.2}%
+\contentsline {chapter}{Lista de Figuras}{i}{section*.2}%
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{Lista de ilustra\c {c}\~{o}es}{ii}{section*.3}%
+\contentsline {chapter}{Lista de Tabelas}{ii}{section*.3}%
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{Lista de tabelas}{iii}{section*.4}%
+\contentsline {chapter}{Sumário}{iii}{section*.4}%
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introdução}}{1}{chapter.1}%
@@ -12,6 +12,7 @@
 \contentsline {subsection}{\numberline {1.1.1}Subtítulo de Nível 2}{2}{subsection.1.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.1.1}Subtítulo de Nível 3}{2}{subsubsection.1.1.1.1}%
 \contentsline {paragraph}{\numberline {1.1.1.1.1}Subtítulo de Nível 4}{2}{paragraph.1.1.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Subtítulo de Nível 2 de novo}{2}{subsection.1.1.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Revisão da Literatura}}{3}{chapter.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
