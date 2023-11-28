@@ -1,21 +1,45 @@
-\documentclass[12pt,openright,twoside,a4paper,brazil]{abntex2}
+\documentclass[12pt,a4paper,brazil]{abntex2}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[brazil]{babel}
 \usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage{lipsum} % Gera texto aleatório
+\usepackage{lipsum} % Pacote para gerar texto fictício
 
-\titulo{Exemplo de Documento ABNT}
+\titulo{Titulo da Monografia}
 \autor{Seu Nome}
 \orientador{Nome do Orientador}
-\instituicao{Nome da Universidade}
+\instituicao{%
+  Universidade XYZ
+  \par
+  Faculdade de ABC
+  \par
+  Curso de XYZ}
 \local{Cidade - Estado}
-\data{\the\year}
+\data{2023}
 
+% Início do documento
 \begin{document}
 
-\imprimircapa
+% Capa personalizada
+\begin{capa}
+    \center
+    \ABNTEXchapterfont\Large\textsc{\imprimirinstituicao}
+
+    \vspace*{5cm}
+
+    \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+
+    \vspace*{3cm}
+
+    \Large\imprimirautor
+
+    \vfill
+
+    \large\imprimirlocal
+
+    \large\imprimirdata
+\end{capa}
+
 \imprimirfolhaderosto
 
 \sumario % Sumário
