@@ -4,7 +4,10 @@
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \contentsline {chapter}{Lista de Tabelas}{ii}{section*.3}%
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{Sumário}{iii}{section*.4}%
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\contentsline {chapter}{Sumário}{vi}{section*.10}%
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introdução}}{1}{chapter.1}%
@@ -16,8 +19,19 @@
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Revisão da Literatura}}{3}{chapter.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Metodologia}}{4}{chapter.3}%
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Teste de abreviaturas}}{4}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Abrev 1}{4}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Abreviatura completa, (Primeira ocorrência)}{4}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Segunda ocorrência}{4}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Abreviatura crua, (acrshort)}{4}{subsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.3.1}Crua com texto}{4}{subsubsection.3.1.3.1}%
+\contentsline {subsection}{\numberline {3.1.4}Usando glsentryshort}{4}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}Abrev 2}{4}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Termo}{4}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Símbolo}{4}{section.3.4}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Resultados e Discussão}}{5}{chapter.4}%
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Metodologia}}{5}{chapter.4}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Conclusão}}{7}{chapter.5}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Resultados e Discussão}}{6}{chapter.5}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Conclusão}}{8}{chapter.6}%

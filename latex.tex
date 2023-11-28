@@ -6,6 +6,7 @@
 \usepackage{lipsum} % Pacote para gerar texto fictício
 \usepackage{helvet}
 \usepackage{ragged2e}
+\usepackage{glossaries}
 
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -38,6 +39,25 @@
     }
 \local{GOIÂNIA - GO}
 \data{2023}
+
+
+\newglossary*{abrev}{Lista de abreviaturas}
+\newglossary*{siglas}{Lista de siglas}
+\newglossary*{simbolos}{Lista de símbolos}
+
+\newglossaryentry{termo1}{
+    type=abrev,
+    name={Termo 1},
+    description={Descrição do termo 1}
+}
+
+\newacronym[type=siglas]{abnt}{ABNT}{Associação Brasileira de Normas Técnicas}
+\newacronym[type=siglas]{ue}{UE}{União Européia}
+
+\newacronym[type=simbolos]{dollar}{\$}{Dollar americano}
+
+\makeglossaries
+
 
 % Início do documento
 \begin{document}
@@ -166,8 +186,7 @@
 \vspace*{3cm}
 \justifying
 \normalfont
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae culpa, ad velit molestiae nulla ducimus vero corporis reprehenderit alias praesentium delectus impedit laborum laudantium ea cumque eum atque voluptatem, voluptate voluptatum. Atque, numquam sit, tempora sunt in repellendus vero assumenda ipsum hic vitae consectetur animi magni reiciendis accusantium dicta. In accusantium delectus fugiat, est tempora obcaecati at temporibus exercitationem ea ad laudantium inventore alias velit dolorum debitis eos nihil, dicta voluptatibus voluptatem odit labore cum? Cum facere reprehenderit officia tempore! Cum, quod dolores ipsam nihil temporibus fuga. Eveniet, dicta harum. Nostrum architecto beatae laboriosam veritatis? Iusto ea, rem, aperiam quaerat ipsum maiores alias, eius quas laboriosam velit nihil repellat voluptatem porro natus aspernatur. Rerum illo, dolore voluptatibus perspiciatis quasi nulla assumenda cupiditate, cumque amet, minus ullam saepe a neque. Quas incidunt accusamus ipsum laboriosam veritatis accusantium veniam, ex esse optio. Ullam itaque at magni expedita illo, dolorum sint fugiat pariatur sit eum dolore velit iusto est, iure quibusdam animi corrupti saepe autem tempore. Neque excepturi iste cum tempora nemo nulla omnis perferendis minus ipsam qui adipisci nesciunt maxime reiciendis aperiam vel, aspernatur cumque. Tempora deleniti non ex aperiam in id reiciendis vel. Aspernatur nisi fugit voluptas ipsam vel incidunt accusantium similique dolorum blanditiis amet provident, inventore deleniti veniam aut quam quaerat fugiat consequuntur temporibus illo est, quis at tenetur porro sit. Repudiandae aperiam sapiente enim laborum nam dicta, aliquam dolorum unde quam non corrupti illum molestiae fuga tenetur rerum ratione perspiciatis. Fuga et id modi officiis vero? Molestiae quasi impedit blanditiis voluptas voluptates quo iusto ratione fugiat odit nostrum adipisci, architecto omnis ut quisquam nesciunt earum ab distinctio illo. Error minus voluptatum incidunt consectetur impedit ipsa earum, soluta commodi est, aut architecto perferendis unde similique repudiandae. Fugiat mollitia est consectetur atque veniam dicta nulla dolores provident cupiditate sunt, recusandae perferendis!
-qui adipisci nesciunt maxime reiciendis aperiam vel, aspernatur cumque. Tempora deleniti non ex aperiam in id reiciendis vel. Aspernatur nisi fugit voluptas ipsam vel incidunt accusantium similique dolorum blanditiis amet provident, inventore deleniti veniam aut quam quaerat fugiat consequuntur temporibus illo est, quis at tenetur porro sit. Repudiandae aperiam sapiente enim laborum nam dicta, aliquam dolorum unde quam non corrupti illum molestiae fuga tenetur rerum ratione perspiciatis. Fuga et id modi officiis vero? Molestiae quasi impedit blanditiis voluptas voluptates quo iusto ratione fugiat odit nostrum adipisci, architecto omnis ut quisquam nesciunt earum ab distinctio illo. Error minus voluptatum incidunt consectetur impedit ipsa earum, soluta commodi est, aut architecto perferendis unde similique repudiandae. Fugiat mollitia est consectetur atque veniam dicta nulla dolores provident cupiditate sunt, recusandae perferendis!
+\lipsum[1-5]
 \clearpage
 
 %Agradecimentos
@@ -176,7 +195,7 @@ qui adipisci nesciunt maxime reiciendis aperiam vel, aspernatur cumque. Tempora 
 \vspace*{3cm}
 \justifying
 \normalfont
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum iusto repudiandae ullam, beatae, eveniet ducimus pariatur, culpa in similique doloribus voluptates nulla ut illum quisquam. Sequi alias possimus similique. Dolorum velit maxime veniam perspiciatis culpa atque odit dolore, quaerat voluptatibus sint recusandae non quibusdam a aut tempora, quasi facilis molestiae hic veritatis quas est accusamus sequi? Iure distinctio, sit odio sint soluta magnam amet quisquam tempora cum totam nobis voluptatem. Placeat nemo reiciendis eveniet libero voluptas rerum quis quia? Aperiam autem a sed reiciendis? Molestias tempora velit doloribus nemo laborum! Cupiditate magni ullam, temporibus fuga aperiam dolor asperiores sit quis, quos, unde reprehenderit minima quasi tempore quia explicabo officiis ipsum quam ea. Velit placeat, exercitationem enim porro accusantium rem saepe officiis, incidunt necessitatibus quam corrupti repellat. Repellat, accusantium voluptas esse asperiores provident natus.
+\lipsum[1]
 \clearpage
 
 %Epígrafe
@@ -185,7 +204,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum iusto repudiandae u
 \vspace*{3cm}
 \justifying
 \normalfont
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum iusto repudiandae ullam, beatae, eveniet ducimus pariatur, culpa in similique doloribus voluptates nulla ut illum quisquam. Sequi alias possimus similique. Dolorum velit maxime veniam perspiciatis culpa atque odit dolore, quaerat voluptatibus sint recusandae non quibusdam a aut tempora, quasi facilis molestiae hic veritatis quas est accusamus sequi? Iure distinctio, sit odio sint soluta magnam amet quisquam tempora cum totam nobis voluptatem. Placeat nemo reiciendis eveniet libero voluptas rerum quis quia? Aperiam autem a sed reiciendis? Molestias tempora velit doloribus nemo laborum! Cupiditate magni ullam, temporibus fuga aperiam dolor asperiores sit quis, quos, unde reprehenderit minima quasi tempore quia explicabo officiis ipsum quam ea. Velit placeat, exercitationem enim porro accusantium rem saepe officiis, incidunt necessitatibus quam corrupti repellat. Repellat, accusantium voluptas esse asperiores provident natus.
+\lipsum[1-3]
 \clearpage
 
 %Resumo
@@ -194,7 +213,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum iusto repudiandae u
 \vspace*{3cm}
 \justifying
 \normalfont
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum iusto repudiandae ullam, beatae, eveniet ducimus pariatur, culpa in similique doloribus voluptates nulla ut illum quisquam. Sequi alias possimus similique. Dolorum velit maxime veniam perspiciatis culpa atque odit dolore, quaerat voluptatibus sint recusandae non quibusdam a aut tempora, quasi facilis molestiae hic veritatis quas est accusamus sequi? Iure distinctio, sit odio sint soluta magnam amet quisquam tempora cum totam nobis voluptatem. Placeat nemo reiciendis eveniet libero voluptas rerum quis quia? Aperiam autem a sed reiciendis? Molestias tempora velit doloribus nemo laborum! Cupiditate magni ullam, temporibus fuga aperiam dolor asperiores sit quis, quos, unde reprehenderit minima quasi tempore quia explicabo officiis ipsum quam ea. Velit placeat, exercitationem enim porro accusantium rem saepe officiis, incidunt necessitatibus quam corrupti repellat. Repellat, accusantium voluptas esse asperiores provident natus.
+\lipsum[12-13]
 \clearpage
 
 %Abstract
@@ -203,8 +222,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum iusto repudiandae u
 \vspace*{3cm}
 \justifying
 \normalfont
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum iusto repudiandae ullam, beatae, eveniet ducimus pariatur, culpa in similique doloribus voluptates nulla ut illum quisquam. Sequi alias possimus similique. Dolorum velit maxime veniam perspiciatis culpa atque odit dolore, quaerat voluptatibus sint recusandae non quibusdam a aut tempora, quasi facilis molestiae hic veritatis quas est accusamus sequi? Iure distinctio, sit odio sint soluta magnam amet quisquam tempora cum totam nobis voluptatem. Placeat nemo reiciendis eveniet libero voluptas rerum quis quia? Aperiam autem a sed reiciendis? Molestias tempora velit doloribus nemo laborum! Cupiditate magni ullam, temporibus fuga aperiam dolor asperiores sit quis, quos, unde reprehenderit minima quasi tempore quia explicabo officiis ipsum quam ea. Velit placeat, exercitationem enim porro accusantium rem saepe officiis, incidunt necessitatibus quam corrupti repellat. Repellat, accusantium voluptas esse asperiores provident natus.
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum iusto repudiandae ullam, beatae, eveniet ducimus pariatur, culpa in similique doloribus voluptates nulla ut illum quisquam. Sequi alias possimus similique. Dolorum velit maxime veniam perspiciatis culpa atque odit dolore, quaerat voluptatibus sint recusandae non quibusdam a aut tempora, quasi facilis molestiae hic veritatis quas est accusamus sequi? Iure distinctio, sit odio sint soluta magnam amet quisquam tempora cum totam nobis voluptatem. Placeat nemo reiciendis eveniet libero voluptas rerum quis quia? Aperiam autem a sed reiciendis? Molestias tempora velit doloribus nemo laborum! Cupiditate magni ullam, temporibus fuga aperiam dolor asperiores sit quis, quos, unde reprehenderit minima quasi tempore quia explicabo officiis ipsum quam ea. Velit placeat, exercitationem enim porro accusantium rem saepe officiis, incidunt necessitatibus quam corrupti repellat. Repellat, accusantium voluptas esse asperiores provident natus.
+\lipsum[7]
 \clearpage
 
 \pagenumbering{roman}
@@ -213,6 +231,15 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum iusto repudiandae u
 \clearpage
 
 \listoftables    % Lista de Tabelas
+\clearpage
+
+\printglossary[type=abrev,title=Lista de Abreviaturas]
+\clearpage
+
+\printglossary[type=siglas,title=Lista de Siglas]
+\clearpage
+
+\printglossary[type=simbolos,title=Lista de Símbolos]
 \clearpage
 
 % Correção: Usar \tableofcontents para o Sumário
@@ -248,11 +275,38 @@ Texto com outra nota de rodapé.\footnote{Outro exemplo de nota de rodapé.} \li
 \chapter{Revisão da Literatura}
 \lipsum[6-7]
 
+\chapter{Teste de abreviaturas}
+\section{Abrev 1}
+\subsection{Abreviatura completa, (Primeira ocorrência)}
+\gls{abnt}
+\subsection{Segunda ocorrência}
+\gls{abnt}
+\subsection{Abreviatura crua, (acrshort)}
+\acrshort{abnt}
+\subsubsection{Crua com texto}
+\acrshort{abnt} - Associação Brasileira de Normas Técnicas.
+\subsection{Usando glsentryshort}
+\glsentryshort{abnt}
+
+\section{Abrev 2}
+\gls{ue} - União européia
+
+\section{Termo}
+\gls{termo1}\\
+\gls{termo1}\\
+\acrshort{termo1}
+
+\section{Símbolo}
+\gls{dollar}\\
+\gls{dollar} \\
+Quero ganhar\acrshort{dollar}
+
 \chapter{Metodologia}
 \lipsum[8-9]
 
 \chapter{Resultados e Discussão}
 \lipsum[10]
+\gls{abnt}
 
 \begin{figure}[ht]
     \centering
@@ -275,10 +329,10 @@ Texto com outra nota de rodapé.\footnote{Outro exemplo de nota de rodapé.} \li
     \\\textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
 \end{table}
 
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis expedita a distinctio. Culpa quidem dolores suscipit, aspernatur odit possimus voluptatem illo. Fugiat recusandae modi laboriosam qui ut commodi beatae velit?
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque recusandae sint repudiandae fuga porro a, similique officiis quas eligendi tenetur ullam reiciendis officia cupiditate neque? Assumenda voluptatem soluta laudantium tempora inventore maiores possimus nam! Ut molestiae tempore quam dolore dolor assumenda. Accusamus, rem deserunt? Earum repellendus officia distinctio harum excepturi voluptatum deleniti rem, consequuntur sint illo voluptatibus quasi. Dolorum dolorem magnam obcaecati, autem consequuntur molestiae vero similique id. Suscipit eum consequuntur optio quisquam dolorum amet mollitia iure unde impedit labore cum dicta modi, voluptatum porro architecto molestiae ipsam maiores accusamus natus nihil? Iusto, dicta praesentium culpa molestias dignissimos nostrum qui excepturi nulla in! Reprehenderit animi, rerum beatae eius iste odio ea dignissimos, aut quaerat ratione voluptates dolorem architecto, autem recusandae!
+\lipsum[1-2]
 
-Gostou? veja de novo a figura \ref{fig:exemplo}
+Gostou? veja de novo a figura \ref{fig:exemplo}\\\\
+(\acrshort{ue})
 
 \chapter{Conclusão}
 \lipsum[11-12]
