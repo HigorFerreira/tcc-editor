@@ -13,21 +13,6 @@
 \local{Cidade - Estado}
 \data{\the\year}
 
-% Configuração da paginação para o canto inferior direito
-\renewcommand{\footrulewidth}{0pt} % Opcional: Remove a linha do rodapé
-\renewcommand{\ABNTEXchapterfont}{\bfseries}
-\renewcommand{\ABNTEXchapterfontsize}{\normalsize}
-\renewcommand{\cftsectionfont}{\normalfont}
-\renewcommand{\cftsubsectionfont}{\normalfont}
-\renewcommand{\cftsubsubsectionfont}{\normalfont}
-
-\makepagestyle{meuestilo}
-  \makeoddfoot{meuestilo}{}{}{\thepage}
-  \makeevenfoot{meuestilo}{\thepage}{}{}
-  \makeheadrule{meuestilo}{\textwidth}{\normalrulethickness}
-  \makefootrule{meuestilo}{\textwidth}{\normalrulethickness}{\footruleskip}
-\pagestyle{meuestilo}
-
 \begin{document}
 
 \imprimircapa
