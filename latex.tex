@@ -1,20 +1,24 @@
-\documentclass[12pt,a4paper,brazil]{abntex2}
+\documentclass[12pt,a4paper,oneside,brazil]{abntex2}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[brazil]{babel}
 \usepackage{graphicx}
 \usepackage{lipsum} % Pacote para gerar texto fictício
+\usepackage{helvet}
+\usepackage{ragged2e}
 
-\titulo{Titulo da Monografia}
-\autor{Seu Nome}
+\renewcommand{\familydefault}{\sfdefault}
+
+\titulo{PLATAFORMA DE EDIÇÃO/AUTOMAÇÃO PARA TRABALHOS ACADÊMICOS}
+\autor{HIGOR FERREIRA ALVES SANTOS}
 \orientador{Nome do Orientador}
 \instituicao{%
-  Universidade XYZ
-  \par
-  Faculdade de ABC
-  \par
-  Curso de XYZ}
-\local{Cidade - Estado}
+    PONTIFÍCIA UNIVERSIDADE CATÓLICA DE GOIÁS
+    \par
+    ESCOLA POLITÉCNICA E DE ARTES
+    \par
+    ENGENHARIA DE COMPUTAÇÃO}
+\local{GOIÂNIA - GO}
 \data{2023}
 
 % Início do documento
@@ -23,26 +27,76 @@
 % Capa personalizada
 \begin{capa}
     \center
-    \ABNTEXchapterfont\Large\textsc{\imprimirinstituicao}
 
-    \vspace*{5cm}
-
-    \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
-
-    \vspace*{3cm}
-
-    \Large\imprimirautor
+    \OnehalfSpacing
+    \ABNTEXchapterfont\bfseries\textsc{\imprimirinstituicao}
 
     \vfill
 
-    \large\imprimirlocal
+    % Incluir logotipo
+    \includegraphics[width=0.15\textwidth]{./src/assets/logo.png}
 
-    \large\imprimirdata
+    \vfill
+
+    \ABNTEXchapterfont\bfseries\imprimirtitulo
+
+    \vfill
+
+    \imprimirautor
+
+    \vfill
+
+    \bfseries\imprimirlocal
+
+    \bfseries\imprimirdata
 \end{capa}
 
-\imprimirfolhaderosto
 
-\sumario % Sumário
+% Folha de rosto personalizada
+\begin{folhaderosto}
+    \centering
+    \imprimirautor
+    
+    \vfill
+    
+    \ABNTEXchapterfont\bfseries\imprimirtitulo
+    
+    \vfill
+
+    \justifying
+
+    \textnormal{Trabalho de Conclusão de Curso aprovado em sua forma final pela Escola Politécnica e de
+    Artes, da Pontifícia Universidade Católica de Goiás, para obtenção do título de Bacharel em
+    Engenharia de Computação, em: \_\_\_/ \_\_\_/ \_\_\_\_\_}
+
+    \centering
+    
+    \vspace*{3cm}
+    
+    \begin{flushright}
+    \rule{10cm}{0.4pt}\\
+    \textnormal{Orientador: Prof. M.E.E. Marcelo Antônio Hadad}
+
+    \vspace*{10mm}
+
+    \rule{10cm}{0.4pt}\\
+    \textnormal{Orientador1:}
+
+    \vspace*{10mm}
+
+    \rule{10cm}{0.4pt}\\
+    \textnormal{Orientador2:}
+    \end{flushright}
+
+    \vspace*{6cm}
+
+    \bfseries\imprimirlocal
+
+    \bfseries\imprimirdata
+\end{folhaderosto}
+
+% Correção: Usar \tableofcontents para o Sumário
+\tableofcontents
 \listoffigures   % Lista de Figuras
 \listoftables    % Lista de Tabelas
 
@@ -70,7 +124,7 @@ Texto com outra nota de rodapé.\footnote{Outro exemplo de nota de rodapé.} \li
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.5\textwidth]{untitled.png}
+\includegraphics[width=0.5\textwidth]{./src/assets/untitled.png}
 \caption{Exemplo de Figura}
 \label{fig:exemplo}
 \end{figure}
