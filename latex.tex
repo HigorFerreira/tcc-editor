@@ -142,12 +142,17 @@
     \bfseries\imprimirdata
 \clearpage % Começa uma nova página para a folha de rosto
 
+\pagenumbering{roman}
 
 % Correção: Usar \tableofcontents para o Sumário
 \tableofcontents
+\clearpage
 \listoffigures   % Lista de Figuras
+\clearpage
 \listoftables    % Lista de Tabelas
+\clearpage
 
+\pagenumbering{arabic}
 \setcounter{page}{1}
 \textual
 
