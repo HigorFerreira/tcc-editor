@@ -1,0 +1,58 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.7 }
+
+\bibitem[Einstein, Podolsky e Rosen 1935]{einstein1935}
+\abntrefinfo{Einstein, Podolsky e Rosen}{EINSTEIN; PODOLSKY; ROSEN}{1935}
+{EINSTEIN, A.; PODOLSKY, B.; ROSEN, N. Can quantum-mechanical description of
+  physical reality be considered complete?
+\emph{Physical review}, APS, v.~47, n.~10, p.~777, 1935.}
+
+\bibitem[Evans 2004]{douglas2004}
+\abntrefinfo{Evans}{EVANS}{2004}
+{EVANS, E. \emph{Domain-Driven Design: Tackling Complexity in the Heart of
+  Software}. [S.l.]: Addison-Wesley, 2004.}
+
+\bibitem[Feynman, Leighton e Sands 1963]{feynman1963}
+\abntrefinfo{Feynman, Leighton e Sands}{FEYNMAN; LEIGHTON; SANDS}{1963}
+{FEYNMAN, R.~P.; LEIGHTON, R.~B.; SANDS, M. \emph{The Feynman Lectures on
+  Physics}. [S.l.]: Addison-Wesley, 1963. v.~1.}
+
+\bibitem[Foundation 2021]{pythonOrg}
+\abntrefinfo{Foundation}{FOUNDATION}{2021}
+{FOUNDATION, P.~S. \emph{Python}. 2021.
+Dispon{\'\i}vel em: \url{https://www.python.org/}.}
+
+\bibitem[Hawking 1988]{hawking1988}
+\abntrefinfo{Hawking}{HAWKING}{1988}
+{HAWKING, S. \emph{A Brief History of Time}. [S.l.]: Bantam Dell Publishing
+  Group, 1988.}
+
+\bibitem[Knuth 1997]{knuth1997}
+\abntrefinfo{Knuth}{KNUTH}{1997}
+{KNUTH, D.~E. \emph{The Art of Computer Programming}. [S.l.]: Addison-Wesley,
+  1997. v.~1.}
+
+\bibitem[Orwell 1984]{orwell1984}
+\abntrefinfo{Orwell}{ORWELL}{1984}
+{ORWELL, G. \emph{Nineteen Eighty-Four}. [S.l.]: Secker and Warburg, 1984.}
+
+\bibitem[Shannon 1948]{shannon1948}
+\abntrefinfo{Shannon}{SHANNON}{1948}
+{SHANNON, C.~E. A mathematical theory of communication.
+\emph{The Bell System Technical Journal}, v.~27, n.~3, p. 379--423, 1948.}
+
+\bibitem[Smith 1992]{smith1992}
+\abntrefinfo{Smith}{SMITH}{1992}
+{SMITH, J. \emph{An example technical report}.
+[S.l.], 1992.}
+
+\bibitem[Wikipedia 2021]{latexWiki}
+\abntrefinfo{Wikipedia}{WIKIPEDIA}{2021}
+{WIKIPEDIA. \emph{LaTeX --- Wikipedia{,} The Free Encyclopedia}. 2021.
+Dispon{\'\i}vel em: \url{https://en.wikipedia.org/wiki/LaTeX}.}
+
+\end{thebibliography}

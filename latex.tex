@@ -7,6 +7,7 @@
 \usepackage{helvet}
 \usepackage{ragged2e}
 \usepackage{glossaries}
+\usepackage[alf]{abntex2cite} % Citações padrão ABNT
 
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -301,8 +302,44 @@ Texto com outra nota de rodapé.\footnote{Outro exemplo de nota de rodapé.} \li
 \gls{dollar} \\
 Quero ganhar\acrshort{dollar}
 
+\chapter{Matemática}
+É muito fácil digitar equações em latex!\\
+\lipsum[1][1-12]
+\section{Equação inline}
+$E=mc^2$\\\\
+\lipsum[12][1-33]
+\section{Equação centralizada}
+$$E=mc^2$$
+
+\section{Física}
+\textbf{Relação de transformação}
+$L=\text{Indutância;}\quad N=\text{Número de espiras;}\quad V=\text{Tensão}$
+
+\textbf{Relação:}
+$I=\Large\frac{L_1}{L_2}\normalsize=\left( \Large\frac{N_1}{N_2} \right)^2\normalsize=\left(\Large\frac{V_1}{V_2} \right)^2$
+
+\textbf{Resistência:}
+$R=\rho\Large\frac{L}{A}$
+
+\textbf{Lei de Joule:}
+$P=I^2R$
+
+$\Large\frac{\frac{1}{60}}{\frac{\alpha}{1}}\normalsize=\Large\frac{1}{60\alpha}$
+
 \chapter{Metodologia}
 \lipsum[8-9]
+
+\chapter{Citações}
+\cite{hawking1988}\\
+\cite{feynman1963}\\
+\cite{douglas2004}\\
+\cite{knuth1997}\\
+\cite{orwell1984}\\
+\cite{einstein1935}\\
+\cite{shannon1948}\\
+\cite{latexWiki}\\
+\cite{pythonOrg}\\
+\cite{smith1992}\\
 
 \chapter{Resultados e Discussão}
 \lipsum[10]

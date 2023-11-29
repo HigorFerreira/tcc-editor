@@ -30,8 +30,17 @@
 \contentsline {section}{\numberline {3.3}Termo}{4}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Símbolo}{4}{section.3.4}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Metodologia}}{5}{chapter.4}%
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Matemática}}{5}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Equação inline}{5}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Equação centralizada}{5}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Física}{5}{section.4.3}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Resultados e Discussão}}{6}{chapter.5}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Metodologia}}{6}{chapter.5}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Conclusão}}{8}{chapter.6}%
+\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Citações}}{7}{chapter.6}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase {Resultados e Discussão}}{8}{chapter.7}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {8}\MakeTextUppercase {Conclusão}}{10}{chapter.8}%
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\contentsline {chapter}{\MakeTextUppercase {Refer\^encias}}{11}{section*.12}%
