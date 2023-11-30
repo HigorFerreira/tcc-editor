@@ -134,12 +134,16 @@ export default class BaseComponent {
             alignItems: "center",
         }}>
             <h1>Component</h1>
-            <p>Hello, i&apos;m a new component</p>
+            <p>Hello, i'm a new component</p>
         </div>
     }
 
     protected getSettingsReactComponent(): React.ReactNode{
         return <></>
+    }
+
+    protected save(){
+        return "Implement saving function"
     }
 
     private renderReactComponent(idx = 0){
@@ -155,7 +159,6 @@ export default class BaseComponent {
             setTimeout(() => {
                 ReactDOM.createRoot(
                     document.getElementById(this.wrapper.id)!
-                    // @ts-ignore
                 ).render(this.getReactComponent());
             }, timeout);
         }
@@ -178,7 +181,6 @@ export default class BaseComponent {
             setTimeout(() => {
                 ReactDOM.createRoot(
                     document.getElementById(this.settingsWrapper.id)!
-                    // @ts-ignore
                 ).render(this.getSettingsReactComponent());
             }, timeout);
         }
@@ -186,12 +188,6 @@ export default class BaseComponent {
             console.error(error)
             if(idx > 10) throw new Error("Failed to render component after 10 tries");
             this.renderReactComponent(idx + 1);
-        }
-    }
-
-    public async save(): Promise<any>{
-        return {
-            Component: "Component"
         }
     }
 }

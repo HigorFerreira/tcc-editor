@@ -1,23 +1,33 @@
 "use client";
-import { useRef, useEffect, type PropsWithChildren, forwardRef } from 'react';
+import { useRef, useEffect, PropsWithChildren } from 'react';
 import EditorJS, { EditorConfig } from '@editorjs/editorjs';
 
-const EditorProvider = forwardRef((
+export default function EditorProvider(
     {
-        config
+        config,
+        onReady,
     }: PropsWithChildren<{
-        config?: Omit<EditorConfig, "holder">
-    }>,
-    ref    
-) => {
+        config?: Omit<EditorConfig, "holder" | "holderId">
+        onReady?: (
+            params: {
+                editor: EditorJS
+            }
+        ) => void
+    }>
+) {
 
     const editorRef = useRef<EditorJS | null>(null);
+    const editableAreaRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        if(!editorRef.current){
+        if(!editorRef.current && editableAreaRef.current){
             editorRef.current = new EditorJS({
-                holder: 'editorjs',
-                ...config
+                ...(config || {}),
+                holder: editableAreaRef.current
+            });
+
+            onReady && onReady({
+                editor: editorRef.current
             })
         }
         
@@ -29,32 +39,7 @@ const EditorProvider = forwardRef((
         }
     }, [])
 
-    return <div
-        ref={ instance => {
-            if(instance && ref){
-                // @ts-ignore
-                ref.current = instance;
-                // @ts-ignore
-                ref.editor = editorRef;
-            }
-        } }
-    >
-        {/* <button onClick={async () => {
-            console.log(await editorRef.current?.save())
-        }}>Save</button> */}
-        <div
-            id='editorjs'
-            // style={{
-            //     width: '21cm',
-            //     border: '1px solid black',
-            //     padding: '25px',
-            //     transform: 'scale(1)'
-            // }}
-        />
-    </div>
-
-});
-
-EditorProvider.displayName = "EditorProvider";
-
-export default EditorProvider;
+    return <>
+        <div ref={ editableAreaRef } />
+    </>
+}
