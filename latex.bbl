@@ -5,6 +5,12 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.7 }
 
+\bibitem[Autor et al. 2022]{exemploCincoAutores}
+\abntrefinfo{Autor et al.}{AUTOR et al.}{2022}
+{AUTOR, P. et al. Título do artigo.
+\emph{Nome do Jornal ou Revista}, Nome da Editora, v.~10, n.~2, p. 123--456,
+  2022.}
+
 \bibitem[Einstein, Podolsky e Rosen 1935]{einstein1935}
 \abntrefinfo{Einstein, Podolsky e Rosen}{EINSTEIN; PODOLSKY; ROSEN}{1935}
 {EINSTEIN, A.; PODOLSKY, B.; ROSEN, N. Can quantum-mechanical description of
@@ -40,6 +46,11 @@ Dispon{\'\i}vel em: \url{https://www.python.org/}.}
 \abntrefinfo{Orwell}{ORWELL}{1984}
 {ORWELL, G. \emph{Nineteen Eighty-Four}. [S.l.]: Secker and Warburg, 1984.}
 
+\bibitem[Santos e Santos 2023]{hi}
+\abntrefinfo{Santos e Santos}{SANTOS; SANTOS}{2023}
+{SANTOS, H. F.~A.; SANTOS, I.~V. dos. \emph{A love history}. [S.l.]: Love
+  group, 2023.}
+
 \bibitem[Shannon 1948]{shannon1948}
 \abntrefinfo{Shannon}{SHANNON}{1948}
 {SHANNON, C.~E. A mathematical theory of communication.
@@ -51,8 +62,20 @@ Dispon{\'\i}vel em: \url{https://www.python.org/}.}
 [S.l.], 1992.}
 
 \bibitem[Wikipedia 2021]{latexWiki}
-\abntrefinfo{Wikipedia}{WIKIPEDIA}{2021}
+\abntrefinfo{Wikipedia}{WIKIPEDIA}{2021a}
 {WIKIPEDIA. \emph{LaTeX --- Wikipedia{,} The Free Encyclopedia}. 2021.
 Dispon{\'\i}vel em: \url{https://en.wikipedia.org/wiki/LaTeX}.}
+
+\bibitem[Wikipedia 2021]{luaWikipedia}
+\abntrefinfo{Wikipedia}{WIKIPEDIA}{2021b}
+{WIKIPEDIA. \emph{Lua --- Wikipedia, A Enciclopédia Livre}. 2021.
+[Online; acessado em 20-Setembro-2021].
+Dispon{\'\i}vel em: \url{https://pt.wikipedia.org/wiki/Lua}.}
+
+\bibitem[Wikipedia 2021]{terraWikipedia}
+\abntrefinfo{Wikipedia}{WIKIPEDIA}{2021c}
+{WIKIPEDIA. \emph{Terra --- Wikipedia, A Enciclopédia Livre}. 2021.
+[Online; acessado em 20-Setembro-2021].
+Dispon{\'\i}vel em: \url{https://pt.wikipedia.org/wiki/Terra}.}
 
 \end{thebibliography}
