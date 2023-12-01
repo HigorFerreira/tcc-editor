@@ -40,9 +40,9 @@ async function main() {
 }
 
 export default async function Test(){
-    const result = await main();
+    // const result = await main();
 
     return <div>
-        <div dangerouslySetInnerHTML={{ __html: result }}></div>
+        {/* <div dangerouslySetInnerHTML={{ __html: result }}></div> */}
     </div>
 }

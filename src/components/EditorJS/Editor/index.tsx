@@ -2,7 +2,7 @@
 import { useRef, useEffect, PropsWithChildren } from 'react';
 import EditorJS, { EditorConfig } from '@editorjs/editorjs';
 
-export default function EditorProvider(
+export default function Editor(
     {
         config,
         onReady,
