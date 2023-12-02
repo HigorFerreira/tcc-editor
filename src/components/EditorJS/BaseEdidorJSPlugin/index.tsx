@@ -8,7 +8,7 @@ type ComponentWrapperNRoot = {
     root: ReactDOM.Root
 }
 
-type Components = {
+type Components = { 
     main: ComponentWrapperNRoot
     settings: ComponentWrapperNRoot
 }

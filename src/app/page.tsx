@@ -8,11 +8,12 @@ import Header from '@editorjs/header';
 import List from '@editorjs/list';
 import ImagePlugin from '@/components/EditorJS/BaseEdidorJSPlugin';
 import dynamic from 'next/dynamic';
+import styled from '@emotion/styled';
 
 import { BsPlugin as Plugin } from 'react-icons/bs';
 import { BsPlugFill as Plugin2 } from 'react-icons/bs';
 import { BlockAPI, API } from '@editorjs/editorjs';
-import type EditorJS from '@editorjs/editorjs'
+import type EditorJS from '@editorjs/editorjs';
 
 const Editor = dynamic(
     () => import('@/components/EditorJS/Editor'),
@@ -26,7 +27,19 @@ type LoadingType = {
 class MarkerTool {
     private api: EditorJS;
     private button: HTMLButtonElement | null;
-    private state: boolean;
+    private _state: boolean;
+
+    private tag: string
+    private class: string
+
+    get state(){
+        return this._state;
+    }
+
+    set state(state: boolean){
+        this._state = state;
+        this.button?.classList.toggle(this.api.styles.inlineToolButtonActive, state);
+    }
 
     constructor(
         {
@@ -37,7 +50,10 @@ class MarkerTool {
     ){
         this.api = api;
         this.button = null;
-        this.state = false;
+        this._state = false;
+
+        this.tag = 'MARK';
+        this.class = 'cdx-marker';
     }
 
     static get isInline() {
@@ -48,6 +64,7 @@ class MarkerTool {
         this.button = document.createElement("button");
         this.button.type = "button";
         this.button.textContent = "M";
+        this.button.innerHTML = '<svg width="20" height="18"><path d="M10.458 12.04l2.919 1.686-.781 1.417-.984-.03-.974 1.687H8.674l1.49-2.583-.508-.775.802-1.401zm.546-.952l3.624-6.327a1.597 1.597 0 0 1 2.182-.59 1.632 1.632 0 0 1 .615 2.201l-3.519 6.391-2.902-1.675zm-7.73 3.467h3.465a1.123 1.123 0 1 1 0 2.247H3.273a1.123 1.123 0 1 1 0-2.247z"/></svg>';
         this.button.classList.add(this.api.styles.inlineToolButton);
 
         return this.button;
@@ -56,33 +73,50 @@ class MarkerTool {
     surround(range: Range){
         console.log({ range });
         if (this.state) {
-            // If highlights is already applied, do nothing for now
+            this.unwrap(range);
             return;
         }
 
+        this.wrap(range);
+    }
+
+    wrap(range: Range){
         const selectedText = range.extractContents();
         console.log({ selectedText });
 
-        const mark = document.createElement("MARK");
+        const mark = document.createElement(this.tag);
+
+        mark.classList.add(this.class);
 
         // Append to the MARK element selected TextNode
         mark.appendChild(selectedText);
 
         // Insert new element
         range.insertNode(mark);
+
+        this.api.selection.expandToTag(mark);
+    }
+
+    unwrap(range: Range){
+        const mark = this.api.selection.findParentTag(this.tag, this.class);
+        const text = range.extractContents();
+
+        mark?.remove();
+        range.insertNode(text);
     }
 
     checkState(selection: Selection){
-        const text = selection.anchorNode;
-        if(!text){
-            return;
-        }
-
-        const anchorElement = text instanceof Element ? text : text.parentElement;
-
-        this.state = !!anchorElement?.closest('MARK');
+        const mark = this.api.selection.findParentTag(this.tag);
+        this.state = !!mark;
     }
 }
+
+const Container = styled("div")(() => ({
+    '.cdx-marker': {
+        backgroundColor: 'rgba(245,235,111,0.29)',
+        padding: '3px 0',
+    }
+}))
 
 export default function Home() {
 
@@ -93,7 +127,7 @@ export default function Home() {
         <main>
             {/* <Plugin />
             <Plugin2 /> */}
-            <div>
+            <Container>
                 {
                     loading.editor
                         ? 'Carregando editor...'
@@ -129,7 +163,7 @@ export default function Home() {
                         });
                     }}
                 />
-            </div>
+            </Container>
         </main>
     )
 }
