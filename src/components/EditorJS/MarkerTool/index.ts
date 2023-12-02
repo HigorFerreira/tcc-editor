@@ -45,6 +45,14 @@ export default class MarkerTool {
         }
     }
 
+    static get shortcut(){
+        return "CTRL+M";
+    }
+
+    clear(){
+        this.hideActions();
+    }
+
     render(){
         this.button = document.createElement("button");
         this.button.type = "button";
