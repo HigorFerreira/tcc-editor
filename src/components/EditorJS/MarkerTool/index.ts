@@ -37,6 +37,14 @@ export default class MarkerTool {
         return true;
     }
 
+    static get sanitize(){
+        return {
+            mark: {
+                class: "cdx-marker"
+            }
+        }
+    }
+
     render(){
         this.button = document.createElement("button");
         this.button.type = "button";
@@ -105,10 +113,14 @@ export default class MarkerTool {
 
     showActions(mark: HTMLElement){
         if(this.colorPicker){
-            this.colorPicker.value = mark.style.backgroundColor || "#f5f1cc";
+            const {backgroundColor} = mark.style;
+
+            this.colorPicker.value = backgroundColor ? this.convertToHex(backgroundColor) : '#f5f1cc';
+
             this.colorPicker.onchange = () => {
-                mark.style.backgroundColor = this.colorPicker ? this.colorPicker.value : '';
-            }
+                // @ts-ignore
+                mark.style.backgroundColor = this.colorPicker.value;
+            };
             this.colorPicker.hidden = false;
         }
     }
@@ -120,5 +132,19 @@ export default class MarkerTool {
         }
     }
 
-    
+    convertToHex(color: string): string {
+        const rgb = color.match(/(\d+)/g);
+        if(rgb){
+            let hexr = parseInt(rgb[0]).toString(16);
+            let hexg = parseInt(rgb[1]).toString(16);
+            let hexb = parseInt(rgb[2]).toString(16);
+            
+            hexr = hexr.length === 1 ? '0' + hexr : hexr;
+            hexg = hexg.length === 1 ? '0' + hexg : hexg;
+            hexb = hexb.length === 1 ? '0' + hexb : hexb;
+            
+            return '#' + hexr + hexg + hexb;
+        }
+        return "";
+    }
 }
