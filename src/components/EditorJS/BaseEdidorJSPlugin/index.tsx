@@ -4,16 +4,17 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 type ComponentWrapperNRoot = {
-    wrapper: HTMLElement
+    wrapper: HTMLElement | null
     root: ReactDOM.Root
 }
 
 type Components = { 
     main: ComponentWrapperNRoot
     settings: ComponentWrapperNRoot
+    [key: string]: ComponentWrapperNRoot
 }
 
-type GenericObject = { [k: string]: unknown };
+type GenericObject<T = unknown> = { [k: string]: T };
 
 export default class BaseEdidorJSPlugin {
     private components: Components
@@ -82,6 +83,14 @@ export default class BaseEdidorJSPlugin {
             <Component context={this} />
         );
         return this.components.settings.wrapper;
+    }
+
+    private destroy(){
+        for(const key of Object.keys(this.components)){
+            const component = this.components[key];
+            component.root.unmount();
+            component.wrapper = null;
+        }
     }
 
     protected getReactComponent<T extends BaseEdidorJSPlugin>(): React.FunctionComponent<{ context: T }> {
