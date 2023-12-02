@@ -1,6 +1,7 @@
 import EditorJS from "@editorjs/editorjs";
 
 export default class MarkerTool {
+    private colorPicker?: HTMLInputElement;
     private api: EditorJS;
     private button: HTMLButtonElement | null;
     private _state: boolean;
@@ -84,5 +85,40 @@ export default class MarkerTool {
     checkState(selection: Selection){
         const mark = this.api.selection.findParentTag(this.tag);
         this.state = !!mark;
+
+        if(this.state && mark){
+            this.showActions(mark);
+        }
+        else{
+            this.hideActions();
+        }
     }
+
+    renderActions(){
+        this.colorPicker = document.createElement("input");
+        this.colorPicker.type = "color";
+        this.colorPicker.value = '#f5f1cc';
+        this.colorPicker.hidden = true;
+
+        return this.colorPicker;
+    }
+
+    showActions(mark: HTMLElement){
+        if(this.colorPicker){
+            this.colorPicker.value = mark.style.backgroundColor || "#f5f1cc";
+            this.colorPicker.onchange = () => {
+                mark.style.backgroundColor = this.colorPicker ? this.colorPicker.value : '';
+            }
+            this.colorPicker.hidden = false;
+        }
+    }
+
+    hideActions(){
+        if(this.colorPicker){
+            this.colorPicker.onchange = null;
+            this.colorPicker.hidden = true;
+        }
+    }
+
+    
 }
