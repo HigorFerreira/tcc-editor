@@ -51,25 +51,29 @@ export default abstract class BaseEdidorJSPlugin {
     }
 
     private render(){
-        this.components.main.root.render(
-            this.getReactComponent()
-        );
+        setTimeout(() => {
+            this.components.main.root.render(
+                this.getReactComponent()
+            );
+        }, 1500);
         return this.components.main.wrapper;
     }
 
     private renderSettings(){
-        this.components.settings.root.render(
-            this.getSettingsReactComponent()
-        );
+        setTimeout(() => {
+            this.components.settings.root.render(
+                this.getSettingsReactComponent()
+            );
+        }, 1500);
         return this.components.settings.wrapper;
     }
 
     private destroy(){
-        for(const key of Object.keys(this.components)){
-            const component = this.components[key];
-            component.root.unmount();
-            component.wrapper = null;
-        }
+        // for(const key of Object.keys(this.components)){
+        //     const component = this.components[key];
+        //     component.root.unmount();
+        //     component.wrapper = null;
+        // }
     }
 
     abstract getReactComponent(): React.ReactNode

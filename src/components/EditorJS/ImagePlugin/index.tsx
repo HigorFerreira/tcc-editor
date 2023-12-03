@@ -7,25 +7,16 @@ export default class ImagePlugin extends BaseEdidorJSPlugin {
         super(params);
     }
 
-    getReactComponent(): FunctionComponent<{ context: ImagePlugin }> {
-        return ({ context }) => {
-            const [ count, setCount ] = useState(0);
-            return <div>
-                <h1>Image {count}</h1>
-                <button onClick={() => {
-                    console.log("Image redering");
-                    setCount(prev => prev+1)
-                }} >Add</button>
-            </div>
-        }
+    getReactComponent() {
+        return <div>
+            Image
+        </div>
     }
 
-    getSettingsReactComponent(): FunctionComponent<{ context: ImagePlugin }> {
-        return ({ context }) => {
-            return <div>
-                Menu
-            </div>
-        }
+    getSettingsReactComponent() {
+        return <div>
+            Image settings
+        </div>
     }
 
     save(): any {

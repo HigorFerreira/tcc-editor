@@ -74,8 +74,7 @@ export default function Home() {
                             // @ts-ignore
                             // blocktune: BlockTune
                         },
-                        autofocus: false,
-                        placeholder: 'Vamos escrever nosso maravilhoso TCC',
+                        autofocus: true,
                         
                     }}
                     onReady={({ editor }) => {

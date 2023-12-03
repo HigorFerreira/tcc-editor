@@ -9,18 +9,19 @@ export default function Plugin(
     }: PropsWithChildren<{ context: Header }>
 ){
     const [ level, setLevel ] = useState<HeaderLevelsType>(context.level);
-    useEffect(() => {
-        console.log("Context:", context);
-    }, []);
 
-    context.setters = {
-        ...context.setters,
-        plugin: setLevel
-    }
+    useEffect(() => {
+        console.log({ setLevel });
+    }, []);
 
     return <div>
         <h1 className='ce-header'>Higor {level}</h1>
         {/* @ts-ignore */}
-        <button onClick={() => setLevel(prev => prev + 1)}>Add</button>
+        <button onClick={() => {
+            context.block.dispatchChange();
+            console.log("Add clicket");
+            // @ts-ignore
+            setLevel(prev => prev+1);
+        }}>Add</button>
     </div>
 }
