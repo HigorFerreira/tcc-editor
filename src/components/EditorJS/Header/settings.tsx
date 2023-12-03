@@ -10,9 +10,9 @@ export default function Settings(
     return <div>
         Settings
         <button onClick={() => {
-            if(context.setters?.plugin)
-                // @ts-ignore
-                context.setters.plugin(prev => prev+1);
+            const setLevel = context.setters.level satisfies Header['setters']['level'];
+            // @ts-ignore
+            setLevel(prev => prev+1);
         }}>Add</button>
     </div>
 }

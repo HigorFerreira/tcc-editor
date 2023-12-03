@@ -9,9 +9,10 @@ import { HeaderLevelsType } from '@/components/EditorJS/Header/types';
 
 export default class Header extends BaseEdidorJSPlugin {
     public level: HeaderLevelsType
-    public setters?: {
-        plugin?: Dispatch<SetStateAction<HeaderLevelsType>>
-        settings?: Dispatch<SetStateAction<HeaderLevelsType>>
+    public setters: {
+        level: Dispatch<SetStateAction<HeaderLevelsType>>
+    } = {
+        level: () => {}
     }
 
     constructor(params: any){
