@@ -3,15 +3,17 @@ import Image from 'next/image';
 // import Editor from "@/components/EditorJS/Editor"
 import { useState } from 'react';
 
-import Header from '@editorjs/header';
+// import Header from '@editorjs/header';
 // @ts-ignore
 import List from '@editorjs/list';
-import ImagePlugin from '@/components/EditorJS/BaseEdidorJSPlugin';
+import ImagePlugin from '@/components/EditorJS/ImagePlugin';
 import dynamic from 'next/dynamic';
 import styled from '@emotion/styled';
 
 import MarkerTool from '@/components/EditorJS/MarkerTool';
 import BlockTune from '@/components/EditorJS/BlockTune';
+
+import Header from '@/components/EditorJS/Header';
 
 import { IoHome as HomeIcon } from 'react-icons/io5'
 import { BsPlugin as Plugin } from 'react-icons/bs';
@@ -58,7 +60,7 @@ export default function Home() {
                                 // @ts-ignore
                                 class: Header,
                                 inlineToolbar: ['link'],
-                                tunes: [ 'blocktune' ]
+                                // tunes: [ 'blocktune' ]
                             },
                             list: {
                                 class: List,
@@ -70,7 +72,7 @@ export default function Home() {
                             },
                             marker: MarkerTool,
                             // @ts-ignore
-                            blocktune: BlockTune
+                            // blocktune: BlockTune
                         },
                         autofocus: false,
                         placeholder: 'Vamos escrever nosso maravilhoso TCC',

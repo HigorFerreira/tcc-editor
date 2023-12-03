@@ -1,19 +1,16 @@
-import type EditorJS from '@editorjs/editorjs'
-import type { BlockAPI } from '@editorjs/editorjs'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import { GenericObject } from '@/types'
 import { Components, EditorBlockConstructorProps } from '@/types/EditorJs'
 
-export default class BaseEdidorJSPlugin {
+export default abstract class BaseEdidorJSPlugin {
     private components: Components
 
-    public api: EditorJS;
-    public block: BlockAPI;
-    public config: GenericObject;
-    public data: GenericObject;
-    public readOnly: boolean;
+    public api: EditorBlockConstructorProps['api'];
+    public block: EditorBlockConstructorProps['block'];
+    public config: EditorBlockConstructorProps['config'];
+    public data: EditorBlockConstructorProps['data'];
+    public readOnly: EditorBlockConstructorProps['readOnly'];
 
 
     constructor(
@@ -54,17 +51,15 @@ export default class BaseEdidorJSPlugin {
     }
 
     private render(){
-        const Component = this.getReactComponent();
         this.components.main.root.render(
-            <Component context={this} />
+            this.getReactComponent()
         );
         return this.components.main.wrapper;
     }
 
     private renderSettings(){
-        const Component = this.getSettingsReactComponent();
         this.components.settings.root.render(
-            <Component context={this} />
+            this.getSettingsReactComponent()
         );
         return this.components.settings.wrapper;
     }
@@ -77,21 +72,25 @@ export default class BaseEdidorJSPlugin {
         }
     }
 
-    protected getReactComponent<T extends BaseEdidorJSPlugin>(): React.FunctionComponent<{ context: T }> {
-        return () => <div>
-            <h1>New Plugin</h1>
-        </div>
-    }
+    abstract getReactComponent(): React.ReactNode
+    abstract getSettingsReactComponent(): React.ReactNode
+    abstract save(): any
 
-    protected getSettingsReactComponent<T extends BaseEdidorJSPlugin>(): React.FunctionComponent<{ context: T }> {
-        return () => <div>
-            <p>New plugin settings</p>
-        </div>
-    }
+    // protected getReactComponent<T extends BaseEdidorJSPlugin>(): React.FunctionComponent<{ context: T }> {
+    //     return () => <div>
+    //         <h1>New Plugin</h1>
+    //     </div>
+    // }
 
-    protected save(){
-        return {
-            new: 'Plugin'
-        }
-    }
+    // protected getSettingsReactComponent<T extends BaseEdidorJSPlugin>(): React.FunctionComponent<{ context: T }> {
+    //     return () => <div>
+    //         <p>New plugin settings</p>
+    //     </div>
+    // }
+
+    // protected save(){
+    //     return {
+    //         new: 'Plugin'
+    //     }
+    // }
 }
