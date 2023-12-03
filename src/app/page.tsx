@@ -11,7 +11,9 @@ import dynamic from 'next/dynamic';
 import styled from '@emotion/styled';
 
 import MarkerTool from '@/components/EditorJS/MarkerTool';
+import BlockTune from '@/components/EditorJS/BlockTune';
 
+import { IoHome as HomeIcon } from 'react-icons/io5'
 import { BsPlugin as Plugin } from 'react-icons/bs';
 import { BsPlugFill as Plugin2 } from 'react-icons/bs';
 import { BlockAPI, API } from '@editorjs/editorjs';
@@ -40,6 +42,7 @@ export default function Home() {
 
     return (
         <main>
+            {/* <HomeIcon /> */}
             {/* <Plugin />
             <Plugin2 /> */}
             <Container>
@@ -55,17 +58,23 @@ export default function Home() {
                                 // @ts-ignore
                                 class: Header,
                                 inlineToolbar: ['link'],
+                                tunes: [ 'blocktune' ]
                             },
                             list: {
                                 class: List,
                                 inlineToolbar: true,
                             },
-                            image: ImagePlugin,
-                            // @ts-ignore
+                            image: {
+                                // @ts-ignore
+                                class: ImagePlugin,
+                            },
                             marker: MarkerTool,
+                            // @ts-ignore
+                            blocktune: BlockTune
                         },
                         autofocus: false,
-                        placeholder: 'Vamos escrever nosso maravilhoso TCC'
+                        placeholder: 'Vamos escrever nosso maravilhoso TCC',
+                        
                     }}
                     onReady={({ editor }) => {
                         setLoading("editor", false);
@@ -76,6 +85,9 @@ export default function Home() {
                             api,
                             event,
                         });
+                    }}
+                    onError={err => {
+                        console.log("EDITORJS ERROR");
                     }}
                 />
             </Container>

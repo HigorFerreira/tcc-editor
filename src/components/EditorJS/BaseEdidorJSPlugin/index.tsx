@@ -3,18 +3,8 @@ import type { BlockAPI } from '@editorjs/editorjs'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-type ComponentWrapperNRoot = {
-    wrapper: HTMLElement | null
-    root: ReactDOM.Root
-}
-
-type Components = { 
-    main: ComponentWrapperNRoot
-    settings: ComponentWrapperNRoot
-    [key: string]: ComponentWrapperNRoot
-}
-
-type GenericObject<T = unknown> = { [k: string]: T };
+import { GenericObject } from '@/types'
+import { Components, EditorBlockConstructorProps } from '@/types/EditorJs'
 
 export default class BaseEdidorJSPlugin {
     private components: Components
@@ -33,13 +23,7 @@ export default class BaseEdidorJSPlugin {
             config,
             data,
             readOnly,
-        }: {
-            api: EditorJS
-            block: BlockAPI
-            config: GenericObject
-            data?: any
-            readOnly: boolean
-        }
+        }: EditorBlockConstructorProps
     ){
         this.api = api;
         this.block = block;
