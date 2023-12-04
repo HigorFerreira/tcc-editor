@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 import { Components, EditorBlockConstructorProps } from '@/types/EditorJs'
+import { TunesMenuConfig, TunesMenuConfigItem } from '@editorjs/editorjs/types/tools';
 
 export default abstract class BaseEdidorJSPlugin {
     private components: Components
@@ -60,12 +61,19 @@ export default abstract class BaseEdidorJSPlugin {
     }
 
     private renderSettings(){
-        setTimeout(() => {
-            this.components.settings.root.render(
-                this.getSettingsReactComponent()
-            );
-        }, 200);
-        return this.components.settings.wrapper;
+        const sc = this.getSettingsReactComponent();
+        if(Array.isArray(sc)){
+            return sc;
+        }
+        else{
+            setTimeout(() => {
+                this.components.settings.root.render(
+                    // @ts-ignore
+                    sc
+                );
+            }, 200);
+            return this.components.settings.wrapper;
+        }        
     }
 
     private destroy(){
@@ -77,7 +85,7 @@ export default abstract class BaseEdidorJSPlugin {
     }
 
     abstract getReactComponent(): React.ReactNode
-    abstract getSettingsReactComponent(): React.ReactNode
+    abstract getSettingsReactComponent(): React.ReactNode | TunesMenuConfigItem[]
     abstract save(): any
 
     // protected getReactComponent<T extends BaseEdidorJSPlugin>(): React.FunctionComponent<{ context: T }> {

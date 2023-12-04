@@ -13,8 +13,20 @@ export default function Plugin(
     const [ renders, setRenders ] = useState(0);
     const [ level, setLevel ] = useState<HeaderLevelsType>(context.level);
 
+    const changeEvet = (evt: Event) => {
+        console.log({ evt });
+        context.text = (evt.currentTarget as HTMLHeadElement)?.innerHTML || ""
+    }
+
+    useEffect(() => {
+        context.level = level;
+    }, [ level ]);
+
     useEffect(() => {
         setRenders(prev => prev+1);
+        return () => {
+            ref.current?.removeEventListener("input", changeEvet);
+        }
     }, []);
 
     useEffect(() => {
@@ -30,6 +42,9 @@ export default function Plugin(
                     selection?.removeAllRanges();
                     selection?.addRange(range);
                 }
+
+                ref.current.addEventListener('input', changeEvet);
+                ref.current.innerHTML = context.data?.text
             }
         }
     }, [ renders ]);
@@ -37,12 +52,25 @@ export default function Plugin(
     context.setters.level = setLevel;
 
     return <Container>
-        <h1 ref={ref} contentEditable="true" data-placeholder ></h1>
+        {
+            (() => {
+                switch(level){
+                    case 1:
+                        return <h1 ref={ref} contentEditable="true" data-placeholder ></h1>
+                    case 2:
+                        return <h2 ref={ref} contentEditable="true" data-placeholder ></h2>
+                    case 3:
+                        return <h3 ref={ref} contentEditable="true" data-placeholder ></h3>
+                    case 4:
+                        return <h4 ref={ref} contentEditable="true" data-placeholder ></h4>
+                }
+            })()
+        }
         {/* @ts-ignore */}
-        <div>{level}</div>
+        {/* <div>{level}</div>
         <button onClick={() => {
             // @ts-ignore
             setLevel(prev => prev+1);
-        }}>Add</button>
+        }}>Add</button> */}
     </Container>
 }

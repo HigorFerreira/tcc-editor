@@ -1,7 +1,7 @@
 "use client";
 import Image from 'next/image';
 // import Editor from "@/components/EditorJS/Editor"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // import Header from '@editorjs/header';
 // @ts-ignore
@@ -15,6 +15,7 @@ import BlockTune from '@/components/EditorJS/BlockTune';
 
 import Header from '@/components/EditorJS/Header';
 
+import { MdTitle as TestIcon } from "react-icons/md";
 import { IoHome as HomeIcon } from 'react-icons/io5'
 import { BsPlugin as Plugin } from 'react-icons/bs';
 import { BsPlugFill as Plugin2 } from 'react-icons/bs';
@@ -39,11 +40,21 @@ const Container = styled("div")(() => ({
 
 export default function Home() {
 
+    const [ editor, setEditor ] = useState<EditorJS | null>(null);
     const [ loading, _setLoading ] = useState<LoadingType>({ editor: true });
     const setLoading = (ctx: keyof LoadingType, value: boolean) => _setLoading(prev => ({ ...prev, [ctx]: value }));
 
+    useEffect(() => {
+        if(editor){
+            const data = JSON.parse(`{"time":1701620131980,"blocks":[{"id":"Sdb8uWaL4r","type":"header","data":{"level":1,"text":"Heading1"}},{"id":"B1T_ka58BG","type":"header","data":{"level":1,"text":"Heaading2cdaca"}}],"version":"2.28.2"}`);
+            console.log("LOADING DATA:", { data });
+            editor.render(data);
+        }
+    }, [ editor ]);
+
     return (
         <main>
+            <TestIcon />
             {/* <HomeIcon /> */}
             {/* <Plugin />
             <Plugin2 /> */}
@@ -79,7 +90,8 @@ export default function Home() {
                     }}
                     onReady={({ editor }) => {
                         setLoading("editor", false);
-                        console.log({ editor })
+                        console.log({ editor });
+                        setEditor(editor);
                     }}
                     onChange={(api, event) => {
                         console.log("Change event", {

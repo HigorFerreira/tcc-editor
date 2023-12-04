@@ -7,12 +7,14 @@ export default function Settings(
         context
     }: PropsWithChildren<{ context: Header }>
 ){
-    return <div>
-        Settings
-        <button onClick={() => {
-            const setLevel = context.setters.level satisfies Header['setters']['level'];
-            // @ts-ignore
-            setLevel(prev => prev+1);
-        }}>Add</button>
-    </div>
+    return <>
+        {
+            [1].map((lv, idx) => {
+                return <div tabIndex={idx} className='ce-popover-item'>
+                    <div className='ce-popover-item__icon'></div>
+                    <div className='ce-popover-item__title'>Nível {lv}</div>
+                </div>
+            })
+        }
+    </>
 }
