@@ -26,32 +26,29 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="10.566127"
-     inkscape:cx="70.744938"
-     inkscape:cy="63.078931"
+     inkscape:zoom="5.6060471"
+     inkscape:cx="43.346051"
+     inkscape:cy="55.564999"
      inkscape:window-width="1920"
      inkscape:window-height="946"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg6" />
+     inkscape:current-layer="svg6"
+     showguides="false" />
   <path
      fill="none"
      d="M0 0h24v24H0V0z"
      id="path2" />
-  <path
-     d="M5 4v3h5.5v12h3V7H19V4z"
-     id="path4" />
   <text
      xml:space="preserve"
-     style="font-size:13.44px;font-family:Keraleeyam;-inkscape-font-specification:Keraleeyam;text-align:end;text-anchor:end;fill:#020202;stroke-width:0.12;stroke:none;fill-opacity:1"
-     x="20.095642"
-     y="22.633614"
-     id="text293"><tspan
+     style="font-size:13.567px;font-family:Keraleeyam;-inkscape-font-specification:Keraleeyam;text-align:end;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.121134"
+     x="21.638674"
+     y="16.938578"
+     id="text5388"><tspan
        sodipodi:role="line"
-       style="stroke-width:0.12;stroke:none;fill:#020202;fill-opacity:1"
-       x="20.095642"
-       y="22.633614"
-       id="tspan295">1</tspan>
-  </text>
+       id="tspan5386"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000;fill-opacity:1;stroke-width:0.121134"
+       x="21.638674"
+       y="16.938578">T0</tspan></text>
 </svg>

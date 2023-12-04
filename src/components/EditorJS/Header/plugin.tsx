@@ -12,14 +12,23 @@ export default function Plugin(
     const ref = useRef<HTMLHeadingElement>(null);
     const [ renders, setRenders ] = useState(0);
     const [ level, setLevel ] = useState<HeaderLevelsType>(context.level);
+    const [ text, setText ] = useState("");
+
+    useEffect(() => {
+        console.log({ text });
+        context.text = text;
+    }, [ text ]);
 
     const changeEvet = (evt: Event) => {
         console.log({ evt });
-        context.text = (evt.currentTarget as HTMLHeadElement)?.innerHTML || ""
+        setText((evt.currentTarget as HTMLHeadElement)?.innerHTML || "");
     }
 
     useEffect(() => {
         context.level = level;
+        if(ref.current){
+            ref.current.innerHTML = text;
+        }
     }, [ level ]);
 
     useEffect(() => {
@@ -44,7 +53,8 @@ export default function Plugin(
                 }
 
                 ref.current.addEventListener('input', changeEvet);
-                ref.current.innerHTML = context.data?.text
+                ref.current.innerHTML = context.data?.text || ""
+                setText(context.data?.text || "");
             }
         }
     }, [ renders ]);
