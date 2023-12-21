@@ -15,12 +15,12 @@ export default function Plugin(
     const [ text, setText ] = useState("");
 
     useEffect(() => {
-        console.log({ text });
+        // console.log({ text });
         context.text = text;
     }, [ text ]);
 
     const changeEvet = (evt: Event) => {
-        console.log({ evt });
+        // console.log({ evt });
         setText((evt.currentTarget as HTMLHeadElement)?.innerHTML || "");
     }
 

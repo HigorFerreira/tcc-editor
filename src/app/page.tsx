@@ -45,11 +45,11 @@ export default function Home() {
     const setLoading = (ctx: keyof LoadingType, value: boolean) => _setLoading(prev => ({ ...prev, [ctx]: value }));
 
     useEffect(() => {
-        if(editor){
-            const data = JSON.parse(`{"time":1701620131980,"blocks":[{"id":"Sdb8uWaL4r","type":"header","data":{"level":1,"text":"Heading1"}},{"id":"B1T_ka58BG","type":"header","data":{"level":1,"text":"Heaading2cdaca"}}],"version":"2.28.2"}`);
-            console.log("LOADING DATA:", { data });
-            editor.render(data);
-        }
+        // if(editor){
+        //     const data = JSON.parse(`{"time":1701620131980,"blocks":[{"id":"Sdb8uWaL4r","type":"header","data":{"level":1,"text":"Heading1"}},{"id":"B1T_ka58BG","type":"header","data":{"level":1,"text":"Heaading2cdaca"}}],"version":"2.28.2"}`);
+        //     console.log("LOADING DATA:", { data });
+        //     editor.render(data);
+        // }
     }, [ editor ]);
 
     return (
