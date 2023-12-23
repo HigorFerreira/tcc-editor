@@ -1,38 +1,52 @@
 "use client"
-import ImagePlugin from '@/components/EditorJS/ImagePlugin'
-import { Container, ImageTitle, Caption } from '@/components/EditorJS/ImagePlugin/styles'
 import { PropsWithChildren, RefObject, useEffect, useRef, useState } from 'react'
+
 import { Input } from 'antd'
-import { InputRefsType, SavingType, SetData } from '@/components/EditorJS/ImagePlugin/types';
-import { setDataBuilder } from '@/components/EditorJS/ImagePlugin/utils'
+
+import ImagePlugin from '@/components/EditorJS/ImagePlugin'
+import { setDataBuilder, escapeHTML } from '@/components/EditorJS/ImagePlugin/utils'
+import { 
+    Container,
+    ContentContainer,
+    ImageTitle,
+    Caption,
+ } from '@/components/EditorJS/ImagePlugin/styles'
+import { InputRefsType, SavingType, SetData } from '@/components/EditorJS/ImagePlugin/types'
+
+// import Image from 'next/image'
 
 export default function(
     {
         context
     }: PropsWithChildren<{ context: ImagePlugin }>
 ){
-    const ref = useRef<HTMLElement>(null);
     const [ renders, setRenders ] = useState(0);
     const [ data, _setData ] = useState<SavingType>(context.stateData);
     const setData = setDataBuilder(_setData);
 
     // const [ titleHeight, setTitleHeight ] = useState(25);
 
+    const captionRef = useRef(null);
+    const titleRef = useRef(null);
+
     useEffect(() => {
         console.log({ data });
         context.stateData = data;
-        context.settingsSetData(() => data);        
+        context.settingsSetData(() => data);
     }, [ data ]);
-
-    useEffect(() => {
-        if(renders === 1){
-            ref.current?.focus();
-        }
-    }, [ renders ]);
 
     useEffect(() => {
         setRenders(prev => prev+1);
     }, []);
+
+    useEffect(() => {
+        if(captionRef.current){
+            (captionRef.current as HTMLParagraphElement).innerHTML = data.caption;
+        }
+        if(titleRef.current){
+            (titleRef.current as HTMLParagraphElement).innerText = data.title || "Digite o título da imagem";
+        }
+    }, [ captionRef, titleRef, data.url ]);
 
     const calculateElementHeight = (target: HTMLInputElement | HTMLTextAreaElement) => {
         // Temporarily disables scroll to avoid jumpiness
@@ -64,43 +78,44 @@ export default function(
                     ...prev,
                     url,
                     accessIn: now,
-                    caption: `Fonte: Disponível em: <${url}>. Acesso em: ${now}`
+                    caption: `${
+                        escapeHTML('Fonte: Disponível em: <')
+                    }${
+                        `<a href="${url}">${url}</a>`
+                    }${
+                        escapeHTML(`>. Acesso em: ${now}`)
+                    }`
                 }));
             }}
-            // @ts-ignore
-            ref={ref} placeholder='Cole o link da imagem aqui'
+            onChange={ evt => {
+                if(!evt.currentTarget.value){
+                    setData("url", "");
+                }
+            } }
+            placeholder='Cole o link da imagem aqui'
         />
         {
             data.url &&
-            <div>
+            <ContentContainer>
                 <ImageTitle
-                    onChange={({ target: _target }) => {
-                        const target = _target as HTMLTextAreaElement
-                        if(target){
-                            calculateElementHeight(target);
-                            setData("title", target.value);
-                        }
+                    contentEditable="true"
+                    ref={titleRef}
+                    onInput={evt => {
+                        setData("title", evt.currentTarget.innerText);
                     }}
-                    rows={1}
-                    // height={titleHeight}
-                    placeholder="Digite o título da imagem"
-                    value={data.title}
+                    lang='pt-BR'
                 />
                 <img width={`${data.width*100}%`} src={data.url} alt={data.title || "Erro ao carregar imagem"} />
-                <ImageTitle
-                    onChange={({ target: _target }) => {
-                        const target = _target as HTMLTextAreaElement
-                        if(target){
-                            calculateElementHeight(target);
-                            setData("caption", target.value);
-                        }
+                <Caption
+                    ref={captionRef}
+                    contentEditable="true"
+                    onInput={evt => {
+                        setData("caption", evt.currentTarget.innerHTML);
                     }}
-                    rows={1}
-                    // height={titleHeight}
-                    placeholder="Digite o título da imagem"
-                    value={data.caption}
+                    lang='pt-BR'
                 />
-            </div>
+
+            </ContentContainer>
         }
     </Container>
 }

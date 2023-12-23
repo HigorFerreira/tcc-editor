@@ -23,3 +23,9 @@ export function setDataBuilder(setter: Dispatch<SetStateAction<SavingType>>): Se
         }
     }
 }
+
+export function escapeHTML(str: string): string {
+    const div = document.createElement("div");
+    div.innerText = str;
+    return div.innerHTML;
+}

@@ -21,6 +21,7 @@ export default function(
     
     context.settingsSetData = setData;
     return <div>
+        <p>Tamanho:</p>
         <Slider
             onChange={value => {
                 setData("width", value);

@@ -11,9 +11,9 @@ export type SavingType = {
 }
 
 export interface SetData {
-    (context: "url" | "path" | "accessIn" | "caption" | "title", value: string): void
-    (context: "isDownloaded", value: boolean): void
     (context: "width", value: number): void
+    (context: "isDownloaded", value: boolean): void
+    (context: "url" | "path" | "accessIn" | "caption" | "title", value: string): void
     (fn: (data: SavingType) => SavingType ): void
 }
 

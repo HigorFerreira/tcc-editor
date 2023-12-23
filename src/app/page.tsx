@@ -54,10 +54,7 @@ export default function Home() {
 
     return (
         <main>
-            <TestIcon />
-            {/* <HomeIcon /> */}
-            {/* <Plugin />
-            <Plugin2 /> */}
+            {/* <TestIcon /> */}
             <Container>
                 {
                     loading.editor
