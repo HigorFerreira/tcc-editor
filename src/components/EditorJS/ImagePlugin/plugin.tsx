@@ -20,24 +20,17 @@ export default function(
         context
     }: PropsWithChildren<{ context: ImagePlugin }>
 ){
-    const [ renders, setRenders ] = useState(0);
     const [ data, _setData ] = useState<SavingType>(context.stateData);
     const setData = setDataBuilder(_setData);
 
-    // const [ titleHeight, setTitleHeight ] = useState(25);
-
+    const inputRef = useRef(null);
     const captionRef = useRef(null);
     const titleRef = useRef(null);
 
     useEffect(() => {
-        console.log({ data });
         context.stateData = data;
         context.settingsSetData(() => data);
     }, [ data ]);
-
-    useEffect(() => {
-        setRenders(prev => prev+1);
-    }, []);
 
     useEffect(() => {
         if(captionRef.current){
@@ -48,21 +41,18 @@ export default function(
         }
     }, [ captionRef, titleRef, data.url ]);
 
-    const calculateElementHeight = (target: HTMLInputElement | HTMLTextAreaElement) => {
-        // Temporarily disables scroll to avoid jumpiness
-        target.style.overflowY = 'hidden';
-        // Reset height to auto before determining the new height
-        target.style.height = 'auto';
-        // Set the height to the scroll height
-        target.style.height = `${target.scrollHeight}px`;
-        // Enable scroll if content is long
-        target.style.overflowY = '';
-    }
+    useEffect(() => {
+        const input = inputRef.current as unknown as HTMLInputElement;
+        if(input){
+            input.focus();
+        }
+    }, []);
 
     context.setData = setData;
 
     return <Container>
         <Input
+            ref={inputRef}
             onPaste={evt => {
                 const date = new Date();
                 const now = `${

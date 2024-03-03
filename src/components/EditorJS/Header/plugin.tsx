@@ -10,17 +10,14 @@ export default function Plugin(
     }: PropsWithChildren<{ context: Header }>
 ){
     const ref = useRef<HTMLHeadingElement>(null);
-    const [ renders, setRenders ] = useState(0);
     const [ level, setLevel ] = useState<HeaderLevelsType>(context.level);
     const [ text, setText ] = useState("");
 
     useEffect(() => {
-        // console.log({ text });
         context.text = text;
     }, [ text ]);
 
     const changeEvet = (evt: Event) => {
-        // console.log({ evt });
         setText((evt.currentTarget as HTMLHeadElement)?.innerHTML || "");
     }
 
@@ -32,32 +29,27 @@ export default function Plugin(
     }, [ level ]);
 
     useEffect(() => {
-        setRenders(prev => prev+1);
+        if(ref.current && typeof window !== "undefined" && typeof document !== "undefined"){
+            ref.current.focus();
+
+            if(typeof window.getSelection != "undefined" && typeof document.createRange != "undefined"){
+                const range = document.createRange();
+                range.selectNodeContents(ref.current);
+                range.collapse(false); // Collapse the range to the end point of the range
+                const selection = window.getSelection();
+                selection?.removeAllRanges();
+                selection?.addRange(range);
+            }
+
+            ref.current.addEventListener('input', changeEvet);
+            ref.current.innerHTML = context.data?.text || ""
+            setText(context.data?.text || "");
+        }
+
         return () => {
             ref.current?.removeEventListener("input", changeEvet);
         }
-    }, []);
-
-    useEffect(() => {
-        if(renders === 1){
-            if(ref.current && typeof window !== "undefined" && typeof document !== "undefined"){
-                ref.current.focus();
-
-                if(typeof window.getSelection != "undefined" && typeof document.createRange != "undefined"){
-                    const range = document.createRange();
-                    range.selectNodeContents(ref.current);
-                    range.collapse(false); // Collapse the range to the end point of the range
-                    const selection = window.getSelection();
-                    selection?.removeAllRanges();
-                    selection?.addRange(range);
-                }
-
-                ref.current.addEventListener('input', changeEvet);
-                ref.current.innerHTML = context.data?.text || ""
-                setText(context.data?.text || "");
-            }
-        }
-    }, [ renders ]);
+    }, [ ]);
 
     context.setters.level = setLevel;
 
@@ -76,11 +68,5 @@ export default function Plugin(
                 }
             })()
         }
-        {/* @ts-ignore */}
-        {/* <div>{level}</div>
-        <button onClick={() => {
-            // @ts-ignore
-            setLevel(prev => prev+1);
-        }}>Add</button> */}
     </Container>
 }

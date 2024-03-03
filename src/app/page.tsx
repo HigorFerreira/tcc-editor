@@ -22,6 +22,8 @@ import { BsPlugFill as Plugin2 } from 'react-icons/bs';
 import { BlockAPI, API } from '@editorjs/editorjs';
 import type EditorJS from '@editorjs/editorjs';
 
+import { FileManangement } from '@/utils';
+
 const Editor = dynamic(
     () => import('@/components/EditorJS/Editor'),
     { ssr: false },
@@ -55,6 +57,13 @@ export default function Home() {
     return (
         <main>
             {/* <TestIcon /> */}
+            <div>
+                <button onClick={async evt => {
+                    const fm = new FileManangement();
+                    const data = await editor?.save() as object;
+                    await fm.save(data);
+                }}>Salvar</button>
+            </div>
             <Container>
                 {
                     loading.editor
