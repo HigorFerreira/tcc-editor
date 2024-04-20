@@ -1,28 +1,14 @@
 "use client";
-import Image from 'next/image';
-// import Editor from "@/components/EditorJS/Editor"
-import { useEffect, useState } from 'react';
+import { ReactElement, ReactNode, useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 
-// import Header from '@editorjs/header';
-// @ts-ignore
-import List from '@editorjs/list';
-import ImagePlugin from '@/components/EditorJS/ImagePlugin';
 import dynamic from 'next/dynamic';
 import styled from '@emotion/styled';
-
-import MarkerTool from '@/components/EditorJS/MarkerTool';
-import BlockTune from '@/components/EditorJS/BlockTune';
-
-import Header from '@/components/EditorJS/Header';
-
-import { MdTitle as TestIcon } from "react-icons/md";
-import { IoHome as HomeIcon } from 'react-icons/io5'
-import { BsPlugin as Plugin } from 'react-icons/bs';
-import { BsPlugFill as Plugin2 } from 'react-icons/bs';
-import { BlockAPI, API } from '@editorjs/editorjs';
 import type EditorJS from '@editorjs/editorjs';
 
 import { FileManangement } from '@/utils';
+
+import MyPlugin from '@/components/EditorJS/MyPlugin'
 
 const Editor = dynamic(
     () => import('@/components/EditorJS/Editor'),
@@ -38,7 +24,8 @@ const Container = styled("div")(() => ({
         backgroundColor: 'rgba(245,235,111,0.29)',
         padding: '3px 0',
     }
-}))
+}));
+
 
 export default function Home() {
 
@@ -54,6 +41,8 @@ export default function Home() {
         // }
     }, [ editor ]);
 
+    const [ wrapperId, setWrapperId ] = useState('initial-plugin-box');
+
     return (
         <main>
             {/* <TestIcon /> */}
@@ -64,6 +53,11 @@ export default function Home() {
                     await fm.save(data);
                 }}>Salvar</button>
             </div>
+            <button onClick={() => {
+                setWrapperId('MyPlugin');
+            }}>
+                Inject
+            </button>
             <Container>
                 {
                     loading.editor
@@ -73,26 +67,9 @@ export default function Home() {
                 <Editor
                     config={{
                         tools: {
-                            header: {
-                                // @ts-ignore
-                                class: Header,
-                                inlineToolbar: ['link'],
-                                // tunes: [ 'blocktune' ]
-                            },
-                            list: {
-                                class: List,
-                                inlineToolbar: true,
-                            },
-                            image: {
-                                // @ts-ignore
-                                class: ImagePlugin,
-                            },
-                            marker: MarkerTool,
-                            // @ts-ignore
-                            // blocktune: BlockTune
+                            'my-plugin': MyPlugin,
                         },
                         autofocus: true,
-                        
                     }}
                     onReady={({ editor }) => {
                         setLoading("editor", false);

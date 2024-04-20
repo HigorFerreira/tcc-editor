@@ -1,11 +1,34 @@
 "use client";
-import { useRef, useEffect, PropsWithChildren } from 'react';
+import { useRef, useEffect, PropsWithChildren, useState, ReactNode, useMemo, cloneElement } from 'react';
 import EditorJS from '@editorjs/editorjs';
 import type {
     EditorConfig,
     API,
     BlockMutationEvent,
 } from '@editorjs/editorjs';
+import { createPortal } from 'react-dom';
+import MyPlugin from '../MyPlugin';
+
+
+function Plugin(
+    {
+        context
+    }: PropsWithChildren<{
+        context?: MyPlugin
+    }>
+){
+    useEffect(() => {
+        console.log('Plugin react', { context });
+    }, [ context ])
+
+    return <h1>This is a plugin render</h1>
+}
+
+
+const Register = {
+    'my-plugin': <Plugin />,
+} as {[key: string]: JSX.Element}
+
 
 export default function Editor(
     {
@@ -27,20 +50,46 @@ export default function Editor(
         onError?: (error: Error) => void
     }>, "children">
 ) {
+    const [ ready, setReady ] = useState(false);
 
     const editorRef = useRef<EditorJS | null>(null);
     const editableAreaRef = useRef<HTMLDivElement | null>(null);
 
+    const [ pluginRenderConfig, setPluginRenderConfig ] = useState<{
+        id: string
+        name: string
+        uuid: string
+        _this: unknown
+    }[]>([]);
+
+    useEffect(() => {
+        console.log({pluginRenderConfig});
+    }, [ pluginRenderConfig ])
+    
+    const plugins = useMemo(() => {
+        return pluginRenderConfig.map(({ id, name, uuid, _this }) => {
+            return createPortal(
+                cloneElement(
+                    Register[name],
+                    { context: _this }
+                ),
+                document.getElementById(id) as HTMLElement,
+            )
+        })
+    }, [ pluginRenderConfig ])
+
     useEffect(() => {
         (async () => {
             try{
+                setReady(true);
+
                 if(!editorRef.current && editableAreaRef.current){
                     editorRef.current = new EditorJS({
                         ...(config || {}),
                         holder: editableAreaRef.current,
                         onChange: (api, event) => {
                             onChange && onChange(api, event);
-                        }
+                        },
                     });
 
                     await editorRef.current.isReady;
@@ -67,7 +116,24 @@ export default function Editor(
         }
     }, []);
 
+    useEffect(() => {
+        if(ready){
+            console.log('Is ready');
+            document.addEventListener('editor-js-plugin-render', (e) => {
+                console.log({ e });
+                setPluginRenderConfig(prev => [
+                    ...prev,
+                    // @ts-ignore
+                    e.detail
+                ]);
+            });
+        }
+    }, [ ready ]);
+
     return <>
+        <div style={{ display: 'none' }}>
+            { plugins }
+        </div>
         <div ref={ editableAreaRef } />
     </>
 }
