@@ -11,7 +11,7 @@ import { FileManangement } from '@/utils';
 import MyPlugin from '@/components/EditorJS/MyPlugin'
 
 const Editor = dynamic(
-    () => import('@/components/EditorJS/Editor'),
+    () => import('@/components/Editor'),
     { ssr: false },
 );
 
@@ -57,7 +57,7 @@ export default function Home() {
                 setWrapperId('MyPlugin');
             }}>
                 Inject
-            </button>
+            </button>;
             <Container>
                 {
                     loading.editor
@@ -65,26 +65,7 @@ export default function Home() {
                         : null
                 }
                 <Editor
-                    config={{
-                        tools: {
-                            'my-plugin': MyPlugin,
-                        },
-                        autofocus: true,
-                    }}
-                    onReady={({ editor }) => {
-                        setLoading("editor", false);
-                        console.log({ editor });
-                        setEditor(editor);
-                    }}
-                    onChange={(api, event) => {
-                        console.log("Change event", {
-                            api,
-                            event,
-                        });
-                    }}
-                    onError={err => {
-                        console.log("EDITORJS ERROR");
-                    }}
+                    
                 />
             </Container>
         </main>
