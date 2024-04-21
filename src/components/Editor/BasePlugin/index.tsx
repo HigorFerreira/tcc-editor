@@ -9,10 +9,10 @@ export default abstract class BaseEditorPlugin {
 
     public pluginData: unknown
 
-    private name: string
-    private uuid: string
-    private pluginId: string
-    private settingsId: string
+    public name: string
+    public uuid: string
+    public pluginId: string
+    public settingsId: string
 
     constructor(
         {
@@ -43,24 +43,14 @@ export default abstract class BaseEditorPlugin {
         };
     }
 
-    private render(){
-        const ev = new CustomEvent<{ context: BaseEditorPlugin }>('editor-plugin-render', {
-            detail: {
-                context: this
-            }
-        });
-
+    public render(){
         const wrapper = document.createElement('div');
         wrapper.id = this.pluginId;
-
-        setTimeout(() => {
-            document.dispatchEvent(ev);
-        }, 20);
 
         return wrapper;
     }
 
-    private renderSettings(){    
+    public renderSettings(){    
         const ev = new CustomEvent<{ context: BaseEditorPlugin }>('editor-plugin-settings-render', {
             detail: {
                 context: this
@@ -77,7 +67,37 @@ export default abstract class BaseEditorPlugin {
         return wrapper; 
     }
 
-    private destroy(){
+    public destroy(){
+        
+    }
+
+    public save(){
+        return this.pluginData;
+    }
+
+    // Plugin hooks
+    public rendered(){
+        // console.log('Tool rendered');
+        const ev = new CustomEvent<{ context: BaseEditorPlugin }>('editor-plugin-render', {
+            detail: {
+                context: this
+            }
+        });
+        document.dispatchEvent(ev);
+    }
+
+    public updated(){
+        // console.log('Tool updated');
+        const ev = new CustomEvent<{ context: BaseEditorPlugin }>('editor-plugin-update', {
+            detail: {
+                context: this
+            }
+        });
+        document.dispatchEvent(ev);
+    }
+
+    public removed(){
+        // console.log('Tool removed');
         const ev = new CustomEvent<{ context: BaseEditorPlugin }>('editor-plugin-unmount', {
             detail: {
                 context: this
@@ -87,8 +107,8 @@ export default abstract class BaseEditorPlugin {
         document.dispatchEvent(ev);
     }
 
-    private save(){
-        return this.pluginData;
+    public moved(){
+        // console.log('Tool moved');
     }
 
     abstract getName(): string
