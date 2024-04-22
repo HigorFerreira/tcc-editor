@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react'
 import type EditorJS from '@editorjs/editorjs'
-import type { BlockAPI } from '@editorjs/editorjs'
+import type { BlockAPI, ToolSettings } from '@editorjs/editorjs'
 import { GenericObject } from "@/types"
 import type {
     EditorConfig,
@@ -21,7 +21,8 @@ export interface EditorContextType {
 }
 
 export type EditorProps = PropsWithChildren<{
-    config?: Omit<EditorConfig, "holder" | "holderId" | "onReady" | "onChange">
+    config?: Omit<EditorConfig, "tools" | "holder" | "holderId" | "onReady" | "onChange">
+    register: RegisterType
     onReady?: (
         params: {
             editor: EditorJS
@@ -33,3 +34,10 @@ export type EditorProps = PropsWithChildren<{
     ) => void
     onError?: (error: Error) => void
 }>
+
+interface RegisterObjType extends Omit<ToolSettings, 'tunes'> {
+    component: JSX.Element
+}
+export interface RegisterType {
+    [key: string]: RegisterObjType
+}

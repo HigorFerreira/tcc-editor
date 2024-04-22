@@ -14,16 +14,8 @@ import {
     EditorProps,
 } from "@/components/Editor/types";
 
-import PluginTest, { PluginClass } from '@/components/Plugins/PluginTest';
 import BasePlugin from '@/components/Editor/BasePlugin';
 import { createPortal } from "react-dom";
-
-const Register = {
-    'test-plugin': {
-        class: PluginClass,
-        component: <PluginTest />
-    }
-}
 
 export const Context = createContext<EditorContextType>({
     editor: null
@@ -33,6 +25,7 @@ export default function Editor(
     {
         onReady,
         onError,
+        register,
     }: EditorProps
 ){
 
@@ -46,7 +39,7 @@ export default function Editor(
         return pluginsList.map((context) => {
             return createPortal(
                 cloneElement(
-                    Register['test-plugin'].component,
+                    register[context.name].component,
                     { context }
                 ),
                 document.getElementById(context.pluginId) as HTMLElement
@@ -73,7 +66,7 @@ export default function Editor(
                             ...prev,
                             // @ts-ignore
                             e.detail.context
-                        ])
+                        ]);
                     });
 
                     document.addEventListener('editor-plugin-settings-render', e => {
@@ -90,15 +83,16 @@ export default function Editor(
                         console.log("Comming to assing editorjs...");
                         editor.current = new EditorJS({
                             holder: editorContainerRef.current,
-                            tools: {
-                                'test-plugin': {
-                                    // @ts-ignore
-                                    class: Register['test-plugin'].class,
-                                }
-                            },
+                            tools: Object.keys(register).reduce((prev, key) => {
+                                const { component, ...restOfProps } = register[key];
+                                return {
+                                    ...prev,
+                                    [key]: restOfProps
+                                };
+                            }, {}),
                             onChange: (api, event) => {
                                 console.log({ api, event });
-                            }
+                            },
                         });
 
                         await editor.current.isReady;
