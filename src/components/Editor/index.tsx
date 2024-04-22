@@ -77,6 +77,18 @@ export default function Editor(
                     document.addEventListener('editor-plugin-unmount', e => {
                         console.log('editor-plugin-unmount');
                         console.log({ e });
+                        setPluginsList(prev => {
+                            const arr = [ ...prev ];
+                            const element = arr.find(({ pluginId }) => pluginId === (e as CustomEvent).detail?.context?.pluginId);
+                            if(!element) return prev;
+                            
+                            arr.splice(
+                                arr.indexOf(element),
+                                1,
+                            );
+
+                            return arr;
+                        });
                     });
 
                     if(!editor.current && editorContainerRef.current){
