@@ -58,7 +58,7 @@ export default function Home() {
                 setWrapperId('MyPlugin');
             }}>
                 Inject
-            </button>;
+            </button>
             <Container>
                 {
                     loading.editor
@@ -66,12 +66,18 @@ export default function Home() {
                         : null
                 }
                 <Editor
+                    config={{
+                        autofocus: true,
+                    }}
                     register={{
                         'test-plugin': {
                             component: <PluginTest />,
                             // @ts-ignore
                             class: PluginClass,
                         }
+                    }}
+                    onChange={(api, event) => {
+                        console.log('CHANGE EVENT', { api, event });
                     }}
                 />
             </Container>

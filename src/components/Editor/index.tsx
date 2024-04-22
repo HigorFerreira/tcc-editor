@@ -23,9 +23,11 @@ export const Context = createContext<EditorContextType>({
 
 export default function Editor(
     {
+        onChange,
         onReady,
         onError,
         register,
+        config,
     }: EditorProps
 ){
 
@@ -94,6 +96,7 @@ export default function Editor(
                     if(!editor.current && editorContainerRef.current){
                         console.log("Comming to assing editorjs...");
                         editor.current = new EditorJS({
+                            ...config,
                             holder: editorContainerRef.current,
                             tools: Object.keys(register).reduce((prev, key) => {
                                 const { component, ...restOfProps } = register[key];
@@ -103,7 +106,7 @@ export default function Editor(
                                 };
                             }, {}),
                             onChange: (api, event) => {
-                                console.log({ api, event });
+                                onChange && onChange(api, event);
                             },
                         });
 
