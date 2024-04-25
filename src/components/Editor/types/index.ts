@@ -1,12 +1,13 @@
-import { PropsWithChildren } from 'react'
-import type EditorJS from '@editorjs/editorjs'
-import type { BlockAPI, ToolSettings } from '@editorjs/editorjs'
-import { GenericObject } from "@/types"
+import { PropsWithChildren } from 'react';
+import type EditorJS from '@editorjs/editorjs';
+import type { BlockAPI, ToolSettings } from '@editorjs/editorjs';
+import { GenericObject } from "@/types";
 import type {
     EditorConfig,
     API,
     BlockMutationEvent,
 } from '@editorjs/editorjs';
+import BasePlugin from '@/components/Editor/BasePlugin';
 
 export interface EditorBlockConstructorProps {
     api: EditorJS
@@ -40,4 +41,9 @@ interface RegisterObjType extends Omit<ToolSettings, 'tunes'> {
 }
 export interface RegisterType {
     [key: string]: RegisterObjType
+}
+
+export interface PluginListItemType {
+    excluded: boolean
+    plugin: BasePlugin
 }

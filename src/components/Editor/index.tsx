@@ -12,6 +12,7 @@ import EditorJS from '@editorjs/editorjs';
 import {
     EditorProps,
     EditorContextType,
+    PluginListItemType
 } from "@/components/Editor/types";
 
 import { createPortal } from "react-dom";
@@ -36,10 +37,11 @@ export default function Editor(
     const editorContainerRef = useRef<HTMLDivElement>(null);
     const [ ready, setReady ] = useState(false);
 
-    const [ pluginsList, setPluginsList ] = useState<BasePlugin[]>([]);
+    const [ pluginsList, setPluginsList ] = useState<PluginListItemType[]>([]);
 
     const pluginsRender = useMemo(() => {
-        return pluginsList.map((context) => {
+        return pluginsList.map(({ excluded, plugin: context }) => {
+            if(excluded) return null;
             return createPortal(
                 cloneElement(
                     register[context.name].component,
@@ -71,8 +73,11 @@ export default function Editor(
                         // console.log({ e });
                         setPluginsList(prev => [
                             ...prev,
-                            // @ts-ignore
-                            e.detail.context
+                            {
+                                excluded: false,
+                                // @ts-ignore
+                                plugin: e.detail.context
+                            }
                         ]);
                     });
 
@@ -82,13 +87,20 @@ export default function Editor(
                     });
 
                     document.addEventListener('editor-plugin-unmount', e => {
-                        // console.log('editor-plugin-unmount');
-                        // console.log({ e });
                         setPluginsList(prev => {
-                            return prev.filter(({ pluginId }) => {
-                                return (e as CustomEvent<{ context: PluginClass }>)
-                                    .detail.context.pluginId !== pluginId;
-                            });
+                            return prev.map((item) => {
+                                const { plugin: { pluginId } } = item;
+                                if(
+                                    (e as CustomEvent<{ context: PluginClass }>)
+                                        .detail.context.pluginId === pluginId
+                                ){
+                                    return {
+                                        ...item,
+                                        excluded: true
+                                    }
+                                }
+                                return item;
+                            })
                         });
                     });
 
