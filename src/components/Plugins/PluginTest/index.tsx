@@ -52,6 +52,7 @@ export default function TestPlugin(
 
     useEffect(() => {
         if(ready){
+            console.log('Plugin ready')
             document.addEventListener('editor-plugin-settings-render', e => {
                 if(context?.pluginId === (e as any)?.detail?.context?.pluginId){
                     setSettings(<Settings />);
@@ -61,7 +62,7 @@ export default function TestPlugin(
     }, [ ready ]);
 
     useEffect(() => {
-        console.log({ count });
+        // console.log({ count });
         if(context?.pluginData){
             context.pluginData = {
                 ...context.pluginData,

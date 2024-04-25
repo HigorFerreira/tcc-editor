@@ -16,6 +16,7 @@ import {
 
 import BasePlugin from '@/components/Editor/BasePlugin';
 import { createPortal } from "react-dom";
+import { PluginClass } from "../Plugins/PluginTest";
 
 export const Context = createContext<EditorContextType>({
     editor: null
@@ -42,7 +43,11 @@ export default function Editor(
             return createPortal(
                 cloneElement(
                     register[context.name].component,
-                    { context }
+                    { 
+                        context,
+                        key: context.pluginId,
+                        'data-key': context.pluginId,
+                    }
                 ),
                 document.getElementById(context.pluginId) as HTMLElement
             );
@@ -50,7 +55,7 @@ export default function Editor(
     }, [ pluginsList ]);
 
     useEffect(() => {
-        console.log({ pluginsList });
+        // console.log({ pluginsList });
     }, [ pluginsList ]);
 
     useEffect(() => setReady(true), []);
@@ -59,11 +64,11 @@ export default function Editor(
         if(ready){
             (async () => {
                 try{
-                    console.log("Is ready");
+                    // console.log("Is ready");
 
                     document.addEventListener('editor-plugin-render', e => {
-                        console.log('editor-plugin-render');
-                        console.log({ e });
+                        // console.log('editor-plugin-render');
+                        // console.log({ e });
                         setPluginsList(prev => [
                             ...prev,
                             // @ts-ignore
@@ -72,29 +77,23 @@ export default function Editor(
                     });
 
                     document.addEventListener('editor-plugin-settings-render', e => {
-                        console.log('editor-plugin-settings-render');
-                        console.log({ e });
+                        // console.log('editor-plugin-settings-render');
+                        // console.log({ e });
                     });
 
                     document.addEventListener('editor-plugin-unmount', e => {
-                        console.log('editor-plugin-unmount');
-                        console.log({ e });
+                        // console.log('editor-plugin-unmount');
+                        // console.log({ e });
                         setPluginsList(prev => {
-                            const arr = [ ...prev ];
-                            const element = arr.find(({ pluginId }) => pluginId === (e as CustomEvent).detail?.context?.pluginId);
-                            if(!element) return prev;
-                            
-                            arr.splice(
-                                arr.indexOf(element),
-                                1,
-                            );
-
-                            return arr;
+                            return prev.filter(({ pluginId }) => {
+                                return (e as CustomEvent<{ context: PluginClass }>)
+                                    .detail.context.pluginId !== pluginId;
+                            });
                         });
                     });
 
                     if(!editor.current && editorContainerRef.current){
-                        console.log("Comming to assing editorjs...");
+                        // console.log("Comming to assing editorjs...");
                         editor.current = new EditorJS({
                             ...config,
                             holder: editorContainerRef.current,

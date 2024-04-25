@@ -47,6 +47,13 @@ export default abstract class BaseEditorPlugin {
         const wrapper = document.createElement('div');
         wrapper.id = this.pluginId;
 
+        const ev = new CustomEvent<{ context: BaseEditorPlugin }>('editor-plugin-render', {
+            detail: {
+                context: this
+            }
+        });
+        setTimeout(() => document.dispatchEvent(ev), 20);
+
         return wrapper;
     }
 
@@ -59,16 +66,23 @@ export default abstract class BaseEditorPlugin {
 
         const wrapper = document.createElement('div');
         wrapper.id = this.settingsId;
+        wrapper.style.overflow = "auto";
 
         setTimeout(() => {
             document.dispatchEvent(ev);
         }, 20);
 
-        return wrapper; 
+        return wrapper;
     }
 
     public destroy(){
+        const ev = new CustomEvent<{ context: BaseEditorPlugin }>('editor-plugin-unmount', {
+            detail: {
+                context: this
+            }
+        });
         
+        document.dispatchEvent(ev);        
     }
 
     public save(){
@@ -78,12 +92,7 @@ export default abstract class BaseEditorPlugin {
     // Plugin hooks
     public rendered(){
         // console.log('Tool rendered');
-        const ev = new CustomEvent<{ context: BaseEditorPlugin }>('editor-plugin-render', {
-            detail: {
-                context: this
-            }
-        });
-        document.dispatchEvent(ev);
+        
     }
 
     public updated(){
@@ -98,13 +107,6 @@ export default abstract class BaseEditorPlugin {
 
     public removed(){
         // console.log('Tool removed');
-        const ev = new CustomEvent<{ context: BaseEditorPlugin }>('editor-plugin-unmount', {
-            detail: {
-                context: this
-            }
-        });
-        
-        document.dispatchEvent(ev);
     }
 
     public moved(){
