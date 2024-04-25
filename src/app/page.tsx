@@ -5,7 +5,8 @@ import { createPortal } from 'react-dom';
 import dynamic from 'next/dynamic';
 import styled from '@emotion/styled';
 import type EditorJS from '@editorjs/editorjs';
-import PluginTest, { PluginClass } from '@/components/Plugins/PluginTest';
+import PluginTest from '@/components/Plugins/PluginTest';
+import PluginClass from '@/components/Plugins/PluginTest/class';
 
 import { FileManangement } from '@/utils';
 

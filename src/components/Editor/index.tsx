@@ -1,22 +1,22 @@
 import {
-    useEffect,
-    useState,
-    createContext,
     useRef,
     useMemo,
+    useState,
+    useEffect,
     cloneElement,
+    createContext,
 } from "react";
 
 import EditorJS from '@editorjs/editorjs';
 
 import {
-    EditorContextType,
     EditorProps,
+    EditorContextType,
 } from "@/components/Editor/types";
 
-import BasePlugin from '@/components/Editor/BasePlugin';
 import { createPortal } from "react-dom";
-import { PluginClass } from "../Plugins/PluginTest";
+import BasePlugin from '@/components/Editor/BasePlugin';
+import PluginClass from "@/components/Plugins/PluginTest/class";
 
 export const Context = createContext<EditorContextType>({
     editor: null
