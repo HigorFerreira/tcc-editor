@@ -19,6 +19,8 @@ import { createPortal } from "react-dom";
 import BasePlugin from '@/components/Editor/BasePlugin';
 import PluginClass from "@/components/Plugins/PluginTest/class";
 
+export * from '@/components/Editor/hooks';
+
 export const Context = createContext<EditorContextType>({
     editor: null
 });
@@ -119,6 +121,7 @@ export default function Editor(
                             onChange: (api, event) => {
                                 onChange && onChange(api, event);
                             },
+                            data: JSON.parse('{"time":1714098717478,"blocks":[{"id":"eSBOAdLHih","type":"test-plugin","data":{"count":4}},{"id":"uUxe5GHQug","type":"test-plugin","data":{"count":1}},{"id":"MzlrfLBWYJ","type":"test-plugin","data":{"count":2}},{"id":"rMce95Hc8E","type":"test-plugin","data":{"count":3}},{"id":"CgZGukZcS6","type":"paragraph","data":{"text":"dvmçlajmvçlmdaadcacnjda"}},{"id":"Cgu2iPnWcZ","type":"paragraph","data":{"text":"dcmladmckda"}},{"id":"aZbzTm8Csv","type":"test-plugin","data":{"count":1}}],"version":"2.28.2"}')
                         });
 
                         await editor.current.isReady;

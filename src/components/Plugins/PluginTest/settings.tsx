@@ -1,3 +1,4 @@
+'use client';
 import { useCount } from '@/components/Plugins/PluginTest';
 
 export default function Settings(){

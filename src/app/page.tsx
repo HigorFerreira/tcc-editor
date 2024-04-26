@@ -78,8 +78,11 @@ export default function Home() {
                         }
                     }}
                     onChange={(api, event) => {
-                        // console.log('CHANGE EVENT', { api, event });
+                        console.log('CHANGE EVENT', { api, event });
                     }}
+                    onReady={ editor => {
+                        console.log({ editor })
+                    } }
                 />
             </Container>
         </main>

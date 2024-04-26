@@ -1,12 +1,13 @@
+'use client';
 import {
-    Dispatch,
-    PropsWithChildren,
-    ReactNode,
-    SetStateAction,
-    createContext,
-    useContext,
-    useEffect,
     useState,
+    Dispatch,
+    useEffect,
+    ReactNode,
+    useContext,
+    createContext,
+    SetStateAction,
+    PropsWithChildren,
 } from 'react';
 
 import { createPortal } from 'react-dom';
@@ -59,6 +60,11 @@ export default function TestPlugin(
     useEffect(() => {
         if(ready){
             console.log('Plugin ready');
+
+            if(context?.data){
+                setState(context.data);
+            }
+
             document.addEventListener('editor-plugin-settings-render', e => {
                 if(context?.pluginId === (e as any)?.detail?.context?.pluginId){
                     setSettings(<Settings />);
@@ -80,7 +86,7 @@ export default function TestPlugin(
         }
     }, [ state ]);
 
-    const settingsContainer = document.getElementById(context?.settingsId || '')
+    const settingsContainer = document.getElementById(context?.settingsId || '');
 
     return <Context.Provider value={{ state, setState }}>
         <p>Count: {state.count}</p>

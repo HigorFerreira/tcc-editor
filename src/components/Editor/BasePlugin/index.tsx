@@ -27,13 +27,14 @@ export default abstract class BaseEditorPlugin {
         this.block = block;
         this.config = config;
         this.data = data;
+        this.pluginData = data;
         this.readOnly = readOnly;
 
         this.name = this.getName();
         this.uuid = this.getUuid();
         this.pluginId = `${this.name}-${this.uuid}`;
         this.settingsId = `settings-${this.name}-${this.uuid}`;
-        this.pluginData = {};
+        // this.pluginData = {};
     }
 
     static get toolbox() {
