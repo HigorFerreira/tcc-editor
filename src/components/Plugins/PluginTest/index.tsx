@@ -59,9 +59,10 @@ export default function TestPlugin(
 
     useEffect(() => {
         if(ready){
-            console.log('Plugin ready');
-
-            if(context?.data){
+            // console.log('Plugin ready');
+            // console.log({ context: context?.data });
+            if(context?.data && Object.keys(context.data).length !== 0){
+                // console.log(context.data);
                 setState(context.data);
             }
 
