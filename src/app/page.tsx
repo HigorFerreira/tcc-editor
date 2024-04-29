@@ -5,8 +5,11 @@ import { createPortal } from 'react-dom';
 import dynamic from 'next/dynamic';
 import styled from '@emotion/styled';
 import type EditorJS from '@editorjs/editorjs';
+
 import PluginTest from '@/components/Plugins/PluginTest';
 import PluginClass from '@/components/Plugins/PluginTest/class';
+import Header from '@/components/Plugins/Header';
+import HeaderClass from '@/components/Plugins/Header/class';
 
 import { FileManangement } from '@/utils';
 
@@ -71,11 +74,16 @@ export default function Home() {
                         autofocus: true,
                     }}
                     register={{
+                        'header': {
+                            component: <Header />,
+                            // @ts-ignore
+                            class: HeaderClass,
+                        },
                         'test-plugin': {
                             component: <PluginTest />,
                             // @ts-ignore
                             class: PluginClass,
-                        }
+                        },                        
                     }}
                     onChange={(api, event) => {
                         console.log('CHANGE EVENT', { api, event });

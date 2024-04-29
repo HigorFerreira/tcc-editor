@@ -1,13 +1,17 @@
 import { EditorBlockConstructorProps } from '@/components/Editor/types'
+import { TunesMenuConfigItem } from '@editorjs/editorjs/types/tools';
 
-export default abstract class BaseEditorPlugin {
+/**
+ * @template - D plugin data type
+ */
+export default abstract class BaseEditorPlugin<D = unknown> {
     public api: EditorBlockConstructorProps['api'];
     public block: EditorBlockConstructorProps['block'];
     public config: EditorBlockConstructorProps['config'];
     public data: EditorBlockConstructorProps['data'];
     public readOnly: EditorBlockConstructorProps['readOnly'];
 
-    public pluginData: unknown
+    public pluginData: D
 
     public name: string
     public uuid: string
@@ -58,7 +62,7 @@ export default abstract class BaseEditorPlugin {
         return wrapper;
     }
 
-    public renderSettings(){    
+    public renderSettings(): HTMLElement | TunesMenuConfigItem[] {    
         const ev = new CustomEvent<{ context: BaseEditorPlugin }>('editor-plugin-settings-render', {
             detail: {
                 context: this
