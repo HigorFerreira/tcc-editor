@@ -36,7 +36,6 @@ export default function Header(
                 setLevel(context.data.level??1);
                 setUpdate(prev => prev+1);
             }
-            console.log({ data: context?.data });
         }
     }, [ ready ]);
 

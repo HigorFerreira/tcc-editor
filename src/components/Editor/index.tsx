@@ -44,7 +44,7 @@ export default function Editor(
     const pluginsRender = useMemo(() => {
         return pluginsList.map(({ excluded, plugin: context }) => {
             const containerElement = document.getElementById(context.pluginId);
-            
+
             if(excluded) return null;
             if(!containerElement) return null;
             return createPortal(
@@ -53,7 +53,6 @@ export default function Editor(
                     { 
                         context,
                         key: context.pluginId,
-                        'data-key': context.pluginId,
                     }
                 ),
                 containerElement
@@ -124,7 +123,7 @@ export default function Editor(
                             onChange: (api, event) => {
                                 onChange && onChange(api, event);
                             },
-                            data: undefined
+                            data: JSON.parse('{"time":1714356669977,"blocks":[{"id":"p3ma9MO-Ws","type":"header","data":{"level":1,"text":"Heading level 1"}},{"id":"-bkpwJInfq","type":"paragraph","data":{"text":"This is heading one"}},{"id":"m68s68t6IY","type":"header","data":{"level":2,"text":"Heading level 2"}},{"id":"WzIgNQ5js1","type":"paragraph","data":{"text":"This is level two"}},{"id":"F1Ffj8eoaU","type":"header","data":{"text":"Heading level 3","level":3}},{"id":"XuBgVTOqMZ","type":"paragraph","data":{"text":"This is level tree"}},{"id":"inWGqnyxTK","type":"header","data":{"level":4,"text":"Heading level 4"}},{"id":"sZq2a0ZU9K","type":"paragraph","data":{"text":"This is level four"}}],"version":"2.29.1"}')
                         });
 
                         await editor.current.isReady;
