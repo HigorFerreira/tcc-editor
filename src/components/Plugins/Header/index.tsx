@@ -15,6 +15,7 @@ export default function Header(
 ){
     const ref = useRef<HTMLHeadingElement>(null);
 
+    const [ update, setUpdate ] = useState(1);
     const [ level, setLevel ] = useState<HeaderLevelsType>(1);
     const [ text, setText ] = useState('');
     const [ ready, setReady ] = useState(false);
@@ -30,6 +31,12 @@ export default function Header(
             if(ref.current){
                 ref.current.focus();
             }
+            if(context?.data && Object.keys(context.data).length !== 0){
+                setText(context.data.text as string);
+                setLevel(context.data.level??1);
+                setUpdate(prev => prev+1);
+            }
+            console.log({ data: context?.data });
         }
     }, [ ready ]);
 
@@ -41,12 +48,22 @@ export default function Header(
             }
         }
 
+        setUpdate(prev => prev+1);
+    }, [ level ]);
+
+    useEffect(() => {
+        if(context?.pluginData){
+            context.pluginData.text = text;
+        }
+        // @ts-ignore
+        context.text = text;
+    }, [ text ]);
+
+    useEffect(() => {
         if(ref.current){
             ref.current.innerText = text;
         }
-    }, [ level ]);
-
-
+    }, [ update ]);
 
     const inputHandler = (e: FormEvent<HTMLHeadElement>) => {
         setText((e.target as HTMLHeadElement).innerText);

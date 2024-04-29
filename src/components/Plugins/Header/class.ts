@@ -5,14 +5,25 @@ import {
 import { v4 as uuidv4 } from 'uuid';
 
 
-import { HeaderLevelsType } from '@/components/Plugins/Header/types';
+import {
+    HeaderLevelsType,
+    DataType
+} from '@/components/Plugins/Header/types';
 
 
 import BasePlugin from '@/components/Editor/BasePlugin';
 import { TunesMenuConfigItem } from '@editorjs/editorjs/types/tools/tool-settings';
 
-export default class HeaderClass extends BasePlugin<{ level: HeaderLevelsType }> {
+export default class HeaderClass extends BasePlugin<DataType> {
+    text: string = ""
     public setLevel: Dispatch<SetStateAction<HeaderLevelsType>> | null = null
+
+    static get conversionConfig() {
+        return {
+            export: 'text', // use 'text' property for other blocks
+            import: 'text', // fill 'text' property from other block's export string
+        };
+    }
 
     static get toolbox() {
         return {
