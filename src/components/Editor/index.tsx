@@ -43,7 +43,10 @@ export default function Editor(
 
     const pluginsRender = useMemo(() => {
         return pluginsList.map(({ excluded, plugin: context }) => {
+            const containerElement = document.getElementById(context.pluginId);
+            
             if(excluded) return null;
+            if(!containerElement) return null;
             return createPortal(
                 cloneElement(
                     register[context.name].component,
@@ -53,7 +56,7 @@ export default function Editor(
                         'data-key': context.pluginId,
                     }
                 ),
-                document.getElementById(context.pluginId) as HTMLElement
+                containerElement
             );
         });
     }, [ pluginsList ]);
