@@ -10,6 +10,8 @@ import PluginTest from '@/components/Plugins/PluginTest';
 import PluginClass from '@/components/Plugins/PluginTest/class';
 import Header from '@/components/Plugins/Header';
 import HeaderClass from '@/components/Plugins/Header/class';
+import Image from '@/components/Plugins/Image';
+import ImageClass from '@/components/Plugins/Image/class';
 
 import { FileManangement } from '@/utils';
 
@@ -78,6 +80,11 @@ export default function Home() {
                             component: <Header />,
                             // @ts-ignore
                             class: HeaderClass,
+                        },
+                        'image': {
+                            component: <Image />,
+                            // @ts-ignore
+                            class: ImageClass,
                         },
                         'test-plugin': {
                             component: <PluginTest />,
