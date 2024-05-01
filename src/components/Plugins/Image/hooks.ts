@@ -12,6 +12,7 @@ export function useImage(context?: ImageClass<DataType>){
     const [ ready, setReady ] = useState(false);
     const [ uuid, setUuid ] = useState(uuidv4());
     const [ width, setWidth ] = useState(0.4);
+    const [ imageUrl, setImageUrl ] = useState("");
     const [ image, setImage ] = useState("");
     const [ title, setTitle ] = useState("");
     const [ description, setDescription ] = useState("");
@@ -37,9 +38,10 @@ export function useImage(context?: ImageClass<DataType>){
                     console.log('ready')
                     setLoading(true);
 
-                    if(context?.data?.uuid){
-                        setUuid(context.data.uuid);
+                    if(context?.data?.imageUrl){
+                        setImageUrl(context.data.imageUrl);
                     }
+
                     if(context?.data?.title){
                         setTitle(context.data.title);
                     }
@@ -50,40 +52,44 @@ export function useImage(context?: ImageClass<DataType>){
                         setWidth(context.data.width);
                     }
 
-                    const _db = await openDb('MyTCC', db => {
-                        db.createObjectStore('images', { keyPath: 'uuid' });
-                    });
+                    if(context?.data?.uuid){
+                        setUuid(context.data.uuid);
 
-                    setDb(_db);
-
-                    const img = await (() => new Promise((resolve, reject) => {
-                        const req = _db.transaction('images')
-                            .objectStore('images')
-                            .get(uuid);
-                        
-                        req.onerror = evt => reject(evt);
-                        req.onsuccess = evt => {
-                            const img = (evt.target as any)?.result as DbImage
-                            if(img) resolve(img);
-                            else{
-                                const defaultImage = {
-                                    uuid,
-                                    image: ''
-                                } satisfies DbImage;
-
-                                const setReq = _db.transaction("images", "readwrite")
-                                    .objectStore("images")
-                                    .add(defaultImage);
-
-                                setReq.onerror = evt => reject(evt);
-                                setReq.onsuccess = evt => {
-                                    resolve(defaultImage);
+                        const _db = await openDb('MyTCC', db => {
+                            db.createObjectStore('images', { keyPath: 'uuid' });
+                        });
+    
+                        setDb(_db);
+    
+                        const img = await (() => new Promise((resolve, reject) => {
+                            const req = _db.transaction('images')
+                                .objectStore('images')
+                                .get(context.data.uuid);
+                            
+                            req.onerror = evt => reject(evt);
+                            req.onsuccess = evt => {
+                                const img = (evt.target as any)?.result as DbImage
+                                if(img) resolve(img);
+                                else{
+                                    const defaultImage = {
+                                        uuid,
+                                        image: ''
+                                    } satisfies DbImage;
+    
+                                    const setReq = _db.transaction("images", "readwrite")
+                                        .objectStore("images")
+                                        .add(defaultImage);
+    
+                                    setReq.onerror = evt => reject(evt);
+                                    setReq.onsuccess = evt => {
+                                        resolve(defaultImage);
+                                    }
                                 }
                             }
-                        }
-                    }))() as DbImage;
+                        }))() as DbImage;
 
-                    // setImage(img.image);
+                        setImage(img.image);
+                    }
                 }
             }
             catch(err){
@@ -100,6 +106,43 @@ export function useImage(context?: ImageClass<DataType>){
     useEffect(() => {
         (async () => {
             try{
+                setLoading(true);
+                if(context?.pluginData){
+                    context.pluginData = {
+                        ...context.pluginData,
+                        imageUrl
+                    }
+                }
+
+                if(imageUrl){
+                    const base64ImageUrl = await fetch(imageUrl)
+                        .then(res => res.blob())
+                        .then(blob => {
+                            return new Promise((resolve, reject) => {
+                                const reader = new FileReader();
+                                reader.onload = () => {
+                                    resolve(reader.result);
+                                }
+                                reader.onerror = reject;
+                                reader.readAsDataURL(blob);
+                            });
+                        });
+
+                    setImage(base64ImageUrl as string);
+                }
+            }
+            catch(err){
+                setError(err as Error);
+            }
+            finally{
+                setLoading(false);
+            }
+        })();
+    }, [imageUrl]);
+
+    useEffect(() => {
+        (async () => {
+            try{
                 if(image && db){
                     setLoading(true);
                     await (() => new Promise((resolve, reject) => {
@@ -107,7 +150,6 @@ export function useImage(context?: ImageClass<DataType>){
                             uuid,
                             image
                         } satisfies DbImage
-                        console.log({ img });
                         const putReq = db.transaction('images', 'readwrite')
                             .objectStore('images')
                             .put(img);
@@ -200,6 +242,9 @@ export function useImage(context?: ImageClass<DataType>){
 
     const setImageState: ImageSetter = (context, val) => {
         switch(context){
+            case 'imageUrl':
+                setImageUrl(val as SetStateAction<string>);
+                break;
             case 'image':
                 setImage(val as SetStateAction<string>);
                 break;
@@ -221,6 +266,7 @@ export function useImage(context?: ImageClass<DataType>){
     return {
         state: {
             image,
+            imageUrl,
             title,
             description,
             width,
