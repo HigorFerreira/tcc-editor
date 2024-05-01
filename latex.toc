@@ -11,11 +11,12 @@
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introdução}}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Subtítulo de Nível 1}{1}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Subtítulo de Nível 2}{2}{subsection.1.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1.1}Subtítulo de Nível 3}{2}{subsubsection.1.1.1.1}%
-\contentsline {paragraph}{\numberline {1.1.1.1.1}Subtítulo de Nível 4}{2}{paragraph.1.1.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}Subtítulo de Nível 2 de novo}{2}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.1}Caracteres especiais}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Subtítulo de Nível 1}{1}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Subtítulo de Nível 2}{2}{subsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.1.1}Subtítulo de Nível 3}{2}{subsubsection.1.2.1.1}%
+\contentsline {paragraph}{\numberline {1.2.1.1.1}Subtítulo de Nível 4}{2}{paragraph.1.2.1.1.1}%
+\contentsline {subsection}{\numberline {1.2.2}Subtítulo de Nível 2 de novo}{2}{subsection.1.2.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Revisão da Literatura}}{3}{chapter.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
