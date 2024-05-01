@@ -7,7 +7,7 @@ export const Container = styled('div')(() => {
         flexDirection: 'column',
         gap: 15,
         margin: '2rem 0',
-        minHeight: 256,
+        // minHeight: 256,
     }
 });
 
