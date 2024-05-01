@@ -16,3 +16,36 @@ export function openDb(name: string, config: (db: IDBDatabase, event: IDBVersion
         }
     });
 }
+
+export function get<R = unknown>(db: IDBDatabase, objectStorage: string, key: IDBValidKey): Promise<R>{
+    return new Promise((resolve, reject) => {
+        const request = db.transaction(objectStorage)
+            .objectStore(objectStorage)
+            .get(key)
+
+        request.onerror = evt => reject(evt);
+        request.onsuccess = evt => resolve((evt.target as any).result);
+    });
+}
+
+export function add<T = any, R = unknown>(db: IDBDatabase, objectStorage: string, obj: T): Promise<R> {
+    return new Promise((resolve, reject) => {
+        const request = db.transaction(objectStorage)
+            .objectStore(objectStorage)
+            .add(obj)
+
+        request.onerror = evt => reject(evt);
+        request.onsuccess = evt => resolve((evt.target as any).result);
+    });
+}
+
+export function put<T = any, R = unknown>(db: IDBDatabase, objectStorage: string, obj: T): Promise<R> {
+    return new Promise((resolve, reject) => {
+        const request = db.transaction(objectStorage)
+            .objectStore(objectStorage)
+            .put(obj)
+
+        request.onerror = evt => reject(evt);
+        request.onsuccess = evt => resolve((evt.target as any).result);
+    });
+}
