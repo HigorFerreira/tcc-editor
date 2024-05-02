@@ -30,7 +30,7 @@ export function get<R = unknown>(db: IDBDatabase, objectStorage: string, key: ID
 
 export function add<T = any, R = unknown>(db: IDBDatabase, objectStorage: string, obj: T): Promise<R> {
     return new Promise((resolve, reject) => {
-        const request = db.transaction(objectStorage)
+        const request = db.transaction(objectStorage, "readwrite")
             .objectStore(objectStorage)
             .add(obj)
 
@@ -41,7 +41,7 @@ export function add<T = any, R = unknown>(db: IDBDatabase, objectStorage: string
 
 export function put<T = any, R = unknown>(db: IDBDatabase, objectStorage: string, obj: T): Promise<R> {
     return new Promise((resolve, reject) => {
-        const request = db.transaction(objectStorage)
+        const request = db.transaction(objectStorage, "readwrite")
             .objectStore(objectStorage)
             .put(obj)
 
