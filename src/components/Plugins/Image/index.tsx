@@ -14,6 +14,7 @@ import {
     SpinContainer,
     CardContainer,
     TextEditionContainer,
+    LoadingContainer,
 } from '@/components/Plugins/Image/styles';
 import ImageClass from '@/components/Plugins/Image/class';
 import Settings from '@/components/Plugins/Image/settings';
@@ -32,7 +33,6 @@ const { Meta } = Card;
 //#region
 const Context = createContext<Partial<{
     state: ReturnType<typeof useImage>['state'],
-    db: ReturnType<typeof useImage>['db'],
     loading: ReturnType<typeof useImage>['loading'],
     error: ReturnType<typeof useImage>['error'],
     setImageState: ReturnType<typeof useImage>['setImageState'],
@@ -50,10 +50,6 @@ export function useImageState(){
     return state;
 }
 
-export function useDb(){
-	const { db } = useContext(Context);
-	return db;
-}
 export function useLoading(){
 	const { loading } = useContext(Context);
 	return loading;
@@ -83,7 +79,6 @@ export default function Image(
     const [ settings, setSettings ] = useState<ReactNode | null>(null);
     const {
         state,
-        db,
         loading,
         error,
         setImageState,
@@ -93,17 +88,6 @@ export default function Image(
 
     const unmountHandler = (e: Event) => {
         // Trying to remove image from database, (NOT WORKING)
-        const evt = e as CustomEvent<{ context: ImageClass<DataType> }>;
-        if(evt.detail.context.pluginId === context?.pluginId){
-            if(db){
-                db.transaction('images', 'readwrite')
-                    .objectStore('images')
-                    .delete(context.pluginData.uuid)
-                    .onerror = () => {
-                        console.error('Error while deleting', context.pluginData.uuid, 'from database');
-                    }
-            }
-        }
     }
 
     const settingsHandler = (e: Event) => {
@@ -143,18 +127,6 @@ export default function Image(
             titleRef.current.focus();
         }
     }, [ state.image ]);
-
-    // useEffect(() => {
-    //     if(!state.title && titleRef.current){
-    //         titleRef.current.innerText = 'Digite um título';
-    //     }
-    // }, [ state.title ]);
-
-    // useEffect(() => {
-    //     if(!state.description && descriptionRef.current){
-    //         descriptionRef.current.innerText = 'Digite uma descrição';
-    //     }
-    // }, [ state.description ]);
 
     const props: UploadProps = {
         accept: 'image/png, image/jpeg',
@@ -198,7 +170,6 @@ export default function Image(
 
     return <Context.Provider value={{
         state,
-        db,
         loading,
         error,
         setImageState,
@@ -214,7 +185,7 @@ export default function Image(
             }
             {
                 !loading && !state.image &&
-                <>
+                <LoadingContainer>
                     <Input
                         placeholder='Cole o link de uma imagem'
                         onPaste={e => {
@@ -251,7 +222,7 @@ export default function Image(
                             deve estar no formato png ou jpeg
                         </p>
                     </Dragger>
-                </>
+                </LoadingContainer>
             }
             {
                 state.image &&

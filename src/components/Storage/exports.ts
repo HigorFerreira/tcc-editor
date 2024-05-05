@@ -14,3 +14,8 @@ export function useStorage(){
         error
     }
 }
+
+export function useBlocksStorage() {
+    const { useBlocksStorage } = useContext(Context);
+    return useBlocksStorage;
+}

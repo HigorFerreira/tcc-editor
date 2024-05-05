@@ -12,28 +12,20 @@ import {
 
 import {
     useImageStore,
+    useBlocksStorage,
 } from './hooks';
+
+import {
+    ContextType,
+} from './types';
+
+import {
+    defaultContext,
+} from './utils';
 
 export * from './exports';
 
-export const Context = createContext<{
-    isStorageLoading: boolean
-    error: Error | null
-    useImageStore: ReturnType<typeof useImageStore>
-}>({
-    isStorageLoading: false,
-    error: null,
-    useImageStore: {
-        loading: false,
-        error: null,
-        result: null,
-        clearError: () => {},
-        clearResult: () => {},
-        getOrCreateImageEntry: () => {},
-        putImage: () => {},
-        getImage: () => {},
-    }
-});
+export const Context = createContext<ContextType>(defaultContext);
 
 export default function Storage(
     {
@@ -47,9 +39,13 @@ export default function Storage(
     const [ db, setDb ] = useState<IDBDatabase>();
 
     const _useImageStore = useImageStore(db);
+    const _useBlocksStorage = useBlocksStorage(db);
 
     useEffect(() => {
         setReady(true);
+        return () => {
+            // _useBlocksStorage.deleteBlock();
+        }
     }, []);
 
     useEffect(() => {
@@ -59,10 +55,10 @@ export default function Storage(
                 if(ready){
                     const _db = await openDb("MyTCC", db => {
                         db.createObjectStore('images', { keyPath: 'uuid' });
-                        db.createObjectStore('mainBlocks');
+                        db.createObjectStore('mainBlocks', { keyPath: 'id' });
                     });
 
-                    setDb(db);
+                    setDb(_db);
                 }
             }
             catch(err){
@@ -78,10 +74,17 @@ export default function Storage(
     }, [ ready ]);
 
     useEffect(() => {
-        console.log({ db });
+        if(db){
+            _useBlocksStorage.addBlock(null);
+        }
     }, [ db ]);
 
+    useEffect(() => {
+        console.log({ result: _useBlocksStorage.result });
+    }, [ _useBlocksStorage.result ]);
+
     return <Context.Provider value={{
+        useBlocksStorage: _useBlocksStorage,
         useImageStore: _useImageStore,
         isStorageLoading,
         error,

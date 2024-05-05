@@ -51,4 +51,10 @@ export const CardContainer = styled('div')(() => {
         display: 'flex',
         justifyContent: 'center',
     }
-})
+});
+
+export const LoadingContainer = styled('div')(() => {
+    return {
+        minHeight: 180,
+    }
+});

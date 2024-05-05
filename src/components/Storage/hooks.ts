@@ -1,10 +1,22 @@
-import { useState } from "react";
-import { DbImage } from './types'
+import { useEffect, useState } from "react";
+import {
+    DbImage,
+    ResultType,
+    DbEditorBlocks,
+    EditorSave,
+} from './types';
+import {
+    add,
+    put,
+    get,
+    del,
+} from '@/utils/db/helpers';
+import { v4 as uuidv4 } from 'uuid';
 
 export function useImageStore(db?: IDBDatabase){
     const [ loading, setloading ] = useState(false);
     const [ error, setError ] = useState<Error | null>(null);
-    const [ result, setResult ] = useState<DbImage | null>(null);
+    const [ result, setResult ] = useState<ResultType>(null);
 
     function clearError(){
         setError(null);
@@ -14,44 +26,25 @@ export function useImageStore(db?: IDBDatabase){
         setResult(null);
     }
 
-    function getOrCreateImageEntry(uuid: DbImage['uuid']){
+    function addImage(img: DbImage){
         setloading(true);
-        const getRequest = db?.transaction('images')
+        const req = db?.transaction('images', 'readwrite')
             .objectStore('images')
-            .get(uuid);
-        
-        if(getRequest){
-            getRequest.onerror = evt => {
+            .add(img)
+
+        if(req){
+            req.onerror = evt => {
                 setError((evt.target as any).error);
                 setloading(false);
             }
-            getRequest.onsuccess = evt => {
-                const img = (evt.target as any)?.result as DbImage
-                if(img){
-                    setResult(img);
-                    setloading(false);
-                }
-                else{
-                    const defaultImage = {
-                        uuid,
-                        image: ''
-                    } satisfies DbImage;
-    
-                    const setReq = db?.transaction("images", "readwrite")
-                        .objectStore("images")
-                        .add(defaultImage);
-    
-                    if(setReq){
-                        setReq.onerror = evt => {
-                            setError((evt.target as any).error);
-                            setloading(false);
-                        }
-                        setReq.onsuccess = evt => {
-                            setResult(defaultImage);
-                            setloading(false);
-                        }
-                    }
-                }
+
+            req.onsuccess = evt => {
+                setResult({
+                    res: (evt.target as any).result,
+                    operation: 'add',
+                    img,
+                });
+                setloading(false);
             }
         }
     }
@@ -68,13 +61,18 @@ export function useImageStore(db?: IDBDatabase){
                 setloading(false);
             };
             putReq.onsuccess = evt => {
-                setResult((evt.target as any).result);
+                setResult({
+                    res: (evt.target as any).result,
+                    operation: 'put',
+                    img,
+                });
                 setloading(false);
             }
         }
     }
 
     function getImage(uuid: DbImage['uuid']){
+        console.log('Get image called');
         setloading(true);
         const getRequest = db?.transaction('images')
             .objectStore('images')
@@ -86,20 +84,183 @@ export function useImageStore(db?: IDBDatabase){
                 setloading(false);
             }
             getRequest.onsuccess = evt => {
-                setResult((evt.target as any).result);
+                setResult({
+                    res: (evt.target as any).result,
+                    img: (evt.target as any).result,
+                    operation: 'get',
+                });
+                setloading(false);
+            }
+        }
+    }
+
+    function delImage(uuid: DbImage['uuid']){
+        setloading(true);
+        const req = db?.transaction('images', 'readwrite')
+            .objectStore('images')
+            .delete(uuid)
+
+        if(req){
+            req.onerror = evt => {
+                setError((evt.target as any).error);
+                setloading(false);
+            }
+            req.onsuccess = evt => {
+                setResult({
+                    img: (evt.target as any).result,
+                    res: (evt.target as any).result,
+                    operation: 'delete',
+                });
                 setloading(false);
             }
         }
     }
 
     return {
-        loading,
         error,
         result,
-        clearError,
-        clearResult,
-        getOrCreateImageEntry,
+        loading,
+        addImage,
         putImage,
         getImage,
+        delImage,
+        clearError,
+        clearResult,
+    }
+}
+
+export function useBlocksStorage(db?: IDBDatabase){
+    const [ uuid, setUuid ] = useState('');
+    const [ loading, setLoading ] = useState(false);
+    const [ error, setError ] = useState<Error | null>(null);
+    const [ result, setResult ] = useState<EditorSave | null>(null);
+
+    useEffect(() => {
+        if(window !== undefined){
+            const savedUuid = localStorage.getItem('blocks-key');
+            if(savedUuid){
+                setUuid(savedUuid);
+                return
+            }
+            const uuid = uuidv4();
+            localStorage.setItem('blocks-key', uuid);
+            setUuid(uuid);
+        }
+    }, []);
+
+    function clearError(){
+        setError(null);
+    }
+
+    function clearResult(){
+        setResult(null);
+    }
+
+    function addBlock(blocks: EditorSave | null){
+        console.log('addBlock', {
+            id: uuid,
+            editor: blocks
+        })
+        setLoading(true);
+        add<DbEditorBlocks, DbEditorBlocks>({
+            db,
+            opts: {
+                objName: 'mainBlocks',
+                mode: 'readwrite',
+                obj: {
+                    id: uuid,
+                    editor: blocks
+                },
+                onFinally: () => {
+                    setLoading(false);
+                },
+                onError: error => {
+                    setError(error);
+                },
+                onSuccess: result => {
+                    console.log('Add result', result);
+                    // setResult(result.editor);
+                }
+            }
+        });
+    }
+
+    function putBlock(blocks: EditorSave | null){
+        setLoading(true);
+        put<DbEditorBlocks, DbEditorBlocks>({
+            db,
+            opts: {
+                objName: 'mainBlocks',
+                mode: 'readwrite',
+                obj: {
+                    id: uuid,
+                    editor: blocks
+                },
+                onFinally: () => {
+                    setLoading(false);
+                },
+                onError: error => {
+                    setError(error);
+                },
+                onSuccess: result => {
+                    console.log('Put result', result);
+                    // setResult(result.editor);
+                }
+            }
+        });
+    }
+
+    function getBlock(){
+        setLoading(true);
+        get<DbEditorBlocks, DbEditorBlocks>({
+            db,
+            opts: {
+                objName: 'mainBlocks',
+                key: uuid,
+                onFinally: () => {
+                    setLoading(false);
+                },
+                onError: error => {
+                    setError(error);
+                },
+                onSuccess: result => {
+                    setResult(result.editor);
+                }
+            }
+        });
+    }
+
+    function deleteBlock(){
+        setLoading(true);
+        del<DbEditorBlocks, DbEditorBlocks>({
+            db,
+            opts: {
+                objName: 'mainBlocks',
+                key: uuid,
+                mode: 'readwrite',
+                onFinally: () => {
+                    setLoading(false);
+                },
+                onError: error => {
+                    setError(error);
+                },
+                onSuccess: result => {
+                    console.log({ result });
+                    // setResult(result.editor);
+                }
+            }
+        });
+    }
+
+    return {
+        error,
+        result,
+        loading,
+        clearError,
+        clearResult,
+        deleteBlock,
+        addBlock,
+        putBlock,
+        getBlock,
     }
 }

@@ -8,6 +8,8 @@ import {
     DbImage,
 } from "@/components/Plugins/Image/types";
 
+import { useImageStore } from '@/components/Storage'
+
 export function useImage(context?: ImageClass<DataType>){
     const [ ready, setReady ] = useState(false);
     const [ uuid, setUuid ] = useState(uuidv4());
@@ -16,18 +18,58 @@ export function useImage(context?: ImageClass<DataType>){
     const [ image, setImage ] = useState("");
     const [ title, setTitle ] = useState("");
     const [ description, setDescription ] = useState("");
-    const [ db, setDb ] = useState<IDBDatabase | null>(null);
 
     const [ loading, setLoading ] = useState(false);
     const [ error, setError ] = useState<Error | null>(null);
+
+    const {
+        result,
+        addImage,
+        putImage,
+        getImage,
+        delImage,
+        clearResult,
+        error: imageError,
+        loading: imageLoading,
+        clearError: clearImageError,
+    } = useImageStore();
+
+    useEffect(() => {
+        if(result){
+            console.log({ result });
+            switch(result.operation){
+                case 'add':
+                    clearResult();
+                    break;
+                case 'put':
+                    clearResult();
+                    break;
+                case 'get':
+                    setImage(result.img?.image??'');
+                    clearResult();
+                    break;
+                case 'delete':
+                    clearResult();
+                    break;
+            }
+        }
+    }, [ result ]);
+
+    useEffect(() => {
+        setLoading(imageLoading);
+    }, [ imageLoading ]);
+
+    useEffect(() => {
+        if(error){
+            console.error("DB IMAGE ERROR", error);
+            clearError();
+        }
+    }, [ error ]);
 
     useEffect(() => {
         setReady(true);
         
         return () => {
-            db?.transaction('images', 'readwrite')
-                .objectStore('images')
-                .delete(uuid)
         }
     }, []);
 
@@ -54,41 +96,7 @@ export function useImage(context?: ImageClass<DataType>){
 
                     if(context?.data?.uuid){
                         setUuid(context.data.uuid);
-
-                        const _db = await openDb('MyTCC', db => {
-                            db.createObjectStore('images', { keyPath: 'uuid' });
-                        });
-    
-                        setDb(_db);
-    
-                        const img = await (() => new Promise((resolve, reject) => {
-                            const req = _db.transaction('images')
-                                .objectStore('images')
-                                .get(context.data.uuid);
-                            
-                            req.onerror = evt => reject(evt);
-                            req.onsuccess = evt => {
-                                const img = (evt.target as any)?.result as DbImage
-                                if(img) resolve(img);
-                                else{
-                                    const defaultImage = {
-                                        uuid,
-                                        image: ''
-                                    } satisfies DbImage;
-    
-                                    const setReq = _db.transaction("images", "readwrite")
-                                        .objectStore("images")
-                                        .add(defaultImage);
-    
-                                    setReq.onerror = evt => reject(evt);
-                                    setReq.onsuccess = evt => {
-                                        resolve(defaultImage);
-                                    }
-                                }
-                            }
-                        }))() as DbImage;
-
-                        setImage(img.image);
+                        getImage(context.data.uuid);
                     }
                 }
             }
@@ -143,20 +151,12 @@ export function useImage(context?: ImageClass<DataType>){
     useEffect(() => {
         (async () => {
             try{
-                if(image && db){
+                if(image){
                     setLoading(true);
-                    await (() => new Promise((resolve, reject) => {
-                        const img = {
-                            uuid,
-                            image
-                        } satisfies DbImage
-                        const putReq = db.transaction('images', 'readwrite')
-                            .objectStore('images')
-                            .put(img);
-                        
-                        putReq.onerror = evt => reject(evt);
-                        putReq.onsuccess = evt => resolve((evt.target as any).result);
-                    }))();
+                    putImage({
+                        uuid,
+                        image
+                    });
                 }
             }
             catch(err){
@@ -213,23 +213,16 @@ export function useImage(context?: ImageClass<DataType>){
     const clear = () => {
         (async () => {
             try{
-                if(db){
-                    setLoading(true);
-                    await (() => new Promise((resolve, reject) => {
-                        const updateReq = db.transaction('images', 'readwrite')
-                            .objectStore('images')
-                            .put({
-                                uuid,
-                                image: ''
-                            } satisfies DbImage);
-                        updateReq.onerror = evt => reject(evt);
-                        updateReq.onsuccess = evt => resolve((evt.target as any)?.result)
-                    }))();
-                    setImage('');
-                    setTitle('');
-                    setDescription('');
-                    setWidth(0.4);
-                }
+                setLoading(true);
+                putImage({
+                    uuid,
+                    image: ''
+                });
+                setImage('');
+                setImageUrl('');
+                setTitle('');
+                setDescription('');
+                setWidth(0.4);
             }
             catch(err){
                 setError(err as Error);
@@ -272,7 +265,6 @@ export function useImage(context?: ImageClass<DataType>){
             width,
             uuid,
         },
-        db,
         loading,
         error,
         setImageState,
