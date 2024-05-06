@@ -1,11 +1,9 @@
 import ImageClass from "@/components/Plugins/Image/class";
-import { openDb } from '@/utils/db';
 import { SetStateAction, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import {
     DataType,
     ImageSetter,
-    DbImage,
 } from "@/components/Plugins/Image/types";
 
 import { useImageStore } from '@/components/Storage'
@@ -18,6 +16,7 @@ export function useImage(context?: ImageClass<DataType>){
     const [ image, setImage ] = useState("");
     const [ title, setTitle ] = useState("");
     const [ description, setDescription ] = useState("");
+    const [ fileType, setFileType ] = useState("");
 
     const [ loading, setLoading ] = useState(false);
     const [ error, setError ] = useState<Error | null>(null);
@@ -36,7 +35,6 @@ export function useImage(context?: ImageClass<DataType>){
 
     useEffect(() => {
         if(result){
-            console.log({ result });
             switch(result.operation){
                 case 'add':
                     clearResult();
@@ -153,10 +151,12 @@ export function useImage(context?: ImageClass<DataType>){
             try{
                 if(image){
                     setLoading(true);
+                    const [ ,type ] = image.match(/^data.*?\/(.*?);/)??[];
                     putImage({
                         uuid,
                         image
                     });
+                    setFileType(type);
                 }
             }
             catch(err){
@@ -204,6 +204,15 @@ export function useImage(context?: ImageClass<DataType>){
         }
     }, [ width ]);
 
+    useEffect(() => {
+        if(context?.pluginData){
+            context.pluginData = {
+                ...context.pluginData,
+                fileType,
+            }
+        }
+    }, [ fileType ]);
+
     //#endregion
 
     const clearError = () => {
@@ -223,6 +232,7 @@ export function useImage(context?: ImageClass<DataType>){
                 setTitle('');
                 setDescription('');
                 setWidth(0.4);
+                setFileType('');
             }
             catch(err){
                 setError(err as Error);

@@ -24,5 +24,6 @@ export interface ImageBlock {
         title: string
         imageUrl: string
         description: string
+        fileType: string
     }
 }

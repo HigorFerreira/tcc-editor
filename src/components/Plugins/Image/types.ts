@@ -6,6 +6,7 @@ export interface DataType {
     description: string
     width: number
     imageUrl: string
+    fileType: string
 }
 
 export interface ImageSetter {
