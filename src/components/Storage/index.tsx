@@ -79,9 +79,9 @@ export default function Storage(
         }
     }, [ db ]);
 
-    useEffect(() => {
-        console.log({ result: _useBlocksStorage.result });
-    }, [ _useBlocksStorage.result ]);
+    // useEffect(() => {
+    //     console.log({ result: _useBlocksStorage.result });
+    // }, [ _useBlocksStorage.result ]);
 
     return <Context.Provider value={{
         useBlocksStorage: _useBlocksStorage,

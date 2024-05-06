@@ -1,10 +1,17 @@
 "use client";
-import { ReactElement, ReactNode, useEffect, useState } from 'react';
-import { createPortal } from 'react-dom';
+import { useEffect, useState } from 'react';
+import {
+    message,
+} from 'antd';
 
 import dynamic from 'next/dynamic';
 import styled from '@emotion/styled';
 import type EditorJS from '@editorjs/editorjs';
+import { EditorSave } from '@/components/Storage/types';
+import {
+    useStorage,
+    useBlocksStorage,
+} from '@/components/Storage';
 
 import PluginTest from '@/components/Plugins/PluginTest';
 import PluginClass from '@/components/Plugins/PluginTest/class';
@@ -13,18 +20,11 @@ import HeaderClass from '@/components/Plugins/Header/class';
 import Image from '@/components/Plugins/Image';
 import ImageClass from '@/components/Plugins/Image/class';
 
-import { FileManangement } from '@/utils';
-
-import MyPlugin from '@/components/EditorJS/MyPlugin'
 
 const Editor = dynamic(
     () => import('@/components/Editor'),
     { ssr: false },
 );
-
-type LoadingType = {
-    editor: boolean
-}
 
 const Container = styled("div")(() => ({
     '.cdx-marker': {
@@ -37,43 +37,55 @@ const Container = styled("div")(() => ({
 export default function Home() {
 
     const [ editor, setEditor ] = useState<EditorJS | null>(null);
-    const [ loading, _setLoading ] = useState<LoadingType>({ editor: true });
-    const setLoading = (ctx: keyof LoadingType, value: boolean) => _setLoading(prev => ({ ...prev, [ctx]: value }));
+    const [ loading, setLoading ] = useState(true);
+
+    const {
+        isStorageLoading,
+        error: storageError,
+    } = useStorage();
+
+    const {
+        result,
+        // loading: blocksLoading,
+        clearResult,
+        putBlock,
+        getBlock,
+    } = useBlocksStorage();
 
     useEffect(() => {
-        // if(editor){
-        //     const data = JSON.parse(`{"time":1701620131980,"blocks":[{"id":"Sdb8uWaL4r","type":"header","data":{"level":1,"text":"Heading1"}},{"id":"B1T_ka58BG","type":"header","data":{"level":1,"text":"Heaading2cdaca"}}],"version":"2.28.2"}`);
-        //     console.log("LOADING DATA:", { data });
-        //     editor.render(data);
-        // }
-    }, [ editor ]);
+        if(!isStorageLoading){
+            getBlock();
+        }
+    }, [ isStorageLoading ]);
 
-    const [ wrapperId, setWrapperId ] = useState('initial-plugin-box');
+    useEffect(() => {
+        (async () => {
+            if(editor){
+                await editor.render(result as any);
+                // clearResult();
+            }
+        })();
+    }, [ result, editor ]);
+
+    useEffect(() => {
+        if(storageError){
+            console.error('Storage error', storageError);
+            message.error('Erro ao carregar storage');
+        }
+    }, [ storageError ]);
 
     return (
         <main>
-            {/* <TestIcon /> */}
-            <div>
-                <button onClick={async evt => {
-                    const fm = new FileManangement();
-                    const data = await editor?.save() as object;
-                    await fm.save(data);
-                }}>Salvar</button>
-            </div>
-            <button onClick={() => {
-                setWrapperId('MyPlugin');
-            }}>
-                Inject
-            </button>
             <Container>
                 {
-                    loading.editor
+                    loading
                         ? 'Carregando editor...'
                         : null
                 }
                 <Editor
                     config={{
                         autofocus: true,
+
                     }}
                     register={{
                         'header': {
@@ -92,11 +104,13 @@ export default function Home() {
                             class: PluginClass,
                         },                        
                     }}
-                    onChange={(api, event) => {
-                        console.log('CHANGE EVENT', { api, event });
+                    onChange={async (api, event) => {
+                        const blocks = await api.saver.save();
+                        putBlock(blocks as EditorSave);
                     }}
-                    onReady={ editor => {
-                        console.log({ editor })
+                    onReady={ ({ editor }) => {
+                        setLoading(false);
+                        setEditor(editor);
                     } }
                 />
             </Container>

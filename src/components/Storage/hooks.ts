@@ -72,7 +72,6 @@ export function useImageStore(db?: IDBDatabase){
     }
 
     function getImage(uuid: DbImage['uuid']){
-        console.log('Get image called');
         setloading(true);
         const getRequest = db?.transaction('images')
             .objectStore('images')
@@ -157,10 +156,6 @@ export function useBlocksStorage(db?: IDBDatabase){
     }
 
     function addBlock(blocks: EditorSave | null){
-        console.log('addBlock', {
-            id: uuid,
-            editor: blocks
-        })
         setLoading(true);
         add<DbEditorBlocks, DbEditorBlocks>({
             db,

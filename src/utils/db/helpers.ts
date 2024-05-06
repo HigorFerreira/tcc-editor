@@ -96,7 +96,6 @@ export function get<O = any, S = any, E = any>(
         },
     }
 ){
-
     const {
         objName,
         key,
