@@ -60,7 +60,7 @@ export default function Home() {
 
     useEffect(() => {
         (async () => {
-            if(editor){
+            if(editor && result){
                 await editor.render(result as any);
                 // clearResult();
             }
