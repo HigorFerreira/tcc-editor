@@ -198,7 +198,7 @@ export function useBlocksStorage(db?: IDBDatabase){
                     setError(error);
                 },
                 onSuccess: result => {
-                    console.log('Put result', result);
+                    // console.log('Put result', result);
                     // setResult(result.editor);
                 }
             }

@@ -8,7 +8,7 @@ export default abstract class BaseEditorPlugin<D = unknown> {
     public api: EditorBlockConstructorProps['api'];
     public block: EditorBlockConstructorProps['block'];
     public config: EditorBlockConstructorProps['config'];
-    public data: EditorBlockConstructorProps['data'];
+    public data: D;
     public readOnly: EditorBlockConstructorProps['readOnly'];
 
     public pluginData: D

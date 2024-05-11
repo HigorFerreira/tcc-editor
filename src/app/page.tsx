@@ -84,7 +84,7 @@ export default function Home() {
                 }
                 <Editor
                     config={{
-                        autofocus: true,
+                        autofocus: false,
 
                     }}
                     register={{

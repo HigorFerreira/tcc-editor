@@ -3,7 +3,6 @@ import {
     useEffect,
     useState,
     createContext,
-    useContext,
     ReactNode,
     useRef
 } from 'react';
@@ -19,7 +18,10 @@ import {
 import ImageClass from '@/components/Plugins/Image/class';
 import Settings from '@/components/Plugins/Image/settings';
 import { useImage } from '@/components/Plugins/Image/hooks';
-import { DataType } from '@/components/Plugins/Image/types';
+import {
+    DataType,
+    ContextType,
+} from '@/components/Plugins/Image/types';
 
 
 import type { UploadProps } from 'antd';
@@ -30,42 +32,10 @@ import { InboxOutlined, LoadingOutlined } from '@ant-design/icons';
 const { Dragger } = Upload;
 const { Meta } = Card;
 
+export * from '@/components/Plugins/Image/exports';
+
 //#region
-const Context = createContext<Partial<{
-    state: ReturnType<typeof useImage>['state'],
-    loading: ReturnType<typeof useImage>['loading'],
-    error: ReturnType<typeof useImage>['error'],
-    setImageState: ReturnType<typeof useImage>['setImageState'],
-    clearError: ReturnType<typeof useImage>['clearError'],
-    clear: ReturnType<typeof useImage>['clear'],
-}>>({});
-
-export function useSetImageState(){
-    const { setImageState } = useContext(Context);
-    return setImageState;
-}
-
-export function useImageState(){
-    const { state } = useContext(Context);
-    return state;
-}
-
-export function useLoading(){
-	const { loading } = useContext(Context);
-	return loading;
-}
-export function useError(){
-	const { error } = useContext(Context);
-	return error;
-}
-export function useClearError(){
-	const { clearError } = useContext(Context);
-	return clearError;
-}
-export function useClear(){
-	const { clear } = useContext(Context);
-	return clear;
-}
+export const Context = createContext<ContextType>({});
 //#endregion
 
 export default function Image(
@@ -75,20 +45,19 @@ export default function Image(
 ){
     const titleRef = useRef<HTMLDivElement>(null);
     const descriptionRef = useRef<HTMLDivElement>(null);
-    const [ ready, setReady ] = useState(false);
+
     const [ settings, setSettings ] = useState<ReactNode | null>(null);
+    const settingsContainer = document.getElementById(context?.settingsId || '');
+
+    const _useImage = useImage(context);
+
     const {
         state,
-        loading,
         error,
+        loading,
         setImageState,
-        clearError,
-        clear,
-    } = useImage(context);
+    } = _useImage;
 
-    const unmountHandler = (e: Event) => {
-        // Trying to remove image from database, (NOT WORKING)
-    }
 
     const settingsHandler = (e: Event) => {
         const evt = e as CustomEvent<{ context: ImageClass<DataType> }>;
@@ -98,27 +67,16 @@ export default function Image(
     }
 
     useEffect(() => {
-        setReady(true);
+        if(window !== undefined){
+            console.log('Image plugin ready');
+            document.addEventListener('editor-plugin-settings-render', settingsHandler);
+        }
+
         return () => {
-            document.removeEventListener('editor-plugin-unmount', unmountHandler);
             document.removeEventListener('editor-plugin-settings-render', settingsHandler);
         }
     }, []);
 
-    useEffect(() => {
-        if(ready){
-            document.addEventListener('editor-plugin-unmount', unmountHandler);
-            document.addEventListener('editor-plugin-settings-render', settingsHandler);
-        }
-    }, [ ready ]);
-
-    useEffect(() => {
-        if(error){
-            console.error(error);
-            message.error('Erro');
-            clearError();
-        }
-    }, [ error ]);
 
     useEffect(() => {
         if(titleRef.current && descriptionRef.current){
@@ -127,6 +85,7 @@ export default function Image(
             titleRef.current.focus();
         }
     }, [ state.image ]);
+
 
     const props: UploadProps = {
         accept: 'image/png, image/jpeg',
@@ -166,15 +125,8 @@ export default function Image(
         },
     };
 
-    const settingsContainer = document.getElementById(context?.settingsId || '');
-
     return <Context.Provider value={{
-        state,
-        loading,
-        error,
-        setImageState,
-        clearError,
-        clear,
+        useImage: _useImage,
     }}>
         <Container>
             {
@@ -195,18 +147,18 @@ export default function Image(
                                 ? url.substring(0, 250).concat('...')
                                 : url
                             
-                            setImageState("title", "Título da imagem");
-                            setImageState(
-                                "description",
-                                `Disponível em: <${display_url}>. Acesso em: ${
-                                    date.getDay().toString().padStart(2, '0')
-                                } ${
-                                    date.toLocaleString('default', { month: 'short' })
-                                }. ${
-                                    date.getFullYear()
-                                }.`
-                            );
-                            setImageState("imageUrl", url);
+                            // setImageState("title", "Título da imagem");
+                            // setImageState(
+                            //     "description",
+                            //     `Disponível em: <${display_url}>. Acesso em: ${
+                            //         date.getDay().toString().padStart(2, '0')
+                            //     } ${
+                            //         date.toLocaleString('default', { month: 'short' })
+                            //     }. ${
+                            //         date.getFullYear()
+                            //     }.`
+                            // );
+                            // setImageState("imageUrl", url);
                         }}
                     />
                     <Dragger {...props}>

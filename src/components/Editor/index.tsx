@@ -123,7 +123,6 @@ export default function Editor(
                             onChange: (api, event) => {
                                 onChange && onChange(api, event);
                             },
-                            // data: JSON.parse('{"time":1714846233559,"blocks":[{"id":"-ro4jlzSl6","type":"image","data":{"imageUrl":"","uuid":"cb1b41a1-cf99-47de-b7f2-578c25f47c88","title":"Título da imagem","description":"Fonte: autoria própria","width":0.4}},{"id":"QWNAgr1zET","type":"image","data":{"imageUrl":"https://farm3.staticflickr.com/2933/13966674116_6116e36b10_k.jpg","uuid":"20eb8125-3cf1-4f87-87c8-9b2e2d3e8f3a","title":"Título da imagem","description":"Disponível em: <https://farm3.staticflickr.com/2933/13966674116_6116e36b10_k.jpg>. Acesso em: 06 May. 2024.","width":0.9}}],"version":"2.29.1"}'),
                         });
 
                         await editor.current.isReady;

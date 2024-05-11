@@ -4,7 +4,7 @@ import {
     useImageState,
     useSetImageState,
     useLoading,
-    useClear,
+    // useClear,
 } from '@/components/Plugins/Image';
 import ImageClass from "@/components/Plugins/Image/class";
 import { DataType } from "@/components/Plugins/Image/types";
@@ -24,7 +24,7 @@ export default function Settings(
 ){
     const state = useImageState();
     const setImageState = useSetImageState();
-    const clear = useClear();
+    // const clear = useClear();
 
     const loading = useLoading();
 
@@ -36,7 +36,7 @@ export default function Settings(
     return <SettingsContainer>
         <p>Tamanho:</p>
         <Slider
-            defaultValue={state?.width??0.4}
+            defaultValue={state.width??0.4}
             onChange={(value) => {
                 setImageState && setImageState('width', value);
             }}
@@ -47,8 +47,7 @@ export default function Settings(
         <SettingsButtonsContainer>
             <Button
                 danger
-                loading={loading}
-                onClick={() => clear && clear()}
+                loading={false}
             >
                 Limpar
             </Button>

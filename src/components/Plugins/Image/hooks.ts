@@ -9,106 +9,91 @@ import {
 import { useImageStore } from '@/components/Storage'
 
 export function useImage(context?: ImageClass<DataType>){
-    const [ ready, setReady ] = useState(false);
-    const [ uuid, setUuid ] = useState(uuidv4());
-    const [ width, setWidth ] = useState(0.4);
-    const [ imageUrl, setImageUrl ] = useState("");
+    const [ uuid, setUuid ] = useState(context?.data.uuid??uuidv4());
+    const [ error, setError ] = useState<Error | null>(null);
+    const [ loading, setLoading ] = useState(false);
+
+    const [ imageUrl, setImageUrl ] = useState(context?.data.imageUrl??"");
     const [ image, setImage ] = useState("");
-    const [ title, setTitle ] = useState("");
-    const [ description, setDescription ] = useState("");
+
+    const [ width, setWidth ] = useState(context?.data.width??0.4);
+    const [ title, setTitle ] = useState(context?.data.title??"");
+    const [ description, setDescription ] = useState(context?.data.description??"");
     const [ fileType, setFileType ] = useState("");
 
-    const [ loading, setLoading ] = useState(false);
-    const [ error, setError ] = useState<Error | null>(null);
+
+    const _useImageStore = useImageStore();
 
     const {
-        result,
+        result: resultStore,
+        error: storeError,
+        loading: storeLoading,
         addImage,
         putImage,
         getImage,
         delImage,
-        clearResult,
-        error: imageError,
-        loading: imageLoading,
-        clearError: clearImageError,
-    } = useImageStore();
+        clearError: clearStoreError,
+        clearResult: clearStoreResult,
+    } = _useImageStore;
 
     useEffect(() => {
-        if(result){
-            switch(result.operation){
-                case 'add':
-                    clearResult();
-                    break;
-                case 'put':
-                    clearResult();
-                    break;
-                case 'get':
-                    setImage(result.img?.image??'');
-                    clearResult();
-                    break;
-                case 'delete':
-                    clearResult();
-                    break;
+        if(window !== undefined){
+            console.log('Hook ready');
+            getImage(uuid);
+            // @ts-ignore
+            window.tests = {
+                getImage,
+                uuid
             }
-        }
-    }, [ result ]);
-
-    useEffect(() => {
-        setLoading(imageLoading);
-    }, [ imageLoading ]);
-
-    useEffect(() => {
-        if(error){
-            console.error("DB IMAGE ERROR", error);
-            clearError();
-        }
-    }, [ error ]);
-
-    useEffect(() => {
-        setReady(true);
-        
-        return () => {
         }
     }, []);
 
     useEffect(() => {
-        (async () => {
-            try{
-                if(ready){
-                    console.log('ready')
-                    setLoading(true);
+        if(storeError){
+            setError(storeError);
+            clearStoreError();
+        }
+    }, [ storeError ]);
 
-                    if(context?.data?.imageUrl){
-                        setImageUrl(context.data.imageUrl);
-                    }
+    useEffect(() => {
+        setLoading(storeLoading);
+    }, [ storeLoading ]);
 
-                    if(context?.data?.title){
-                        setTitle(context.data.title);
+    useEffect(() => {
+        if(resultStore){
+            const {
+                operation,
+                img,
+                res
+            } = resultStore;
+            switch(operation){
+                case 'get':
+                    console.log('Get result', { resultStore });
+                    if(!img){
+                        addImage({
+                            uuid,
+                            image: '',
+                        });
+                        return;
                     }
-                    if(context?.data?.description){
-                        setDescription(context.data.description);
-                    }
-                    if(context?.data.width !== undefined){
-                        setWidth(context.data.width);
-                    }
-
-                    if(context?.data?.uuid){
-                        setUuid(context.data.uuid);
-                        getImage(context.data.uuid);
-                    }
-                }
+                    setImage(img.image);
+                    clearStoreResult();
+                    break;
             }
-            catch(err){
-                console.error('Error on image plugin', err);
-                setError(err as Error);
-            }
-            finally{
-                setLoading(false);
-            }
-        })()
-    }, [ ready ]);
+        }
+    }, [ resultStore ]);
 
-    //#region Effects
+    useEffect(() => {
+        if(image){
+            const [ ,type ] = image.match(/^data.*?\/(.*?);/)??[];
+            putImage({
+                uuid,
+                image,
+            });
+            setFileType(type);
+        }
+    }, [ image ]);
+
     useEffect(() => {
         (async () => {
             try{
@@ -122,7 +107,9 @@ export function useImage(context?: ImageClass<DataType>){
 
                 if(imageUrl){
                     const base64ImageUrl = await fetch(imageUrl)
-                        .then(res => res.blob())
+                        .then(res => {
+                            return res.blob();
+                        })
                         .then(blob => {
                             return new Promise((resolve, reject) => {
                                 const reader = new FileReader();
@@ -144,104 +131,17 @@ export function useImage(context?: ImageClass<DataType>){
                 setLoading(false);
             }
         })();
-    }, [imageUrl]);
-
-    useEffect(() => {
-        (async () => {
-            try{
-                if(image){
-                    setLoading(true);
-                    const [ ,type ] = image.match(/^data.*?\/(.*?);/)??[];
-                    putImage({
-                        uuid,
-                        image
-                    });
-                    setFileType(type);
-                }
-            }
-            catch(err){
-                setError(err as Error);
-            }
-            finally{
-                setLoading(false);
-            }
-        })()
-    }, [ image ]);
+    }, [ imageUrl ]);
 
     useEffect(() => {
         if(context?.pluginData){
-            context.pluginData = {
-                ...context.pluginData,
-                uuid,
-            }
+            if(uuid !== null && uuid !== undefined) context.pluginData.uuid = uuid;
+            if(width) context.pluginData.width = width;
+            if(title) context.pluginData.title = title;
+            if(description) context.pluginData.description = description;
+            if(fileType) context.pluginData.fileType = fileType;
         }
-    }, [ uuid ]);
-
-    useEffect(() => {
-        if(context?.pluginData){
-            context.pluginData = {
-                ...context.pluginData,
-                title,
-            }
-        }
-    }, [ title ]);
-
-    useEffect(() => {
-        if(context?.pluginData){
-            context.pluginData = {
-                ...context.pluginData,
-                description,
-            }
-        }
-    }, [ description ]);
-
-    useEffect(() => {
-        if(context?.pluginData){
-            context.pluginData = {
-                ...context.pluginData,
-                width,
-            }
-        }
-    }, [ width ]);
-
-    useEffect(() => {
-        if(context?.pluginData){
-            context.pluginData = {
-                ...context.pluginData,
-                fileType,
-            }
-        }
-    }, [ fileType ]);
-
-    //#endregion
-
-    const clearError = () => {
-        setError(null);
-    }
-
-    const clear = () => {
-        (async () => {
-            try{
-                setLoading(true);
-                putImage({
-                    uuid,
-                    image: ''
-                });
-                setImage('');
-                setImageUrl('');
-                setTitle('');
-                setDescription('');
-                setWidth(0.4);
-                setFileType('');
-            }
-            catch(err){
-                setError(err as Error);
-            }
-            finally{
-                setLoading(false);
-            }
-        })();
-    }
+    }, [ uuid, width, title, description, fileType ]);
 
     const setImageState: ImageSetter = (context, val) => {
         switch(context){
@@ -251,9 +151,9 @@ export function useImage(context?: ImageClass<DataType>){
             case 'image':
                 setImage(val as SetStateAction<string>);
                 break;
-            case 'uuid':
-                setUuid(val as SetStateAction<string>);
-                break;
+            // case 'uuid':
+            //     setUuid(val as SetStateAction<string>);
+            //     break;
             case 'title':
                 setTitle(val as SetStateAction<string>);
                 break;
@@ -263,23 +163,23 @@ export function useImage(context?: ImageClass<DataType>){
             case 'width':
                 setWidth(val as SetStateAction<number>);
                 break;
+            case 'fileType':
+                setFileType(val as SetStateAction<string>);
+                break;
         }
     }
-    
+
     return {
+        error,
+        loading,
         state: {
-            image,
             imageUrl,
+            image,
+            width,
             title,
             description,
-            width,
-            uuid,
+            fileType,
         },
-        loading,
-        error,
         setImageState,
-        clearError,
-        clear,
     }
-
 }
