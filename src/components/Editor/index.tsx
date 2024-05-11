@@ -44,12 +44,14 @@ export default function Editor(
     const pluginsRender = useMemo(() => {
         return pluginsList.map(({ excluded, plugin: context }) => {
             const containerElement = document.getElementById(context.pluginId);
+            const component = register[context.name].component;
 
+            if(!component) return null;
             if(excluded) return null;
             if(!containerElement) return null;
             return createPortal(
                 cloneElement(
-                    register[context.name].component,
+                    component,
                     { 
                         context,
                         key: context.pluginId,

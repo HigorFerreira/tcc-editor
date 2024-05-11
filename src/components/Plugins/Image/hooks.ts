@@ -81,7 +81,6 @@ export function useImage(context?: ImageClass<DataType>){
                     case 'put':
                         break;
                     case 'delete':
-                        console.log('DELETE OP', { res });
                         setWidth(0.4);
                         setTitle("");
                         setDescription("");

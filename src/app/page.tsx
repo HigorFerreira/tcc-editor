@@ -20,6 +20,9 @@ import HeaderClass from '@/components/Plugins/Header/class';
 import Image from '@/components/Plugins/Image';
 import ImageClass from '@/components/Plugins/Image/class';
 
+// @ts-ignore
+import ListClass from '@editorjs/list';
+
 
 const Editor = dynamic(
     () => import('@/components/Editor'),
@@ -85,7 +88,6 @@ export default function Home() {
                 <Editor
                     config={{
                         autofocus: false,
-
                     }}
                     register={{
                         'header': {
@@ -93,16 +95,20 @@ export default function Home() {
                             // @ts-ignore
                             class: HeaderClass,
                         },
+                        'list': {
+                            // @ts-ignore
+                            class: ListClass,
+                        },
                         'image': {
                             component: <Image />,
                             // @ts-ignore
                             class: ImageClass,
                         },
-                        'test-plugin': {
-                            component: <PluginTest />,
-                            // @ts-ignore
-                            class: PluginClass,
-                        },                        
+                        // 'test-plugin': {
+                        //     component: <PluginTest />,
+                        //     // @ts-ignore
+                        //     class: PluginClass,
+                        // },
                     }}
                     onChange={async (api, event) => {
                         const blocks = await api.saver.save();
