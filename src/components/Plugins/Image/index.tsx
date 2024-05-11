@@ -68,7 +68,6 @@ export default function Image(
 
     useEffect(() => {
         if(window !== undefined){
-            console.log('Image plugin ready');
             document.addEventListener('editor-plugin-settings-render', settingsHandler);
         }
 
@@ -111,7 +110,6 @@ export default function Image(
         onChange(info) {
             const { status } = info.file;
             if (status !== 'uploading') {
-                console.log('UPLOADING', info.file, info.fileList);
             }
             if (status === 'done') {
                 message.success(`Arquivo ${info.file.name} carregado com sucesso.`);
@@ -120,8 +118,6 @@ export default function Image(
             }
         },
         onDrop(e) {
-            // console.log('Dropped files', e.dataTransfer.files);
-            console.log({ e });
         },
     };
 

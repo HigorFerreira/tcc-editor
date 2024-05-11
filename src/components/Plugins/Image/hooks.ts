@@ -38,7 +38,6 @@ export function useImage(context?: ImageClass<DataType>){
 
     useEffect(() => {
         if(window !== undefined){
-            console.log('Hook ready');
             getImage(uuid);
             // @ts-ignore
             window.tests = {
@@ -68,7 +67,6 @@ export function useImage(context?: ImageClass<DataType>){
             } = resultStore;
             switch(operation){
                 case 'get':
-                    console.log('Get result', { resultStore });
                     if(!img){
                         addImage({
                             uuid,
