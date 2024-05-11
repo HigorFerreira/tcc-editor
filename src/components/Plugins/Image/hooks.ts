@@ -140,6 +140,9 @@ export function useImage(context?: ImageClass<DataType>){
                                 reader.onerror = reject;
                                 reader.readAsDataURL(blob);
                             });
+                        })
+                        .catch(err => {
+                            setError(err);
                         });
 
                     setImage(base64ImageUrl as string);

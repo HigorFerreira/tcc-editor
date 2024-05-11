@@ -85,6 +85,12 @@ export default function Image(
         }
     }, [ state.image ]);
 
+    useEffect(() => {
+        if(error){
+            message.error(error?.message??'Erro');
+        }
+    }, [ error ]);
+
 
     const props: UploadProps = {
         accept: 'image/png, image/jpeg',
