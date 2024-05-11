@@ -143,18 +143,18 @@ export default function Image(
                                 ? url.substring(0, 250).concat('...')
                                 : url
                             
-                            // setImageState("title", "Título da imagem");
-                            // setImageState(
-                            //     "description",
-                            //     `Disponível em: <${display_url}>. Acesso em: ${
-                            //         date.getDay().toString().padStart(2, '0')
-                            //     } ${
-                            //         date.toLocaleString('default', { month: 'short' })
-                            //     }. ${
-                            //         date.getFullYear()
-                            //     }.`
-                            // );
-                            // setImageState("imageUrl", url);
+                            setImageState("title", "Título da imagem");
+                            setImageState(
+                                "description",
+                                `Disponível em: <${display_url}>. Acesso em: ${
+                                    date.getDay().toString().padStart(2, '0')
+                                } ${
+                                    date.toLocaleString('default', { month: 'short' })
+                                }. ${
+                                    date.getFullYear()
+                                }.`
+                            );
+                            setImageState("imageUrl", url);
                         }}
                     />
                     <Dragger {...props}>

@@ -9,6 +9,7 @@ import {
 import { useImageStore } from '@/components/Storage'
 
 export function useImage(context?: ImageClass<DataType>){
+    const [ ready, setReady ] = useState(false);
     const [ uuid, setUuid ] = useState(context?.data.uuid??uuidv4());
     const [ error, setError ] = useState<Error | null>(null);
     const [ loading, setLoading ] = useState(false);
@@ -37,15 +38,16 @@ export function useImage(context?: ImageClass<DataType>){
     } = _useImageStore;
 
     useEffect(() => {
-        if(window !== undefined){
-            getImage(uuid);
-            // @ts-ignore
-            window.tests = {
-                getImage,
-                uuid
+        setReady(true);
+    }, []);
+
+    useEffect(() => {
+        if(ready){
+            if(window !== undefined){
+                getImage(uuid);
             }
         }
-    }, []);
+    }, [ ready ]);
 
     useEffect(() => {
         if(storeError){
@@ -66,7 +68,14 @@ export function useImage(context?: ImageClass<DataType>){
                 res
             } = resultStore;
             switch(operation){
+                case 'add':
+                    console.log('Add Op', { res });
+                    break;
+                case 'put':
+                    console.log('Put Op', { res });
+                    break;
                 case 'get':
+                    console.log('Get Op', { img, res });
                     if(!img){
                         addImage({
                             uuid,
