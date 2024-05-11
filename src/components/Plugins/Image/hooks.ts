@@ -44,7 +44,14 @@ export function useImage(context?: ImageClass<DataType>){
     useEffect(() => {
         if(ready){
             if(window !== undefined){
-                getImage(uuid);
+                let random = Math.random();
+                let inf = 10;
+                let sup = 1000;
+                let time = random*(sup - inf) + inf;
+                time = parseInt(time.toString());
+                setTimeout(() => {
+                    getImage(uuid);
+                }, time);
             }
         }
     }, [ ready ]);
@@ -67,25 +74,24 @@ export function useImage(context?: ImageClass<DataType>){
                 img,
                 res
             } = resultStore;
-            switch(operation){
-                case 'add':
-                    console.log('Add Op', { res });
-                    break;
-                case 'put':
-                    console.log('Put Op', { res });
-                    break;
-                case 'get':
-                    console.log('Get Op', { img, res });
-                    if(!img){
-                        addImage({
-                            uuid,
-                            image: '',
-                        });
-                        return;
-                    }
-                    setImage(img.image);
-                    clearStoreResult();
-                    break;
+            if(img?.uuid === uuid){
+                switch(operation){
+                    case 'add':
+                        break;
+                    case 'put':
+                        break;
+                    case 'get':
+                        if(!img){
+                            addImage({
+                                uuid,
+                                image: '',
+                            });
+                            return;
+                        }
+                        setImage(img.image);
+                        clearStoreResult();
+                        break;
+                }
             }
         }
     }, [ resultStore ]);
