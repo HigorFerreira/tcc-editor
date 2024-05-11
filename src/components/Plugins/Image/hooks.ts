@@ -20,7 +20,7 @@ export function useImage(context?: ImageClass<DataType>){
     const [ width, setWidth ] = useState(context?.data.width??0.4);
     const [ title, setTitle ] = useState(context?.data.title??"");
     const [ description, setDescription ] = useState(context?.data.description??"");
-    const [ fileType, setFileType ] = useState("");
+    const [ fileType, setFileType ] = useState(context?.data.fileType??"");
 
 
     const _useImageStore = useImageStore();
@@ -79,6 +79,14 @@ export function useImage(context?: ImageClass<DataType>){
                     case 'add':
                         break;
                     case 'put':
+                        break;
+                    case 'delete':
+                        console.log('DELETE OP', { res });
+                        setWidth(0.4);
+                        setTitle("");
+                        setDescription("");
+                        setFileType("");
+                        setImage("");
                         break;
                     case 'get':
                         if(!img){
@@ -182,6 +190,10 @@ export function useImage(context?: ImageClass<DataType>){
         }
     }
 
+    const erase = () => {
+        delImage(uuid);
+    }
+
     return {
         error,
         loading,
@@ -194,5 +206,6 @@ export function useImage(context?: ImageClass<DataType>){
             fileType,
         },
         setImageState,
+        erase,
     }
 }

@@ -106,8 +106,14 @@ export function useImageStore(db?: IDBDatabase){
             }
             req.onsuccess = evt => {
                 setResult({
-                    img: (evt.target as any).result,
-                    res: (evt.target as any).result,
+                    img: {
+                        ...(evt.target as any).result,
+                        uuid
+                    },
+                    res: {
+                        ...(evt.target as any).result,
+                        uuid
+                    },
                     operation: 'delete',
                 });
                 setloading(false);

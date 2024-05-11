@@ -15,3 +15,8 @@ export function useLoading(){
     const { useImage } = useContext(Context);
     return useImage?.loading;
 }
+
+export function useErase(){
+    const { useImage } = useContext(Context);
+    return useImage?.erase;
+}

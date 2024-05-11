@@ -4,7 +4,7 @@ import {
     useImageState,
     useSetImageState,
     useLoading,
-    // useClear,
+    useErase,
 } from '@/components/Plugins/Image';
 import ImageClass from "@/components/Plugins/Image/class";
 import { DataType } from "@/components/Plugins/Image/types";
@@ -24,7 +24,7 @@ export default function Settings(
 ){
     const state = useImageState();
     const setImageState = useSetImageState();
-    // const clear = useClear();
+    const erase = useErase();
 
     const loading = useLoading();
 
@@ -47,7 +47,10 @@ export default function Settings(
         <SettingsButtonsContainer>
             <Button
                 danger
-                loading={false}
+                loading={loading}
+                onClick={() => {
+                    erase && erase();
+                }}
             >
                 Limpar
             </Button>
