@@ -47,3 +47,9 @@ export interface PluginListItemType {
     excluded: boolean
     plugin: BasePlugin
 }
+
+
+export interface InlinePluginListItemType {
+    excluded: boolean
+    plugin: BasePlugin
+}

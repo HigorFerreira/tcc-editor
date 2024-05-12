@@ -39,12 +39,20 @@ export default abstract class InlineBasePlugin<D = unknown> {
 
         this.name = this.getName();
         this.uuid = this.getUuid();
-        this.pluginId = `in-line-plugin-${this.name}`;
+        this.pluginId = `in-line-plugin-${this.name}-${this.uuid}`;
+    }
+
+    static get isInline() {
+        return true;
     }
 
     public render(){
         const wrapper = document.createElement('div');
         wrapper.id = this.pluginId;
+
+        wrapper.style.display = 'flex';
+        wrapper.style.justifyContent = 'center';
+        wrapper.style.alignItems = 'center';
 
         const ev = new CustomEvent<DetailRenderEventType>('editor-in-line-plugin-render', {
             detail: {
