@@ -17,7 +17,6 @@ import {
 
 import { createPortal } from "react-dom";
 import BasePlugin from '@/components/Editor/BasePlugin';
-import PluginClass from "@/components/Plugins/PluginTest/class";
 
 export * from '@/components/Editor/hooks';
 
@@ -97,7 +96,7 @@ export default function Editor(
                             return prev.map((item) => {
                                 const { plugin: { pluginId } } = item;
                                 if(
-                                    (e as CustomEvent<{ context: PluginClass }>)
+                                    (e as CustomEvent<{ context: BasePlugin }>)
                                         .detail.context.pluginId === pluginId
                                 ){
                                     return {
