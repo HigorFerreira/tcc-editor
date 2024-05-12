@@ -56,6 +56,16 @@ export default abstract class InlineBasePlugin<D = unknown> {
         return wrapper;
     }
 
+    public destroy(){
+        const ev = new CustomEvent<DetailRenderEventType>('editor-in-line-plugin-unmount', {
+            detail: {
+                context: this
+            }
+        });
+        
+        document.dispatchEvent(ev);        
+    }
+
     public surround(range: Range){
         const ev = new CustomEvent<DetailSurroundEventType>('editor-in-line-plugin-surround', {
             detail: {
