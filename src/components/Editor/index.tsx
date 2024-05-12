@@ -12,11 +12,13 @@ import EditorJS from '@editorjs/editorjs';
 import {
     EditorProps,
     EditorContextType,
-    PluginListItemType
+    PluginListItemType,
+    InlinePluginListItemType,
 } from "@/components/Editor/types";
 
 import { createPortal } from "react-dom";
 import BasePlugin from '@/components/Editor/BasePlugin';
+import InlineBasePlugin from "@/components/Editor/InlineBasePlugin";
 
 export * from '@/components/Editor/hooks';
 
@@ -39,6 +41,7 @@ export default function Editor(
     const [ ready, setReady ] = useState(false);
 
     const [ pluginsList, setPluginsList ] = useState<PluginListItemType[]>([]);
+    const [ inlinePluginsList, setInlinePluginsList ] = useState<InlinePluginListItemType[]>([]);
 
     const pluginsRender = useMemo(() => {
         return pluginsList.map(({ excluded, plugin: context }) => {
@@ -61,6 +64,27 @@ export default function Editor(
         });
     }, [ pluginsList ]);
 
+    const inlinePluginsRender = useMemo(() => {
+        return inlinePluginsList.map(({ excluded, plugin: context }) => {
+            const containerElement = document.getElementById(context.pluginId);
+            const component = register[context.name].component;
+
+            if(!component) return null;
+            if(excluded) return null;
+            if(!containerElement) return null;
+            return createPortal(
+                cloneElement(
+                    component,
+                    { 
+                        context,
+                        key: context.pluginId,
+                    }
+                ),
+                containerElement
+            );
+        });
+    }, [ inlinePluginsList ]);
+
     useEffect(() => {
         // console.log({ pluginsList });
     }, [ pluginsList ]);
@@ -72,6 +96,35 @@ export default function Editor(
             (async () => {
                 try{
                     // console.log("Is ready");
+
+                    document.addEventListener('editor-in-line-plugin-render', e => {
+                        setInlinePluginsList(prev => [
+                            ...prev,
+                            {
+                                excluded: false,
+                                // @ts-ignore
+                                plugin: e.detail.context
+                            }
+                        ]);
+                    });
+
+                    document.addEventListener('editor-in-line-plugin-unmount', e => {
+                        setInlinePluginsList(prev => {
+                            return prev.map((item) => {
+                                const { plugin: { pluginId } } = item;
+                                if(
+                                    (e as CustomEvent<{ context: InlineBasePlugin }>)
+                                        .detail.context.pluginId === pluginId
+                                ){
+                                    return {
+                                        ...item,
+                                        excluded: true
+                                    }
+                                }
+                                return item;
+                            })
+                        });
+                    });
 
                     document.addEventListener('editor-plugin-render', e => {
                         // console.log('editor-plugin-render');
@@ -150,6 +203,7 @@ export default function Editor(
     }}>
         <div style={{ display: 'none' }}>
             { pluginsRender }
+            { inlinePluginsRender }
         </div>
         <div ref={ editorContainerRef } ></div>
     </Context.Provider>
