@@ -1,4 +1,4 @@
-import { EditorBlockConstructorProps } from '@/components/Editor/types'
+import { EditorBlockConstructorProps } from '@/components/Editor/types';
 import { TunesMenuConfigItem } from '@editorjs/editorjs/types/tools';
 
 /**
