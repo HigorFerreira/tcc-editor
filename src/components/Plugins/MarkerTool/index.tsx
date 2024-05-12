@@ -4,44 +4,49 @@ import { SurroundCustomEvent, CheckStateCustomEvent } from "@/components/Editor/
 
 export default function(
     {
-        context
+        context,
+        "data-key": dataKey
     }: PropsWithChildren<{
         context?: MarkerToolClass
+        'data-key'?: string
     }>
 ){
-
     const [ state, setState ] = useState(false);
 
     const surrountHandler = (e: SurroundCustomEvent) => {
         const { range, context } = e.detail;
-        console.log('SURROUND', { range, context });
-        // @ts-ignore
-        window.range = range;
+        if(dataKey === context.pluginId){
+            console.log('SURROUND', { range, context });
+            // @ts-ignore
+            window.range = range;
 
-        if(state){
-            return;
+            if(state){
+                return;
+            }
+
+            const selectedText = range.extractContents();
+            const mark = document.createElement(`plugin-${context.name}`);
+            mark.appendChild(selectedText);
+            range.insertNode(mark);
         }
-
-        const selectedText = range.extractContents();
-        const mark = document.createElement(`plugin-${context.name}`);
-        mark.appendChild(selectedText);
-        range.insertNode(mark);
     }
 
     const checkStateHandler = (e: CheckStateCustomEvent) => {
         const { selection, context } = e.detail;
-        console.log('CHECK STATE', { selection, context });
-        // @ts-ignore
-        window.selection = selection;
+        if(dataKey === context.pluginId){
+            console.log('CHECK STATE', { selection, context });
+            // @ts-ignore
+            window.selection = selection;
 
-        const text = selection.anchorNode;
+            const text = selection.anchorNode;
 
-        if(!text){
-            return;
+            if(!text){
+                return;
+            }
+
+            const anchorElement = text instanceof Element ? text : text.parentElement;
+            setState(!!anchorElement?.closest(`plugin-${context.name}`));
         }
-
-        const anchorElement = text instanceof Element ? text : text.parentElement;
-        setState(!!anchorElement?.closest(`plugin-${context.name}`));
     }
 
 

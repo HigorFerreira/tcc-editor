@@ -78,6 +78,7 @@ export default function Editor(
                     { 
                         context,
                         key: context.pluginId,
+                        ['data-key']: context.pluginId,
                     }
                 ),
                 containerElement
