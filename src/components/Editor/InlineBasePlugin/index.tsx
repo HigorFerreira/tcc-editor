@@ -20,6 +20,7 @@ export default abstract class InlineBasePlugin<D = unknown> {
     public name: string
     public uuid: string
     public pluginId: string
+    public tag: string
 
     constructor(
         {
@@ -40,6 +41,7 @@ export default abstract class InlineBasePlugin<D = unknown> {
         this.name = this.getName();
         this.uuid = this.getUuid();
         this.pluginId = `in-line-plugin-${this.name}-${this.uuid}`;
+        this.tag = `plugin-${this.name}`;
     }
 
     static get isInline() {
@@ -65,6 +67,7 @@ export default abstract class InlineBasePlugin<D = unknown> {
     }
 
     public destroy(){
+        console.log('Destroy called');
         const ev = new CustomEvent<DetailRenderEventType>('editor-in-line-plugin-unmount', {
             detail: {
                 context: this
@@ -97,6 +100,19 @@ export default abstract class InlineBasePlugin<D = unknown> {
     public save(){
         return this.pluginData;
     }
+
+    public rendered(...params: any){
+        console.log('HOOK rendered', { params });
+    }
+    public updated(...params: any){
+        console.log('HOOK updated', { params });
+    }
+    public removed(...params: any){
+        console.log('HOOK removed', { params });
+    }
+    public moved(...params: any){
+        console.log('HOOK moved', { params });
+    }    
 
 
     abstract getName(): string
