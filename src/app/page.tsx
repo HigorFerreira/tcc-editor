@@ -13,14 +13,12 @@ import {
     useBlocksStorage,
 } from '@/components/Storage';
 
-import PluginTest from '@/components/Plugins/PluginTest';
-import PluginClass from '@/components/Plugins/PluginTest/class';
 import Header from '@/components/Plugins/Header';
 import HeaderClass from '@/components/Plugins/Header/class';
 import Image from '@/components/Plugins/Image';
 import ImageClass from '@/components/Plugins/Image/class';
-import MarkerTool from '@/components/Plugins/MarkerTool';
-import MarkerToolClass from '@/components/Plugins/MarkerTool/class';
+
+import MarkerTool from '@/app/marker';
 
 // @ts-ignore
 import ListClass from '@editorjs/list';
@@ -107,9 +105,8 @@ export default function Home() {
                             class: ImageClass,
                         },
                         'marker': {
-                            component: <MarkerTool />,
                             // @ts-ignore
-                            class: MarkerToolClass,
+                            class: MarkerTool,
                         }
                         // 'test-plugin': {
                         //     component: <PluginTest />,
