@@ -27,7 +27,7 @@ export default function(
             const selectedText = range.extractContents();
             const mark = document.createElement(`plugin-${context.name}`);
             mark.appendChild(selectedText);
-            range.insertNode(mark);
+            context.api.selection.expandToTag(mark);
         }
     }
 
@@ -72,6 +72,11 @@ export default function(
             background-color: yellow;
         }
         `.trim().replace(/^\s{8}/gm, '')}</style>
-        <button title={ context?.pluginId } >M</button>
+        <button
+            className={context?.api.styles.inlineToolButton}
+            style={{ padding: '2px 4px', height: '100%' }}
+        >
+            M
+        </button>
     </>
 }

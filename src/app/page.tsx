@@ -19,6 +19,8 @@ import Header from '@/components/Plugins/Header';
 import HeaderClass from '@/components/Plugins/Header/class';
 import Image from '@/components/Plugins/Image';
 import ImageClass from '@/components/Plugins/Image/class';
+import MarkerTool from '@/components/Plugins/MarkerTool';
+import MarkerToolClass from '@/components/Plugins/MarkerTool/class';
 
 // @ts-ignore
 import ListClass from '@editorjs/list';
@@ -104,6 +106,11 @@ export default function Home() {
                             // @ts-ignore
                             class: ImageClass,
                         },
+                        'marker': {
+                            component: <MarkerTool />,
+                            // @ts-ignore
+                            class: MarkerToolClass,
+                        }
                         // 'test-plugin': {
                         //     component: <PluginTest />,
                         //     // @ts-ignore
