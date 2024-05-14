@@ -94,6 +94,9 @@ export default abstract class InlineBasePlugin<D = unknown> {
         document.dispatchEvent(ev);
     }
 
+    public save(){
+        return this.pluginData;
+    }
 
 
     abstract getName(): string
