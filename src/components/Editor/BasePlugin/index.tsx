@@ -4,7 +4,7 @@ import { TunesMenuConfigItem } from '@editorjs/editorjs/types/tools';
 /**
  * @template - D plugin data type
  */
-export default abstract class BaseEditorPlugin<D = unknown> {
+export default abstract class BasePlugin<D = unknown> {
     public api: EditorBlockConstructorProps['api'];
     public block: EditorBlockConstructorProps['block'];
     public config: EditorBlockConstructorProps['config'];
@@ -52,7 +52,7 @@ export default abstract class BaseEditorPlugin<D = unknown> {
         const wrapper = document.createElement('div');
         wrapper.id = this.pluginId;
 
-        const ev = new CustomEvent<{ context: BaseEditorPlugin }>('editor-plugin-render', {
+        const ev = new CustomEvent<{ context: BasePlugin }>('editor-plugin-render', {
             detail: {
                 context: this
             }
@@ -63,7 +63,7 @@ export default abstract class BaseEditorPlugin<D = unknown> {
     }
 
     public renderSettings(): HTMLElement | TunesMenuConfigItem[] {    
-        const ev = new CustomEvent<{ context: BaseEditorPlugin }>('editor-plugin-settings-render', {
+        const ev = new CustomEvent<{ context: BasePlugin }>('editor-plugin-settings-render', {
             detail: {
                 context: this
             }
@@ -81,7 +81,7 @@ export default abstract class BaseEditorPlugin<D = unknown> {
     }
 
     public destroy(){
-        const ev = new CustomEvent<{ context: BaseEditorPlugin }>('editor-plugin-unmount', {
+        const ev = new CustomEvent<{ context: BasePlugin }>('editor-plugin-unmount', {
             detail: {
                 context: this
             }
@@ -102,7 +102,7 @@ export default abstract class BaseEditorPlugin<D = unknown> {
 
     public updated(){
         // console.log('Tool updated');
-        const ev = new CustomEvent<{ context: BaseEditorPlugin }>('editor-plugin-update', {
+        const ev = new CustomEvent<{ context: BasePlugin }>('editor-plugin-update', {
             detail: {
                 context: this
             }
