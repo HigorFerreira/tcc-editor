@@ -16,9 +16,15 @@ import {
     InlinePluginListItemType,
 } from "@/components/Editor/types";
 
+
 import { createPortal } from "react-dom";
 import BasePlugin from '@/components/Editor/BasePlugin';
 import InlineBasePlugin from "@/components/Editor/InlineBasePlugin";
+
+import {
+    RenderCustomEvent,
+    UnmountCustomEvent,
+} from "@/components/Editor/InlineBasePlugin/types";
 
 export * from '@/components/Editor/hooks';
 
@@ -41,7 +47,7 @@ export default function Editor(
     const [ ready, setReady ] = useState(false);
 
     const [ pluginsList, setPluginsList ] = useState<PluginListItemType[]>([]);
-    const [ inlinePluginsList, setInlinePluginsList ] = useState<InlinePluginListItemType[]>([]);
+    const [ inlinePluginsList, setInlinePluginsList ] = useState<InlineBasePlugin[]>([]);
 
     const pluginsRender = useMemo(() => {
         return pluginsList.map(({ excluded, plugin: context }) => {
@@ -65,68 +71,67 @@ export default function Editor(
     }, [ pluginsList ]);
 
     const inlinePluginsRender = useMemo(() => {
-        return inlinePluginsList.map(({ excluded, plugin: context }) => {
-            const containerElement = document.getElementById(context.pluginId);
-            const component = register[context.name].component;
+        return inlinePluginsList.map((item) => {
+            const containerElement = document.getElementById(item.pluginId);
+            const component = register[item.name].component;
 
             if(!component) return null;
-            if(excluded) return null;
             if(!containerElement) return null;
+
             return createPortal(
                 cloneElement(
                     component,
-                    { 
-                        context,
-                        key: context.pluginId,
-                        ['data-key']: context.pluginId,
+                    {
+                        context: item,
+                        key: item.pluginId
                     }
                 ),
                 containerElement
-            );
+            )
         });
     }, [ inlinePluginsList ]);
+
+    const inlineToolRenderHandler = ({ detail: { context } }: RenderCustomEvent) => {
+        setInlinePluginsList(prev => [ ...prev, context ]);
+    }
+
+    const inlineToolUnmountHandler = (
+        { detail: { pluginId, } }: UnmountCustomEvent
+    ) => {
+        setInlinePluginsList(prev => {
+            return prev.filter(el => el.pluginId !== pluginId);
+        });
+    }
 
     useEffect(() => {
         // console.log({ pluginsList });
     }, [ pluginsList ]);
 
-    useEffect(() => setReady(true), []);
+    useEffect(() => {
+        console.log({ inlinePluginsList });
+    }, [ inlinePluginsList ]);
+
+    useEffect(() => {
+
+        // @ts-ignore
+        document.addEventListener('InlineToolRender', inlineToolRenderHandler);
+        // @ts-ignore
+        document.addEventListener('InlineToolUnmount', inlineToolUnmountHandler);
+
+        setReady(true);
+
+        return () => {
+            // @ts-ignore
+            document.removeEventListener('InlineToolRender', inlineToolRenderHandler);
+            // @ts-ignore
+            document.removeEventListener('InlineToolUnmount', inlineToolUnmountHandler);
+        }
+    }, []);
 
     useEffect(() => {
         if(ready){
             (async () => {
                 try{
-                    // console.log("Is ready");
-
-                    document.addEventListener('editor-in-line-plugin-render', e => {
-                        setInlinePluginsList(prev => [
-                            ...prev,
-                            {
-                                excluded: false,
-                                // @ts-ignore
-                                plugin: e.detail.context
-                            }
-                        ]);
-                    });
-
-                    document.addEventListener('editor-in-line-plugin-unmount', e => {
-                        setInlinePluginsList(prev => {
-                            return prev.map((item) => {
-                                const { plugin: { pluginId } } = item;
-                                if(
-                                    (e as CustomEvent<{ context: InlineBasePlugin }>)
-                                        .detail.context.pluginId === pluginId
-                                ){
-                                    return {
-                                        ...item,
-                                        excluded: true
-                                    }
-                                }
-                                return item;
-                            })
-                        });
-                    });
-
                     document.addEventListener('editor-plugin-render', e => {
                         // console.log('editor-plugin-render');
                         // console.log({ e });

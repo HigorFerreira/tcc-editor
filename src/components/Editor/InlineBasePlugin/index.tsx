@@ -1,6 +1,7 @@
 import { EditorBlockConstructorProps } from '@/components/Editor/types';
 import {
     DetailRenderEventType,
+    DetailUnmountEventType,
     DetailSurroundEventType,
     DetailCheckStateEventType,
 } from '@/components/Editor/InlineBasePlugin/types';
@@ -9,6 +10,8 @@ import {
  * @template - D plugin data type
  */
 export default abstract class InlineBasePlugin<D = unknown> {
+    private observer: MutationObserver | null = null;
+    private wrapper: HTMLDivElement;
     public api: EditorBlockConstructorProps['api'];
     public block: EditorBlockConstructorProps['block'];
     public config: EditorBlockConstructorProps['config'];
@@ -42,6 +45,22 @@ export default abstract class InlineBasePlugin<D = unknown> {
         this.uuid = this.getUuid();
         this.pluginId = `in-line-plugin-${this.name}-${this.uuid}`;
         this.tag = `plugin-${this.name}`;
+
+        this.wrapper = document.createElement('div');
+        this.wrapper.id = this.pluginId;
+        this.wrapper.style.display = 'flex';
+        this.wrapper.style.justifyContent = 'center';
+        this.wrapper.style.alignItems = 'center';
+
+        
+        setTimeout(() => {
+            const ev = new CustomEvent<DetailRenderEventType>('InlineToolRender', {
+                detail: {
+                    context: this
+                }
+            });
+            document.dispatchEvent(ev);
+        }, 60);
     }
 
     static get isInline() {
@@ -49,36 +68,40 @@ export default abstract class InlineBasePlugin<D = unknown> {
     }
 
     public render(){
-        const wrapper = document.createElement('div');
-        wrapper.id = this.pluginId;
+        setTimeout(() => {
+            this.observer = new MutationObserver((mutations, observer) => {
+                console.log("Observer called", { mutations })
+                for(const mutation of mutations){
+                    if(mutation.type === 'childList'){
+                        mutation.removedNodes.forEach(__node => {
+                            const node = __node as HTMLElement | null;
+                            console.log('NODE', { nodeId: node?.id, pluginId: this.pluginId });
+                            if(node?.id === this.pluginId){
+                                console.log('NODE REMOVED', { node });
+                                const ev = new CustomEvent<DetailUnmountEventType>('InlineToolUnmount', {
+                                    detail: {
+                                        name: this.name,
+                                        uuid: this.uuid,
+                                        pluginId: this.pluginId,
+                                    }
+                                });
+                                document.dispatchEvent(ev);
+                            }
+                        })
+                    }
+                }
+            });
 
-        wrapper.style.display = 'flex';
-        wrapper.style.justifyContent = 'center';
-        wrapper.style.alignItems = 'center';
 
-        const ev = new CustomEvent<DetailRenderEventType>('editor-in-line-plugin-render', {
-            detail: {
-                context: this
-            }
-        });
-        setTimeout(() => document.dispatchEvent(ev), 20);
+            if(!this.wrapper.parentElement) throw new Error("No parent element for wrapper");
+            this.observer.observe(this.wrapper.parentElement, { childList: true, subtree: true });
+        }, 20);
 
-        return wrapper;
-    }
-
-    public destroy(){
-        console.log('Destroy called');
-        const ev = new CustomEvent<DetailRenderEventType>('editor-in-line-plugin-unmount', {
-            detail: {
-                context: this
-            }
-        });
-        
-        document.dispatchEvent(ev);        
+        return this.wrapper;
     }
 
     public surround(range: Range){
-        const ev = new CustomEvent<DetailSurroundEventType>('editor-in-line-plugin-surround', {
+        const ev = new CustomEvent<DetailSurroundEventType>('InlineToolSurround', {
             detail: {
                 context: this,
                 range
@@ -88,7 +111,7 @@ export default abstract class InlineBasePlugin<D = unknown> {
     }
 
     public checkState(selection: Selection){
-        const ev = new CustomEvent<DetailCheckStateEventType>('editor-in-line-plugin-check-state', {
+        const ev = new CustomEvent<DetailCheckStateEventType>('InlineToolCheckState', {
             detail: {
                 context: this,
                 selection
@@ -100,19 +123,6 @@ export default abstract class InlineBasePlugin<D = unknown> {
     public save(){
         return this.pluginData;
     }
-
-    public rendered(...params: any){
-        console.log('HOOK rendered', { params });
-    }
-    public updated(...params: any){
-        console.log('HOOK updated', { params });
-    }
-    public removed(...params: any){
-        console.log('HOOK removed', { params });
-    }
-    public moved(...params: any){
-        console.log('HOOK moved', { params });
-    }    
 
 
     abstract getName(): string
