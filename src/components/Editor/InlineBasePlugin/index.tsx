@@ -44,7 +44,7 @@ export default abstract class InlineBasePlugin<D = unknown> {
         this.name = this.getName();
         this.uuid = this.getUuid();
         this.pluginId = `in-line-plugin-${this.name}-${this.uuid}`;
-        this.tag = `plugin-${this.name}`;
+        this.tag = `plugin-${this.name}`.toUpperCase();
 
         this.wrapper = document.createElement('div');
         this.wrapper.id = this.pluginId;
@@ -57,7 +57,7 @@ export default abstract class InlineBasePlugin<D = unknown> {
         return true;
     }
 
-    public render(){
+    public render(): HTMLElement {
         setTimeout(() => {
             this.observer = new MutationObserver((mutations, observer) => {
                 for(const mutation of mutations){
