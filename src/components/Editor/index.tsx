@@ -63,6 +63,7 @@ export default function Editor(
                     { 
                         context,
                         key: context.pluginId,
+                        "data-key": context.pluginId,
                     }
                 ),
                 containerElement
@@ -83,7 +84,8 @@ export default function Editor(
                     component,
                     {
                         context: item,
-                        key: item.pluginId
+                        key: item.pluginId,
+                        "data-key": item.pluginId,
                     }
                 ),
                 containerElement

@@ -11,7 +11,13 @@ export default function(
         'data-key'?: string
     }>
 ){
-    const [ state, setState ] = useState(false);
+    const [ state, setState ] = useState(context?.state??false);
+
+    useEffect(() => {
+        if(context){
+            context.state = state;
+        }
+    }, [ state ]);
 
     const wrap = useCallback((range: Range) => {
         if(!context) throw new Error('Plugin context');
@@ -29,17 +35,17 @@ export default function(
 
         const mark = context.api.selection.findParentTag(context.tag);
         const text = range.extractContents();
-        console.log({ text });
 
         mark?.remove();
         range.insertNode(text);
     }, [ context, dataKey ]);
 
-    const surrountHandler = useCallback((e: SurroundCustomEvent) => {
+    const surrountHandler = useCallback((e: SurroundCustomEvent<MarkerToolClass>) => {
         const { range, context } = e.detail;
-        if(dataKey === context.pluginId){
-            console.log({ state });
-            if(state){
+        console.log('surrountHandler', { dataKey, context });
+        if(dataKey === context?.pluginId){
+            console.log({ state: context.state });
+            if(context.state){
                 unwrap(range);
                 return;
             }
@@ -48,12 +54,12 @@ export default function(
         }
     }, [ context, dataKey ]);
 
-    const checkStateHandler = useCallback((e: CheckStateCustomEvent) => {
-        const { selection, context } = e.detail;
-        // PROBLEM HERE
-        if(dataKey === context.pluginId){
+    const checkStateHandler = useCallback((e: CheckStateCustomEvent<MarkerToolClass>) => {
+        if(!context) throw new Error('No context');
+        console.log('checkStateHandler', { context, dataKey })
+        if(dataKey === context?.pluginId){
             const mark = context.api.selection.findParentTag(context.tag);
-
+            console.log({ mark });
             setState(!!mark);
         }
     }, [ context, dataKey ]);
@@ -61,18 +67,18 @@ export default function(
 
     useEffect(() => {
         // @ts-ignore
-        document.addEventListener('editor-in-line-plugin-surround', surrountHandler);
+        document.addEventListener('InlineToolSurround', surrountHandler);
         // @ts-ignore
-        document.addEventListener('editor-in-line-plugin-check-state', checkStateHandler);
+        document.addEventListener('InlineToolUnmount', checkStateHandler);
 
         return () => {
             // @ts-ignore
-            document.removeEventListener('editor-in-line-plugin-surround', surrountHandler);
+            document.removeEventListener('InlineToolSurround', surrountHandler);
             // @ts-ignore
-            document.removeEventListener('editor-in-line-plugin-check-state', checkStateHandler);
+            document.removeEventListener('InlineToolUnmount', checkStateHandler);
         }
 
-    }, []);
+    }, [ context, dataKey ]);
 
 
     return <>

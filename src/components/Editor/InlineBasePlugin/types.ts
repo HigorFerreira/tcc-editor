@@ -1,7 +1,7 @@
 import InlineBasePlugin from '@/components/Editor/InlineBasePlugin';
 
-export type DetailRenderEventType = {
-    context: InlineBasePlugin
+export type DetailRenderEventType<C = InlineBasePlugin> = {
+    context: C
 }
 
 export type DetailUnmountEventType = {
@@ -10,20 +10,20 @@ export type DetailUnmountEventType = {
     name: string
 }
 
-export type DetailSurroundEventType = {
-    context: InlineBasePlugin
+export type DetailSurroundEventType<C = InlineBasePlugin> = {
+    context: C
     range: Range
 }
 
-export type DetailCheckStateEventType = {
-    context: InlineBasePlugin
+export type DetailCheckStateEventType<C = InlineBasePlugin> = {
+    context: C
     selection: Selection
 }
 
-export type RenderCustomEvent = CustomEvent<DetailRenderEventType>;
+export type RenderCustomEvent<C = InlineBasePlugin> = CustomEvent<DetailRenderEventType<C>>;
 
 export type UnmountCustomEvent = CustomEvent<DetailUnmountEventType>;
 
-export type SurroundCustomEvent = CustomEvent<DetailSurroundEventType>;
+export type SurroundCustomEvent<C = InlineBasePlugin> = CustomEvent<DetailSurroundEventType<C>>;
 
-export type CheckStateCustomEvent = CustomEvent<DetailCheckStateEventType>;
+export type CheckStateCustomEvent<C = InlineBasePlugin> = CustomEvent<DetailCheckStateEventType<C>>;
