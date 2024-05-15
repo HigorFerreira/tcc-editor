@@ -51,16 +51,6 @@ export default abstract class InlineBasePlugin<D = unknown> {
         this.wrapper.style.display = 'flex';
         this.wrapper.style.justifyContent = 'center';
         this.wrapper.style.alignItems = 'center';
-
-        
-        setTimeout(() => {
-            const ev = new CustomEvent<DetailRenderEventType>('InlineToolRender', {
-                detail: {
-                    context: this
-                }
-            });
-            document.dispatchEvent(ev);
-        }, 60);
     }
 
     static get isInline() {
@@ -70,14 +60,11 @@ export default abstract class InlineBasePlugin<D = unknown> {
     public render(){
         setTimeout(() => {
             this.observer = new MutationObserver((mutations, observer) => {
-                console.log("Observer called", { mutations })
                 for(const mutation of mutations){
                     if(mutation.type === 'childList'){
                         mutation.removedNodes.forEach(__node => {
                             const node = __node as HTMLElement | null;
-                            console.log('NODE', { nodeId: node?.id, pluginId: this.pluginId });
                             if(node?.id === this.pluginId){
-                                console.log('NODE REMOVED', { node });
                                 const ev = new CustomEvent<DetailUnmountEventType>('InlineToolUnmount', {
                                     detail: {
                                         name: this.name,
@@ -96,6 +83,15 @@ export default abstract class InlineBasePlugin<D = unknown> {
             if(!this.wrapper.parentElement) throw new Error("No parent element for wrapper");
             this.observer.observe(this.wrapper.parentElement, { childList: true, subtree: true });
         }, 20);
+
+        setTimeout(() => {
+            const ev = new CustomEvent<DetailRenderEventType>('InlineToolRender', {
+                detail: {
+                    context: this
+                }
+            });
+            document.dispatchEvent(ev);
+        }, 60);
 
         return this.wrapper;
     }
