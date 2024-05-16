@@ -114,6 +114,14 @@ export default class MarkerToolClass extends InlineBasePlugin {
 		return '#' + hexr + hexg + hexb;
 	}
 
+	static get sanitize() {
+		return {
+			mark: {
+				class: 'cdx-marker'
+			}
+		};
+	}
+
     getName(): string {
         return 'marker';
     }
