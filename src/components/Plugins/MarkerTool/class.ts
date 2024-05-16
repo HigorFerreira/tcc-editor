@@ -116,7 +116,7 @@ export default class MarkerToolClass extends InlineBasePlugin {
 
 	static get sanitize() {
 		return {
-			mark: {
+			'plugin-marker': {
 				class: 'cdx-marker'
 			}
 		};
