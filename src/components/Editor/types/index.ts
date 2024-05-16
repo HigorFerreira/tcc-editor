@@ -36,8 +36,9 @@ export type EditorProps = PropsWithChildren<{
     onError?: (error: Error) => void
 }>
 
-interface RegisterObjType extends Omit<ToolSettings, 'tunes'> {
+interface RegisterObjType extends Omit<ToolSettings, 'class'> {
     component?: JSX.Element
+    class?: any
 }
 export interface RegisterType {
     [key: string]: RegisterObjType

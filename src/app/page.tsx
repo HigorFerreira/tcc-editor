@@ -95,21 +95,17 @@ export default function Home() {
                     register={{
                         'header': {
                             component: <Header />,
-                            // @ts-ignore
                             class: HeaderClass,
                         },
                         'list': {
-                            // @ts-ignore
                             class: ListClass,
                         },
                         'image': {
                             component: <Image />,
-                            // @ts-ignore
                             class: ImageClass,
                         },
                         'marker': {
                             component: <MarkerTool />,
-                            // @ts-ignore
                             class: MarkerToolClass,
                         }
                         // 'test-plugin': {
