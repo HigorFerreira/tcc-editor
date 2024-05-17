@@ -27,3 +27,17 @@ export interface ImageBlock {
         fileType: string
     }
 }
+
+
+export interface BookRefType {
+    type: 'book'
+    title: string
+    author: string[]
+    year: number
+    publisher: string
+    edition: number
+}
+
+export interface RefsObjectType {
+    [key: string]: Partial<BookRefType>
+}
