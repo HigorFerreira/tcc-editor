@@ -10,7 +10,9 @@ export function mountRefs(refs: RefsObjectType){
                     ${(() => {
                         return Object.keys(restRefs).map(ref_key => {
                             switch(type){
+                                case 'misc':
                                 case 'book':
+                                case 'article':
                                     // @ts-ignore
                                     const value = restRefs[ref_key];
                                     if(ref_key === 'author')

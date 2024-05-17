@@ -36,7 +36,33 @@ export interface BookRefType {
     year: number
     publisher: string
     edition: number
+    issn: string
 }
+
+export interface MiscRefType {
+    type: 'misc'
+    title: string
+    author: string[]
+    year: number
+    url: string
+    note: string
+}
+
+export interface ArticleRefType {
+    type: 'article'
+    year: number
+    volume: number
+    number: number
+    author: string[]
+    title: string
+    journal: string
+    pages: string
+    publisher: string
+    doi: string
+    edition: number
+    issn: string
+}
+
 
 export interface GlossaryType {
     type: 'sigla' | 'abreviacao' | 'simbolo'
@@ -50,4 +76,6 @@ export interface GlossaryObjectType {
 
 export interface RefsObjectType {
     [key: string]: Partial<BookRefType>
+        | Partial<MiscRefType>
+        | Partial<ArticleRefType>
 }
