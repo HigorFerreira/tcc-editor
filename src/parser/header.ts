@@ -12,5 +12,4 @@ export function getHeader(block: HeaderBlock){
         case 4:
             return `\\subsubsection{${escapeCharacters(block.data.text)}}`
     }
-
 }
