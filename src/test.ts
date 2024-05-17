@@ -4,6 +4,7 @@ import { getHeader } from '@/parser/header';
 import { mountRefs } from '@/parser/mountRefs';
 import { mountGlossary } from '@/parser/mountGlossary';
 import { mountGlossaryPrint } from '@/parser/mountGlossaryPrint';
+import { pageBreak } from '@/parser/page-break';
 import { writeFile } from 'fs/promises';
 import path from 'path';
 
@@ -20,6 +21,9 @@ async function main() {
             case 'paragraph':
                 // @ts-ignore
                 return getParagraph(block);
+            case 'page-break':
+                // @ts-ignore
+                return pageBreak(block);
         }
     }).join('\n\n');
 

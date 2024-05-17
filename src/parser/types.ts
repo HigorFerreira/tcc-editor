@@ -1,3 +1,8 @@
+export interface PageBreakBlock {
+    type: 'page-break'
+    id: string
+    data: any
+}
 export interface HeaderBlock {
     type: 'header'
     id: string

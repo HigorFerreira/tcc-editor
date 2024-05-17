@@ -15,5 +15,8 @@ export function getParagraph(block: ParagraphBlock){
     $('plugin-gloss').replaceWith((_, node) => {
         return `\\acrshort{${$(node).attr('id')}}`;
     })
+    $('plugin-footnote').replaceWith((_, node) => {
+        return `\\footnote{${$(node).data().note}}`
+    });
     return $('body').text();
 }
