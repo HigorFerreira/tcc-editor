@@ -1,7 +1,9 @@
-import { data, refs } from '@/tests';
+import { data, refs, gloss } from '@/tests';
 import { getParagraph } from '@/parser/paragraph';
 import { getHeader } from '@/parser/header';
 import { mountRefs } from '@/parser/mountRefs';
+import { mountGlossary } from '@/parser/mountGlossary';
+import { mountGlossaryPrint } from '@/parser/mountGlossaryPrint';
 import { writeFile } from 'fs/promises';
 import path from 'path';
 
@@ -10,10 +12,13 @@ const TESTS_PATH = '/home/higor/Documents/TCC/editor2/src/tests'
 
 async function main() {
     const text = data.map(block => {
+        // @ts-ignore
         switch(block.type){
             case 'header':
+                // @ts-ignore
                 return getHeader(block);
             case 'paragraph':
+                // @ts-ignore
                 return getParagraph(block);
         }
     }).join('\n\n');
@@ -26,6 +31,16 @@ async function main() {
     await writeFile(
         path.join(TESTS_PATH, 'latex', 'referencias.bib'),
         mountRefs(refs)
+    );
+
+    await writeFile(
+        path.join(TESTS_PATH, 'makeglossaries.tex'),
+        mountGlossary(gloss)
+    );
+
+    await writeFile(
+        path.join(TESTS_PATH, 'printglossaries.tex'),
+        mountGlossaryPrint(gloss)
     );
 }
 

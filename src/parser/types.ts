@@ -38,6 +38,16 @@ export interface BookRefType {
     edition: number
 }
 
+export interface GlossaryType {
+    type: 'sigla' | 'abreviacao' | 'simbolo'
+    short: string
+    label: string
+}
+
+export interface GlossaryObjectType {
+    [key: string]: GlossaryType
+}
+
 export interface RefsObjectType {
     [key: string]: Partial<BookRefType>
 }
