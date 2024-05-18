@@ -1,4 +1,5 @@
 import { escapeCharacters } from './escape';
+import { processHTML } from './processHTML';
 import { ImageBlock } from './types';
 
 export function getImage(block: ImageBlock){
@@ -9,13 +10,15 @@ export function getImage(block: ImageBlock){
         description,
         fileType,
     } = block.data;
+
+
     return `
         \\begin{figure}[ht]
             \\centering
             \\caption{${escapeCharacters(title)}}
             \\includegraphics[width=${width.toFixed(1)}\\textwidth]{./images/${uuid}.${fileType}}
-            \\label{fig:${uuid}}
-            \\textnormal{\\fontsize{10pt}{12pt}${escapeCharacters(description)}}
+            \\label{fig:${uuid}} \\\\
+            \\textnormal{\\fontsize{10pt}{12pt}${processHTML(escapeCharacters(description))}}
         \\end{figure}
-    `.replace(/^\s{8}/g, '').trim()
+    `.trim().replace(/^\s{8}/gm, '');
 }

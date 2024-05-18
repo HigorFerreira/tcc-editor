@@ -12,6 +12,15 @@ export interface HeaderBlock {
     }
 }
 
+export interface ListBlock {
+    type: 'list'
+    id: string
+    data: {
+        type: 'bullet' | 'numbered'
+        list: string[]
+    }
+}
+
 export interface ParagraphBlock {
     type: 'paragraph'
     id: string

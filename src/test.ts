@@ -4,6 +4,8 @@ import { getHeader } from '@/parser/header';
 import { mountRefs } from '@/parser/mountRefs';
 import { mountGlossary } from '@/parser/mountGlossary';
 import { mountGlossaryPrint } from '@/parser/mountGlossaryPrint';
+import { getImage } from '@/parser/image';
+import { getList } from '@/parser/list';
 import { pageBreak } from '@/parser/page-break';
 import { writeFile } from 'fs/promises';
 import path from 'path';
@@ -24,6 +26,12 @@ async function main() {
             case 'page-break':
                 // @ts-ignore
                 return pageBreak(block);
+            case 'image':
+                // @ts-ignore
+                return getImage(block);
+            case 'list':
+                // @ts-ignore
+                return getList(block);
         }
     }).join('\n\n');
 
