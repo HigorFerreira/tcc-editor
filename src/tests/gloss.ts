@@ -8,6 +8,16 @@ import {
 } from '@/parser/types'
 
 export const gloss = {
+    'json': {
+        label: 'JavaScript Object Notation, (Notação de Objeto JavaScript)',
+        short: 'JSON',
+        type: 'abreviacao'
+    },
+    'pdf': {
+        label: 'Portable Document Format, (Formato  de Documento Portável)',
+        short: 'PDF',
+        type: 'sigla'
+    },
     'abnt': {
         short: 'ABNT',
         label: 'Associação Brasileira de Normas Técnicas',

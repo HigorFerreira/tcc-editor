@@ -2,6 +2,8 @@ import {
     HeaderBlock,
     ParagraphBlock,
     PageBreakBlock,
+    ImageBlock,
+    ListBlock,
 } from '@/parser/types'
 
 export { refs } from './refs'
@@ -66,7 +68,7 @@ export const data = [
                 o conteúdo pela forma." Ou seja: A forma do trabalho, sua apresentação, sua formatação e
                 todo o seu arranjo gráfico é tão importante quanto seu conteúdo. 
                 <plugin-ref id="medeiros">Medeiros (2012, p. 245)</plugin-ref> vai
-                complementar essa visão, afirmando que a presentação gráfica "[...] contribui para a
+                complementar essa visão, afirmando que a apresentação gráfica "[...] contribui para a
                 consecução de um trabalho capaz de atingir seu objetivo. Monografia realizada sem a
                 preocupação gráfica, em geral, acaba malsucedida."
             `.trim().replace(/^\s{16}/gm, '')
@@ -109,7 +111,7 @@ export const data = [
                 Em sua pesquisa é destacado que "Quanto a
                 formatação do trabalho com as normas da 
                 <plugin-gloss id="abnt" data-type="siglas">ABNT</plugin-gloss>, [...], 60% teve alguma dificuldade, inclusive
-                32% teve muita dificuldade." Ou seja, a formatação do trabalho é um grande desafio presente
+                32% teve muita dificuldade.", ou seja, a formatação do trabalho é um grande desafio presente
                 na vida de boa parte dos estudantes em processo de escrita.
             `.trim().replace(/^\s{16}/gm, '')
         }
@@ -145,15 +147,266 @@ export const data = [
         type: 'paragraph',
         data: {
             text: `
+                A criação de um trabalho de
+                <plugin-gloss id="tcc" data-type="siglas">TCC</plugin-gloss>
+                se dará basicamente por três passos básicos: Escrita em blocos;
+                <i>Parsing</i><plugin-footnote data-note="O termo Parsing, (do inglês: análise), será utilizado no
+                sentido de analisar e transformar algo em outra coisa.">*</plugin-footnote>
+                e
+                Documento em
+                <plugin-gloss id="pdf" data-type="siglas">pdf</plugin-gloss>
+                . A <plugin-ref-fig data-fig="Passos para criar um documento">Figura 1</plugin-ref-fig> ilustra esse fluxo na linha do tempo.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'image',
+        data: {
+            uuid: 'Passos para criar um documento',
+            description: 'Fonte: Autoria própria',
+            title: 'Passo a passo para criar um documento na plataforma',
+            width: 0.8,
+            fileType: 'png',
+            imageUrl: '',
+        }
+    } satisfies Partial<ImageBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O usuário interagirá com a aplicação escrevendo blocos que serão transformados
+                no documento final em
+                <plugin-gloss id="pdf" data-type="siglas">pdf</plugin-gloss>
+                . A este processo daremos o nome de Parsing. Após este, bastará
+                enviar o download do <plugin-gloss id="pdf" data-type="siglas">pdf</plugin-gloss>
+                ao usuário com todo o padrão de formatação. Os trabalhos desenvolvidos nesta plataforma
+                terão então duas versões: A versão de blocos, (sem formatação e interativa); e a versão
+                final já formatada em <plugin-gloss id="pdf" data-type="siglas">pdf</plugin-gloss>.
             `.trim().replace(/^\s{16}/gm, '')
         }
     } satisfies Partial<ParagraphBlock>,
     {
         type: 'header',
-        data: { level: 2, text: 'Pilares da aplicação' }
+        data: { level: 2, text: 'Fluxo do documento' }
     } satisfies Partial<HeaderBlock>,
     {
         type: 'header',
+        data: { level: 3, text: 'Escrita em blocos' }
+    } satisfies Partial<HeaderBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                A escrita se dará de modo em que tudo será considerado um bloco.
+                A escrita em blocos consiste numa abordagem em que o texto vai sendo
+                escrito em seu fluxo natural, porém blocos podem ser adicionados à escrita.
+                Um bloco é um elemento adicionado ao fluxo de trabalho que desenpenha um papel
+                que o diferencia dos demais blocos.
+                Por exemplo: Uma imagem pode ser considerada um bloco nesta abordagem, uma vez
+                que não é um texto mas tem o objetivo de fornecer informações visuais. O próprio corpo
+                do texto em si será considerado um bloco, denominado parágrafo. Um título será um bloco
+                textual cujo objetivo será separar sessões do texto coesas. Uma lista será um bloco para enumerar
+                intens e assim por diante. O documento será basicamente uma composição de diversos blocos dispostos de forma a formar
+                uma unidade coesa final, que será o trabalho propiamente dito.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'header',
+        data: { level: 3, text: 'Bloco' }
+    } satisfies Partial<HeaderBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Um bloco é uma unidade lógica no documento que desenpenha um papel especializado que nenhum
+                outro bloco o faz. Por exemplo: O bloco mais importante da
+                plataforma<plugin-footnote
+                    data-note="O termo plataforma será utilizado
+                    de forma intercambiável e como sinônimo de aplicativo; sistema web; ou aplicativo da web">
+                *</plugin-footnote>
+                será o de texto, (denominado bloco parágrafo), pois sem texto, não há trabalho.
+                Sem texto não há tão pouco comunicação que transmita informação
+                de caráter acadêmico-científico.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Semelhante ao bloco de texto, diversos outros blocos adjascentes
+                auxiliarão na construção do documento acadêmico. O bloco de imagem, por
+                exemplo, ajuda a exibir informações de forma ilustrativa e auxilia bastante
+                em exemplos que estão sendo dados em determinado contexto do texto.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                A maior parte dos blocos contará com uma espécie de submenu, (em termos de aplicação),
+                que os permita personalizar. A personalização de blocos é importante para editar
+                configurações e dar autonomia ao usuário em determinar mais precisamente o papel
+                daquele bloco no texto. Por exemplo: Um bloco de título ajuda a separar o texto
+                em unidades coesas. Porém, existem diversos tipos de títulos: Existe o título, o
+                subtítulo, e até o subtítulo do subtítulo.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O submenu será a configuração que o usuário fará no bloco após escolhê-lo. No
+                caso do título, por exemplo: Após o usuário escolher este bloco, poderá configurar
+                o nível de título desejado. Nível este que varia do 1 ao 4, sendo 2; 3 e 4
+                espécies de subtítulos. No caso de uma imagem, o submenu funcionará para que possa
+                ser definida a imagem, bem como seu título de sua descrição.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                A imagem abaixo ilustra a composição de um trabalho com seus respectivos blocos:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'image',
+        data: {
+            uuid: 'blocos-no-documento',
+            description: 'Fonte: Adaptado de <plugin-ref id="pucgo"></plugin-ref>',
+            title: 'Divisão de blocos em uma imagem',
+            width: 0.8,
+            fileType: 'png',
+            imageUrl: '',
+        }
+    } satisfies Partial<ImageBlock>,
+    {
+        type: 'header',
+        data: { level: 3, text: 'Parsing' }
+    } satisfies Partial<HeaderBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O processo de Parsing é o processo que acontecerá sempre que o usuário desejar
+                ver o
+                <i>layout</i><plugin-footnote data-note="
+                Do inglês: Disposição, ou esboço. Esta palavra geralmente está associada ao desenho ou visual de algo.
+                ">
+                *</plugin-footnote>
+                da versão final de seu trabalho. Ele usa o código intermediário gerado pelos blocos para montar o
+                <plugin-gloss id="pdf" data-type="siglas">pdf</plugin-gloss>
+                final.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Este processo é, em termos simples, uma espécie de análise a ser aplicada no código gerado pelos blocos
+                da aplicação. A plataforma gerará um código
+                <plugin-gloss id="json" data-type="siglas">json</plugin-gloss><plugin-footnote data-note="
+                Ver (sessão que trata do JSON)
+                ">
+                *</plugin-footnote>
+                como resultado das interações do usuário, que posteriormente
+                serão convertidos em código
+                latex<plugin-footnote data-note="
+                Ver (sessão que trata do latex)
+                ">
+                *</plugin-footnote>.
+                Só então, finalmente será utilizado um utilitário que converterá o código latex
+                em um documento
+                <plugin-gloss id="pdf" data-type="siglas">pdf</plugin-gloss>. A
+                <plugin-ref-fig data-fig="app-json-latex-pdf">Figura</plugin-ref-fig> ilustra esse processo:
+
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'image',
+        data: {
+            uuid: 'app-json-latex-pdf',
+            description: 'Fonte: Autoria própria.',
+            title: 'Etapas do processo de Parsing',
+            width: 0.9,
+            fileType: 'png',
+            imageUrl: '',
+        }
+    } satisfies Partial<ImageBlock>,
+    // {
+    //     type: 'header',
+    //     data: { level: 2, text: 'Pilares da aplicação' }
+    // } satisfies Partial<HeaderBlock>,
+    // {
+    //     type: 'paragraph',
+    //     data: {
+    //         text: `
+    //             Descrever brevemente os pilares da aplicação
+    //         `.trim().replace(/^\s{16}/gm, '')
+    //     }
+    // } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'header',
+        data: { level: 2, text: 'Ambiente de desenvolvimento' }
+    } satisfies Partial<HeaderBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O ambiente de desenvolvimento é de extrema importância para que todas as ferramentas
+                utilizadas possam funcionar em perfeita harmonia em suas respectivas integrações e
+                colaborações. Muitas vezes, problemas de compatibilidade podem afetar
+                o funcionamento das mesmas e impedir que o programa final
+                seja executado corretamente, causando
+                <i>bugs</i><plugin-footnote data-note="
+                Do inglês: Inseto. Esta palavra é muito utilizada no contexto de desenvolvimento de aplicativos
+                para se referir a problemas que afetam o funcionamento dos mesmos
+                ">
+                *</plugin-footnote>
+                e outros imprevistos impeditivos tanto para a correta execução, quanto
+                para a exeperiência de desenvolvimento.
+                A lista abaixo diz respeito às ferramentas e ao ambiente onde este <i>software</i>
+                foi desenvolvido, bem como todas as suas respectivas versões:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'page-break',
+    } satisfies Partial<PageBreakBlock>,
+    {
+        type: 'header',
+        data: { level: 3, text: 'Lista de tecnologias do ambiente de desenvolvimento' }
+    } satisfies Partial<HeaderBlock>,
+    {
+        type: 'list',
+        data: {
+            type: 'bullet',
+            list: [
+                'Sistema Operacional: Ubuntu 20.04',
+                'NodeJs 20.10.0',
+                'Npm 10.2.3',
+                'Yarn 1.22.19',
+                'pdfTeX 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian)',
+                'kpathsea version 6.3.4/dev',
+                'BibTeX 0.99d (TeX Live 2022/dev/Debian)',
+                'makeglossaries (Utilitário latex)'
+            ].sort((a, b) => a.length - b.length)
+        }
+    } satisfies Partial<ListBlock>,
+    {
+        type: 'header',
         data: { level: 2, text: 'Resultados' }
+    } satisfies Partial<HeaderBlock>,
+    {
+        type: 'header',
+        data: { level: 1, text: 'Fundamentação teórica' }
     } satisfies Partial<HeaderBlock>,
 ]

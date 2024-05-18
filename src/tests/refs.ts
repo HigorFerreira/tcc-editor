@@ -51,5 +51,12 @@ export const refs = {
         title: 'As dificuldades na construção do trabalho de conclusão de curso: Percepção de estudantes egressos do curso de ciências contábeis. 2020. 69. Trabalho de Conclusão de Curso (Graduação) - Ciências Contábeis',
         publisher: 'Universidade Federal da Paraíba, João Pessoa',
         year: 2020
+    },
+    'pucgo': {
+        type: 'article',
+        author: [ 'PUC-GO' ],
+        title: 'Coordenação de TCC. Manual para elaboração de Trabalho de Conclusão de Curso',
+        publisher: 'Pontifícia Universidade Católica de Goiás',
+        year: 2022
     }
 } satisfies RefsObjectType
