@@ -7,6 +7,7 @@
 \usepackage{helvet}
 \usepackage{ragged2e}
 \usepackage{glossaries}
+\usepackage{xpatch}
 \usepackage[alf]{abntex2cite} % Citações padrão ABNT
 \usepackage{indentfirst}
 
@@ -44,7 +45,6 @@
 \local{GOIÂNIA - GO}
 \data{2023}
 
-
 \newglossary*{abrev}{Lista de abreviaturas}
 \newglossary*{siglas}{Lista de siglas}
 \newglossary*{simbolos}{Lista de símbolos}
@@ -57,8 +57,23 @@
 
 \newacronym[type=siglas]{abnt}{ABNT}{Associação Brasileira de Normas Técnicas}
 \newacronym[type=siglas]{ue}{UE}{União Européia}
-
 \newacronym[type=simbolos]{dollar}{\$}{Dollar americano}
+
+% Define a custom glossary style for a grid layout
+\newglossarystyle{grid}{%
+    \setglossarystyle{long}% base this style on the long style
+    \renewenvironment{theglossary}%
+        {\begin{longtable}{p{0.1\textwidth} p{0.9\textwidth}}}%
+        {\end{longtable}}%
+    \renewcommand*{\glossaryentryfield}[5]{%
+        ##2 & ##4 (##3)\\
+    }%
+    \renewcommand*{\glsgroupskip}{&\\[\glsbetweengrouptitle] }%
+}
+
+% Apply the custom glossary style to each glossary
+\glssetwidest{abnt}
+\setglossarystyle{grid}
 
 \makeglossaries
 
