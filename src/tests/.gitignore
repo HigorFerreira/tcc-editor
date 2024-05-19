@@ -1,1 +1,33 @@
-latex
+latex/doc.abrev-glg
+latex/doc.gls
+latex/doc.siglas-gls
+latex/doc.abrev-glo
+latex/doc.ist
+latex/doc.simbolo-glg
+latex/doc.abrev-gls
+latex/doc.lof
+latex/doc.simbolo-glo
+latex/doc.abreviacao-glg
+latex/doc.log
+latex/doc.simbolo-gls
+latex/doc.abreviacao-glo
+latex/doc.lot
+latex/doc.simbolos-glg
+latex/doc.abreviacao-gls
+latex/doc.pdf
+latex/doc.simbolos-glo
+latex/doc.aux
+latex/doc.sigla-glg
+latex/doc.simbolos-gls
+latex/doc.bbl
+latex/doc.sigla-glo
+# latex/doc.tex
+latex/doc.blg
+latex/doc.sigla-gls
+latex/doc.toc
+latex/doc.glg
+latex/doc.siglas-glg
+# latex/images
+latex/doc.glo
+latex/doc.siglas-glo
+# latex/referencias.bib
