@@ -16,22 +16,28 @@ export function mountGlossaryPrint(glossary: GlossaryObjectType){
     return `
         ${
             acronyms.length !== 0
-                ? '\\printglossary[type=abreviacao,title=Lista de Abreviaturas]\
-                    \r\\clearpage'
+                ? `
+                    \\printglossary[type=siglas,title=LISTA DE SIGLAS]
+                    \\clearpage
+                `.trim().replace(/^\s{20}/gm, '')
                 : ''
         }
         
         ${
             abbreviations.length !== 0
-                ? '\\printglossary[type=sigla,title=Lista de Siglas]\
-                    \r\\clearpage'
+                ? `
+                    \\printglossary[type=abrev,title=LISTA DE ABREVIATURAS]
+                    \\clearpage
+                `.trim().replace(/^\s{20}/gm, '')
                 : ''
         }
         
         ${
             symbols.length !== 0
-                ?'\\printglossary[type=simbolo,title=Lista de Símbolos]\
-                    \r\\clearpage'
+                ? `
+                    \\printglossary[type=simbolos,title=LISTA DE SÍMBOLOS]
+                    \\clearpage
+                `.trim().replace(/^\s{20}/gm, '')
                 : ''
         }
     `.trim().replace(/^\s{8}/gm, '')

@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "doc-test": "./latex-test.bash; xdg-open output.pdf"
+    "doc-test": "./latex-test.bash; xdg-open output.pdf",
+    "mount-tex": "bun ./src/test.ts",
+    "mount-doc": "npm run mount-tex; npm run doc-test"
   },
   "dependencies": {
     "@editorjs/editorjs": "2.29.1",
