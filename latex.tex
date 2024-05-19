@@ -41,7 +41,7 @@
     \escola
     \par
     \curso
-    }
+}
 \local{GOIÂNIA - GO}
 \data{2023}
 
@@ -63,17 +63,18 @@
 \newglossarystyle{grid}{%
     \setglossarystyle{long}% base this style on the long style
     \renewenvironment{theglossary}%
-        {\begin{longtable}{p{0.1\textwidth} p{0.9\textwidth}}}%
+        {\begin{longtable}{p{0.2\textwidth} p{0.8\textwidth}}}%
         {\end{longtable}}%
-    \renewcommand*{\glossaryentryfield}[5]{%
-        ##2 & ##4 (##3)\\
-    }%
-    \renewcommand*{\glsgroupskip}{&\\[\glsbetweengrouptitle] }%
+    \renewcommand*{\glossaryentryfield}[5]{##2 & ##4 (##3)\\}%
+    \renewcommand*{\glsgroupskip}{\\}%
+    % \renewcommand*{\glsgroupskip}{&\\[\glsbetweengrouptitle] }%
 }
 
 % Apply the custom glossary style to each glossary
-\glssetwidest{abnt}
 \setglossarystyle{grid}
+
+% Bold the glossary term names
+\renewcommand{\glsnamefont}[1]{\textbf{#1}}
 
 \makeglossaries
 
