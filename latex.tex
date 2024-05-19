@@ -79,6 +79,17 @@
 \makeglossaries
 
 
+% Redefinição do comando \glossarysection para personalizar o título
+\renewcommand{\glossarysection}[2][]{%
+    \begin{center} % centraliza o título
+    \section*{\normalfont\fontsize{12}{14}\bfseries\selectfont #2} % título com fonte de 12pt, em negrito
+    \end{center}
+    \addcontentsline{toc}{section}{#2} % adiciona ao sumário
+    \markboth{#2}{#2} % marcação para cabeçalho
+    \vspace{15mm} % espaçamento após o título
+}
+
+
 % Início do documento
 \begin{document}
 
@@ -253,13 +264,13 @@
 \listoftables    % Lista de Tabelas
 \clearpage
 
-\printglossary[type=abrev,title=Lista de Abreviaturas]
+\printglossary[type=abrev,title=LISTA DE ABREVIATURAS]
 \clearpage
 
-\printglossary[type=siglas,title=Lista de Siglas]
+\printglossary[type=siglas,title=LISTA DE SIGLAS]
 \clearpage
 
-\printglossary[type=simbolos,title=Lista de Símbolos]
+\printglossary[type=simbolos,title=LISTA DE SÍMBOLOS]
 \clearpage
 
 % Correção: Usar \tableofcontents para o Sumário
