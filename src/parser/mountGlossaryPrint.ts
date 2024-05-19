@@ -17,7 +17,7 @@ export function mountGlossaryPrint(glossary: GlossaryObjectType){
         ${
             acronyms.length !== 0
                 ? `
-                    \\printglossary[type=siglas,title=LISTA DE SIGLAS]
+                    \\printglossary[type=sigla,title=LISTA DE SIGLAS]
                     \\clearpage
                 `.trim().replace(/^\s{20}/gm, '')
                 : ''
@@ -26,7 +26,7 @@ export function mountGlossaryPrint(glossary: GlossaryObjectType){
         ${
             abbreviations.length !== 0
                 ? `
-                    \\printglossary[type=abrev,title=LISTA DE ABREVIATURAS]
+                    \\printglossary[type=abreviacao,title=LISTA DE ABREVIATURAS]
                     \\clearpage
                 `.trim().replace(/^\s{20}/gm, '')
                 : ''
@@ -35,7 +35,7 @@ export function mountGlossaryPrint(glossary: GlossaryObjectType){
         ${
             symbols.length !== 0
                 ? `
-                    \\printglossary[type=simbolos,title=LISTA DE SÍMBOLOS]
+                    \\printglossary[type=simbolo,title=LISTA DE SÍMBOLOS]
                     \\clearpage
                 `.trim().replace(/^\s{20}/gm, '')
                 : ''

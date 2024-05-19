@@ -49,5 +49,15 @@ export function mountGlossary(glossary: GlossaryObjectType){
         \\setglossarystyle{grid}
 
         \\makeglossaries
+
+        % Redefinição do comando \\glossarysection para personalizar o título
+        \\renewcommand{\\glossarysection}[2][]{%
+            \\begin{center} % centraliza o título
+            \\section*{\\normalfont\\fontsize{12}{14}\\bfseries\\selectfont #2} % título com fonte de 12pt, em negrito
+            \\end{center}
+            \\addcontentsline{toc}{section}{#2} % adiciona ao sumário
+            \\markboth{#2}{#2} % marcação para cabeçalho
+            \\vspace{15mm} % espaçamento após o título
+        }
     `.trim().replace(/^\s{8}/gm, '')
 }
