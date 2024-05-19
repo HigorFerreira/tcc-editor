@@ -10,6 +10,7 @@
 \usepackage{xpatch}
 \usepackage[alf]{abntex2cite} % Citações padrão ABNT
 \usepackage{indentfirst}
+\usepackage{tabularx} % For flexible columns
 
 \setlength{\parindent}{1.5cm}
 
@@ -59,22 +60,21 @@
 \newacronym[type=siglas]{ue}{UE}{União Européia}
 \newacronym[type=simbolos]{dollar}{\$}{Dollar americano}
 
-% Define a custom glossary style for a grid layout
+% Define a custom glossary style without page numbers
 \newglossarystyle{grid}{%
-    \setglossarystyle{long}% base this style on the long style
-    \renewenvironment{theglossary}%
-        {\begin{longtable}{p{0.2\textwidth} p{0.8\textwidth}}}%
-        {\end{longtable}}%
-    \renewcommand*{\glossaryentryfield}[5]{##2 & ##4 (##3)\\}%
-    \renewcommand*{\glsgroupskip}{\\}%
-    % \renewcommand*{\glsgroupskip}{&\\[\glsbetweengrouptitle] }%
+    \setglossarystyle{list}% base this style on the list style
+    \renewcommand*{\glossentry}[2]{%
+        \begin{tabularx}{\textwidth}{@{}p{0.2\textwidth} p{0.8\textwidth}@{}}
+            \textbf{\glossentryname{##1}} & \glossentrydesc{##1}%
+        \end{tabularx}%
+    }%
 }
 
 % Apply the custom glossary style to each glossary
 \setglossarystyle{grid}
 
 % Bold the glossary term names
-\renewcommand{\glsnamefont}[1]{\textbf{#1}}
+% \renewcommand{\glsnamefont}[1]{\textbf{#1}}
 
 \makeglossaries
 
