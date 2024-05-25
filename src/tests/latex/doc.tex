@@ -11,6 +11,9 @@
 \usepackage{indentfirst}
 \usepackage{xpatch}
 \usepackage{tabularx} % For flexible columns
+\usepackage{blindtext}  % This package provides \blindtext
+\usepackage{titlesec}   % This package is used for custom chapter title formatting
+
 
 \setlength{\parindent}{1.5cm}
 
@@ -47,6 +50,15 @@
 \data{2023}
 
 \input{../makeglossaries.tex}
+
+% \titleformat{\chapter}[display]
+%     {\bfseries\fontsize{10pt}{12pt}\selectfont\MakeUppercase}  % Bold, 10pt font size, uppercase
+%     {\filright\MakeUppercase{\chaptertitlename} \thechapter}   % Right-aligned, uppercase chapter title
+%     {4ex}                                                     % Space between the number and title
+%     {}                                                        % Additional formatting before the title (empty placeholder)
+%     []                                                        % Additional formatting after the title (empty placeholder)
+
+
 
 % Início do documento
 \begin{document}
