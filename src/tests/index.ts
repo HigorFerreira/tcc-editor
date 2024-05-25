@@ -312,7 +312,7 @@ export const data = [
             text: `
                 Este processo é, em termos simples, uma espécie de análise a ser aplicada no código gerado pelos blocos
                 da aplicação. A plataforma gerará um código
-                <plugin-gloss id="json" data-type="siglas">json</plugin-gloss><plugin-footnote data-note="
+                <plugin-gloss id="json" data-type="abreviacao">json</plugin-gloss><plugin-footnote data-note="
                 Ver (sessão que trata do JSON)
                 ">
                 *</plugin-footnote>
@@ -401,12 +401,213 @@ export const data = [
             ].sort((a, b) => a.length - b.length)
         }
     } satisfies Partial<ListBlock>,
-    {
-        type: 'header',
-        data: { level: 2, text: 'Resultados' }
-    } satisfies Partial<HeaderBlock>,
+    // {
+    //     type: 'header',
+    //     data: { level: 2, text: 'Resultados' }
+    // } satisfies Partial<HeaderBlock>,
     {
         type: 'header',
         data: { level: 1, text: 'Fundamentação teórica' }
     } satisfies Partial<HeaderBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                A plataforma será construída sob alguns pilares fundamentais indispensáveis
+                a seu funcionamento. São estes pilares que garantirão o sucesso e o correto
+                funcionamento da aplicação, afim de que todo o objetivo discutido até o
+                presente momento seja atingido.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                A
+                <plugin-ref-fig data-fig="pilares-da-plataforma">Figura</plugin-ref-fig>
+                mostra em forma de mapa mental todos os principais pilares sobre os quais
+                o aplicativo será contruído. Estes pelares são formados por diversas
+                tecnologias, bibliotecas,
+                <i>frameworks</i><plugin-footnote data-note="
+                    Uma framework é como um kit de ferramentas pré-pronto que fornece uma gama
+                    de funcionalidades pré-construídas e testadas afim de facilitar o processo
+                    de desenvolvimento. <plugin-ref id='amazon-framework'></plugin-ref>
+                ">
+                *</plugin-footnote>
+                e conceitos que deverão trabalhar de forma integrada.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'image',
+        data: {
+            uuid: 'pilares-da-plataforma',
+            description: 'Fonte: Autoria própria.',
+            title: 'Pilares da plataforma, (mapa mental)',
+            width: 0.9,
+            fileType: 'png',
+            imageUrl: '',
+        }
+    } satisfies Partial<ImageBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Estes pilares estão subdivididos em três grandes subcategorias, a saber: Front-End;
+                Back-End e Parsing. Cada qual com seus respectivos conceitos e tecnologias.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'header',
+        data: { level: 2, text: 'Do Front-End' }
+    } satisfies Partial<HeaderBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O Front-End é, basicamente, a "linha de frente". É a parte da aplicação que interagirá
+                diretamente com o usuário. Ao profissional que codifica e desenvolve esta parte do
+                projeto, damos o nome de Desenvolvedor Front-End. A interface do usuário, que é
+                onde o mesmo realiza suas interações com o sistema normalmente é desenhada por
+                um
+                designer
+                , ficando a cardo do desenvolvedor o papel de adaptar o
+                design
+                ao código afim de obter os efeitos desejados.
+                <plugin-ref id="totvs-front-end"></plugin-ref>
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'header',
+        data: { level: 3, text: 'Tecnologias web' }
+    } satisfies Partial<HeaderBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                As tecnologias
+                <plugin-gloss id="web" data-type="abreviacao">Web</plugin-gloss>
+                desempenham um papel crucial na criação de experiências
+                digitais interativas, permitindo que os usuários se envolvam com o conteúdo de maneira mais
+                dinâmica e significativa. A incorporação da internet na vida diária resultou em mudanças
+                significativas, marcada por um ritmo de evolução e aprimoramento sem precedentes, além da
+                distribuição de conteúdo em massa. Juntamente com essas mudanças, surgiram novas
+                tecnologias, variando de softwares a hardwares, aprimorando a experiência de navegação na
+                web
+                <plugin-ref id="molgado"></plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                A Internet, que teve origem nos Estados Unidos em 1969, foi inicialmente utilizada
+                por universidades, governos e instituições financeiras antes de se expandir globalmente. No
+                início, a internet era uma via de mão única onde os usuários consumiam informações e se
+                comunicavam de maneira privada. A evolução começou com a introdução de sistemas de
+                busca avançados, destacando-se o lançamento do Google em 1998, que democratizou o
+                acesso à informação.
+                <plugin-ref id="vitoriano">(VITORIANO, 2019)</plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                A grande reviravolta na internet aconteceu em 1999, com o surgimento do
+                <i>Blogger</i>,
+                marcando o início da
+                Web
+                2.0, onde a comunicação tornou-se bidirecional. Os usuários
+                passaram a gerar conteúdo e se relacionar publicamente com marcas, empresas e pessoas por
+                meio de comentários, além de consumir informação. A evolução da tecnologia móvel, em
+                conjunto com o surgimento de redes sociais como
+                <i>Fotolog</i>,
+                <i>MySpace</i>,
+                <i>Orkut</i>,
+                <i>Facebook</i>,
+                <i>YouTube</i>
+                e
+                <i>Twitter</i>,
+                ampliou o conceito de Web 2.0, permitindo o compartilhamento de fotos,
+                vídeos e textos em uma escala maior.
+                <plugin-ref id="vitoriano">(VITORIANO, 2019)</plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                A forma como se interage com a internet também evoluiu ao longo do tempo.
+                Passou-se de sites estáticos para interativos e animados, chegando até aos sites totalmente
+                responsivos e adaptáveis de hoje. Isso foi possível devido ao desenvolvimento de novos
+                gadgets e ao surgimento de novas linguagens de programação. Atualmente, a Web Moderna é
+                composta por várias técnicas, metodologias, linguagens e ferramentas que permitem o
+                desenvolvimento de aplicações conectadas e interativas, oferecendo diversas formas de
+                interação com interfaces digitais.
+                <plugin-ref id="vitoriano">(VITORIANO, 2019)</plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'header',
+        data: { level: 4, text: 'Linguagem de Marcação de Hipertexto, HTML' }
+    } satisfies Partial<HeaderBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                A Linguagem de Marcação de Hipertexto, do inglês: HyperText Markup Language
+                (<plugin-gloss id="html" data-type="abreviacao">HTML</plugin-gloss>)
+                foi criada por Tim Berners-Lee enquanto trabalhava na Organização Europeia para a
+                Pesquisa Nuclear
+                (<plugin-gloss id="cern" data-type="abreviacao">CERN</plugin-gloss>),
+                o laboratório de física de partículas na Suíça, no final dos anos
+                1980 e início dos anos 1990. O objetivo era criar uma maneira de compartilhar documentos e
+                informações em um ambiente de rede. A primeira versão do HTML tinha apenas 18 elementos
+                de marcação, permitindo a formatação básica de texto e a inclusão de
+                <i>links</i>,
+                imagens e listas.
+                <plugin-ref id="w3c">(W3C, 2023)</plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    // {
+    //     type: 'header',
+    //     data: { level: 4, text: 'CSS' }
+    // } satisfies Partial<HeaderBlock>,
+    // {
+    //     type: 'header',
+    //     data: { level: 4, text: 'JavaScript' }
+    // } satisfies Partial<HeaderBlock>,
+    // {
+    //     type: 'header',
+    //     data: { level: 3, text: 'Bibliotecas e Frameworks' }
+    // } satisfies Partial<HeaderBlock>,
+    // {
+    //     type: 'header',
+    //     data: { level: 4, text: 'ReactJs' }
+    // } satisfies Partial<HeaderBlock>,
+    // {
+    //     type: 'header',
+    //     data: { level: 4, text: 'NextJs' }
+    // } satisfies Partial<HeaderBlock>,
+    // {
+    //     type: 'header',
+    //     data: { level: 4, text: 'EditorJs' }
+    // } satisfies Partial<HeaderBlock>,
+    // {
+    //     type: 'header',
+    //     data: { level: 2, text: 'Do Back-End' }
+    // } satisfies Partial<HeaderBlock>,
+    // {
+    //     type: 'header',
+    //     data: { level: 2, text: 'O processo de Parsing' }
+    // } satisfies Partial<HeaderBlock>,
 ]

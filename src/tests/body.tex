@@ -165,8 +165,7 @@ A imagem abaixo ilustra a composição de um trabalho com seus respectivos bloco
 
 O processo de Parsing é o processo que acontecerá sempre que o usuário desejar
 ver o
-\textit{layout}\footnote{
-Do inglês: Disposição, ou esboço. Esta palavra geralmente está associada ao desenho ou visual de algo.
+\textit{layout}\footnote{Do inglês: Disposição, ou esboço. Esta palavra geralmente está associada ao desenho ou visual de algo.
 }
 da versão final de seu trabalho. Ele usa o código intermediário gerado pelos blocos para montar o
 \acrshort{pdf}
@@ -174,13 +173,11 @@ final.
 
 Este processo é, em termos simples, uma espécie de análise a ser aplicada no código gerado pelos blocos
 da aplicação. A plataforma gerará um código
-\acrshort{json}\footnote{
-Ver (sessão que trata do JSON)
+\acrshort{json}\footnote{Ver (sessão que trata do JSON)
 }
 como resultado das interações do usuário, que posteriormente
 serão convertidos em código
-latex\footnote{
-Ver (sessão que trata do latex)
+latex\footnote{Ver (sessão que trata do latex)
 }.
 Só então, finalmente será utilizado um utilitário que converterá o código latex
 em um documento
@@ -202,8 +199,7 @@ utilizadas possam funcionar em perfeita harmonia em suas respectivas integraçõ
 colaborações. Muitas vezes, problemas de compatibilidade podem afetar
 o funcionamento das mesmas e impedir que o programa final
 seja executado corretamente, causando
-\textit{bugs}\footnote{
-Do inglês: Inseto. Esta palavra é muito utilizada no contexto de desenvolvimento de aplicativos
+\textit{bugs}\footnote{Do inglês: Inseto. Esta palavra é muito utilizada no contexto de desenvolvimento de aplicativos
 para se referir a problemas que afetam o funcionamento dos mesmos
 }
 e outros imprevistos impeditivos tanto para a correta execução, quanto
@@ -219,6 +215,108 @@ foi desenvolvido, bem como todas as suas respectivas versões:
         	\item Npm 10.2.3	\item Yarn 1.22.19	\item NodeJs 20.10.0	\item kpathsea version 6.3.4/dev	\item Sistema Operacional: Ubuntu 20.04	\item makeglossaries (Utilitário latex)	\item BibTeX 0.99d (TeX Live 2022/dev/Debian)	\item pdfTeX 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian)
     \end{itemize}
 
-\section{Resultados}
-
 \chapter{Fundamentação teórica}
+
+A plataforma será construída sob alguns pilares fundamentais indispensáveis
+a seu funcionamento. São estes pilares que garantirão o sucesso e o correto
+funcionamento da aplicação, afim de que todo o objetivo discutido até o
+presente momento seja atingido.
+
+A
+Figura\ref{fig:pilares-da-plataforma}
+mostra em forma de mapa mental todos os principais pilares sobre os quais
+o aplicativo será contruído. Estes pelares são formados por diversas
+tecnologias, bibliotecas,
+\textit{frameworks}\footnote{Uma framework é como um kit de ferramentas pré-pronto que fornece uma gama
+    de funcionalidades pré-construídas e testadas afim de facilitar o processo
+    de desenvolvimento. \cite{amazon-framework}
+}
+e conceitos que deverão trabalhar de forma integrada.
+
+\begin{figure}[ht]
+    \centering
+    \caption{Pilares da plataforma, (mapa mental)}
+    \includegraphics[width=0.9\textwidth]{./images/pilares-da-plataforma.png}
+    \label{fig:pilares-da-plataforma} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria.}
+\end{figure}
+
+Estes pilares estão subdivididos em três grandes subcategorias, a saber: Front-End;
+Back-End e Parsing. Cada qual com seus respectivos conceitos e tecnologias.
+
+\section{Do Front-End}
+
+O Front-End é, basicamente, a "linha de frente". É a parte da aplicação que interagirá
+diretamente com o usuário. Ao profissional que codifica e desenvolve esta parte do
+projeto, damos o nome de Desenvolvedor Front-End. A interface do usuário, que é
+onde o mesmo realiza suas interações com o sistema normalmente é desenhada por
+um
+designer
+, ficando a cardo do desenvolvedor o papel de adaptar o
+design
+ao código afim de obter os efeitos desejados.
+\cite{totvs-front-end}
+
+\subsection{Tecnologias web}
+
+As tecnologias
+\acrshort{web}
+desempenham um papel crucial na criação de experiências
+digitais interativas, permitindo que os usuários se envolvam com o conteúdo de maneira mais
+dinâmica e significativa. A incorporação da internet na vida diária resultou em mudanças
+significativas, marcada por um ritmo de evolução e aprimoramento sem precedentes, além da
+distribuição de conteúdo em massa. Juntamente com essas mudanças, surgiram novas
+tecnologias, variando de softwares a hardwares, aprimorando a experiência de navegação na
+web
+\cite{molgado}.
+
+A Internet, que teve origem nos Estados Unidos em 1969, foi inicialmente utilizada
+por universidades, governos e instituições financeiras antes de se expandir globalmente. No
+início, a internet era uma via de mão única onde os usuários consumiam informações e se
+comunicavam de maneira privada. A evolução começou com a introdução de sistemas de
+busca avançados, destacando-se o lançamento do Google em 1998, que democratizou o
+acesso à informação.
+\cite{vitoriano}.
+
+A grande reviravolta na internet aconteceu em 1999, com o surgimento do
+\textit{Blogger},
+marcando o início da
+Web
+2.0, onde a comunicação tornou-se bidirecional. Os usuários
+passaram a gerar conteúdo e se relacionar publicamente com marcas, empresas e pessoas por
+meio de comentários, além de consumir informação. A evolução da tecnologia móvel, em
+conjunto com o surgimento de redes sociais como
+\textit{Fotolog},
+\textit{MySpace},
+\textit{Orkut},
+\textit{Facebook},
+\textit{YouTube}
+e
+\textit{Twitter},
+ampliou o conceito de Web 2.0, permitindo o compartilhamento de fotos,
+vídeos e textos em uma escala maior.
+\cite{vitoriano}.
+
+A forma como se interage com a internet também evoluiu ao longo do tempo.
+Passou-se de sites estáticos para interativos e animados, chegando até aos sites totalmente
+responsivos e adaptáveis de hoje. Isso foi possível devido ao desenvolvimento de novos
+gadgets e ao surgimento de novas linguagens de programação. Atualmente, a Web Moderna é
+composta por várias técnicas, metodologias, linguagens e ferramentas que permitem o
+desenvolvimento de aplicações conectadas e interativas, oferecendo diversas formas de
+interação com interfaces digitais.
+\cite{vitoriano}.
+
+\subsubsection{Linguagem de Marcação de Hipertexto, HTML}
+
+A Linguagem de Marcação de Hipertexto, do inglês: HyperText Markup Language
+(\acrshort{html})
+foi criada por Tim Berners-Lee enquanto trabalhava na Organização Europeia para a
+Pesquisa Nuclear
+(\acrshort{cern}),
+o laboratório de física de partículas na Suíça, no final dos anos
+1980 e início dos anos 1990. O objetivo era criar uma maneira de compartilhar documentos e
+informações em um ambiente de rede. A primeira versão do HTML tinha apenas 18 elementos
+de marcação, permitindo a formatação básica de texto e a inclusão de
+\textit{links},
+imagens e listas.
+\cite{w3c}.

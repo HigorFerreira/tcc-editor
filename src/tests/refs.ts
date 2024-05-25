@@ -58,5 +58,44 @@ export const refs = {
         title: 'Coordenação de TCC. Manual para elaboração de Trabalho de Conclusão de Curso',
         publisher: 'Pontifícia Universidade Católica de Goiás',
         year: 2022
+    },
+    'amazon-framework': {
+        type: 'misc',
+        author: [ 'Amazon', 'AWS' ],
+        title: 'O que é uma framework em programação e engenharia?',
+        note: '[Online: acessado em 25-Maio-2024]',
+        url: 'https://aws.amazon.com/pt/what-is/framework/'
+    },
+    'totvs-front-end': {
+        type: 'misc',
+        title: 'Front end: O que é, como funciona e qual a importância',
+        author: [ 'TOTVS' ],
+        note: '[Online: acessado em 25-Maio-2024]',
+        year: 2021,
+        url: 'https://www.totvs.com/blog/developers/front-end/'
+    },
+    'molgado': {
+        type: 'misc',
+        author: [ 'Victória Molgado' ],
+        title: 'A Evolução da Web: linha do tempo interativa da História da internet.',
+        year: 2016,
+        url: 'https://labvis.eba.ufrj.br/a-evolucao-da-web-linha-do-tempo-interativa-da-historia-da-internet/',
+        note: '[Online: acessado em 15-Maio-2023]',
+    },
+    'vitoriano': {
+        type: 'misc',
+        author: [ 'Dan Vitoriano' ],
+        title: 'O que é a Web Moderna',
+        note: 'Medium. [Online: acessado em 15-Maio-2023]',
+        url: 'https://blog.danvitoriano.com.br/o-que-%C3%A9-a-web-moderna-b01e4df9a565',
+        year: 2019,
+    },
+    'w3c': {
+        type: 'misc',
+        author: [ 'World Wide Web Consortium - W3C' ],
+        note: '[Online: acessado em 16-Maio-2023]',
+        year: 2023,
+        title: 'HTML',
+        url: 'https://html.spec.whatwg.org/multipage',
     }
 } satisfies RefsObjectType

@@ -56,7 +56,7 @@ export const gloss = {
     'html': {
         short: 'HTML',
         label: 'HyperText Markup Language',
-        type: 'sigla',
+        type: 'abreviacao',
     },
     'css': {
         short: 'CSS',
@@ -66,7 +66,7 @@ export const gloss = {
     'http': {
         short: 'HTTP',
         label: 'Hypertext Transfer Protocol',
-        type: 'sigla',
+        type: 'abreviacao',
     },
     'cern': {
         short: 'CERN',
@@ -128,4 +128,9 @@ export const gloss = {
         label: 'Cross-Site Scripting',
         type: 'abreviacao',
     },
+    'web': {
+        type: 'abreviacao',
+        short: 'Web',
+        label: 'World Wide Web'
+    }
 } satisfies GlossaryObjectType
