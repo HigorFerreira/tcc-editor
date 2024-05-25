@@ -12,7 +12,9 @@ export function processHTML(text: string): string{
         return `\\acrshort{${$(node).attr('id')}}`;
     })
     $('plugin-footnote').replaceWith((_, node) => {
-        return `\\footnote{${$(node).data().note}}`
+        const text = $(node).data().note as string;
+        const processed = processHTML(text);
+        return `\\footnote{${processed}}`;
     });
     $('plugin-ref-fig').replaceWith((_, node) => {
         return `Figura\\ref{fig:${$(node).data().fig}}`;
