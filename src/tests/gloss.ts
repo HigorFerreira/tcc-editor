@@ -71,7 +71,7 @@ export const gloss = {
     'cern': {
         short: 'CERN',
         label: 'Conseil Européen pour la Recherche Nucléaire',
-        type: 'sigla',
+        type: 'abreviacao',
     },
     'cms': {
         short: 'CMS',
