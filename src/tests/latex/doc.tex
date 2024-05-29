@@ -13,6 +13,13 @@
 \usepackage{tabularx} % For flexible columns
 \usepackage{blindtext}  % This package provides \blindtext
 \usepackage{titlesec}   % This package is used for custom chapter title formatting
+\usepackage{fancyvrb}
+\usepackage{listings}
+\usepackage{caption}
+
+
+\DefineVerbatimEnvironment{MyVerbatim}{Verbatim}
+{numbers=left, numbersep=8pt, frame=single, framerule=0.5pt, firstnumber=5}
 
 
 \setlength{\parindent}{1.5cm}
@@ -233,6 +240,16 @@
 
 \listoftables    % Lista de Tabelas
 \clearpage
+
+
+% Add a list of listings at the beginning
+\lstlistoflistings
+\newpage
+
+% Define the caption format for listings
+\renewcommand{\lstlistingname}{Listing}
+\renewcommand{\lstlistlistingname}{List of Listings}
+
 
 \input{../printglossaries.tex}
 
