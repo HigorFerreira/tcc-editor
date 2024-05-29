@@ -40,7 +40,9 @@ export function mountGlossary(glossary: GlossaryObjectType){
         }
         % Apply the custom glossary style to each glossary
         \\setglossarystyle{grid}
+    `.trim().replace(/^(\s{8}|\t{2})/gm, '');
 
+    const custom_title = `
         % Redefinição do comando \\glossarysection para personalizar o título
         \\renewcommand{\\glossarysection}[2][]{%
             \\begin{center} % centraliza o título
@@ -50,11 +52,12 @@ export function mountGlossary(glossary: GlossaryObjectType){
             \\markboth{#2}{#2} % marcação para cabeçalho
         %     \\vspace{15mm} % espaçamento após o título
         }
-    `.trim().replace(/^(\s{8}|\t{2})/gm, '')
+    `.trim().replace(/^(\s{8}|\t{2})/gm, '');
 
     let str = `${header}\n\n${acronyms}\n${abbreviations}\n${symbols}\n\n`;
     str = str.concat(`\\makeglossaries`);
     // str = str.concat('\n\n').concat(custom_style);
+    // str = str.concat('\n\n').concat(custom_title);
 
 
     return str;
