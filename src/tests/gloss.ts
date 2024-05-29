@@ -55,17 +55,17 @@ export const gloss = {
     },
     'html': {
         short: 'HTML',
-        label: 'HyperText Markup Language',
+        label: 'HyperText Markup Language, (Linguagem de Marcação de Hipertexto)',
         type: 'abreviacao',
     },
     'css': {
         short: 'CSS',
-        label: 'Cascading Style Sheet',
+        label: 'Cascading Style Sheet, (Folhas de Estilo em Cascata)',
         type: 'sigla',
     },
     'http': {
         short: 'HTTP',
-        label: 'Hypertext Transfer Protocol',
+        label: 'Hypertext Transfer Protocol, (Protocolo de Transferência de Hipertexto)',
         type: 'abreviacao',
     },
     'cern': {
@@ -75,17 +75,17 @@ export const gloss = {
     },
     'cms': {
         short: 'CMS',
-        label: 'Content Management System',
+        label: 'Content Management System, (Sistema de Gerenciamento de Conteúdo)',
         type: 'sigla',
     },
     'xml': {
         short: 'XML',
-        label: 'eXtensible Markup Language',
+        label: 'eXtensible Markup Language, (Linguagem de Marcação Extensível)',
         type: 'sigla',
     },
     'xhtml': {
         short: 'XHTML',
-        label: 'eXtensible HyperText Markup Language',
+        label: 'eXtensible HyperText Markup Language, (Linguagem de Marcação de Hipertexto Extensível)',
         type: 'sigla',
     },
     'svg': {
@@ -98,32 +98,32 @@ export const gloss = {
         label: 'European Computer Manufacturers Association',
         type: 'sigla',
     },
-    'Prof': {
+    'prof': {
         short: 'Prof',
         label: 'Professor',
         type: 'abreviacao',
     },
-    'W3C': {
+    'w3c': {
         short: 'W3C',
         label: 'World Wide Web Consortium',
         type: 'abreviacao',
     },
-    'MathML': {
+    'mathml': {
         short: 'MathML',
         label: 'Mathematical Markup Language',
         type: 'abreviacao',
     },
-    'JS': {
+    'js': {
         short: 'JS',
         label: 'JavaScript',
         type: 'abreviacao',
     },
-    'PHP': {
+    'php': {
         short: 'PHP',
-        label: 'Hypertext Preprocessor',
+        label: 'Hypertext Preprocessor, (Processador de Hipertexto)',
         type: 'abreviacao',
     },
-    'XSS': {
+    'xss': {
         short: 'XSS',
         label: 'Cross-Site Scripting',
         type: 'abreviacao',
@@ -131,6 +131,6 @@ export const gloss = {
     'web': {
         type: 'abreviacao',
         short: 'Web',
-        label: 'World Wide Web'
+        label: 'World Wide Web, (Rede Mundial)'
     }
 } satisfies GlossaryObjectType
