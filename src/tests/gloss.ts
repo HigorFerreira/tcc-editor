@@ -9,12 +9,12 @@ import {
 
 export const gloss = {
     'json': {
-        label: 'JavaScript Object Notation, (Notação de Objeto JavaScript)',
+        label: 'JavaScript Object Notation',
         short: 'JSON',
         type: 'abreviacao'
     },
     'pdf': {
-        label: 'Portable Document Format, (Formato  de Documento Portável)',
+        label: 'Portable Document Format',
         short: 'PDF',
         type: 'sigla'
     },
@@ -55,17 +55,17 @@ export const gloss = {
     },
     'html': {
         short: 'HTML',
-        label: 'HyperText Markup Language, (Linguagem de Marcação de Hipertexto)',
+        label: 'HyperText Markup Language',
         type: 'abreviacao',
     },
     'css': {
         short: 'CSS',
-        label: 'Cascading Style Sheet, (Folhas de Estilo em Cascata)',
+        label: 'Cascading Style Sheet',
         type: 'sigla',
     },
     'http': {
         short: 'HTTP',
-        label: 'Hypertext Transfer Protocol, (Protocolo de Transferência de Hipertexto)',
+        label: 'Hypertext Transfer Protocol',
         type: 'abreviacao',
     },
     'cern': {
@@ -75,17 +75,17 @@ export const gloss = {
     },
     'cms': {
         short: 'CMS',
-        label: 'Content Management System, (Sistema de Gerenciamento de Conteúdo)',
+        label: 'Content Management System',
         type: 'sigla',
     },
     'xml': {
         short: 'XML',
-        label: 'eXtensible Markup Language, (Linguagem de Marcação Extensível)',
+        label: 'eXtensible Markup Language',
         type: 'sigla',
     },
     'xhtml': {
         short: 'XHTML',
-        label: 'eXtensible HyperText Markup Language, (Linguagem de Marcação de Hipertexto Extensível)',
+        label: 'eXtensible HyperText Markup Language',
         type: 'sigla',
     },
     'svg': {
@@ -120,7 +120,7 @@ export const gloss = {
     },
     'php': {
         short: 'PHP',
-        label: 'Hypertext Preprocessor, (Processador de Hipertexto)',
+        label: 'Hypertext Preprocessor',
         type: 'abreviacao',
     },
     'xss': {
@@ -131,6 +131,6 @@ export const gloss = {
     'web': {
         type: 'abreviacao',
         short: 'Web',
-        label: 'World Wide Web, (Rede Mundial)'
+        label: 'World Wide Web'
     }
 } satisfies GlossaryObjectType
