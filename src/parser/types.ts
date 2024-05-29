@@ -75,6 +75,10 @@ export interface ArticleRefType {
     doi: string
     edition: number
     issn: string
+    date: string
+    accessdate: string
+    url: string
+    note: string
 }
 
 

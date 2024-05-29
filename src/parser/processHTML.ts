@@ -19,6 +19,9 @@ export function processHTML(text: string): string{
     $('plugin-ref-fig').replaceWith((_, node) => {
         return `Figura\\ref{fig:${$(node).data().fig}}`;
     });
+    // $('plugin-tag').replaceWith((_, node) => {
+    //     return `${$(node).data().tag}`;
+    // });
     // $('latex').replaceWith((_, node) => {
     //     return `\\latex`;
     // });
