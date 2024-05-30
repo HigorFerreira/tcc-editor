@@ -10,6 +10,6 @@ export function getHeader(block: HeaderBlock){
         case 3:
             return `\\subsection{${escapeCharacters(block.data.text)}}`
         case 4:
-            return `\\subsubsection{${escapeCharacters(block.data.text)}}`
+            return `\\subsubsection{\\underline{${escapeCharacters(block.data.text)}}}`
     }
 }
