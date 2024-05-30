@@ -7,7 +7,7 @@ export interface HeaderBlock {
     type: 'header'
     id: string
     data: {
-        level: 1 | 2 | 3 | 4
+        level: 1 | 2 | 3 | 4 | 5
         text: string
     }
 }
