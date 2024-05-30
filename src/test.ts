@@ -6,6 +6,7 @@ import { mountGlossary } from '@/parser/mountGlossary';
 import { mountGlossaryPrint } from '@/parser/mountGlossaryPrint';
 import { getImage } from '@/parser/image';
 import { getList } from '@/parser/list';
+import { getTable } from '@/parser/table';
 import { pageBreak } from '@/parser/page-break';
 import { writeFile } from 'fs/promises';
 import path from 'path';
@@ -32,6 +33,9 @@ async function main() {
             case 'list':
                 // @ts-ignore
                 return getList(block);
+            case 'table':
+                // @ts-ignore
+                return getTable(block);
         }
     }).join('\n\n');
 

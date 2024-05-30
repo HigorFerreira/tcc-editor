@@ -12,6 +12,18 @@ export interface HeaderBlock {
     }
 }
 
+export interface TableBlock {
+    type: 'table'
+    id: string
+    data: {
+        id: string
+        title: string
+        description: string
+        header: string[]
+        items: string[][]
+    }
+}
+
 export interface ListBlock {
     type: 'list'
     id: string
@@ -97,3 +109,10 @@ export interface RefsObjectType {
         | Partial<MiscRefType>
         | Partial<ArticleRefType>
 }
+
+export type Block = Partial<PageBreakBlock>
+    | Partial<HeaderBlock>
+    | Partial<TableBlock>
+    | Partial<ListBlock>
+    | Partial<ParagraphBlock>
+    | Partial<ImageBlock>
