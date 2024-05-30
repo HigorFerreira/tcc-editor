@@ -86,7 +86,7 @@ export const gloss = {
     'xhtml': {
         short: 'XHTML',
         label: 'eXtensible HyperText Markup Language',
-        type: 'sigla',
+        type: 'abreviacao',
     },
     'svg': {
         short: 'SVG',
@@ -118,6 +118,11 @@ export const gloss = {
         label: 'JavaScript',
         type: 'abreviacao',
     },
+    'ts': {
+        short: 'TS',
+        label: 'TypeScript',
+        type: 'abreviacao',
+    },
     'php': {
         short: 'PHP',
         label: 'Hypertext Preprocessor',
@@ -132,5 +137,15 @@ export const gloss = {
         type: 'abreviacao',
         short: 'Web',
         label: 'World Wide Web'
-    }
+    },
+    'ssr': {
+        type: 'sigla',
+        label: 'Server Side Rendering',
+        short: 'SSR',
+    },
+    'api': {
+        type: 'sigla',
+        label: 'Application Programming Interface',
+        short: 'API'
+    },
 } satisfies GlossaryObjectType

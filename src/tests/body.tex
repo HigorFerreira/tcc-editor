@@ -211,18 +211,15 @@ foi desenvolvido, bem como todas as suas respectivas versões:
 
 \subsection{Lista de tecnologias do ambiente de desenvolvimento}
 
+Atender aos requisitos mínimos de hardware
+e software é fundamental para garantir uma experiência de usuário satisfatória
+e evitar problemas de desempenho ou compatibilidade com o aplicativo da plataforma.
+A seguir é listado o ambiente mínimo com seus respectivos softwares necessários
+para rodar o aplicativo da plataforma:
+
 \begin{itemize}
-        
-	\item Npm 10.2.3
-	\item Yarn 1.22.19
-	\item NodeJs 20.10.0
-	\item kpathsea version 6.3.4/dev
-	\item Sistema Operacional: Ubuntu 20.04
-	\item makeglossaries (Utilitário latex)
-	\item BibTeX 0.99d (TeX Live 2022/dev/Debian)
-	\item pdfTeX 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian)
-    
-\end{itemize}
+        	\item Npm 10.2.3	\item Yarn 1.22.19	\item NodeJs 20.10.0	\item TypeScript 5.3.3	\item kpathsea version 6.3.4/dev	\item Sistema Operacional: Ubuntu 20.04	\item makeglossaries (Utilitário latex)	\item BibTeX 0.99d (TeX Live 2022/dev/Debian)	\item pdfTeX 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian)
+    \end{itemize}
 
 \chapter{Fundamentação teórica}
 
@@ -268,7 +265,7 @@ um
 ao código afim de obter os efeitos desejados.
 \cite{totvs-front-end}
 
-\subsection{Tecnologias web}
+\subsection{Tecnologias Web}
 
 As tecnologias
 \acrshort{web}
@@ -283,12 +280,12 @@ distribuição de conteúdo em massa. Juntamente com essas mudanças, surgiram n
 tecnologias, variando de
 \textit{softwares}\footnote{O software é o conjunto de instruções dadas a um computador, de modo que
     ele execute determinada tarefa. Podemos dizer que o software é
-    a parte lógica do sistema computacional.  \\   \cite{hardware-e-software}.
+    a parte lógica do sistema computacional.  \\  \cite{hardware-e-software}.
 }
 a
 \textit{hardwares}\footnote{Com hardware, compreende-se o equipamento físico de um sistema computacional.
     Suas unidades Lógicas de Processamento, memórias e unidades de armazenamento são
-    hardware. \\ \cite{hardware-e-software}.
+    hardware.  \\  \cite{hardware-e-software}.
 },
 aprimorando a experiência de navegação na
 \acrshort{web}
@@ -518,11 +515,11 @@ com funções de primeira classe. Graças à sua flexibilidade, o JavaScript se 
 variedade de ambientes que não são navegadores, incluindo
 Node.Js\footnote{Ver sessão que trata do Node.Js
 },
-Apache CouchDB\footnote{Base de dados que utiliza o JSON nativamente. Veja mais em: https://couchdb.apache.org/\#about
+Apache CouchDB\footnote{Base de dados que utiliza o JSON nativamente. Veja mais em:  \\ https://couchdb.apache.org/\#about
 }
 e
 Adobe Acrobat\footnote{Software que lê e converte arquivos em formato
-    \acrshort{pdf}. Veja mais em: \\ https://www.adobe.com/br/acrobat.html
+    \acrshort{pdf}. Veja mais em:  \\ https://www.adobe.com/br/acrobat.html
 },
 demonstrando sua adaptabilidade e eficácia em diversos contextos.
 \cite{mdn-js}.
@@ -554,15 +551,275 @@ contínuo e o avanço dessa linguagem padrão.
 
 \subsubsection{TypeScript}
 
-Falar brevemente do typescript
+O TypeScript, as vezes abreviado como
+\acrshort{ts}, é uma linguagem fortemente
+tipada construída em cima do JavaScript,
+\cite{ts-page}.
+Typescript traz uma sintaxe adicional para o JavaScript de modo
+que o mesmo possa suportar checagem de tipos estática.
+Sem o \acrshort{ts},
+fica difícil saber com quais tipos de dados estar-se a trabalhar
+durante o processo de desenvolvimento, pois o JavaScript é uma
+linguagem fracamente tipada. Os parâmetros das funções e variáveis
+não possuem nenhuma informação, forçando os desenvolvedores
+a recorrerem a todo momento à documentação ou intuir sobre
+as tipagens.
+Typescript resolve esse problema, permitindo tipar o código
+de modo que erros possam ser reportados quando a tipagem estiver
+incorreta, por exemplo: ao tentar-se passar uma
+string\footnote{Do inglês: Corda, barbante ou fio. No contexto de programação,
+    é usado como termo para cadeira de caracteres. O caractere é, na
+    maioria das linguagens de programação, um tipo de dado. E textos
+    são formados por estas cadeias denominadas strings,
+}
+para uma função que espera um número, TypeScript lançará um erro.
+O JavaScript, por outro lado, permitirá a execução deste código
+podendo gerar erros de tempo de execução.
+\cite{ts-w3}.
+
+O TypeScript possui um compilador, que nada mais é do que um
+transpilador. Este transpilador é responsável por transformar o
+código
+\acrshort{ts} em
+\acrshort{js}.
+Desta forma, o código JavaScript resultante da
+transpilação pode ser rodado em praticamente qualquer
+navegador ou ambiente que suporte o JavaScript.
+
+\subsubsection{JavaScript Object Notation, JSON}
+
+\textit{JavaScript Object Notation}, (Notação de Objeto JavaScript),
+popularmente chamado de \acrshort{json}. É uma sintaxe para a serialização de
+objetos do javascript. Com objetos do javascript, compreende-se seus tipos
+de dados e valores, como: objetos; matrizes; números; strings; booleanos;
+\textit{null}\footnote{Do inglês: Nulo. Neste contexto é um valor especial do JavaScript para
+    representar a nulidade de um objeto/variável.
+}
+e
+\textit{undefined}\footnote{Do inglês: Indefinido. Neste contexto é um tipo de dado do JavaScript
+    para variáveis indefinidas.
+}.
+Apesar de baseado na sintaxe do JavaScript, distingue-se desta
+no sentido da forma de escrita. A serialização é o processo
+de converter dados estruturados, (ou objetos), em um formato que pode
+facilmente ser armazenado e transmitido pela rede. O \acrshort{json}
+basicamente converte os objetos JavaScript em strings. Uma caracteristica deste,
+é que \acrshort{json} é legível tanto por humanos, quanto por máquinas,
+(na maioria dos casos).
+\cite{mdn-json}.
 
 \subsection{Bibliotecas e Frameworks}
 
 \subsubsection{ReactJs}
 
+\begin{figure}[ht]
+    \centering
+    \caption{Logotipo do React}
+    \includegraphics[width=0.8\textwidth]{./images/react-logotipo.png}
+    \label{fig:react-logotipo} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: React Dev, disponível em: https://react.dev/}
+\end{figure}
+
+"Biblioteca para interfaces de usuário \acrshort{web} e nativas".
+O React é uma biblioteca de JavaScript criada pelo Facebook para solucionar
+desafios de manutenção e escalabilidade em suas aplicações. No início de 2011, a equipe de
+desenvolvedores do Facebook enfrentava dificuldades em lidar com o crescimento da
+aplicação de anúncios, que estava se tornando cada vez mais complexa e difícil de ser
+mantida. O aumento no número de membros da equipe e de funcionalidades estava afetando
+negativamente os processos da empresa. Com tantas atualizações em cascata, a aplicação
+estava se tornando lenta e difícil de ser atualizada sem falhas.
+\cite{morais-react}.
+
+Para resolver esses problemas, Jordan Walke, engenheiro do Facebook, propôs uma
+solução inovadora. Ele sugeriu levar o 
+XHP,
+uma versão do
+\acrshort{php},
+para o navegador usando
+JavaScript. O 
+XHP
+era uma tecnologia desenvolvida para minimizar ataques de Cross-Site
+Scripting
+(\acrshort{xss})
+em aplicações
+\acrshort{web}
+dinâmicas. No entanto, ele não era capaz de lidar com o
+grande número de requisições necessárias para esse tipo de aplicação. Com o apoio de sua
+equipe de gerenciamento, Jordan Walke conduziu um experimento de seis meses para
+explorar essa ideia. O resultado desse experimento foi o surgimento do ReactJS.
+\cite{morais-react}.
+
+O ReactJS revolucionou o desenvolvimento de interfaces de usuário ao introduzir o
+conceito de componentes reutilizáveis e a abordagem de renderização virtual. Com a
+utilização de componentes, os desenvolvedores podiam criar e reutilizar peças de interface
+independentes e isoladas, o que simplificava o desenvolvimento e manutenção do código.
+Além disso, a renderização virtual permitia atualizações de interface eficientes, otimizando o
+desempenho da aplicação. O ReactJS foi lançado como um software de código aberto em
+2013, permitindo que desenvolvedores de todo o mundo o utilizassem em seus projetos.
+\cite{morais-react}.
+
+Desde então, o React ganhou uma imensa popularidade e se tornou uma das
+principais ferramentas para o desenvolvimento de interfaces de usuário em aplicações web.
+Sua abordagem declarativa, que permite descrever como a interface deve ser exibida com
+base no estado da aplicação, simplifica a construção de interfaces complexas. Além disso, a
+capacidade de reutilização de componentes economiza tempo e esforço durante o
+desenvolvimento. O React também influenciou o desenvolvimento do React Native, uma
+versão da biblioteca voltada para a criação de aplicativos móveis multiplataforma. Com a
+ajuda de uma grande comunidade de desenvolvedores e empresas, o ecossistema do React
+continua a evoluir e fornecer soluções inovadoras para o desenvolvimento de interfaces de
+usuário modernas e eficientes.
+\cite{morais-react}.
+
+O React teve seus primeiros sinais em 2010, quando o Facebook introduziu o XHP
+na sua stack de
+\acrshort{php},
+permitindo a criação de componentes compostos. Em 2011, Jordan
+Walke criou o FaxJS, protótipo inicial do React, que foi desenvolvido para resolver os
+desafios de suporte aos anúncios do Facebook. Em 2012, o Instagram foi adquirido pelo
+Facebook e expressou interesse em adotar o React. Isso levou o Facebook a dissociar o React
+da empresa e torná-lo open source. Em 2013, ocorreu o lançamento oficial do React, mas
+inicialmente enfrentou resistência da comunidade de desenvolvedores. No entanto, uma "turnê
+do React" foi realizada para conquistar os não adeptos.
+\cite{morais-react}.
+
+No ano seguinte, o React começou a ganhar reputação e confiança. O
+\textit{React Developer Tools}\footnote{Ferramentas de Desenvolvimento React
+}
+e o
+\textit{React Hot Reloader}\footnote{Carregamento e recarregamento ultra rápido React
+}
+foram lançados, trazendo melhorias no
+desenvolvimento e na experiência do usuário. Em 2015, o React se estabeleceu como uma
+tecnologia estável, com empresas como Netflix e Airbnb adotando-o. O Redux, responsável
+pelo gerenciamento de estado, foi lançado, e o React Native expandiu-se para o
+desenvolvimento de aplicativos móveis para Android.
+\cite{morais-react}.
+
+Atualmente, o React continua evoluindo, com o lançamento de novas
+funcionalidades e recursos para melhorar o desenvolvimento de aplicações. Iniciativas de
+\acrshort{ssr}
+\textit{(Server Side Rendering)}\footnote{Do inglês: Rederização do Lado do Servidor
+}, e o foco em componentes funcionais são algumas das áreas de
+desenvolvimento. O React permanece como uma biblioteca consolidada no mercado de Front-
+End, sendo amplamente adotado por grandes empresas em todo o mundo.
+\cite{morais-react}.
+
 \subsubsection{NextJs}
 
+\begin{figure}[ht]
+    \centering
+    \caption{Logotipo do NextJs}
+    \includegraphics[width=1.0\textwidth]{./images/nextjs-logotipo.png}
+    \label{fig:nextjs-logotipo} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Next.Js, disponível em: https://nextjs-template.vercel.app/}
+\end{figure}
+
+O NextJs é uma framework em ReactJs voltada à construção de aplicações
+\acrshort{web}
+tando na parte do Front-End quanto no Back-End.
+Com NextJs, utiliza-se os componentes em React para construir as interfaces
+de usuário, com o NextJs provendo recursos adicionais e otimizações.
+\cite{nexjs-docs}.
+
+NextJs também se encarrega de todas as configurações necessárias do React, como o processo
+de
+enpacotamento\footnote{Em inglês: Bundling. Um Bundle para a \acrshort{web},
+    por exemplo, junta todos os códigos e recursos em um pacote otimizado
+    para ser distribuído.
+},
+compilação e etc...
+Permitindo ao desenvolvedor apenas focar no desenvolvimento da aplicação em si.
+\cite{nexjs-docs}.
+
+Devido à natureza desta framework, O NextJs é um pilar que aparece
+tanto no Back-End quanto no Front-End. Estas duas frentes serão abordadas
+com a utilização desta ferramenta, aproveitando ao máximo os recursos fornecidos
+pela mesma. Os principais recursos oferecidos pelo NextJs são:
+
+\begin{itemize}
+        	\item Roteamento: O NextJs provê um roteamento, (que é basicamente a navegação por páginas
+                    dentro do app), baseado no sistema de arquivos do Sistema Operacional. Os arquivos
+                    em pastas do projeto são mapeados para links, que fornecem os componentes de servidor
+                    com suporte a
+                    layouts\footnote{Layouts são como templates que são comuns às páginas roteadas. Ajudam no processo
+                        de reaproveitamento de componentes pois eles podem ser extendidos às páginas,
+                        que herdam características destes layouts.
+                    },
+                    rotas aninhadas, estados de carregamento, manipulação de erros,
+                    entre outros...
+                	\item Renderização: NextJs fornece renderização do lado do cliente e do lado do servidor com
+                    componentes de cliente, e componentes de servidor.
+                	\item Busca de dados: Há um processo de busca de dados simplificado com o uso de
+                    \textit{async/await}\footnote{Recurso do JavaScript para lidar com a execuçao de código assíncrono.
+                    }
+                    nos componentes de servidor, além de uma
+                    \acrshort{api}\footnote{Do inglês: Interface de Programação de Aplicações. É uma forma na qual
+                        dois ou mais aplicativos ou componentes de de computador se comunicam
+                        entre si. É uma interface de software que oferece um serviço para outras
+                        partes do mesmo ou de outros softwares.
+                        \cite{api-reddy}.
+                    }
+                    expandida para a memorização das
+                    requisições,
+                    \textit{caching}\footnote{O processo de caching é o ato de armazenar informações que são acessadas
+                        frequentemente de maneira que seu acesso se torne mais rápido. Neste contexto,
+                        o resultado de uma requisição pode ser armazenado em cache para que não
+                        seja necessário consultar o servidor novamente quando a mesma informação
+                        for requisitada.
+                    }
+                    de dados e revalidação.
+                	\item Estilização: Suporte para os métodos preferidos de estilização. Com inclusão
+                    de: Módulos \acrshort{css}, \textit{Tailwind} \acrshort{css},
+                    e \acrshort{css}-in-\acrshort{js}.
+                	\item Otimizações: Otimizações de scripts, imagens e fontes são também fornecidos para aprimorar
+                    o núcleo do aplicativo e a experiência de usuário.
+                	\item TypeScript: Suporte total ao TypeScript, com uma melhor checagem de tipos e compilação eficiente.
+                
+    \end{itemize}
+
+\cite{nexjs-docs}.
+            
+
+\clearpage
+
 \subsubsection{EditorJs}
+
+\begin{figure}[ht]
+    \centering
+    \caption{Logotipo do EditorJs}
+    \includegraphics[width=0.8\textwidth]{./images/editorjs-logotipo.png}
+    \label{fig:editorjs-logotipo} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Editor.Js, disponível em: https://editorjs.io/}
+\end{figure}
+
+"Editor livre em blocos com saída universal em JSON".
+O EditorJs é um rico editor de texto em blocos que oferece uma experiência de
+edição intuitiva e versátil. Tudo o que é feito no EditorJs no fim é transformado
+em um arquivo \acrshort{json} ao invés de um documento de marcação
+em \acrshort{html}.
+Essa abordagem deixa o processo mais simples para os desenvolvedores no
+sentido de projetarem suas próprias integrações. Assim, o EditorJs pode ser
+aplicado a diversas plataformas.
+\cite{editorjs}.
+
+São recursos do EditorJs:
+
+\begin{itemize}
+        	\item Dados de saída limpos	\item \acrshort{api} baseada em plugins	\item Código aberto
+    \end{itemize}
+
+O espaço de trabalho do EditorJs consiste em blocos separados, como:
+Parágrafos; títulos; listas; etc... Cada um deles independentes entre si,
+com muitos outros recursos como: Copiar e colar; seleção de vários blocos;
+e entre outros que funcionam de forma familiar a outras ferramentas.
+\cite{editorjs}.
+
+O conceito chave do EditorJS é sua \acrshort{api}, na qual
+todas as unides funcionais do editor são providas através de plugins externos que fazem
+uso da mesma. Assim, o núcleo do EditorJs fica sendo mais abstrato e poderoso, de
+modo que o desenvolvedor possa implementar diversos desafios com a criação
+de seus próprios plugins.
+\cite{editorjs}.
 
 \section{Do Back-End}
 

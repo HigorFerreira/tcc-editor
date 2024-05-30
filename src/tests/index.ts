@@ -386,6 +386,18 @@ export const data = [
         data: { level: 3, text: 'Lista de tecnologias do ambiente de desenvolvimento' }
     } satisfies Partial<HeaderBlock>,
     {
+        type: 'paragraph',
+        data: {
+            text: `
+                Atender aos requisitos mínimos de hardware
+                e software é fundamental para garantir uma experiência de usuário satisfatória
+                e evitar problemas de desempenho ou compatibilidade com o aplicativo da plataforma.
+                A seguir é listado o ambiente mínimo com seus respectivos softwares necessários
+                para rodar o aplicativo da plataforma:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
         type: 'list',
         data: {
             type: 'bullet',
@@ -397,7 +409,8 @@ export const data = [
                 'pdfTeX 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian)',
                 'kpathsea version 6.3.4/dev',
                 'BibTeX 0.99d (TeX Live 2022/dev/Debian)',
-                'makeglossaries (Utilitário latex)'
+                'makeglossaries (Utilitário latex)',
+                'TypeScript 5.3.3',
             ].sort((a, b) => a.length - b.length)
         }
     } satisfies Partial<ListBlock>,
@@ -488,7 +501,7 @@ export const data = [
     } satisfies Partial<ParagraphBlock>,
     {
         type: 'header',
-        data: { level: 3, text: 'Tecnologias web' }
+        data: { level: 3, text: 'Tecnologias Web' }
     } satisfies Partial<HeaderBlock>,
     {
         type: 'paragraph',
@@ -510,14 +523,14 @@ export const data = [
                 <i>softwares</i><plugin-footnote data-note="
                     O software é o conjunto de instruções dadas a um computador, de modo que
                     ele execute determinada tarefa. Podemos dizer que o software é
-                    a parte lógica do sistema computacional. <plugin-ref id='hardware-e-software'></plugin-ref>.
+                    a parte lógica do sistema computacional. <br> <plugin-ref id='hardware-e-software'></plugin-ref>.
                 ">
                 *</plugin-footnote>
                 a
                 <i>hardwares</i><plugin-footnote data-note="
                     Com hardware, compreende-se o equipamento físico de um sistema computacional.
                     Suas unidades Lógicas de Processamento, memórias e unidades de armazenamento são
-                    hardware. <plugin-ref id='hardware-e-software'></plugin-ref>.
+                    hardware. <br> <plugin-ref id='hardware-e-software'></plugin-ref>.
                 ">
                 *</plugin-footnote>,
                 aprimorando a experiência de navegação na
@@ -867,13 +880,13 @@ export const data = [
                 ">
                 *</plugin-footnote>,
                 Apache CouchDB<plugin-footnote data-note="
-                    Base de dados que utiliza o JSON nativamente. Veja mais em: https://couchdb.apache.org/#about
+                    Base de dados que utiliza o JSON nativamente. Veja mais em: <br>https://couchdb.apache.org/#about
                 ">
                 *</plugin-footnote>
                 e
                 Adobe Acrobat<plugin-footnote data-note="
                     Software que lê e converte arquivos em formato
-                    <plugin-gloss id='pdf'></plugin-gloss>. Veja mais em: https://www.adobe.com/br/acrobat.html
+                    <plugin-gloss id='pdf'></plugin-gloss>. Veja mais em: <br>https://www.adobe.com/br/acrobat.html
                 ">
                 *</plugin-footnote>,
                 demonstrando sua adaptabilidade e eficácia em diversos contextos.
@@ -926,7 +939,82 @@ export const data = [
         type: 'paragraph',
         data: {
             text: `
-                Falar brevemente do typescript
+                O TypeScript, as vezes abreviado como
+                <plugin-gloss id="ts"></plugin-gloss>, é uma linguagem fortemente
+                tipada construída em cima do JavaScript,
+                <plugin-ref id="ts-page"></plugin-ref>.
+                Typescript traz uma sintaxe adicional para o JavaScript de modo
+                que o mesmo possa suportar checagem de tipos estática.
+                Sem o <plugin-gloss id="ts"></plugin-gloss>,
+                fica difícil saber com quais tipos de dados estar-se a trabalhar
+                durante o processo de desenvolvimento, pois o JavaScript é uma
+                linguagem fracamente tipada. Os parâmetros das funções e variáveis
+                não possuem nenhuma informação, forçando os desenvolvedores
+                a recorrerem a todo momento à documentação ou intuir sobre
+                as tipagens.
+                Typescript resolve esse problema, permitindo tipar o código
+                de modo que erros possam ser reportados quando a tipagem estiver
+                incorreta, por exemplo: ao tentar-se passar uma
+                string<plugin-footnote data-note="
+                    Do inglês: Corda, barbante ou fio. No contexto de programação,
+                    é usado como termo para cadeira de caracteres. O caractere é, na
+                    maioria das linguagens de programação, um tipo de dado. E textos
+                    são formados por estas cadeias denominadas strings,
+                ">
+                *</plugin-footnote>
+                para uma função que espera um número, TypeScript lançará um erro.
+                O JavaScript, por outro lado, permitirá a execução deste código
+                podendo gerar erros de tempo de execução.
+                <plugin-ref id="ts-w3"></plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O TypeScript possui um compilador, que nada mais é do que um
+                transpilador. Este transpilador é responsável por transformar o
+                código
+                <plugin-gloss id="ts"></plugin-gloss> em
+                <plugin-gloss id="js"></plugin-gloss>.
+                Desta forma, o código JavaScript resultante da
+                transpilação pode ser rodado em praticamente qualquer
+                navegador ou ambiente que suporte o JavaScript.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'header',
+        data: { level: 4, text: 'JavaScript Object Notation, JSON' }
+    } satisfies Partial<HeaderBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                <i>JavaScript Object Notation</i>, (Notação de Objeto JavaScript),
+                popularmente chamado de <plugin-gloss id="json"></plugin-gloss>. É uma sintaxe para a serialização de
+                objetos do javascript. Com objetos do javascript, compreende-se seus tipos
+                de dados e valores, como: objetos; matrizes; números; strings; booleanos;
+                <i>null</i><plugin-footnote data-note="
+                    Do inglês: Nulo. Neste contexto é um valor especial do JavaScript para
+                    representar a nulidade de um objeto/variável.
+                ">
+                *</plugin-footnote>
+                e
+                <i>undefined</i><plugin-footnote data-note="
+                    Do inglês: Indefinido. Neste contexto é um tipo de dado do JavaScript
+                    para variáveis indefinidas.
+                ">
+                *</plugin-footnote>.
+                Apesar de baseado na sintaxe do JavaScript, distingue-se desta
+                no sentido da forma de escrita. A serialização é o processo
+                de converter dados estruturados, (ou objetos), em um formato que pode
+                facilmente ser armazenado e transmitido pela rede. O <plugin-gloss id="json"></plugin-gloss>
+                basicamente converte os objetos JavaScript em strings. Uma caracteristica deste,
+                é que <plugin-gloss id="json"></plugin-gloss> é legível tanto por humanos, quanto por máquinas,
+                (na maioria dos casos).
+                <plugin-ref id="mdn-json"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
     } satisfies Partial<ParagraphBlock>,
@@ -939,13 +1027,356 @@ export const data = [
         data: { level: 4, text: 'ReactJs' }
     } satisfies Partial<HeaderBlock>,
     {
+        type: 'image',
+        data: {
+            uuid: 'react-logotipo',
+            description: 'Fonte: React Dev, disponível em: https://react.dev/',
+            title: 'Logotipo do React',
+            width: 0.8,
+            fileType: 'png',
+            imageUrl: '',
+        }
+    } satisfies Partial<ImageBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                "Biblioteca para interfaces de usuário <plugin-gloss id="web"></plugin-gloss> e nativas".
+                O React é uma biblioteca de JavaScript criada pelo Facebook para solucionar
+                desafios de manutenção e escalabilidade em suas aplicações. No início de 2011, a equipe de
+                desenvolvedores do Facebook enfrentava dificuldades em lidar com o crescimento da
+                aplicação de anúncios, que estava se tornando cada vez mais complexa e difícil de ser
+                mantida. O aumento no número de membros da equipe e de funcionalidades estava afetando
+                negativamente os processos da empresa. Com tantas atualizações em cascata, a aplicação
+                estava se tornando lenta e difícil de ser atualizada sem falhas.
+                <plugin-ref id="morais-react"></plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Para resolver esses problemas, Jordan Walke, engenheiro do Facebook, propôs uma
+                solução inovadora. Ele sugeriu levar o 
+                XHP,
+                uma versão do
+                <plugin-gloss id="php"></plugin-gloss>,
+                para o navegador usando
+                JavaScript. O 
+                XHP
+                era uma tecnologia desenvolvida para minimizar ataques de Cross-Site
+                Scripting
+                (<plugin-gloss id="xss"></plugin-gloss>)
+                em aplicações
+                <plugin-gloss id="web"></plugin-gloss>
+                dinâmicas. No entanto, ele não era capaz de lidar com o
+                grande número de requisições necessárias para esse tipo de aplicação. Com o apoio de sua
+                equipe de gerenciamento, Jordan Walke conduziu um experimento de seis meses para
+                explorar essa ideia. O resultado desse experimento foi o surgimento do ReactJS.
+                <plugin-ref id="morais-react"></plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O ReactJS revolucionou o desenvolvimento de interfaces de usuário ao introduzir o
+                conceito de componentes reutilizáveis e a abordagem de renderização virtual. Com a
+                utilização de componentes, os desenvolvedores podiam criar e reutilizar peças de interface
+                independentes e isoladas, o que simplificava o desenvolvimento e manutenção do código.
+                Além disso, a renderização virtual permitia atualizações de interface eficientes, otimizando o
+                desempenho da aplicação. O ReactJS foi lançado como um software de código aberto em
+                2013, permitindo que desenvolvedores de todo o mundo o utilizassem em seus projetos.
+                <plugin-ref id="morais-react"></plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Desde então, o React ganhou uma imensa popularidade e se tornou uma das
+                principais ferramentas para o desenvolvimento de interfaces de usuário em aplicações web.
+                Sua abordagem declarativa, que permite descrever como a interface deve ser exibida com
+                base no estado da aplicação, simplifica a construção de interfaces complexas. Além disso, a
+                capacidade de reutilização de componentes economiza tempo e esforço durante o
+                desenvolvimento. O React também influenciou o desenvolvimento do React Native, uma
+                versão da biblioteca voltada para a criação de aplicativos móveis multiplataforma. Com a
+                ajuda de uma grande comunidade de desenvolvedores e empresas, o ecossistema do React
+                continua a evoluir e fornecer soluções inovadoras para o desenvolvimento de interfaces de
+                usuário modernas e eficientes.
+                <plugin-ref id="morais-react"></plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O React teve seus primeiros sinais em 2010, quando o Facebook introduziu o XHP
+                na sua stack de
+                <plugin-gloss id="php"></plugin-gloss>,
+                permitindo a criação de componentes compostos. Em 2011, Jordan
+                Walke criou o FaxJS, protótipo inicial do React, que foi desenvolvido para resolver os
+                desafios de suporte aos anúncios do Facebook. Em 2012, o Instagram foi adquirido pelo
+                Facebook e expressou interesse em adotar o React. Isso levou o Facebook a dissociar o React
+                da empresa e torná-lo open source. Em 2013, ocorreu o lançamento oficial do React, mas
+                inicialmente enfrentou resistência da comunidade de desenvolvedores. No entanto, uma "turnê
+                do React" foi realizada para conquistar os não adeptos.
+                <plugin-ref id="morais-react"></plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                No ano seguinte, o React começou a ganhar reputação e confiança. O
+                <i>React Developer Tools</i><plugin-footnote data-note="
+                    Ferramentas de Desenvolvimento React
+                ">
+                *</plugin-footnote>
+                e o
+                <i>React Hot Reloader</i><plugin-footnote data-note="
+                    Carregamento e recarregamento ultra rápido React
+                ">
+                *</plugin-footnote>
+                foram lançados, trazendo melhorias no
+                desenvolvimento e na experiência do usuário. Em 2015, o React se estabeleceu como uma
+                tecnologia estável, com empresas como Netflix e Airbnb adotando-o. O Redux, responsável
+                pelo gerenciamento de estado, foi lançado, e o React Native expandiu-se para o
+                desenvolvimento de aplicativos móveis para Android.
+                <plugin-ref id="morais-react"></plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Atualmente, o React continua evoluindo, com o lançamento de novas
+                funcionalidades e recursos para melhorar o desenvolvimento de aplicações. Iniciativas de
+                <plugin-gloss id="ssr"></plugin-gloss>
+                <i>(Server Side Rendering)</i><plugin-footnote data-note="
+                    Do inglês: Rederização do Lado do Servidor
+                ">
+                *</plugin-footnote>, e o foco em componentes funcionais são algumas das áreas de
+                desenvolvimento. O React permanece como uma biblioteca consolidada no mercado de Front-
+                End, sendo amplamente adotado por grandes empresas em todo o mundo.
+                <plugin-ref id="morais-react"></plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
         type: 'header',
         data: { level: 4, text: 'NextJs' }
     } satisfies Partial<HeaderBlock>,
     {
+        type: 'image',
+        data: {
+            uuid: 'nextjs-logotipo',
+            description: 'Fonte: Next.Js, disponível em: https://nextjs-template.vercel.app/',
+            title: 'Logotipo do NextJs',
+            width: 1,
+            fileType: 'png',
+            imageUrl: '',
+        }
+    } satisfies Partial<ImageBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O NextJs é uma framework em ReactJs voltada à construção de aplicações
+                <plugin-gloss id="web"></plugin-gloss>
+                tando na parte do Front-End quanto no Back-End.
+                Com NextJs, utiliza-se os componentes em React para construir as interfaces
+                de usuário, com o NextJs provendo recursos adicionais e otimizações.
+                <plugin-ref id="nexjs-docs"></plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                NextJs também se encarrega de todas as configurações necessárias do React, como o processo
+                de
+                enpacotamento<plugin-footnote data-note="
+                    Em inglês: Bundling. Um Bundle para a <plugin-gloss id='web'></plugin-gloss>,
+                    por exemplo, junta todos os códigos e recursos em um pacote otimizado
+                    para ser distribuído.
+                ">
+                *</plugin-footnote>,
+                compilação e etc...
+                Permitindo ao desenvolvedor apenas focar no desenvolvimento da aplicação em si.
+                <plugin-ref id="nexjs-docs"></plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Devido à natureza desta framework, O NextJs é um pilar que aparece
+                tanto no Back-End quanto no Front-End. Estas duas frentes serão abordadas
+                com a utilização desta ferramenta, aproveitando ao máximo os recursos fornecidos
+                pela mesma. Os principais recursos oferecidos pelo NextJs são:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'list',
+        data: {
+            type: 'bullet',
+            list: [
+                `
+                    Roteamento: O NextJs provê um roteamento, (que é basicamente a navegação por páginas
+                    dentro do app), baseado no sistema de arquivos do Sistema Operacional. Os arquivos
+                    em pastas do projeto são mapeados para links, que fornecem os componentes de servidor
+                    com suporte a
+                    layouts<plugin-footnote data-note="
+                        Layouts são como templates que são comuns às páginas roteadas. Ajudam no processo
+                        de reaproveitamento de componentes pois eles podem ser extendidos às páginas,
+                        que herdam características destes layouts.
+                    ">
+                    *</plugin-footnote>,
+                    rotas aninhadas, estados de carregamento, manipulação de erros,
+                    entre outros...
+                `,
+                `
+                    Renderização: NextJs fornece renderização do lado do cliente e do lado do servidor com
+                    componentes de cliente, e componentes de servidor.
+                `,
+                `
+                    Busca de dados: Há um processo de busca de dados simplificado com o uso de
+                    <i>async/await</i><plugin-footnote data-note="
+                        Recurso do JavaScript para lidar com a execuçao de código assíncrono.
+                    ">
+                    *</plugin-footnote>
+                    nos componentes de servidor, além de uma
+                    <plugin-gloss id="api"></plugin-gloss><plugin-footnote data-note="
+                        Do inglês: Interface de Programação de Aplicações. É uma forma na qual
+                        dois ou mais aplicativos ou componentes de de computador se comunicam
+                        entre si. É uma interface de software que oferece um serviço para outras
+                        partes do mesmo ou de outros softwares.
+                        <plugin-ref id='api-reddy'></plugin-ref>.
+                    ">
+                    *</plugin-footnote>
+                    expandida para a memorização das
+                    requisições,
+                    <i>caching</i><plugin-footnote data-note="
+                        O processo de caching é o ato de armazenar informações que são acessadas
+                        frequentemente de maneira que seu acesso se torne mais rápido. Neste contexto,
+                        o resultado de uma requisição pode ser armazenado em cache para que não
+                        seja necessário consultar o servidor novamente quando a mesma informação
+                        for requisitada.
+                    ">
+                    *</plugin-footnote>
+                    de dados e revalidação.
+                `,
+                `
+                    Estilização: Suporte para os métodos preferidos de estilização. Com inclusão
+                    de: Módulos <plugin-gloss id="css"></plugin-gloss>, <i>Tailwind</i> <plugin-gloss id="css">
+                    </plugin-gloss>,
+                    e <plugin-gloss id="css">
+                    </plugin-gloss>-in-<plugin-gloss id="js"></plugin-gloss>.
+                `,
+                `
+                    Otimizações: Otimizações de scripts, imagens e fontes são também fornecidos para aprimorar
+                    o núcleo do aplicativo e a experiência de usuário.
+                `,
+                `
+                    TypeScript: Suporte total ao TypeScript, com uma melhor checagem de tipos e compilação eficiente.
+                `
+            ]
+        }
+    } satisfies Partial<ListBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+            <plugin-ref id="nexjs-docs"></plugin-ref>.
+            `
+        }
+    } satisfies Partial<ParagraphBlock>,
+    { type: 'page-break' } satisfies Partial<PageBreakBlock>,
+    {
         type: 'header',
         data: { level: 4, text: 'EditorJs' }
     } satisfies Partial<HeaderBlock>,
+    {
+        type: 'image',
+        data: {
+            uuid: 'editorjs-logotipo',
+            description: 'Fonte: Editor.Js, disponível em: https://editorjs.io/',
+            title: 'Logotipo do EditorJs',
+            width: 0.8,
+            fileType: 'png',
+            imageUrl: '',
+        }
+    } satisfies Partial<ImageBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                "Editor livre em blocos com saída universal em JSON".
+                O EditorJs é um rico editor de texto em blocos que oferece uma experiência de
+                edição intuitiva e versátil. Tudo o que é feito no EditorJs no fim é transformado
+                em um arquivo <plugin-gloss id="json"></plugin-gloss> ao invés de um documento de marcação
+                em <plugin-gloss id="html"></plugin-gloss>.
+                Essa abordagem deixa o processo mais simples para os desenvolvedores no
+                sentido de projetarem suas próprias integrações. Assim, o EditorJs pode ser
+                aplicado a diversas plataformas.
+                <plugin-ref id="editorjs"></plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                São recursos do EditorJs:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'list',
+        data: {
+            type: 'bullet',
+            list: [
+                'Dados de saída limpos',
+                '<plugin-gloss id="api"></plugin-gloss> baseada em plugins',
+                'Código aberto'
+            ]
+        }
+    } satisfies Partial<ListBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O espaço de trabalho do EditorJs consiste em blocos separados, como:
+                Parágrafos; títulos; listas; etc... Cada um deles independentes entre si,
+                com muitos outros recursos como: Copiar e colar; seleção de vários blocos;
+                e entre outros que funcionam de forma familiar a outras ferramentas.
+                <plugin-ref id="editorjs"></plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O conceito chave do EditorJS é sua <plugin-gloss id="api"></plugin-gloss>, na qual
+                todas as unides funcionais do editor são providas através de plugins externos que fazem
+                uso da mesma. Assim, o núcleo do EditorJs fica sendo mais abstrato e poderoso, de
+                modo que o desenvolvedor possa implementar diversos desafios com a criação
+                de seus próprios plugins.
+                <plugin-ref id="editorjs"></plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    } satisfies Partial<ParagraphBlock>,
     {
         type: 'header',
         data: { level: 2, text: 'Do Back-End' }

@@ -141,4 +141,59 @@ export const refs = {
         year: 2023,
         note: '[Online: acessado em 16-Maio-2023]',
     },
+    'ts-page': {
+        type: 'misc',
+        author: [ 'TypeScript' ],
+        title: 'TypeScript',
+        url: 'https://www.typescriptlang.org/',
+        note: '[Online: acessado em 29-Maio-2024]',
+    },
+    'ts-w3': {
+        type: 'misc',
+        author: [ 'W3Schools' ],
+        title: 'TypeScript Introduction',
+        url: 'https://www.w3schools.com/typescript/typescript_intro.php',
+        note: '[Online: acessado em 29-Maio-2024]',
+        year: 2024
+    },
+    'morais-react': {
+        type: 'article',
+        author: [ 'Patrick Morais' ],
+        title: 'A História do React!',
+        publisher: 'Medium',
+        year: 2021,
+        note: '[Online: acessado em 29-Maio-2024]',
+        url: 'https://medium.com/@ppternunes/a-hist%C3%B3ria-do-react-ba346c416fe1',
+    },
+    'nexjs-docs': {
+        type: 'article',
+        author: [ 'NEXTJS' ],
+        title: 'Introduction',
+        year: 2024,
+        note: '[Online: acessado em 29-Maio-2024]',
+        url: 'https://nextjs.org/docs'
+    },
+    'api-reddy': {
+        type: 'book',
+        author: [ 'Martin Reddy' ],
+        title: 'API Design for C++',
+        publisher: 'Elsevier Science',
+        issn: '9780123850041',
+        year: 2011,
+    },
+    'editorjs': {
+        type: 'article',
+        author: [ 'EDITORJS' ],
+        title: 'Base Concepts',
+        url: 'https://editorjs.io/base-concepts/',
+        note: '[Online: acessado em 30-Maio-2024]',
+    },
+    'mdn-json': {
+        type: 'article',
+        author: ['MDN'],
+        title: 'JSON',
+        note: '[Online: acessado em 30-Maio-2024]',
+        url: 'https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/JSON',
+        year: 2024,
+    }
 } satisfies RefsObjectType
