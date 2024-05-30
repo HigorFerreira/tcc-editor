@@ -50,13 +50,18 @@
 
 \input{../makeglossaries.tex}
 
-% \titleformat{\chapter}[display]
-%     {\bfseries\fontsize{10pt}{12pt}\selectfont\MakeUppercase}  % Bold, 10pt font size, uppercase
-%     {\filright\MakeUppercase{\chaptertitlename} \thechapter}   % Right-aligned, uppercase chapter title
-%     {4ex}                                                     % Space between the number and title
-%     {}                                                        % Additional formatting before the title (empty placeholder)
-%     []                                                        % Additional formatting after the title (empty placeholder)
+% Definindo um comando personalizado para o tamanho da fonte
+\newcommand{\chaptersize}{\fontsize{12pt}{1.5}\selectfont}
+% Definindo a formatação do capítulo
+\titleformat{\chapter}{\normalfont\bfseries\chaptersize\MakeUppercase}{\thechapter}{1em}{}
 
+\titleformat{\section}{\normalfont\bfseries\chaptersize}{\thesection}{1em}{}
+
+\titleformat{\subsection}{\normalfont\itshape\bfseries\chaptersize}{\thesubsection}{1em}{}
+
+\titleformat{\subsection}{\normalfont\itshape\bfseries\chaptersize}{\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}{\normalfont\chaptersize}{\thesubsubsection}{1em}{}
 
 
 % Início do documento
