@@ -12,13 +12,18 @@ export function getTable(block: TableBlock){
         header,
         items,
     } = block.data;
+    
+    const MAX_WIDTH = 16;
+
     return `
         \\begin{table}[h!]
             \\centering
             \\caption{${escapeCharacters(title)}}
             \\label{tbl:${id}}
             \\renewcommand{\\arraystretch}{1.5}
-            \\begin{tabular}{${header.map(() => 'c').join(' ')}}
+            \\begin{tabular}{${header.map(() => {
+                return `p{${(MAX_WIDTH/header.length).toFixed(1)}cm}`
+            }).join(' ')}}
                 \\hline
                 ${
                     header.map(h => posProcess(processHTML(escapeCharacters(h)))).join(' & ')
@@ -32,7 +37,7 @@ export function getTable(block: TableBlock){
                     }).join(' \\\\\n')
                 } \\\\
                 \\hline
-                \\\\\\textnormal{\\fontsize{10pt}{12pt}${
+                \\\\\\multicolumn{${header.length}}{c}{\\fontsize{10pt}{12pt}${
                     posProcess(processHTML(escapeCharacters(description)))
                 }}
             \\end{tabular}
