@@ -11,9 +11,10 @@ export function getTable(block: TableBlock){
         description,
         header,
         items,
+        width,
     } = block.data;
     
-    const MAX_WIDTH = 16;
+    const MAX_WIDTH = 16*width;
 
     return `
         \\begin{table}[h!]
@@ -34,7 +35,7 @@ export function getTable(block: TableBlock){
                         return row.map(cell => {
                             return posProcess(processHTML(escapeCharacters(cell)))
                         }).join(' & ')
-                    }).join(' \\\\\n')
+                    }).join(' \\\\\n\t\t')
                 } \\\\
                 \\hline
                 \\\\\\multicolumn{${header.length}}{c}{\\fontsize{10pt}{12pt}${

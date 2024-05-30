@@ -21,6 +21,7 @@ export interface TableBlock {
         description: string
         header: string[]
         items: string[][]
+        width: number
     }
 }
 
