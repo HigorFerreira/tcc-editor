@@ -608,6 +608,27 @@ basicamente converte os objetos JavaScript em strings. Uma caracteristica deste,
 (na maioria dos casos).
 \cite{mdn-json}.
 
+A Tabela\ref{tbl:json-descs} mostra as principais
+diferenças entre o JavaScript e o JSON.
+
+\begin{table}[h!]
+    \centering
+    \caption{Diferenças entre o JavaScript e o JSON}
+    \label{tbl:json-descs}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{p{8.0cm} p{8.0cm}}
+        \hline
+        Tipos e valores JavaScript & Diferença para o JSON \\
+        \hline
+        Objetos e Arrays & Os nomes das propriedades devem ser strings com aspas duplas; as vírgulas à direita são proibidas. \\
+		Números & Zeros à esquerda são proibidos; um ponto decimal deve ser seguido por pelo menos um dígito. \\
+		Strings & Apenas um conjunto limitado de caracteres pode ser escapado; certos caracteres de controle são proibidos; o separador de linha Unicode (U+2028) e o separador de parágrafo (U+2029) caracteres são permitidos; strings devem ter aspas duplas.
+             \\
+        \hline
+        \\\multicolumn{2}{c}{\fontsize{10pt}{12pt}Fonte: \cite{mdn-json}.}
+    \end{tabular}
+\end{table}
+
 \subsection{Bibliotecas e Frameworks}
 
 \subsubsection{\underline{ReactJs}}

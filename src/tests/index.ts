@@ -4,16 +4,17 @@ import {
     PageBreakBlock,
     ImageBlock,
     ListBlock,
+    Block
 } from '@/parser/types'
 
 export { refs } from './refs'
 export { gloss } from './gloss'
 
-export const data = [
+export const data: Block[] = [
     {
         type: 'header',
         data: { level: 1, text: 'Introdução' },
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -24,7 +25,7 @@ export const data = [
                 técnicas para apresentação formal e formatação correta.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -42,7 +43,7 @@ export const data = [
                 <plugin-ref id="abnt" data-type="siglas">(ABNT, 2011)</plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -58,7 +59,7 @@ export const data = [
                 10520, que diz respeito às citações em documentos.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -73,7 +74,7 @@ export const data = [
                 preocupação gráfica, em geral, acaba malsucedida."
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -93,10 +94,10 @@ export const data = [
                 pode obscurecer o direcionamento do aluno ao redigir/formatar seu trabalho."
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'page-break',
-    } satisfies Partial<PageBreakBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -115,11 +116,11 @@ export const data = [
                 na vida de boa parte dos estudantes em processo de escrita.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'header',
         data: { level: 2, text: 'Objetivo' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -142,7 +143,7 @@ export const data = [
                 ficarão a cargo da própria plataforma.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -158,7 +159,7 @@ export const data = [
                 . A <plugin-ref-fig data-fig="Passos para criar um documento">Figura 1</plugin-ref-fig> ilustra esse fluxo na linha do tempo.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'image',
         data: {
@@ -169,7 +170,7 @@ export const data = [
             fileType: 'png',
             imageUrl: '',
         }
-    } satisfies Partial<ImageBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -184,15 +185,15 @@ export const data = [
                 final já formatada em <plugin-gloss id="pdf" data-type="siglas">pdf</plugin-gloss>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'header',
         data: { level: 2, text: 'Fluxo do documento' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'header',
         data: { level: 3, text: 'Escrita em blocos' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -210,11 +211,11 @@ export const data = [
                 uma unidade coesa final, que será o trabalho propiamente dito.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'header',
         data: { level: 3, text: 'Bloco' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -230,7 +231,7 @@ export const data = [
                 de caráter acadêmico-científico.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -241,7 +242,7 @@ export const data = [
                 em exemplos que estão sendo dados em determinado contexto do texto.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -254,7 +255,7 @@ export const data = [
                 subtítulo, e até o subtítulo do subtítulo.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -266,7 +267,7 @@ export const data = [
                 ser definida a imagem, bem como seu título de sua descrição.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -274,7 +275,7 @@ export const data = [
                 A imagem abaixo ilustra a composição de um trabalho com seus respectivos blocos:
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'image',
         data: {
@@ -285,11 +286,11 @@ export const data = [
             fileType: 'png',
             imageUrl: '',
         }
-    } satisfies Partial<ImageBlock>,
+    },
     {
         type: 'header',
         data: { level: 3, text: 'Parsing' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -305,7 +306,7 @@ export const data = [
                 final.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -329,7 +330,7 @@ export const data = [
 
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'image',
         data: {
@@ -340,11 +341,11 @@ export const data = [
             fileType: 'png',
             imageUrl: '',
         }
-    } satisfies Partial<ImageBlock>,
+    },
     // {
     //     type: 'header',
     //     data: { level: 2, text: 'Pilares da aplicação' }
-    // } satisfies Partial<HeaderBlock>,
+    // },
     // {
     //     type: 'paragraph',
     //     data: {
@@ -352,11 +353,11 @@ export const data = [
     //             Descrever brevemente os pilares da aplicação
     //         `.trim().replace(/^\s{16}/gm, '')
     //     }
-    // } satisfies Partial<ParagraphBlock>,
+    // },
     {
         type: 'header',
         data: { level: 2, text: 'Ambiente de desenvolvimento' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -377,14 +378,14 @@ export const data = [
                 foi desenvolvido, bem como todas as suas respectivas versões:
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'page-break',
-    } satisfies Partial<PageBreakBlock>,
+    },
     {
         type: 'header',
         data: { level: 3, text: 'Lista de tecnologias do ambiente de desenvolvimento' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -396,7 +397,7 @@ export const data = [
                 para rodar o aplicativo da plataforma:
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'list',
         data: {
@@ -413,15 +414,15 @@ export const data = [
                 'TypeScript 5.3.3',
             ].sort((a, b) => a.length - b.length)
         }
-    } satisfies Partial<ListBlock>,
+    },
     // {
     //     type: 'header',
     //     data: { level: 2, text: 'Resultados' }
-    // } satisfies Partial<HeaderBlock>,
+    // },
     {
         type: 'header',
         data: { level: 1, text: 'Fundamentação teórica' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -432,7 +433,7 @@ export const data = [
                 presente momento seja atingido.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -451,7 +452,7 @@ export const data = [
                 e conceitos que deverão trabalhar de forma integrada.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'image',
         data: {
@@ -462,7 +463,7 @@ export const data = [
             fileType: 'png',
             imageUrl: '',
         }
-    } satisfies Partial<ImageBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -471,11 +472,11 @@ export const data = [
                 Back-End e Parsing. Cada qual com seus respectivos conceitos e tecnologias.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'header',
         data: { level: 2, text: 'Do Front-End' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -498,11 +499,11 @@ export const data = [
                 <plugin-ref id="totvs-front-end"></plugin-ref>
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'header',
         data: { level: 3, text: 'Tecnologias Web' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -538,7 +539,7 @@ export const data = [
                 <plugin-ref id="molgado"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -552,7 +553,7 @@ export const data = [
                 <plugin-ref id="vitoriano">(VITORIANO, 2019)</plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -577,7 +578,7 @@ export const data = [
                 <plugin-ref id="vitoriano">(VITORIANO, 2019)</plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -599,11 +600,11 @@ export const data = [
                 <plugin-ref id="vitoriano">(VITORIANO, 2019)</plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'header',
         data: { level: 4, text: 'Linguagem de Marcação de Hipertexto, HTML' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -629,7 +630,7 @@ export const data = [
                 <plugin-ref id="w3c">(W3C, 2023)</plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -652,7 +653,7 @@ export const data = [
                 <plugin-ref id="w3c">(W3C, 2023)</plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -666,11 +667,11 @@ export const data = [
                 <plugin-ref id="w3c">(W3C, 2023)</plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'header',
         data: { level: 4, text: 'Funcionamento do HTML' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -692,7 +693,7 @@ export const data = [
                 <plugin-ref id="w3c"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -711,11 +712,11 @@ export const data = [
                 <plugin-ref id="w3c"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'header',
         data: { level: 4, text: 'HTML versão 5' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -729,7 +730,7 @@ export const data = [
                 <plugin-ref id="w3c"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -757,7 +758,7 @@ export const data = [
                 <plugin-ref id="w3c"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -772,7 +773,7 @@ export const data = [
                 <plugin-ref id="w3c"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -788,11 +789,11 @@ export const data = [
                 <plugin-ref id="w3c"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'header',
         data: { level: 4, text: 'Folhas de Estilo em Cascata, (CSS)' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -822,7 +823,7 @@ export const data = [
                 <plugin-ref id="mdn-css"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -859,11 +860,11 @@ export const data = [
                 <plugin-ref id="mdn-css"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'header',
         data: { level: 4, text: 'JavaScript' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -893,7 +894,7 @@ export const data = [
                 <plugin-ref id="mdn-js"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -906,7 +907,7 @@ export const data = [
                 <plugin-ref id="mdn-js"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -930,11 +931,11 @@ export const data = [
                 <plugin-ref id="mdn-js"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'header',
         data: { level: 4, text: 'TypeScript' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -968,7 +969,7 @@ export const data = [
                 <plugin-ref id="ts-w3"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -983,11 +984,11 @@ export const data = [
                 navegador ou ambiente que suporte o JavaScript.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'header',
         data: { level: 4, text: 'JavaScript Object Notation, JSON' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -1017,15 +1018,46 @@ export const data = [
                 <plugin-ref id="mdn-json"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                A <plugin-ref-table data-table="json-descs">Tabela</plugin-ref-table> mostra as principais
+                diferenças entre o JavaScript e o JSON.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'table',
+        data: {
+            id: 'json-descs',
+            title: 'Diferenças entre o JavaScript e o JSON',
+            description: 'Fonte: <plugin-ref id="mdn-json"></plugin-ref>.',
+            width: 1,
+            header: [
+                'Tipos e valores JavaScript', 'Diferença para o JSON'
+            ],
+            items: [
+                [ 'Objetos e Arrays', 'Os nomes das propriedades devem ser strings com aspas duplas; as vírgulas à direita são proibidas.' ],
+                [ 'Números', 'Zeros à esquerda são proibidos; um ponto decimal deve ser seguido por pelo menos um dígito.' ],
+                [
+                    'Strings',
+                    `
+                    Apenas um conjunto limitado de caracteres pode ser escapado; certos caracteres de controle são proibidos; o separador de linha Unicode (U+2028) e o separador de parágrafo (U+2029) caracteres são permitidos; strings devem ter aspas duplas.
+                    `
+                ]
+            ]
+        }
+    },
     {
         type: 'header',
         data: { level: 3, text: 'Bibliotecas e Frameworks' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'header',
         data: { level: 4, text: 'ReactJs' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'image',
         data: {
@@ -1036,7 +1068,7 @@ export const data = [
             fileType: 'png',
             imageUrl: '',
         }
-    } satisfies Partial<ImageBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -1052,7 +1084,7 @@ export const data = [
                 <plugin-ref id="morais-react"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -1077,7 +1109,7 @@ export const data = [
                 <plugin-ref id="morais-react"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -1092,7 +1124,7 @@ export const data = [
                 <plugin-ref id="morais-react"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -1110,7 +1142,7 @@ export const data = [
                 <plugin-ref id="morais-react"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -1128,7 +1160,7 @@ export const data = [
                 <plugin-ref id="morais-react"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -1151,7 +1183,7 @@ export const data = [
                 <plugin-ref id="morais-react"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -1168,11 +1200,11 @@ export const data = [
                 <plugin-ref id="morais-react"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'header',
         data: { level: 4, text: 'NextJs' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'image',
         data: {
@@ -1183,7 +1215,7 @@ export const data = [
             fileType: 'png',
             imageUrl: '',
         }
-    } satisfies Partial<ImageBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -1196,7 +1228,7 @@ export const data = [
                 <plugin-ref id="nexjs-docs"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -1214,7 +1246,7 @@ export const data = [
                 <plugin-ref id="nexjs-docs"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -1225,7 +1257,7 @@ export const data = [
                 pela mesma. Os principais recursos oferecidos pelo NextJs são:
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'list',
         data: {
@@ -1292,7 +1324,7 @@ export const data = [
                 `
             ]
         }
-    } satisfies Partial<ListBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -1300,12 +1332,12 @@ export const data = [
             <plugin-ref id="nexjs-docs"></plugin-ref>.
             `
         }
-    } satisfies Partial<ParagraphBlock>,
-    { type: 'page-break' } satisfies Partial<PageBreakBlock>,
+    },
+    { type: 'page-break' },
     {
         type: 'header',
         data: { level: 4, text: 'EditorJs' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'image',
         data: {
@@ -1316,7 +1348,7 @@ export const data = [
             fileType: 'png',
             imageUrl: '',
         }
-    } satisfies Partial<ImageBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -1332,7 +1364,7 @@ export const data = [
                 <plugin-ref id="editorjs"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -1340,7 +1372,7 @@ export const data = [
                 São recursos do EditorJs:
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'list',
         data: {
@@ -1351,7 +1383,7 @@ export const data = [
                 'Código aberto'
             ]
         }
-    } satisfies Partial<ListBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -1363,7 +1395,7 @@ export const data = [
                 <plugin-ref id="editorjs"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'paragraph',
         data: {
@@ -1376,13 +1408,13 @@ export const data = [
                 <plugin-ref id="editorjs"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
-    } satisfies Partial<ParagraphBlock>,
+    },
     {
         type: 'header',
         data: { level: 2, text: 'Do Back-End' }
-    } satisfies Partial<HeaderBlock>,
+    },
     {
         type: 'header',
         data: { level: 2, text: 'O processo de Parsing' }
-    } satisfies Partial<HeaderBlock>,
+    },
 ]
