@@ -30,7 +30,7 @@ export function getTable(block: TableBlock){
             }}
                 \\hline
                 ${
-                    header.map(h => posProcess(processHTML(escapeCharacters(h)))).join(' & ')
+                    header.map(h => `\\textbf{${posProcess(processHTML(escapeCharacters(h)))}}`).join(' & ')
                 } \\\\
                 \\hline
                 ${
