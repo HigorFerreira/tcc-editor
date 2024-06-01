@@ -22,6 +22,7 @@ export interface TableBlock {
         header: string[]
         items: string[][]
         width: number
+        column_sizes: number[]
     }
 }
 

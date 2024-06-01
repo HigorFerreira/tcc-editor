@@ -12,6 +12,7 @@ export function getTable(block: TableBlock){
         header,
         items,
         width,
+        column_sizes,
     } = block.data;
     
     const MAX_WIDTH = 16*width;
@@ -22,9 +23,11 @@ export function getTable(block: TableBlock){
             \\caption{${escapeCharacters(title)}}
             \\label{tbl:${id}}
             \\renewcommand{\\arraystretch}{1.5}
-            \\begin{tabular}{${header.map(() => {
-                return `p{${(MAX_WIDTH/header.length).toFixed(1)}cm}`
-            }).join(' ')}}
+            \\begin{tabular}{${
+                column_sizes.map(col => {
+                    return `p{${MAX_WIDTH*col}cm}`
+                }).join(' ')
+            }}
                 \\hline
                 ${
                     header.map(h => posProcess(processHTML(escapeCharacters(h)))).join(' & ')
