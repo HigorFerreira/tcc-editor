@@ -1,7 +1,7 @@
-import { escapeCharacters } from './escape';
-import { processHTML } from './processHTML';
-import { posProcess } from './posProcess';
-import { TableBlock } from './types';
+import { escapeCharacters } from '../process_steps/escape';
+import { processHTML } from '../process_steps/processHTML';
+import { posProcess } from '../process_steps/posProcess';
+import { TableBlock } from '../types';
 
 
 export function getTable(block: TableBlock){
@@ -41,9 +41,12 @@ export function getTable(block: TableBlock){
                     }).join(' \\\\\n\t\t')
                 } \\\\
                 \\hline
-                \\\\\\multicolumn{${header.length}}{c}{\\fontsize{10pt}{12pt}${
-                    posProcess(processHTML(escapeCharacters(description)))
-                }}
+                ${
+                    description &&
+                    `\\\\\\multicolumn{${header.length}}{c}{\\fontsize{10pt}{12pt}${
+                        posProcess(processHTML(escapeCharacters(description)))
+                    }}`
+                }
             \\end{tabular}
         \\end{table}
     `.trim().replace(/^\s{8}/gm, '');

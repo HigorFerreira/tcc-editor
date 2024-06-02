@@ -1,14 +1,14 @@
 import { data as initialData, refs, gloss } from '@/tests';
 import { data as chapter3 } from '@/tests/chapter3';
-import { getParagraph } from '@/parser/paragraph';
-import { getHeader } from '@/parser/header';
-import { mountRefs } from '@/parser/mountRefs';
-import { mountGlossary } from '@/parser/mountGlossary';
-import { mountGlossaryPrint } from '@/parser/mountGlossaryPrint';
-import { getImage } from '@/parser/image';
-import { getList } from '@/parser/list';
-import { getTable } from '@/parser/table';
-import { pageBreak } from '@/parser/page-break';
+import { getParagraph } from '@/parser/plugins/paragraph';
+import { getHeader } from '@/parser/plugins/header';
+import { mountRefs } from '@/parser/mounting/mountRefs';
+import { mountGlossary } from '@/parser/mounting/mountGlossary';
+import { mountGlossaryPrint } from '@/parser/mounting/mountGlossaryPrint';
+import { getImage } from '@/parser/plugins/image';
+import { getList } from '@/parser/plugins/list';
+import { getTable } from '@/parser/plugins/table';
+import { pageBreak } from '@/parser/plugins/page-break';
 import { writeFile } from 'fs/promises';
 import path from 'path';
 

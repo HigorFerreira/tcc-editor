@@ -1,5 +1,5 @@
-import { escapeCharacters } from './escape';
-import { HeaderBlock } from './types';
+import { escapeCharacters } from '../process_steps/escape';
+import { HeaderBlock } from '../types';
 
 export function getHeader(block: HeaderBlock){
     switch(block.data.level){

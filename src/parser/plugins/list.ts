@@ -1,6 +1,6 @@
-import { escapeCharacters } from "./escape";
-import { processHTML } from "./processHTML";
-import { ListBlock } from "./types";
+import { escapeCharacters } from "../process_steps/escape";
+import { processHTML } from "../process_steps/processHTML";
+import { ListBlock } from "../types";
 
 export function getList(list: ListBlock){
     const { data: { type, list: __list } } = list;

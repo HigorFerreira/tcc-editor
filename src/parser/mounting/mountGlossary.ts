@@ -1,5 +1,5 @@
-import { escapeCharacters } from "./escape";
-import { GlossaryObjectType } from "./types";
+import { escapeCharacters } from "../process_steps/escape";
+import { GlossaryObjectType } from "../types";
 
 export function mountGlossary(glossary: GlossaryObjectType){
     const header = `

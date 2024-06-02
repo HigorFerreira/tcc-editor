@@ -1,7 +1,7 @@
-import { escapeCharacters } from './escape';
-import { posProcess } from './posProcess';
-import { processHTML } from './processHTML';
-import { ImageBlock } from './types';
+import { escapeCharacters } from '../process_steps/escape';
+import { posProcess } from '../process_steps/posProcess';
+import { processHTML } from '../process_steps/processHTML';
+import { ImageBlock } from '../types';
 
 export function getImage(block: ImageBlock){
     const {

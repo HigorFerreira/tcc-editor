@@ -1,5 +1,5 @@
-import { escapeCharacters } from "./escape";
-import { GlossaryObjectType } from "./types";
+import { escapeCharacters } from "../process_steps/escape";
+import { GlossaryObjectType } from "../types";
 
 export function mountGlossaryPrint(glossary: GlossaryObjectType){
     const gloss_arr = Object.keys(glossary).map(key => ({ ...glossary[key], key }));
