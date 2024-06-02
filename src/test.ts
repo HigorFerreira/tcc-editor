@@ -2,21 +2,28 @@ import { data as initialData, refs, gloss } from '@/tests';
 import { data as chapter3 } from '@/tests/chapter3';
 import { getParagraph } from '@/parser/plugins/paragraph';
 import { getHeader } from '@/parser/plugins/header';
+import { getCode } from '@/parser/plugins/code';
 import { mountRefs } from '@/parser/mounting/mountRefs';
 import { mountGlossary } from '@/parser/mounting/mountGlossary';
 import { mountGlossaryPrint } from '@/parser/mounting/mountGlossaryPrint';
+import { mountCodes } from '@/parser/mounting/mountCodes';
 import { getImage } from '@/parser/plugins/image';
 import { getList } from '@/parser/plugins/list';
 import { getTable } from '@/parser/plugins/table';
 import { pageBreak } from '@/parser/plugins/page-break';
 import { writeFile } from 'fs/promises';
 import path from 'path';
+import { CodesObjectType } from '@/parser/types';
 
 
 const TESTS_PATH = '/home/higor/Documents/TCC/editor2/src/tests'
 
 async function main() {
+
     const data = initialData.concat(chapter3);
+    const codes: CodesObjectType = {};
+
+
     const text = data.map(block => {
         // @ts-ignore
         switch(block.type){
@@ -38,6 +45,11 @@ async function main() {
             case 'table':
                 // @ts-ignore
                 return getTable(block);
+            case 'code':
+                // @ts-ignore
+                codes[block.data?.uuid??''] = block;
+                // @ts-ignore
+                return getCode(block);
         }
     }).join('\n\n');
 
@@ -54,6 +66,11 @@ async function main() {
     await writeFile(
         path.join(TESTS_PATH, 'makeglossaries.tex'),
         mountGlossary(gloss)
+    );
+
+    await writeFile(
+        path.join(TESTS_PATH, 'makeCodes.tex'),
+        mountCodes(codes)
     );
 
     await writeFile(

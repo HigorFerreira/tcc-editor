@@ -55,3 +55,13 @@ export interface ImageBlock {
         fileType: string
     }
 }
+
+export interface CodeBlock {
+    type: 'code'
+    id: string
+    data: {
+        uuid: string
+        text: string
+        start_line: number
+    }
+}
