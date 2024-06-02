@@ -1,4 +1,4 @@
-import { PageBreakBlock } from './types';
+import { PageBreakBlock } from '../types';
 
 export function pageBreak(block: PageBreakBlock){
     return '\\clearpage';
