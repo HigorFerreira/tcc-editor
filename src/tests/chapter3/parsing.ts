@@ -239,14 +239,125 @@ export const parsing: Block[] = [
                 especiais de controle que ajudam a definir como
                 determinado conteúdo aparecerá no documento. Por exemplo:
                 O caractere \\
-                é  um dos mais importantes caracteres do latex, pois ele
+                é  um dos mais importantes caracteres do
+                <plugin-gloss id="latex"></plugin-gloss>,
+                pois ele
                 define uma gama de comandos, como por exemplo o \\chapter{<strong>texto</strong>},
                 que define
                 <strong>texto</strong>
                 como sendo um capítulo no documento.
                 Mas e se o usuário digitar no documento um caractere \\?
-                
+                Quais problemas isso poderá gerar?                
             `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Caso o usuário digite um \\
+                no documento e este caractere simplesmente seja
+                transcrito no documento
+                <plugin-gloss id="latex"></plugin-gloss>,
+                gerará uma série de efeitos indesejados, desde
+                comandos inexistentes como: \\esse-comando-não-existe,
+                como o uso acidental de comandos do próprio
+                <plugin-gloss id="latex"></plugin-gloss>,
+                como:
+                \\chapter; \\section ou \\subsection.
+                Para evitar isto substituímos qualquer ocorrência de
+                \\  no texto por \\textbackslash, que é um comando
+                <plugin-gloss id="latex"></plugin-gloss>
+                responsável por imprimir uma \\ no corpo
+                do texto.
+                A
+                <plugin-ref-table data-table="escape-characters">Tabela</plugin-ref-table>
+                mostra as ocorrências de todos os caracteres que devem ser substituídos
+                por algum comando especial no
+                <plugin-gloss id="latex"></plugin-gloss>
+                que possua o mesmo significado textual:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'table',
+        data: {
+            id: 'escape-characters',
+            title: 'Mapeamento de escape de caracteres para código LaTex',
+            description: '',
+            width: 0.4,
+            header: [ 'Caractere', 'Substituição' ],
+            column_sizes: [ 0.4, 0.6 ],
+            items: [
+                [ '\\', '\\textbackslash ' ],
+                [ '#', '\\#' ],
+                [ '$', '\\$$' ],
+                [ '%', '\\%' ],
+                [ '^', '\\textasciicircum ' ],
+                [ '&', '\\&' ],
+                [ '_', '\\_' ],
+                [ '{', '\\{' ],
+                [ '}', '\\}' ],
+                [ '[', '{[}' ],
+                [ ']', '{]}' ],
+                [ '~', '\\textasciitilde ' ],
+            ]
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Todas as ocorrências destes caracteres devem ser devidadmente
+                substituídas afim de evitar qualquer problema de interpretação do
+                compilador
+                <plugin-gloss id="latex"></plugin-gloss>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'header',
+        data: { level: 5, text: 'Código do escape.ts' }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Abaixo podemos ver a aplicação do processamento de escape de caracteres
+                em javascript. a função escapeCharacters recebe uma string na linha 1,
+                e das linhas 3 a 14 faz uma sucessão de novas atribuições desta nova string.
+                As atribuições consistem de uma nova string que, através da função replace,
+                substituem as expressões regulares pela nova string, que seguem de acordo
+                com a
+                <plugin-ref-table data-table="escape-characters">Tabela</plugin-ref-table>.
+                Ao final, na linha 16, a nova string é retornada.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'code',
+        data: {
+            uuid: 'codeEscape',
+            start_line: 1,
+            text: `
+export function escapeCharacters(str: string){
+    let newStr = str;
+    newStr = newStr.replace(/\\\\/gm, '\\\\textbackslash ');
+    newStr = newStr.replace(/#/gm, '\\\\#');
+    newStr = newStr.replace(/\\$/gm, '\\\\$$');
+    newStr = newStr.replace(/%/gm, '\\\\%');
+    newStr = newStr.replace(/\\^/gm, '\\\\textasciicircum ');
+    newStr = newStr.replace(/&/gm, '\\\\&');
+    newStr = newStr.replace(/_/gm, '\\\\_');
+    newStr = newStr.replace(/\\{/gm, '\\\\{');
+    newStr = newStr.replace(/\\}/gm, '\\\\}');
+    newStr = newStr.replace(/\\[/gm, '{[}');
+    newStr = newStr.replace(/\\]/gm, '{]}');
+    newStr = newStr.replace(/~/gm, '\\\\textasciitilde ');
+
+    return newStr;
+}
+            `.trim()
         }
     },
     {

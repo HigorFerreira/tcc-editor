@@ -257,4 +257,10 @@ export const refs = {
         journal: 'Blog DP6',
         note: '[Online: acessado em 01-Junho-2024]',
     },
+    'tutorial-latex': {
+        type: 'book',
+        author: [ 'Daniel Madeira' ],
+        year: 2020,
+        title: 'Tutorial básico de LATEX',
+    }
 } satisfies RefsObjectType

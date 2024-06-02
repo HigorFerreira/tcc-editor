@@ -32,7 +32,7 @@ separação entre forma e conteúdo. Trata-se de uma separação fictícia, pois
 o conteúdo pela forma."~ Ou seja: A forma do trabalho, sua apresentação, sua formatação e
 todo o seu arranjo gráfico é tão importante quanto seu conteúdo. 
 \cite{medeiros} vai
-complementar essa visão, afirmando que a apresentação gráfica "\[...\] contribui para a
+complementar essa visão, afirmando que a apresentação gráfica "{[}...{]} contribui para a
 consecução de um trabalho capaz de atingir seu objetivo. Monografia realizada sem a
 preocupação gráfica, em geral, acaba malsucedida."~
 
@@ -61,7 +61,7 @@ Universidade Federal da Paraíba
 (\acrshort{ufpb}).
 Em sua pesquisa é destacado que "Quanto a
 formatação do trabalho com as normas da 
-\acrshort{abnt}, \[...\], 60\% teve alguma dificuldade, inclusive
+\acrshort{abnt}, {[}...{]}, 60\% teve alguma dificuldade, inclusive
 32\% teve muita dificuldade.", ou seja, a formatação do trabalho é um grande desafio presente
 na vida de boa parte dos estudantes em processo de escrita.
 
@@ -1434,12 +1434,98 @@ O código
 quanto por máquinas. Devido a isto, existem alguns caracteres
 especiais de controle que ajudam a definir como
 determinado conteúdo aparecerá no documento. Por exemplo:
-O caractere \textbackslash~é  um dos mais importantes caracteres do latex, pois ele
+O caractere \textbackslash~é  um dos mais importantes caracteres do
+\acrshort{latex},
+pois ele
 define uma gama de comandos, como por exemplo o \textbackslash chapter\{\textbf{texto}\},
 que define
 \textbf{texto}
 como sendo um capítulo no documento.
 Mas e se o usuário digitar no documento um caractere \textbackslash ?
+Quais problemas isso poderá gerar?
+
+Caso o usuário digite um \textbackslash~no documento e este caractere simplesmente seja
+transcrito no documento
+\acrshort{latex},
+gerará uma série de efeitos indesejados, desde
+comandos inexistentes como: \textbackslash esse-comando-não-existe,
+como o uso acidental de comandos do próprio
+\acrshort{latex},
+como:
+\textbackslash chapter; \textbackslash section ou \textbackslash subsection.
+Para evitar isto substituímos qualquer ocorrência de
+\textbackslash~no texto por \textbackslash textbackslash, que é um comando
+\acrshort{latex}
+responsável por imprimir uma \textbackslash~no corpo
+do texto.
+A
+Tabela\ref{tbl:escape-characters}
+mostra as ocorrências de todos os caracteres que devem ser substituídos
+por algum comando especial no
+\acrshort{latex}
+que possua o mesmo significado textual:
+
+\begin{table}[H]
+    \centering
+    \caption{Mapeamento de escape de caracteres para código LaTex}
+    \label{tbl:escape-characters}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{p{2.5600000000000005cm} p{3.84cm}}
+        \hline
+        \textbf{Caractere} & \textbf{Substituição} \\
+        \hline
+        \textbackslash  & \textbackslash textbackslash  \\
+		\# & \textbackslash \# \\
+		\$ & \textbackslash \$\$ \\
+		\% & \textbackslash \% \\
+		\textasciicircum  & \textbackslash textasciicircum  \\
+		\& & \textbackslash \& \\
+		\_ & \textbackslash \_ \\
+		\{ & \textbackslash \{ \\
+		\} & \textbackslash \} \\
+		{[} & \{{[}\} \\
+		{]} & \{{]}\} \\
+		\textasciitilde  & \textbackslash textasciitilde  \\
+        \hline
+        
+    \end{tabular}
+\end{table}
+
+Todas as ocorrências destes caracteres devem ser devidadmente
+substituídas afim de evitar qualquer problema de interpretação do
+compilador
+\acrshort{latex}.
+
+\subsubsubsection{Código do escape.ts}
+
+Abaixo podemos ver a aplicação do processamento de escape de caracteres
+em javascript. a função escapeCharacters recebe uma string na linha 1,
+e das linhas 3 a 14 faz uma sucessão de novas atribuições desta nova string.
+As atribuições consistem de uma nova string que, através da função replace,
+substituem as expressões regulares pela nova string, que seguem de acordo
+com a
+Tabela\ref{tbl:escape-characters}.
+Ao final, na linha 16, a nova string é retornada.
+
+\begin{codeEscape}
+	export function escapeCharacters(str: string){
+	    let newStr = str;
+	    newStr = newStr.replace(/\\/gm, '\\textbackslash ');
+	    newStr = newStr.replace(/#/gm, '\\#');
+	    newStr = newStr.replace(/\$/gm, '\\$$');
+	    newStr = newStr.replace(/%/gm, '\\%');
+	    newStr = newStr.replace(/\^/gm, '\\textasciicircum ');
+	    newStr = newStr.replace(/&/gm, '\\&');
+	    newStr = newStr.replace(/_/gm, '\\_');
+	    newStr = newStr.replace(/\{/gm, '\\{');
+	    newStr = newStr.replace(/\}/gm, '\\}');
+	    newStr = newStr.replace(/\[/gm, '{[}');
+	    newStr = newStr.replace(/\]/gm, '{]}');
+	    newStr = newStr.replace(/~/gm, '\\textasciitilde ');
+	
+	    return newStr;
+	}
+\end{codeEscape}
 
 \subsubsection{\underline{Processamento de HTML}}
 
