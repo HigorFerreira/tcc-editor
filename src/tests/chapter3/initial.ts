@@ -2,7 +2,7 @@ import {
     Block,
 } from '@/parser/types'
 
-export const data: Block[] = [
+export const initial: Block[] = [
     {
         type: 'header',
         data: { level: 1, text: 'Desenvolvimento' }
@@ -87,21 +87,5 @@ export const data: Block[] = [
     {
         type: 'header',
         data: { level: 4, text: 'Plugin N' }
-    },
-    {
-        type: 'header',
-        data: { level: 2, text: 'Parsing, (parser)' }
-    },
-    {
-        type: 'header',
-        data: { level: 3, text: 'Tipagens' }
-    },
-    {
-        type: 'header',
-        data: { level: 3, text: 'Escape de caracteres especiais' }
-    },
-    {
-        type: 'header',
-        data: { level: 3, text: 'Processamento de HTML' }
     },
 ]

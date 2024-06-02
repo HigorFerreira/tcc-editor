@@ -2,6 +2,9 @@ import {
     Block,
 } from '@/parser/types';
 
-import { data as initial } from './initial';
+import { initial } from './initial';
+import { parsing } from './parsing';
 
-export const data: Block[] = initial;
+
+export const data: Block[] = initial
+    .concat(parsing);

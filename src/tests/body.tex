@@ -627,7 +627,9 @@ basicamente converte os objetos JavaScript em strings. Uma caracteristica deste,
 (na maioria dos casos).
 \cite{mdn-json}.
 
-A Tabela\ref{tbl:json-descs} mostra as principais
+A
+Tabela\ref{tbl:json-descs}
+mostra as principais
 diferenças entre o JavaScript e o JSON.
 
 \begin{table}[H]
@@ -1287,6 +1289,81 @@ a saber: exec() e test().
 \subsubsection{\underline{Plugin N}}
 
 \section{Parsing, (parser)}
+
+O processo de Parsing transformará cada bloco provido
+pela saída do EditorJs em um trecho de código em
+\acrshort{latex}.
+Observe na
+Figura\ref{fig:parsing-example-paragraph}
+e
+Figura\ref{fig:parsing-example-header}
+os exemplos de parsing aplicados a um objeto de
+\textit{Header}\footnote{Do inglês: Cabeçalho. Neste contexto, os headers são os títulos utilizados no documento.
+}
+e
+\textit{Paragraph}\footnote{Do inglês: Parágrafo.
+},
+respectivamente.
+
+\begin{figure}[H]
+    \centering
+    \caption{Parsing de um bloco Paragraph}
+    \includegraphics[width=0.8\textwidth]{./images/parsing-example-paragraph.png}
+    \label{fig:parsing-example-paragraph} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Parsing de um bloco Header}
+    \includegraphics[width=0.8\textwidth]{./images/parsing-example-header.png}
+    \label{fig:parsing-example-header} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+No exemplo do bloco paragraph, é notável o processo de
+processamento de
+\acrshort{html}
+acontecendo. Note que o conteúdo textual do bloco
+não é apenas texto simples. Há quatro tags de
+marcação personalizadas que se refletem em comandos
+especiais
+\acrshort{latex}, a saber:
+
+\begin{enumerate}
+        	\item plugin-gloss	\item plugin-ref-fig	\item i	\item plugin-footnote
+    \end{enumerate}
+
+A tabela
+Tabela\ref{tbl:plugins-latex-mapping}
+mostra o mapeamento destas tags, que são plugins
+\textit{in-line}\footnote{Do inglês: Em linha.
+}
+do EditorJs. As Tags possuem conteúdo e atributo, cada qual se
+refletindo a uma particularidade do código
+\acrshort{latex}
+a depender de sua natureza.
+
+\begin{table}[H]
+    \centering
+    \caption{Mapeamento de tags em código LaTex}
+    \label{tbl:plugins-latex-mapping}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{p{1.92cm} p{1.92cm} p{1.92cm} p{3.2cm} p{7.04cm}}
+        \hline
+        \textbf{Tag} & \textbf{Conteúdo} & \textbf{Atributo} & \textbf{Valor do Atributo} & \textbf{LaTex} \\
+        \hline
+        plugin-gloss & Não & id & latex & \textbackslash acrshort\{latex\} \\
+		plugin-ref-fig & Figura & data-fig & parsing-example-paragraph & \textbackslash ref\{fig:parsing-example-paragraph\} \\
+		plugin-ref-fig & Figura & data-fig & parsing-example-header & \textbackslash ref\{fig:parsing-example-header\} \\
+		i & Header & Não & Não & \textbackslash textit\{Header\} \\
+		plugin-footnote & Não & data-note & <texto da nota> & \textbackslash footnote\{<texto da nota>\} \\
+		i & Paragraph & Não & Não & \textbackslash textit\{Paragraph\} \\
+		plugin-footnote & Não & data-note & Do inglês: Parágrafo. & \textbackslash footnote\{Do inglês: Parágrafo.\} \\
+        \hline
+        
+    \end{tabular}
+\end{table}
 
 \subsection{Tipagens}
 

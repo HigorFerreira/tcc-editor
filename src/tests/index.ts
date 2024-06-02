@@ -1028,7 +1028,9 @@ export const data: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                A <plugin-ref-table data-table="json-descs">Tabela</plugin-ref-table> mostra as principais
+                A
+                <plugin-ref-table data-table="json-descs">Tabela</plugin-ref-table>
+                mostra as principais
                 diferenças entre o JavaScript e o JSON.
             `.trim().replace(/^\s{16}/gm, '')
         }
