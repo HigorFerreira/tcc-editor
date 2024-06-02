@@ -5,6 +5,7 @@ import {
     PageBreakBlock,
     ParagraphBlock,
     TableBlock,
+    CodeBlock,
 } from '@/parser/plugins/types';
 
 export type {
@@ -14,6 +15,7 @@ export type {
     PageBreakBlock,
     ParagraphBlock,
     TableBlock,
+    CodeBlock,
 };
 
 export interface BookRefType {
@@ -65,6 +67,10 @@ export interface GlossaryObjectType {
     [key: string]: GlossaryType
 }
 
+export interface CodesObjectType {
+    [key: string]: CodeBlock
+}
+
 export interface RefsObjectType {
     [key: string]: Partial<BookRefType>
         | Partial<MiscRefType>
@@ -77,3 +83,4 @@ export type Block = Partial<PageBreakBlock>
     | Partial<ListBlock>
     | Partial<ParagraphBlock>
     | Partial<ImageBlock>
+    | Partial<CodeBlock>
