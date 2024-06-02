@@ -25,6 +25,9 @@ export function processHTML(text: string): string{
     $('br').replaceWith((_, node) => {
         return ` \\\\ `;
     });
+    $('strong').replaceWith((_, node) => {
+        return `\\textbf{${processHTML($(node).html()??'')}}`;
+    });
     // $('plugin-tag').replaceWith((_, node) => {
     //     return `${$(node).data().tag}`;
     // });

@@ -18,7 +18,7 @@ export function getTable(block: TableBlock){
     const MAX_WIDTH = 16*width;
 
     return `
-        \\begin{table}[h!]
+        \\begin{table}[H]
             \\centering
             \\caption{${escapeCharacters(title)}}
             \\label{tbl:${id}}
