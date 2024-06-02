@@ -118,14 +118,78 @@ export const parsing: Block[] = [
     },
     {
         type: 'header',
-        data: { level: 3, text: 'Tipagens' }
+        data: { level: 3, text: 'Visão geral' }
     },
     {
         type: 'header',
-        data: { level: 3, text: 'Escape de caracteres especiais' }
+        data: { level: 3, text: 'Estapas de processamento' }
     },
     {
         type: 'header',
-        data: { level: 3, text: 'Processamento de HTML' }
+        data: { level: 4, text: 'Escape de caracteres' }
     },
+    {
+        type: 'header',
+        data: { level: 4, text: 'Processamento de HTML' }
+    },
+    {
+        type: 'header',
+        data: { level: 4, text: 'Pós processamento' }
+    },
+    {
+        type: 'header',
+        data: { level: 3, text: 'Plugins' }
+    },
+    {
+        type: 'header',
+        data: { level: 4, text: 'Tipagem' }
+    },
+    {
+        type: 'header',
+        data: { level: 4, text: 'Paragraph, (parágrafo)' }
+    },
+    {
+        type: 'header',
+        data: { level: 4, text: 'Header, (cabeçalhos)' }
+    },
+    {
+        type: 'header',
+        data: { level: 4, text: 'Image, (imagens)' }
+    },
+    {
+        type: 'header',
+        data: { level: 4, text: 'List, (listas)' }
+    },
+    {
+        type: 'header',
+        data: { level: 4, text: 'Page Break, (quebra de página)' }
+    },
+    {
+        type: 'header',
+        data: { level: 4, text: 'Table, (tabelas)' }
+    },
+    {
+        type: 'header',
+        data: { level: 3, text: 'Montagem' }
+    },
+    {
+        type: 'header',
+        data: { level: 4, text: 'Glossário' }
+    },
+    {
+        type: 'header',
+        data: { level: 4, text: 'Referências' }
+    },
+    // {
+    //     type: 'header',
+    //     data: { level: 3, text: 'Tipagens' }
+    // },
+    // {
+    //     type: 'header',
+    //     data: { level: 3, text: 'Escape de caracteres especiais' }
+    // },
+    // {
+    //     type: 'header',
+    //     data: { level: 3, text: 'Processamento de HTML' }
+    // },
 ]
