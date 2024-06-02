@@ -9,8 +9,8 @@ export function escapeCharacters(str: string){
     newStr = newStr.replace(/_/gm, '\\_');
     newStr = newStr.replace(/\{/gm, '\\{');
     newStr = newStr.replace(/\}/gm, '\\}');
-    newStr = newStr.replace(/\[/gm, '\\[');
-    newStr = newStr.replace(/\]/gm, '\\]');
+    newStr = newStr.replace(/\[/gm, '{[}');
+    newStr = newStr.replace(/\]/gm, '{]}');
     newStr = newStr.replace(/~/gm, '\\textasciitilde ');
 
     return newStr;
