@@ -1,0 +1,64 @@
+digraph project_directory {
+    rankdir=LR
+    node [shape=folder, style=filled, fillcolor="#FFEB99"]
+    
+    raiz[label="raiz"]
+    src[label="src"]
+    parser[label="parser"]
+    
+    process_steps [label="process_steps"]
+    plugins [label="plugins"]
+    mounting [label="mounting"]
+    index [label="index.ts", shape=note, fillcolor="#77DD77"]
+    types [label="types.ts", shape=note, fillcolor="#AEC6CF"]
+    
+    escape[label="escape.ts", shape=note, style=unfilled]
+    posProcess[label="posProcess.ts", shape=note, style=unfilled]
+    processHTML[label="processHTML.ts", shape=note, style=unfilled]
+    index2[label="index.ts", shape=note, fillcolor="#77DD77"]
+    
+    header[label="header.ts", shape=note, style=unfilled]
+    pagebreak[label="page-break.ts", shape=note, style=unfilled]
+    table[label="table.ts", shape=note, style=unfilled]
+    image[label="image.ts", shape=note, style=unfilled]
+    list[label="list.ts", shape=note, style=unfilled]
+    paragraph[label="paragraph.ts", shape=note, style=unfilled]
+    index3[label="index.ts", shape=note, fillcolor="#77DD77"]
+    types2[label="types.ts", shape=note, fillcolor="#AEC6CF"]
+    
+    mountGlossaryPrint[label="mountGlossaryPrint.ts", shape=note, style=unfilled]
+    mountGlossary[label="mountGlossary.ts", shape=note, style=unfilled]
+    mountRefs[label="mountRefs.ts", shape=note, style=unfilled]
+    index4[label="index.ts", shape=note, fillcolor="#77DD77"]
+
+
+        
+    raiz -> src
+    src -> parser
+    
+    parser -> process_steps
+    parser -> plugins
+    parser -> mounting
+    parser -> index
+    parser -> types
+    
+    process_steps -> escape
+    process_steps -> posProcess
+    process_steps -> processHTML
+    process_steps -> index2
+    
+    plugins -> header
+    plugins -> pagebreak
+    plugins -> table
+    plugins -> image
+    plugins -> list
+    plugins -> paragraph
+    plugins -> index3
+    plugins -> types2
+    
+    mounting -> mountGlossaryPrint
+    mounting -> mountGlossary
+    mounting -> mountRefs
+    mounting -> index4
+
+}

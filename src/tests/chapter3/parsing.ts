@@ -33,8 +33,8 @@ export const parsing: Block[] = [
     {
         type: 'image',
         data: {
-            uuid: 'parsing-example-paragraph',
-            title: 'Parsing de um bloco Paragraph',
+            uuid: 'parsing-example-header',
+            title: 'Parsing de um bloco Header',
             description: 'Fonte: Autoria própria',
             width: 0.8,
             fileType: 'png',
@@ -44,8 +44,8 @@ export const parsing: Block[] = [
     {
         type: 'image',
         data: {
-            uuid: 'parsing-example-header',
-            title: 'Parsing de um bloco Header',
+            uuid: 'parsing-example-paragraph',
+            title: 'Parsing de um bloco Paragraph',
             description: 'Fonte: Autoria própria',
             width: 0.8,
             fileType: 'png',
@@ -121,12 +121,133 @@ export const parsing: Block[] = [
         data: { level: 3, text: 'Visão geral' }
     },
     {
+        type: 'paragraph',
+        data: {
+            text: `
+                O parser da aplicação não depende de nenhuma biblioteca
+                ou framework de terceiros. O processo de parsing é feito
+                apenas utilizando-se de recursos nativos da linguagem
+                TypeScript, (consequentemente
+                <plugin-gloss id="js"></plugin-gloss>).
+                A
+                <plugin-ref-fig data-fig="estrutura-parser">Figura</plugin-ref-fig>
+                mostra a estrutura de pastas do módulo de parse, com três grandes
+                grupos:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'list',
+        data: {
+            type: 'bullet',
+            list: [
+                'process_steps',
+                'plugins',
+                'mounting',
+            ]
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O process_steps diz respeito a funções utilitárias do processamento de texto.
+                É uma das mais importantes partes pois fornece funções que serão utilizadas a todo
+                momento em outras partes do parsing. Provê segurança pois nele reside as funções
+                de escape de caracteres especiais e entre outros.
+                O plugins fornece o processamento respectivo de cada plugin da aplicação,
+                e como cada um deverá ser convertido em código
+                <plugin-gloss id="latex"></plugin-gloss>.
+                O mounting diz respeito a montagens de partes dinâmicas do documento
+                <plugin-gloss id="latex"></plugin-gloss>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'image',
+        data: {
+            uuid: 'estrutura-parser',
+            title: 'Estrutura de pastas do módulo de parse',
+            description: 'Fonte: Autoria própria',
+            width: 0.8,
+            fileType: 'png',
+            imageUrl: '',
+        }
+    },
+    {
         type: 'header',
         data: { level: 3, text: 'Estapas de processamento' }
     },
     {
+        type: 'paragraph',
+        data: {
+            text: `
+                O principal plugin da aplicação a ser processado será o de paragraph.
+                A informação principal deste plugin é tão somente o texto de marcação
+                <plugin-gloss id="html"></plugin-gloss>. Devido a este fato, este plugin
+                será o que mais utilizará as funções providadas pelo process_steps.
+                A
+                <plugin-ref-fig data-fig="fluxo-processamento-texto">Figura</plugin-ref-fig>
+                ilustra um ciclo de processamento de texto de marcação:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'image',
+        data: {
+            uuid: 'fluxo-processamento-texto',
+            title: 'Um ciclo de processamento de texto',
+            description: 'Fonte: Autoria própria',
+            width: 0.9,
+            fileType: 'png',
+            imageUrl: '',
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
         type: 'header',
         data: { level: 4, text: 'Escape de caracteres' }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O escape de processamento é a primeira etapa do processamento
+                de texto. Necessária para evitar o primeiro problema de transformar
+                o texto de marcação em código
+                <plugin-gloss id="latex"></plugin-gloss>,
+                que é o problema dos caracteres especiais.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O código
+                <plugin-gloss id="latex"></plugin-gloss>,
+                (como dito na fundamentação teórica),
+                é um código legível tanto para seres humanos
+                quanto por máquinas. Devido a isto, existem alguns caracteres
+                especiais de controle que ajudam a definir como
+                determinado conteúdo aparecerá no documento. Por exemplo:
+                O caractere \\
+                é  um dos mais importantes caracteres do latex, pois ele
+                define uma gama de comandos, como por exemplo o \\chapter{<strong>texto</strong>},
+                que define
+                <strong>texto</strong>
+                como sendo um capítulo no documento.
+                Mas e se o usuário digitar no documento um caractere \\?
+                
+            `.trim().replace(/^\s{16}/gm, '')
+        }
     },
     {
         type: 'header',

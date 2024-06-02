@@ -829,7 +829,8 @@ com a utilização desta ferramenta, aproveitando ao máximo os recursos forneci
 pela mesma. Os principais recursos oferecidos pelo NextJs são:
 
 \begin{itemize}
-        	\item Roteamento: O NextJs provê um roteamento, (que é basicamente a navegação por páginas
+        
+	\item Roteamento: O NextJs provê um roteamento, (que é basicamente a navegação por páginas
                     dentro do app), baseado no sistema de arquivos do Sistema Operacional. Os arquivos
                     em pastas do projeto são mapeados para links, que fornecem os componentes de servidor
                     com suporte a
@@ -839,9 +840,11 @@ pela mesma. Os principais recursos oferecidos pelo NextJs são:
                     },
                     rotas aninhadas, estados de carregamento, manipulação de erros,
                     entre outros...
-                	\item Renderização: NextJs fornece renderização do lado do cliente e do lado do servidor com
+                
+	\item Renderização: NextJs fornece renderização do lado do cliente e do lado do servidor com
                     componentes de cliente, e componentes de servidor.
-                	\item Busca de dados: Há um processo de busca de dados simplificado com o uso de
+                
+	\item Busca de dados: Há um processo de busca de dados simplificado com o uso de
                     \textit{async/await}\footnote{Recurso do JavaScript para lidar com a execuçao de código assíncrono.
                     }
                     nos componentes de servidor, além de uma
@@ -860,14 +863,18 @@ pela mesma. Os principais recursos oferecidos pelo NextJs são:
                         for requisitada.
                     }
                     de dados e revalidação.
-                	\item Estilização: Suporte para os métodos preferidos de estilização. Com inclusão
+                
+	\item Estilização: Suporte para os métodos preferidos de estilização. Com inclusão
                     de: Módulos \acrshort{css}, \textit{Tailwind} \acrshort{css},
                     e \acrshort{css}-in-\acrshort{js}.
-                	\item Otimizações: Otimizações de scripts, imagens e fontes são também fornecidos para aprimorar
-                    o núcleo do aplicativo e a experiência de usuário.
-                	\item TypeScript: Suporte total ao TypeScript, com uma melhor checagem de tipos e compilação eficiente.
                 
-    \end{itemize}
+	\item Otimizações: Otimizações de scripts, imagens e fontes são também fornecidos para aprimorar
+                    o núcleo do aplicativo e a experiência de usuário.
+                
+	\item TypeScript: Suporte total ao TypeScript, com uma melhor checagem de tipos e compilação eficiente.
+                
+    
+\end{itemize}
 
 \cite{nexjs-docs}.
             
@@ -895,8 +902,12 @@ aplicado a diversas plataformas.
 São recursos do EditorJs:
 
 \begin{itemize}
-        	\item Dados de saída limpos	\item \acrshort{api} baseada em plugins	\item Código aberto
-    \end{itemize}
+        
+	\item Dados de saída limpos
+	\item \acrshort{api} baseada em plugins
+	\item Código aberto
+    
+\end{itemize}
 
 O espaço de trabalho do EditorJs consiste em blocos separados, como:
 Parágrafos; títulos; listas; etc... Cada um deles independentes entre si,
@@ -1307,17 +1318,17 @@ respectivamente.
 
 \begin{figure}[H]
     \centering
-    \caption{Parsing de um bloco Paragraph}
-    \includegraphics[width=0.8\textwidth]{./images/parsing-example-paragraph.png}
-    \label{fig:parsing-example-paragraph} \\
+    \caption{Parsing de um bloco Header}
+    \includegraphics[width=0.8\textwidth]{./images/parsing-example-header.png}
+    \label{fig:parsing-example-header} \\
     \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \caption{Parsing de um bloco Header}
-    \includegraphics[width=0.8\textwidth]{./images/parsing-example-header.png}
-    \label{fig:parsing-example-header} \\
+    \caption{Parsing de um bloco Paragraph}
+    \includegraphics[width=0.8\textwidth]{./images/parsing-example-paragraph.png}
+    \label{fig:parsing-example-paragraph} \\
     \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
 \end{figure}
 
@@ -1331,8 +1342,13 @@ especiais
 \acrshort{latex}, a saber:
 
 \begin{enumerate}
-        	\item plugin-gloss	\item plugin-ref-fig	\item i	\item plugin-footnote
-    \end{enumerate}
+        
+	\item plugin-gloss
+	\item plugin-ref-fig
+	\item i
+	\item plugin-footnote
+    
+\end{enumerate}
 
 A tabela
 Tabela\ref{tbl:plugins-latex-mapping}
@@ -1367,9 +1383,84 @@ a depender de sua natureza.
 
 \subsection{Visão geral}
 
+O parser da aplicação não depende de nenhuma biblioteca
+ou framework de terceiros. O processo de parsing é feito
+apenas utilizando-se de recursos nativos da linguagem
+TypeScript, (consequentemente
+\acrshort{js}).
+A
+Figura\ref{fig:estrutura-parser}
+mostra a estrutura de pastas do módulo de parse, com três grandes
+grupos:
+
+\begin{itemize}
+        
+	\item process\_steps
+	\item plugins
+	\item mounting
+    
+\end{itemize}
+
+O process\_steps diz respeito a funções utilitárias do processamento de texto.
+É uma das mais importantes partes pois fornece funções que serão utilizadas a todo
+momento em outras partes do parsing. Provê segurança pois nele reside as funções
+de escape de caracteres especiais e entre outros.
+O plugins fornece o processamento respectivo de cada plugin da aplicação,
+e como cada um deverá ser convertido em código
+\acrshort{latex}.
+O mounting diz respeito a montagens de partes dinâmicas do documento
+\acrshort{latex}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Estrutura de pastas do módulo de parse}
+    \includegraphics[width=0.8\textwidth]{./images/estrutura-parser.png}
+    \label{fig:estrutura-parser} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
 \subsection{Estapas de processamento}
 
+O principal plugin da aplicação a ser processado será o de paragraph.
+A informação principal deste plugin é tão somente o texto de marcação
+\acrshort{html}. Devido a este fato, este plugin
+será o que mais utilizará as funções providadas pelo process\_steps.
+A
+Figura\ref{fig:fluxo-processamento-texto}
+ilustra um ciclo de processamento de texto de marcação:
+
+\begin{figure}[H]
+    \centering
+    \caption{Um ciclo de processamento de texto}
+    \includegraphics[width=0.9\textwidth]{./images/fluxo-processamento-texto.png}
+    \label{fig:fluxo-processamento-texto} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+
+
 \subsubsection{\underline{Escape de caracteres}}
+
+O escape de processamento é a primeira etapa do processamento
+de texto. Necessária para evitar o primeiro problema de transformar
+o texto de marcação em código
+\acrshort{latex},
+que é o problema dos caracteres especiais.
+
+O código
+\acrshort{latex},
+(como dito na fundamentação teórica),
+é um código legível tanto para seres humanos
+quanto por máquinas. Devido a isto, existem alguns caracteres
+especiais de controle que ajudam a definir como
+determinado conteúdo aparecerá no documento. Por exemplo:
+O caractere \textbackslash~
+é  um dos mais importantes caracteres do latex, pois ele
+define uma gama de comandos, como por exemplo o \textbackslash chapter\{\textbf{texto}\},
+que define
+\textbf{texto}
+como sendo um capítulo no documento.
+Mas e se o usuário digitar no documento um caractere \textbackslash ?
 
 \subsubsection{\underline{Processamento de HTML}}
 
