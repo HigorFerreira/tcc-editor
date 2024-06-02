@@ -1,0 +1,56 @@
+digraph project_directory {
+    rankdir=LR
+    node [shape=folder, style=filled, fillcolor="#FFEB99"]
+    
+    raiz[label="raiz"]
+    
+    public[label="public"]
+    src[label="src"]
+
+    declaration [style=unfilled, shape=note, label="declaration.d.ts"]
+    env [style=unfilled, shape=note, label=".env.local"]
+    git [style=unfilled, shape=note, label=".git"]
+    gitignore [style=unfilled, shape=note, label=".gitignore"]
+    next [style=unfilled, shape=note, label="next.config.js"]
+    nextenv [style=unfilled, shape=note, label="next-env.d.ts"]
+    package [style=unfilled, shape=note, label="package.json"]
+    README [style=unfilled, shape=note, label="README.md"]
+    tsconfig [style=unfilled, shape=note, label="tsconfig.json"]
+    yarnerror [style=unfilled, shape=note, label="yarn-error.log"]
+    yarn [style=unfilled, shape=note, label="yarn.lock"]
+    
+    app[label="app"]
+    assets[label="assets"]
+    components[label="components"]
+    parser[label="parser"]
+    tests[label="tests"]
+    test[label="test"]
+    ts[label="ts"]
+    types[label="types"]
+    utils[label="utils"]
+        
+    raiz -> public
+    raiz -> src
+    
+    raiz -> declaration
+    raiz -> env
+    raiz -> git
+    raiz -> gitignore
+    raiz -> next
+    raiz -> nextenv
+    raiz -> package
+    raiz -> README
+    raiz -> tsconfig
+    raiz -> yarnerror
+    raiz -> yarn
+    
+    src -> app
+    src -> assets
+    src -> components
+    src -> parser
+    src -> tests
+    src -> test
+    src -> ts
+    src -> types
+    src -> utils
+}

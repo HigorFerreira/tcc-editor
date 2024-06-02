@@ -1,4 +1,5 @@
-import { data, refs, gloss } from '@/tests';
+import { data as initialData, refs, gloss } from '@/tests';
+import { data as chapter3 } from '@/tests/chapter3';
 import { getParagraph } from '@/parser/paragraph';
 import { getHeader } from '@/parser/header';
 import { mountRefs } from '@/parser/mountRefs';
@@ -15,6 +16,7 @@ import path from 'path';
 const TESTS_PATH = '/home/higor/Documents/TCC/editor2/src/tests'
 
 async function main() {
+    const data = initialData.concat(chapter3);
     const text = data.map(block => {
         // @ts-ignore
         switch(block.type){

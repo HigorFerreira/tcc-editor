@@ -1,9 +1,4 @@
 import {
-    HeaderBlock,
-    ParagraphBlock,
-    PageBreakBlock,
-    ImageBlock,
-    ListBlock,
     Block
 } from '@/parser/types'
 
@@ -319,11 +314,11 @@ export const data: Block[] = [
                 *</plugin-footnote>
                 como resultado das interações do usuário, que posteriormente
                 serão convertidos em código
-                latex<plugin-footnote data-note="
-                Ver (sessão que trata do latex)
+                <plugin-gloss id="latex"></plugin-gloss><plugin-footnote data-note="
+                Ver (sessão que trata do <plugin-gloss id="latex"></plugin-gloss>)
                 ">
                 *</plugin-footnote>.
-                Só então, finalmente será utilizado um utilitário que converterá o código latex
+                Só então, finalmente será utilizado um utilitário que converterá o código <plugin-gloss id="latex"></plugin-gloss>
                 em um documento
                 <plugin-gloss id="pdf" data-type="siglas">pdf</plugin-gloss>. A
                 <plugin-ref-fig data-fig="app-json-latex-pdf">Figura</plugin-ref-fig> ilustra esse processo:
@@ -384,7 +379,7 @@ export const data: Block[] = [
     },
     {
         type: 'header',
-        data: { level: 3, text: 'Lista de tecnologias do ambiente de desenvolvimento' }
+        data: { level: 3, text: 'Tecnologias do ambiente de desenvolvimento' }
     },
     {
         type: 'paragraph',
@@ -393,26 +388,36 @@ export const data: Block[] = [
                 Atender aos requisitos mínimos de hardware
                 e software é fundamental para garantir uma experiência de usuário satisfatória
                 e evitar problemas de desempenho ou compatibilidade com o aplicativo da plataforma.
-                A seguir é listado o ambiente mínimo com seus respectivos softwares necessários
+                A seguir enumera-se o ambiente mínimo com seus respectivos softwares necessários
                 para rodar o aplicativo da plataforma:
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
     {
-        type: 'list',
+        type: 'table',
         data: {
-            type: 'bullet',
-            list: [
-                'Sistema Operacional: Ubuntu 20.04',
-                'NodeJs 20.10.0',
-                'Npm 10.2.3',
-                'Yarn 1.22.19',
-                'pdfTeX 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian)',
-                'kpathsea version 6.3.4/dev',
-                'BibTeX 0.99d (TeX Live 2022/dev/Debian)',
-                'makeglossaries (Utilitário latex)',
-                'TypeScript 5.3.3',
-            ].sort((a, b) => a.length - b.length)
+            id: 'tecnologias-ambiente',
+            title: 'Tecnologias do ambiente de desenvolvimento',
+            description: 'Fonte: Autoria própria',
+            width: 1,
+            column_sizes: [ 0.4, 0.6 ],
+            header: [ 'Tipo', 'Tecnologia' ],
+            items: [
+                [ 'Sistema Operacional', 'Ubuntu 20.04' ],
+                [ 'Interpretador', 'NodeJs 20.10.0' ],
+                [ 'Gerenciador de pacotes', 'Npm 10.2.3' ],
+                [ 'Gerenciador de pacotes', 'Yarn 1.22.19' ],
+                [ 'Compilador', 'pdfTeX 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian)' ],
+                [ 'Utilitário', 'kpathsea version 6.3.4/dev' ],
+                [ 'Utilitário', 'BibTeX 0.99d (TeX Live 2022/dev/Debian)' ],
+                [ 'Utilitário', 'makeglossaries (Utilitário <plugin-gloss id="latex"></plugin-gloss>)' ],
+                [ 'Linguagem de Programação', 'TypeScript 5.3.3' ],
+                [ 'Navegador de Internet', 'Google Chrome 119.0.6045.199' ],
+            ].sort((a, b) => {
+                const a_num = a.reduce((acc, e) => acc + e.length, 0);
+                const b_num = b.reduce((acc, e) => acc + e.length, 0);
+                return a_num - b_num;
+            })
         }
     },
     // {
@@ -1035,6 +1040,7 @@ export const data: Block[] = [
             title: 'Diferenças entre o JavaScript e o JSON',
             description: 'Fonte: <plugin-ref id="mdn-json"></plugin-ref>.',
             width: 1,
+            column_sizes: [ 0.35, 0.65 ],
             header: [
                 'Tipos e valores JavaScript', 'Diferença para o JSON'
             ],
@@ -1044,7 +1050,7 @@ export const data: Block[] = [
                 [
                     'Strings',
                     `
-                    Apenas um conjunto limitado de caracteres pode ser escapado; certos caracteres de controle são proibidos; o separador de linha Unicode (U+2028) e o separador de parágrafo (U+2029) caracteres são permitidos; strings devem ter aspas duplas.
+                    Apenas um conjunto limitado de caracteres pode ser escapado; certos caracteres de controle são proibidos; o separador de linha Unicode (U+2028) e o separador de parágrafo (U+2029) são permitidos; strings devem ter aspas duplas.
                     `
                 ]
             ]
@@ -1203,6 +1209,80 @@ export const data: Block[] = [
     },
     {
         type: 'header',
+        data: {
+            level: 5,
+            text: 'JavaScript XML'
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O JavaScript XML, (<plugin-gloss id="jsx"></plugin-gloss>),
+                é uma extensão de sintaxe para o JavaScript que permite escrever
+                código de marcação, (como o <plugin-gloss id="html"></plugin-gloss>),
+                dentro do JavaScript. Os componentes React nada mais são do que
+                funções ou classes chamadas a partir do código
+                <plugin-gloss id="js"></plugin-gloss>
+                que atualizam o
+                <plugin-gloss id="html"></plugin-gloss>
+                através da
+                <i>Document Object Model</i><plugin-footnote data-note="
+                    Do inglês: Modelo de Documento de Objeto. O
+                    <plugin-gloss id='dom'></plugin-gloss>
+                    é utilizado pelo JavaScript para manipular o documento
+                    <plugin-gloss id='html'></plugin-gloss>
+                    exibido em tela.
+                    <plugin-ref id='alura-dom'></plugin-ref>
+
+                ">
+                *</plugin-footnote>,
+                (<plugin-gloss id="dom"></plugin-gloss>).
+                O
+                <plugin-gloss id="jsx"></plugin-gloss>
+                facilita esse trabalho. Pois ao invés de chamar
+                funcões ou instanciar classes no código JavaScript,
+                pode-se escrever a marcação diretamente no mesmo,
+                como se o 
+                <plugin-gloss id="html"></plugin-gloss>
+                estivesse dentro do
+                <plugin-gloss id="js"></plugin-gloss>.
+                <plugin-ref id="react-jsx"></plugin-ref>.
+
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                A
+                <plugin-ref-fig data-fig="exemplo-jsx">Figura</plugin-ref-fig>
+                mostra um exemplo de código em
+                <plugin-gloss id="jsx"></plugin-gloss>.
+                É exportada uma função denominada <i>TodoList</i>,
+                que nada mais é do que um componente React.
+                Esta função retorna um determinado valor, que é
+                o código
+                <plugin-gloss id="jsx"></plugin-gloss>
+                propriamente dito. Este código será renderizado
+                no lugar onde esta função for chamada.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'image',
+        data: {
+            uuid: 'exemplo-jsx',
+            fileType: 'png',
+            imageUrl: '',
+            title: 'Exemplo de código JSX',
+            description: 'Fonte: Adaptado de: ReactJs. Disponível em: &lt;https://pt-br.react.dev/learn/writing-markup-with-jsx&gt;',
+            width: 0.93
+        }
+    },
+    {
+        type: 'header',
         data: { level: 4, text: 'NextJs' }
     },
     {
@@ -1333,7 +1413,7 @@ export const data: Block[] = [
             `
         }
     },
-    { type: 'page-break' },
+    // { type: 'page-break' },
     {
         type: 'header',
         data: { level: 4, text: 'EditorJs' }
@@ -1411,10 +1491,496 @@ export const data: Block[] = [
     },
     {
         type: 'header',
+        data: { level: 4, text: 'AntDesign' }
+    },
+    {
+        type: 'image',
+        data: {
+            uuid: 'antdesign-pagina-inicial',
+            fileType: 'png',
+            width: 0.8,
+            title: 'AntDesign',
+            description: 'Fonte: AntDesign, Disponível em: &lt;https://ant.design&gt;.',
+            imageUrl: ''
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                "Ajudando designers e desenvolvedores a construir belos produtos de forma flexível, trabalhando com alegria.".
+                O AntDesign é uma biblioteca de
+                <plugin-gloss id="ui"></plugin-gloss>,
+                <i>User Interface</i><plugin-footnote data-note="
+                    Do inglês: Interface de Usuário
+                ">
+                *</plugin-footnote>.
+                Esta biblioteca é uma grande auxiliadora na hora de produzir aplicativos
+                com um design agradável sem que o desenvolvedor gaste muito tempo
+                estilizando os componentes da aplicação.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Totalmente integrado ao ReactJs, o AntDesign já traz consigo uma vasta
+                gama de componentes reutilizáveis que podem ser "encaixados" à
+                construção das telas do app.
+                O AntDesign não impacta somente a
+                <plugin-gloss id="ui"></plugin-gloss >,
+                mas também a
+                <i>User Experience</i></plugin-gloss><plugin-footnote data-note="
+                    Do inglês: Experiância de Usuário
+                ">
+                *</plugin-footnote>,
+                <plugin-gloss id="ux"></plugin-gloss>, uma vez que seus componentes são construídos
+                em cima do React. Deixando-os altamente reativos e já com seus
+                devidos comportamentos padrão. Ficado a cargo do desenvolvedor
+                apenas personalizar o que se deseja fazer.
+                A
+                <plugin-ref-fig data-fig="componente-ant-ex">Figura</plugin-ref-fig>
+                mostra um exemplo de implementação de um componente em AntDesign.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'image',
+        data: {
+            uuid: 'componente-ant-ex',
+            fileType: 'png',
+            width: 0.9,
+            imageUrl: '',
+            title: 'Exemplo de componente em AntDesign',
+            description: 'Fonte: Adaptado de: AndDesign. Disponível em: &lt;https://ant.design/components/switch&gt;'
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Nota-se que com apenas uma linha tem-se um componente completo com
+                um visual totalmente moderno. Algo que com apenas
+                <plugin-gloss id="html"></plugin-gloss>,
+                <plugin-gloss id="css"></plugin-gloss>
+                e
+                <plugin-gloss id="js"></plugin-gloss>,
+                gastaria algumas dezenas de linhas de código.
+                Tanto ReactJs quanto AntDesign significam economia
+                em termos de tempo, código e simplicidade de projeto.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'header',
         data: { level: 2, text: 'Do Back-End' }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Back-end se relaciona com o que está por trás das aplicações desenvolvidas na programação. Ou seja, tudo que dá estrutura e apoio às ações do usuário da máquina é chamado de back-end. Quando acessamos um site, por exemplo, por trás de toda sua apresentação amigável esteticamente, há uma comunicação das informações trocadas entre banco de dados e navegador. Portanto, por trás da interface gráfica do realizador, o back-end está sempre agindo.
+                <plugin-ref id="totvs-back-end"></plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'header',
+        data: { level: 3, text: 'NodeJs' }
+    },
+    {
+        type: 'image',
+        data: {
+            uuid: 'logotipo-nodejs',
+            fileType: 'png',
+            imageUrl: '',
+            width: 0.7,
+            title: 'Logotipo do NodeJs',
+            description: 'Fonte: Adaptado de: NodeJs. Disponível em: &lt;https://nodejs.org/en&gt;'
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                "Rode JavaScript em todo lugar".
+                O NodeJs é um ambiente de
+                <i>runtime</i><plugin-footnote data-note="
+                    Do inglês: Tempo de execução. Um runtime é basicamente um interpretador
+                    capaz de executar um script.
+                ">
+                *</plugin-footnote>
+                que permite ao desenvolvedor criar servidores, aplicativos
+                <plugin-gloss id="web"></plugin-gloss>,
+                ferramentas e linha de comando, entre outros...
+                É a principal tecnologia deste projeto e o que permitirá
+                a execução de todas as outras na sequência.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Antes do NodeJs, o JavaScript era uma linguagem que
+                rodava puramente em
+                <i>Browsers</i><plugin-footnote data-note="
+                    Do inglês: Navegadores. Aqui usado no sentido de
+                    navegador da <plugin-gloss id='web'></plugin-gloss>, ou seja,
+                    o aplicativo no qual acessa-se páginas na internet.
+                ">
+                *</plugin-footnote>
+                como uma forma de adicionar interações às páginas da internet.
+                Com o NodeJs, o JavaScript passou do ambiente dos Browsers
+                ao ambiente dos Sistemas Operacionais. Abstraindo
+                <plugin-gloss id="api"></plugin-gloss>s
+                dos mesmos. Hoje, com NojeJs, por exemplo, pode-se
+                acessar a
+                <plugin-gloss id="api"></plugin-gloss>
+                do sistema de arquivos do Sistema Operacional.
+                Algo que há um tempo atrás só se fazia com
+                linguagens de baixo nível como o C++.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                A plataforma desenvolvida neste trabalho será
+                um servidor que distribuirá o Sistema
+                <plugin-gloss id="web"></plugin-gloss>
+                que é a plataforma em si. O NextJs,
+                tecnologia escolhida para este fim,
+                é um servidor capaz de processar uma parte
+                das interfaces do sistema estaticamente, e
+                entregá-las ao cliente juntamente com os scripts
+                de suas partes dinâmicas. Desta forma,
+                ganha-se segurança no processamento back-end
+                ao mesmo tempo que não perde-se em termos de
+                interatividade com o usuário.
+                Há também diversos ganhos de performance e simplificação
+                de código, uma vez que back-end e front-end
+                serão concentrados no mesmo lugar, não precisando
+                separá-los em projetos diferentes.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
     },
     {
         type: 'header',
         data: { level: 2, text: 'O processo de Parsing' }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O processo de Parsing é uma das partes mais vitais deste projeto.
+                Sem ele, não é possível obter o documento final formatado de acordo
+                com as normas postas da
+                <plugin-gloss id="abnt"></plugin-gloss>
+                e da
+                <plugin-gloss id="pucgo"></plugin-gloss>.
+                Pode-se dizer que o Parsing é o código núcleo da aplicação, pois todas
+                as outras partes, como edição em blocos e navegação, por exemplo,
+                serão feitas com o auxílio de bibliotecas e frameworks. O Parsing,
+                por sua vez, será escrito puramete em TypeScript para processar as
+                saídas do EditorJs.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Seu tratamento utilizar-se-á de uma combinação de expressões regulares
+                para tratar os caracteres especiais de código
+                <plugin-gloss id="latex"></plugin-gloss>,
+                manipulação de código
+                <plugin-gloss id="html"></plugin-gloss>
+                produzido pelos plugins do editor utilizando-se o Cheerio.
+                E por fim, a compilação de código
+                <plugin-gloss id="latex"></plugin-gloss>
+                utilizando-se o utilitário pdflatex
+                para gerar o
+                <plugin-gloss id="pdf"></plugin-gloss>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'header',
+        data: { level: 3, text: 'Expressões regulares' }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                As expressões regulares, (as vezes denominadas
+                <plugin-gloss id="regex"></plugin-gloss>
+                ou
+                <plugin-gloss id="regexp"></plugin-gloss>),
+                podem ser descrevidas basicamente como uma sequência de
+                caracteres que descrevem um padrão de busca em um texto.
+                <plugin-ref id="dp6-regex"></plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Uma expressão regular pode ser composta por uma cadeia simples de caracteres, como
+                <strong>abc</strong>;
+                ou uma cadeia composta pela combinação de caracteres simples e caracteres especiais.
+                Aos caracteres especiais, denominam-se metacaracteres. Os metacaracteres são usados
+                quando a busca no texto requer algo mais do que uma simples correspondência direta.
+                <plugin-ref id="mdn-regex"></plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'header',
+        data: { level: 4, text: 'Expressão regular simples' }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                No exemplo anterior, a expressão simples
+                <strong>abc</strong>
+                irá corresponder a uma letra
+                <strong>"a"</strong>,
+                seguida de um
+                <strong>"b"</strong>,
+                seguida de um
+                <strong>"c"</strong>
+                no texto ao qual se está avaliando.
+                Estas letras terão de estar juntas e nesta exata ordem.
+                Esta expressão irá encontrar correspondências nas strings
+                "Vamos aprender o abc do Regex?"
+                e
+                "Um bug no sistema dói como um abcesso.".
+                Nestes dois casos, houve uma correspondência da substring
+                <strong>abc</strong>,
+                mas a string
+                "ab c"
+                não irá obter correspondência, pois aqui a exata substring
+                <strong>abc</strong>
+                não está contida. Observe as correspondências na
+                <plugin-ref-fig data-fig="abc-match">Figura</plugin-ref-fig>.
+                <plugin-ref id="mdn-regex"></plugin-ref>.   
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'image',
+        data: {
+            uuid: 'abc-match',
+            fileType: 'png',
+            imageUrl: '',
+            width: 0.8,
+            title: 'Correspondêcias do Regex abc',
+            description: 'Fonte: Autoria própria'
+        }
+    },
+    {
+        type: 'header',
+        data: { level: 4, text: 'Expressão regular com metacaractere' }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Como mencionado anteriormente, quando se quer algo que é mais do
+                que uma simples correspondência direta, utilizam-se metacaracteres.
+                O caractere
+                <strong>*</strong>
+                é um metacaractere de expressão regular. Por exemplo:
+                <strong>ab*c</strong>
+                utiliza o
+                <strong>*</strong>
+                como metacaractere. A expressão
+                <strong>ab*c</strong>
+                deve ser lida como: Corresponda ao caractere
+                <strong>a,</strong>
+                seguido por zero ou mais caracteres
+                <strong>b</strong>s,
+                seguido por um caractere
+                <strong>c.</strong>
+                Usar
+                <strong>*</strong>
+                após o
+                <strong>b</strong>
+                significa: zero ou mais ocorrências do item anterior, no caso
+                <strong>b.</strong>
+                Como vemos na
+                <plugin-ref-fig data-fig="abc-meta-match">Figura</plugin-ref-fig>
+                as strings "cbbabbbbcdebc", "abbbbc" e "ac"
+                encontrarão correspondências. As strings "ab", "a" e "abbbbbb", por
+                outro lado, não encontrarão correspondências, conforme a
+                <plugin-ref-fig data-fig="abc-meta-not-match">Figura</plugin-ref-fig>.
+                <plugin-ref id="mdn-regex"></plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'image',
+        data: {
+            uuid: 'abc-meta-match',
+            fileType: 'png',
+            imageUrl: '',
+            width: 0.8,
+            title: 'Correspondêcias do Regex ab*c, com metacaractere',
+            description: 'Fonte: Autoria própria'
+        }
+    },
+    {
+        type: 'image',
+        data: {
+            uuid: 'abc-meta-not-match',
+            fileType: 'png',
+            imageUrl: '',
+            width: 0.8,
+            title: 'Não correspondêcias do Regex ab*c, com metacaractere',
+            description: 'Fonte: Autoria própria'
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Uma expressão regular é uma combinação de caracteres, alguns
+                deles, como o metacaractere quantificador *, visto
+                anteriormente, são caracteres especiais. Estes metacaracteres
+                são simbolos especiais que definem como a é interpretada.
+                <plugin-ref id="dp6-regex"></plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'header',
+        data: { level: 4, text: 'Expressões regulares em JavaScript' }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Em JavaScript, as expressões regulares podem ser escritas diretamente dentro do código,
+                desde que postas entre barras //. Por exemplo: /abc/ é uma expressão regular válida em
+                <plugin-gloss id="js"></plugin-gloss>.
+                O tipo de dados das expressões regulares é
+                o
+                <i>object</i><plugin-footnote data-note="
+                    Do inglês: Objeto
+                ">
+                *</plugin-footnote>, assim como
+                <i>Array</i><plugin-footnote data-note="
+                    Do inglês: Variedade ou matriz. No contexto de JavaScript é um dado estruturado,
+                    composto de uma sequencia de outros objetos ou dados puros.
+                ">
+                *</plugin-footnote>
+                ou
+                <i>Set</i><plugin-footnote data-note="
+                    Do inglês: Conjunto. Assim como Array, é um dado estruturado que agrupa outros
+                    objetos, porém de forma não ordenada e não indexada.
+                ">
+                *</plugin-footnote>. As expressões regulares no
+                <plugin-gloss id="js"></plugin-gloss>
+                são usadas com dois objetos principais, a saber
+                <plugin-gloss id="regex"></plugin-gloss>
+                e
+                String.
+                A
+                <plugin-gloss id="api"></plugin-gloss>
+                de strings do
+                <plugin-gloss id="js"></plugin-gloss>
+                fornece uma gama de métodos nos quais podemos utilizar
+                juntamente com
+                <plugin-gloss id="regex"></plugin-gloss>.
+                A <plugin-ref-table data-table="string-methods-regex">Tabela</plugin-ref-table>
+                fornece uma descrição destes métodos:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'table',
+        data: {
+            id: 'string-methods-regex',
+            title: 'Métodos de string que podem ser usados com regex',
+            description: 'Fonte: <plugin-ref id="mdn-regex"></plugin-ref>.',
+            width: 1,
+            column_sizes: [ 0.15, 1-0.15 ],
+            header: [
+                'Método', 'Descrição'
+            ],
+            items: [
+                [ 'match', `
+                    O método match retorna o resultado da correspodência de um dado
+                    <plugin-ref id="mdn-regex"></plugin-ref>
+                    à string ao qual está sendo aplicado. Aplicação em códido:
+                    "Meu abc".match(/abc/);
+                ` ],
+                [ 'matchAll', `
+                    Faz o mesmo que match. Porém, ao contrário de match, que traz apenas
+                    a primeira correspondência, matchAll traz todas as correspondências
+                    encontradas.
+                ` ],
+                [ 'replace', `
+                    O método replace de uma dada string, retorna uma nova string que substitui
+                    a correspondência de uma expressão regular por alguma string de substituição.
+                ` ],
+                [ 'replaceAll', `
+                    Um caminho diferente para fazer o mesmo que replace, porém para todas
+                    as ocorrências.
+                ` ],
+                [ 'search', 'Faz uma busca pelo padrão na string e retorna o índice da primeira ocorrência.' ],
+                [ 'split', 'Divide a string em uma lista ordenada de substrings em que o critério de divisão é a expressão regular fornecida.' ],
+            ]
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O objeto
+                <plugin-gloss id="regex"></plugin-gloss>
+                também fornece dois métodos em que se usam as expressão regulares,
+                a saber: exec() e test().
+                <plugin-ref id="mdn-regex"></plugin-ref>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    // {
+    //     type: 'header',
+    //     data: { level: 4, text: 'Metacaracteres de expressões regulares em JavaScript' }
+    // },
+    // {
+    //     type: 'paragraph',
+    //     data: {
+    //         text: `
+    //             Abaixo na
+    //             <plugin-ref-table data-table="regex-metas">Tabela</plugin-ref-table>
+    //             verifica-se uma lista de alguns metacaracteres em que se pode
+    //             utilizar nas expressões regex em
+    //             <plugin-gloss id="js"></plugin-gloss>.
+    //         `.trim().replace(/^\s{16}/gm, '')
+    //     }
+    // },
+    // {
+    //     type: 'list',
+    //     data: {
+    //         type: 'bullet',
+    //         list: (JSON.parse(
+    //             `[["\\\\","Aplicado conforme as seguintes regras:\\n\\nUma barra invertida que preceda um caractere não especial significa que o caractere seguinte é especial e não deve ser interpretado de forma literal. Por exemplo, o caractere 'b' quando não precedido de uma barra invertida significará uma ocorrência do próprio caractere 'b' minúsculo, porém se precedido da barra invertida '\\\\b' ele passará a significar a ocorrência do caractere especial [fronteira do caractere](#special-word-boundary).\\n\\nQuando a barra invertida preceder um caractere especial isso significará que o próximo caractere deve ser interpretado de forma literal. Por exemplo o padrão /a*/, que selecionará a ocorrência de zero ou mais caracteres 'a' quando utilizado sem a \\\\ para escape. Por outro lado no padrão /a\\\\*/ o asterisco deixa de ter seu significado especial, pois a '\\\\' de escape fará com que o '*' seja interpretado de forma literal, passando o padrão a selecionar o caractere 'a' seguido do caractere '*'.\\n\\nQuando utilizar o construtor RegExp(\\"padrao\\"), não se esqueça de fazer o escape do caractere \\\\, já que esse caractere é também utilizado como caractere de escape em strings."],["^","Corresponde ao início do texto. Se a flag multilinhas é setada para true, também se aplica imediatamente após um caractere de quebra de linha.\\n\\nPor exemplo, /^A/ não corresponde ao 'A' em \\"Um Alvo\\", mas corresponde ao 'A' em \\"Alvo Encontrado\\".\\n\\n\\nEste caractere tem um significado diferente quando aparece como o primeiro caractere em um conjunto padrão de caracteres. Veja conjunto de caracteres negados ou complementados para detalhes e mais exemplos."],["$","Corresponde ao final do texto. Se a flag multilinhas é setada para true, também se aplica imediatamente antes de um caractere de quebra de linha.\\n\\nPor exemplo, /r$/ não corresponde ao 'r' em \\"corre\\", mas acha correspondência em \\"correr\\"."],["*","Corresponde a expressão que o precede repetida 0 ou mais vezes. Equivalente a {0,}\\n\\nPor exemplo, /bo*/ acha uma correspondência para 'boo' em \\"boolean\\" e 'b' em \\"A bird warbled\\", mas nenhuma em \\"A goat grunted\\"."],["+","Corresponde a expressão que o precede repetido 1 ou mais vezes. Equivalente a {1,}.\\n\\nPor exemplo, /a+/ acha correspondência para o 'a' em \\"candy\\" e todos os \\"as\\" em \\"caaaaaaandy\\", mas nâo encontra em \\"cndy\\"."],["?","Corresponde a expressão que o precede repetido 0 ou 1 vez. Equivalente à {0,1}.\\n\\nPor exemplo, /e?le?/ encontra o 'el' em \\"angel\\" e o 'le' em \\"angle\\" e também o 'l' em \\"oslo\\".\\n\\nSe usado imediatamente após qualquer um dos quantificadores *, +, ? ou {}, faz o quantificador não guloso (combinando o número mínimo de vezes), como um oposto para o padrão que é guloso (combinar o número máximo possível). Por exemplo, aplicando /\\\\d+/ em \\"123abc\\" encontra \\"123\\". Mas aplicando /\\\\d+?/, apenas \\"1\\" será encontrado.\\n\\nTambém usado em declarações lookahead, descritas sob x(?=y) e x(?!y)logo abaixo na tabela."],[".","(O ponto decimal) corresponde com qualquer caracter, exceto o caracter de nova linha.\\n\\nPor exemplo, /.n/ acha correspondência para o 'an' e 'on' em \\"nove dias restantes para onze de agosto.\\", mas não encontra 'no' em 'nove'."],["(x)","Pesquisa correspondência com o caractere 'x' e memoriza-o, como a o exemplo a seguir mostra. Os parênteses são chamados parênteses de captura.\\n\\nPor exemplo, o '(foo)' e '(bar)' no padrão /(foo) (bar) \\\\1 \\\\2/ encontra e memoriza a primeira das duas palavras na string \\"foo bar foo bar\\". O \\\\1 e \\\\2 no padrão combina as duas últimas palavras da string. Note que \\\\1, \\\\2, \\\\n são utilizados na parte correspondente do regex."],["(?:x)","Pesquisa correspondência com o caractere 'x' porém não o memoriza. Os parênteses são chamados de parênteses de não-captura e permitem que você defina uma subexpressão para operadores de expressão regular trabalhar com eles. Considere essa expressão de exemplo /(?:foo){1,2}/. Se a expressão era /foo{1,2}/, o {1,2} poderia ser aplicado apenas para o último 'o' em 'foo'. Com os parênteses de não-captura, o {1,2} é aplicado para toda a palavra 'foo'."],["x(?=y)","Pesquisa correspondência em 'x' apenas se 'x' é seguido por 'y'. Isso é chamado de lookahead.\\n\\nPor exemplo, /Jack(?=Sprat)/ busca 'Jack' apenas se é seguido por 'Sprat'. /Jack(?=Sprat|Frost)/ busca 'Jack' apenas se ele é seguido por 'Sprat' ou 'Frost'. No entanto, 'Sprat' nem 'Frost' faz parte do resultado retornado."],["x(?!y)","Pesquisa correspondência em 'x' apenas se 'x' não é seguido por 'y'. Isso é chamado negação lookahead.\\n\\nPor exemplo, /\\\\d+(?!\\\\.)/ encontra um número apenas se ele não for seguido por um ponto decimal. A expressão regular /\\\\d+(?!\\\\.)/.exec(\\"3.141\\") encontra '141' mas não '3.141'."],["x|y","Pesquisa correspondência em 'x' ou 'y'.\\n\\nPor exemplo, /verde|vermelha/ encontra 'verde' em \\"maçã verde\\" e 'vermelha' em \\"maçã vermelha.\\""],["{n}","Pesquisa n ocorrências correspondentes ao caracter precedido. Onde, n deve ser um inteiro positivo.\\n\\nPor exemplo, /a{2}/ não encontra o 'a' em \\"candy,\\" mas encontra-o se houver a quantidade de a's informarda em \\"caandy,\\" e os dois primeiros a's em \\"caaandy.\\""],["{n,m}","Pesquisa a n menor correspondência e a m maior correspondência do caractere precedido. Quando n ou m é zero, ele poderá ser omitido. Onde, n e m devem ser inteiros positivo.\\n\\nPor exemplo, /a{1,3}/ não encontra nada em \\"cndy\\", mas encontra o 'a' em \\"candy\\", encontra os dois primeiros a's em \\"caandy,\\" e encontra os três primeiros a's em \\"caaaaaaandy\\". Observe que, ao fazer a correspondência de \\"caaaaaaandy\\", serão encontrados apenas os \\"aaa\\", mesmo que a string tenha mais a's."],["[xyz]","Um conjunto de caracteres. Pesquisa correspondência para qualquer um dos caracteres entre colchetes. Você pode especificar um intervalo de caracteres usando hífen. Caracteres especiais (como o ponto (.) e o asterisco(*)) não tem significado algum quando está dentro de um conjunto de caracteres. Não necessita utilizar escape neles. Mas, se utilizar escape também irá funcionar.\\n\\nPor exemplo, [abcd] é o mesmo que [a-d]. Com a expressão será encontrado o 'b' em \\"beijo\\" e o 'c' em \\"chop\\". A expressão /[a-z.]+/ e /[\\\\w.]+/ ambos encontraram as letras que formam \\"test.i.ng\\"."],["[^xyz]","Um conjunto de caracteres negados ou complementados. Isto é, combina com qualquer coisa que não esteja listado entre os colchetes. Você pode especificar um intervalo de caracteres usando hífen. Tudo que funciona no conjunto de caracteres (apresentado acima) também funciona aqui.\\n\\nPor exemplo, [^abc] é o mesmo que [^a-c]. Com a expressão será encontrado inicialmente 'e' em \\"beijo\\" e 'h' em \\"chop.\\""],["[\\\\b]","Pesquisa correspondência com espaço em branco (U+0008). É preciso utilizar os colchetes se você quer encontrar um espaço em branco. (Não confunda-o com \\\\b.)"],["\\\\b","Pesquisa correspondência em uma fronteira de caractere. Uma fronteira de caractere corresponde a posição onde um caractere/palavra não é seguido ou antecedido por outro caractere/palavra. Isto é, em fronteira de caractere não pode haver nenhum caractere ou espaço, seu tamanho deve ser vazio. (não confunda-o com [\\\\b].)\\n\\nExemplos:\\n/\\\\bmoo/ encontra a substring 'moo' em \\"moon\\" ;\\n/oo\\\\b/ não encontra o 'oo' em \\"moon\\", devido o 'oo' ser seguido por 'n' que é um caractere;\\n/oon\\\\b/ encontra a substring 'oon' em \\"moon\\", devido 'oon' ser o fim da string, ou seja, não é seguido por nenhum caractere;\\n/\\\\w\\\\b\\\\w/ não encontrará nada, pois o caractere nunca será seguido por um não caractere e um caractere.\\n\\nNota: O mecanismo de expressão regular no JavaScript define um conjunto específico de caracteres para serem caracteres \\"palavras\\". Qualquer caractere que não esteja neste conjunto é considerado uma quebra de palavra. Este conjunto de caractere é bastante limitado: consiste apenas no alfabeto romano tanto maiúsculo como minúsculo, digítos decimais, e o caractere sublinhado. Caracteres acentuados, tal como \\"é\\" ou \\"ã\\" são, infelizmente, tratados como palavras quebradas."],["\\\\B","Pesquisa correspondência que não seja em uma fronteira de caractere. Para a correspondência é associada uma posição onde o caractere anterior e o próximo tem as mesmas características: ambos são caractere/palavra, ou ambos não sejam caractere/palavra. O início e o fim de uma string não considerados como não caractere/palavra.\\n\\nPor exemplo, /\\\\B../ encontra correspondente 'oo' em \\"boolean\\", e /y\\\\B./ encontra correspondente 'ye' em \\"possibly yesterday.\\""],["\\\\cX","Onde X é um caractere pertencente ao conjunto A-Z. Encontra correspondência de um caractere de controle em uma string.\\n\\nPor exemplo, /\\\\cM/ encontra correspondente control-M (U+000D) em uma string."],["\\\\d","Encontra correspondência com um número. Equivalente a [0-9].\\n\\nPor exemplo, /\\\\d/ ou /[0-9]/ encontra correspondente '8' em \\"Dróide BB8\\"."],["\\\\D","Encontra correspondência com um caractere que não seja número. Equivalente a [^0-9].\\n\\nPor exemplo, /\\\\D/ ou /[^0-9]/ econtra correspondente 'C' em \\"C3 está ativada.\\""],["\\\\f","Encontra correspondência com um caractere de escape avanço de página (U+000C)."],["\\\\n","Encontra correspondência com um caractere de escape quebra de linha (U+000A)."],["\\\\r","Encontra correspondência com um caractere de escape retorno de carro (U+000D)."],["\\\\s","Encontra correspondência com um único caractere de espaço em branco, espaço, tabulação, avanço de página, quebra de linha. Equivalente a [ \\\\f\\\\n\\\\r\\\\t\\\\v\\\\u00A0\\\\u1680\\\\u180e\\\\u2000\\\\u2001\\\\u2002\\\\u2003\\\\u2004\\\\u2005\\\\u2006\\\\u2007\\\\u2008\\\\u2009\\\\u200a\\\\u2028\\\\u2029\\\\u2028\\\\u2029\\\\u202f\\\\u205f\\\\u3000].\\n\\nPor exemplo, /\\\\s\\\\w*/ encontra correspondente ' bar' em \\"foo bar.\\""],["\\\\S","Encontra correspondência em um único caractere que não seja espaço em branco. Equivalente a [^ \\\\f\\\\n\\\\r\\\\t\\\\v\\\\u00A0\\\\u1680\\\\u180e\\\\u2000\\\\u2001\\\\u2002\\\\u2003\\\\u2004\\\\u2005\\\\u2006\\\\u2007\\\\u2008\\\\u2009\\\\u200a\\\\u2028\\\\u2029\\\\u2028\\\\u2029\\\\u202f\\\\u205f\\\\u3000].\\n\\nPor exemplo, /\\\\S\\\\w*/ encontra correspondente 'foo' em \\"foo bar.\\""],["\\\\t","Encontra correspondência em uma tabulação (U+0009)."],["\\\\v","Encontra correspondência em uma tabulação vertical (U+000B)."],["\\\\w","Encontra correspondência de qualquer caractere alfanumérico incluindo underline. Equivalente a [A-Za-z0-9_].\\n\\nPor exemplo, /\\\\w/ encontra correspondente 'a' em \\"apple,\\" '5' em \\"$5.28,\\" e '3' em \\"3D.\\""],["\\\\W","Encontra correspondência em um não caractere. Equivalente a [^A-Za-z0-9_].\\n\\nPor exemplo, /\\\\W/ ou /[^A-Za-z0-9_]/ encontra correspondente '%' em \\"50%.\\""],["\\\\num","Onde num é um inteiro positivo. Faz referência a substring pertencente à um grupo, um grupo é definido entre parênteses. Grupos são numerados de 1 até 9.\\n\\nPor exemplo, /(muito) (cacique) pra \\\\2 \\\\1/ encontra 'muito cacique pra cacique muito' em 'Na aldeia tem muito cacique pra cacique muito.'"],["\\\\0","Encontra correspondência em um caractere NULL (U+0000). Não adicione outro número após o zero, pois \\\\0<digitos> é um escape para número octal."],["\\\\xhh","Encontra correspondência com o código hh (dois valores hexadecimal)."],["\\\\uhhhh","Encontra correspondência com o código hhh (três valores hexadecimal)."],["\\\\u{hhhh}","(funciona apenas com a flag u) Encontra correspondência com o valor Unicode hhhh (dígitos hexadecimais)."]]`
+    //         ) as string[][]).map((el) => el.join(' -> '))
+    //     }
+    // },
+    {
+        type: 'header',
+        data: { level: 3, text: 'Lamport Tex, LaTex' }
+    },
+    {
+        type: 'header',
+        data: { level: 3, text: 'Cheerio' }
     },
 ]

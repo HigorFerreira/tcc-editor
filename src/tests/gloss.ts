@@ -148,4 +148,44 @@ export const gloss = {
         label: 'Application Programming Interface',
         short: 'API'
     },
+    'ui': {
+        type: 'sigla',
+        label: 'User Interface',
+        short: 'UI'
+    },
+    'ux': {
+        type: 'sigla',
+        label: 'User eXperience',
+        short: 'UX'
+    },
+    'jsx': {
+        type: 'abreviacao',
+        label: 'JavaScript XML',
+        short: 'JSX'
+    },
+    'tsx': {
+        type: 'abreviacao',
+        label: 'TypeScript XML',
+        short: 'TSX'
+    },
+    'dom': {
+        type: 'sigla',
+        label: 'Document Object Model',
+        short: 'DOM'
+    },
+    'regex': {
+        type: 'abreviacao',
+        label: 'Regular Expression',
+        short: 'RegEx'
+    },
+    'regexp': {
+        type: 'abreviacao',
+        label: 'Regular Expression',
+        short: 'RegExp'
+    },
+    'latex': {
+        type: 'abreviacao',
+        label: 'Lamport TeX',
+        short: 'LaTex'
+    },
 } satisfies GlossaryObjectType

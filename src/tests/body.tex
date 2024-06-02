@@ -29,12 +29,12 @@ da elaboração de referências e a
 
 \cite{castro}, adverte que: "Em ciência, não pode haver uma
 separação entre forma e conteúdo. Trata-se de uma separação fictícia, pois fica se conhecendo
-o conteúdo pela forma." Ou seja: A forma do trabalho, sua apresentação, sua formatação e
+o conteúdo pela forma."~ Ou seja: A forma do trabalho, sua apresentação, sua formatação e
 todo o seu arranjo gráfico é tão importante quanto seu conteúdo. 
 \cite{medeiros} vai
-complementar essa visão, afirmando que a apresentação gráfica "[...] contribui para a
+complementar essa visão, afirmando que a apresentação gráfica "\[...\] contribui para a
 consecução de um trabalho capaz de atingir seu objetivo. Monografia realizada sem a
-preocupação gráfica, em geral, acaba malsucedida."
+preocupação gráfica, em geral, acaba malsucedida."~
 
 Em seu artigo, 
 \cite{SilvaVitoria}
@@ -48,7 +48,7 @@ própria Instituição de Ensino Superior (
 presentes nas normas da \acrshort{abnt}, ou seja, há uma subjetividade presente que não é comum a
 todas às \acrshort{ies} quanto a questão da formatação. Essa subjetividade contribui para a confusão dos
 alunos, pois a \acrshort{ies} avaliará de acordo com aquilo que julga apropriado, o que muitas vezes
-pode obscurecer o direcionamento do aluno ao redigir/formatar seu trabalho."
+pode obscurecer o direcionamento do aluno ao redigir/formatar seu trabalho."~
 
 \clearpage
 
@@ -61,7 +61,7 @@ Universidade Federal da Paraíba
 (\acrshort{ufpb}).
 Em sua pesquisa é destacado que "Quanto a
 formatação do trabalho com as normas da 
-\acrshort{abnt}, [...], 60\% teve alguma dificuldade, inclusive
+\acrshort{abnt}, \[...\], 60\% teve alguma dificuldade, inclusive
 32\% teve muita dificuldade.", ou seja, a formatação do trabalho é um grande desafio presente
 na vida de boa parte dos estudantes em processo de escrita.
 
@@ -90,7 +90,7 @@ Documento em
 \acrshort{pdf}
 . A Figura\ref{fig:Passos para criar um documento} ilustra esse fluxo na linha do tempo.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \caption{Passo a passo para criar um documento na plataforma}
     \includegraphics[width=0.8\textwidth]{./images/Passos para criar um documento.png}
@@ -153,7 +153,7 @@ ser definida a imagem, bem como seu título de sua descrição.
 
 A imagem abaixo ilustra a composição de um trabalho com seus respectivos blocos:
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \caption{Divisão de blocos em uma imagem}
     \includegraphics[width=0.8\textwidth]{./images/blocos-no-documento.png}
@@ -177,14 +177,13 @@ da aplicação. A plataforma gerará um código
 }
 como resultado das interações do usuário, que posteriormente
 serão convertidos em código
-latex\footnote{Ver (sessão que trata do latex)
-}.
-Só então, finalmente será utilizado um utilitário que converterá o código latex
+\acrshort{latex}\footnote{Ver (sessão que trata do }.
+Só então, finalmente será utilizado um utilitário que converterá o código \acrshort{latex}
 em um documento
 \acrshort{pdf}. A
 Figura\ref{fig:app-json-latex-pdf} ilustra esse processo:
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \caption{Etapas do processo de Parsing}
     \includegraphics[width=0.9\textwidth]{./images/app-json-latex-pdf.png}
@@ -209,17 +208,37 @@ foi desenvolvido, bem como todas as suas respectivas versões:
 
 \clearpage
 
-\subsection{Lista de tecnologias do ambiente de desenvolvimento}
+\subsection{Tecnologias do ambiente de desenvolvimento}
 
 Atender aos requisitos mínimos de hardware
 e software é fundamental para garantir uma experiência de usuário satisfatória
 e evitar problemas de desempenho ou compatibilidade com o aplicativo da plataforma.
-A seguir é listado o ambiente mínimo com seus respectivos softwares necessários
+A seguir enumera-se o ambiente mínimo com seus respectivos softwares necessários
 para rodar o aplicativo da plataforma:
 
-\begin{itemize}
-        	\item Npm 10.2.3	\item Yarn 1.22.19	\item NodeJs 20.10.0	\item TypeScript 5.3.3	\item kpathsea version 6.3.4/dev	\item Sistema Operacional: Ubuntu 20.04	\item makeglossaries (Utilitário latex)	\item BibTeX 0.99d (TeX Live 2022/dev/Debian)	\item pdfTeX 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian)
-    \end{itemize}
+\begin{table}[H]
+    \centering
+    \caption{Tecnologias do ambiente de desenvolvimento}
+    \label{tbl:tecnologias-ambiente}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{p{6.4cm} p{9.6cm}}
+        \hline
+        \textbf{Tipo} & \textbf{Tecnologia} \\
+        \hline
+        Interpretador & NodeJs 20.10.0 \\
+		Sistema Operacional & Ubuntu 20.04 \\
+		Gerenciador de pacotes & Npm 10.2.3 \\
+		Gerenciador de pacotes & Yarn 1.22.19 \\
+		Utilitário & kpathsea version 6.3.4/dev \\
+		Linguagem de Programação & TypeScript 5.3.3 \\
+		Utilitário & BibTeX 0.99d (TeX Live 2022/dev/Debian) \\
+		Navegador de Internet & Google Chrome 119.0.6045.199 \\
+		Compilador & pdfTeX 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) \\
+		Utilitário & makeglossaries (Utilitário \acrshort{latex}) \\
+        \hline
+        \\\multicolumn{2}{c}{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+    \end{tabular}
+\end{table}
 
 \chapter{Fundamentação teórica}
 
@@ -239,7 +258,7 @@ tecnologias, bibliotecas,
 }
 e conceitos que deverão trabalhar de forma integrada.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \caption{Pilares da plataforma, (mapa mental)}
     \includegraphics[width=0.9\textwidth]{./images/pilares-da-plataforma.png}
@@ -476,7 +495,7 @@ formas de mídia.
 \cite{mdn-css}.
 
 Considerado uma das principais linguagens da
-Open\footnote{Do inglês: Aberto. Neste contexto, refere-se ao padrão "Aberto" da
+Open\footnote{Do inglês: Aberto. Neste contexto, refere-se ao padrão "Aberto"~ da
     \acrshort{web}
 }
 \acrshort{web},
@@ -611,18 +630,18 @@ basicamente converte os objetos JavaScript em strings. Uma caracteristica deste,
 A Tabela\ref{tbl:json-descs} mostra as principais
 diferenças entre o JavaScript e o JSON.
 
-\begin{table}[h!]
+\begin{table}[H]
     \centering
     \caption{Diferenças entre o JavaScript e o JSON}
     \label{tbl:json-descs}
     \renewcommand{\arraystretch}{1.5}
-    \begin{tabular}{p{8.0cm} p{8.0cm}}
+    \begin{tabular}{p{5.6cm} p{10.4cm}}
         \hline
-        Tipos e valores JavaScript & Diferença para o JSON \\
+        \textbf{Tipos e valores JavaScript} & \textbf{Diferença para o JSON} \\
         \hline
         Objetos e Arrays & Os nomes das propriedades devem ser strings com aspas duplas; as vírgulas à direita são proibidas. \\
 		Números & Zeros à esquerda são proibidos; um ponto decimal deve ser seguido por pelo menos um dígito. \\
-		Strings & Apenas um conjunto limitado de caracteres pode ser escapado; certos caracteres de controle são proibidos; o separador de linha Unicode (U+2028) e o separador de parágrafo (U+2029) caracteres são permitidos; strings devem ter aspas duplas.
+		Strings & Apenas um conjunto limitado de caracteres pode ser escapado; certos caracteres de controle são proibidos; o separador de linha Unicode (U+2028) e o separador de parágrafo (U+2029) são permitidos; strings devem ter aspas duplas.
              \\
         \hline
         \\\multicolumn{2}{c}{\fontsize{10pt}{12pt}Fonte: \cite{mdn-json}.}
@@ -633,7 +652,7 @@ diferenças entre o JavaScript e o JSON.
 
 \subsubsection{\underline{ReactJs}}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \caption{Logotipo do React}
     \includegraphics[width=0.8\textwidth]{./images/react-logotipo.png}
@@ -700,7 +719,7 @@ desafios de suporte aos anúncios do Facebook. Em 2012, o Instagram foi adquirid
 Facebook e expressou interesse em adotar o React. Isso levou o Facebook a dissociar o React
 da empresa e torná-lo open source. Em 2013, ocorreu o lançamento oficial do React, mas
 inicialmente enfrentou resistência da comunidade de desenvolvedores. No entanto, uma "turnê
-do React" foi realizada para conquistar os não adeptos.
+do React"~ foi realizada para conquistar os não adeptos.
 \cite{morais-react}.
 
 No ano seguinte, o React começou a ganhar reputação e confiança. O
@@ -725,9 +744,59 @@ desenvolvimento. O React permanece como uma biblioteca consolidada no mercado de
 End, sendo amplamente adotado por grandes empresas em todo o mundo.
 \cite{morais-react}.
 
+\subsubsubsection{JavaScript XML}
+
+O JavaScript XML, (\acrshort{jsx}),
+é uma extensão de sintaxe para o JavaScript que permite escrever
+código de marcação, (como o \acrshort{html}),
+dentro do JavaScript. Os componentes React nada mais são do que
+funções ou classes chamadas a partir do código
+\acrshort{js}
+que atualizam o
+\acrshort{html}
+através da
+\textit{Document Object Model}\footnote{Do inglês: Modelo de Documento de Objeto. O
+    \acrshort{dom}
+    é utilizado pelo JavaScript para manipular o documento
+    \acrshort{html}
+    exibido em tela.
+    \cite{alura-dom}
+ },
+(\acrshort{dom}).
+O
+\acrshort{jsx}
+facilita esse trabalho. Pois ao invés de chamar
+funcões ou instanciar classes no código JavaScript,
+pode-se escrever a marcação diretamente no mesmo,
+como se o 
+\acrshort{html}
+estivesse dentro do
+\acrshort{js}.
+\cite{react-jsx}.
+
+A
+Figura\ref{fig:exemplo-jsx}
+mostra um exemplo de código em
+\acrshort{jsx}.
+É exportada uma função denominada \textit{TodoList},
+que nada mais é do que um componente React.
+Esta função retorna um determinado valor, que é
+o código
+\acrshort{jsx}
+propriamente dito. Este código será renderizado
+no lugar onde esta função for chamada.
+
+\begin{figure}[H]
+    \centering
+    \caption{Exemplo de código JSX}
+    \includegraphics[width=0.9\textwidth]{./images/exemplo-jsx.png}
+    \label{fig:exemplo-jsx} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Adaptado de: ReactJs. Disponível em: <https://pt-br.react.dev/learn/writing-markup-with-jsx>}
+\end{figure}
+
 \subsubsection{\underline{NextJs}}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \caption{Logotipo do NextJs}
     \includegraphics[width=1.0\textwidth]{./images/nextjs-logotipo.png}
@@ -801,11 +870,9 @@ pela mesma. Os principais recursos oferecidos pelo NextJs são:
 \cite{nexjs-docs}.
             
 
-\clearpage
-
 \subsubsection{\underline{EditorJs}}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \caption{Logotipo do EditorJs}
     \includegraphics[width=0.8\textwidth]{./images/editorjs-logotipo.png}
@@ -842,6 +909,387 @@ modo que o desenvolvedor possa implementar diversos desafios com a criação
 de seus próprios plugins.
 \cite{editorjs}.
 
+\subsubsection{\underline{AntDesign}}
+
+\begin{figure}[H]
+    \centering
+    \caption{AntDesign}
+    \includegraphics[width=0.8\textwidth]{./images/antdesign-pagina-inicial.png}
+    \label{fig:antdesign-pagina-inicial} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: AntDesign, Disponível em: <https://ant.design>.}
+\end{figure}
+
+"Ajudando designers e desenvolvedores a construir belos produtos de forma flexível, trabalhando com alegria.".
+O AntDesign é uma biblioteca de
+\acrshort{ui},
+\textit{User Interface}\footnote{Do inglês: Interface de Usuário
+}.
+Esta biblioteca é uma grande auxiliadora na hora de produzir aplicativos
+com um design agradável sem que o desenvolvedor gaste muito tempo
+estilizando os componentes da aplicação.
+
+Totalmente integrado ao ReactJs, o AntDesign já traz consigo uma vasta
+gama de componentes reutilizáveis que podem ser "encaixados"~ à
+construção das telas do app.
+O AntDesign não impacta somente a
+\acrshort{ui},
+mas também a
+\textit{User Experience}\footnote{Do inglês: Experiância de Usuário
+},
+\acrshort{ux}, uma vez que seus componentes são construídos
+em cima do React. Deixando-os altamente reativos e já com seus
+devidos comportamentos padrão. Ficado a cargo do desenvolvedor
+apenas personalizar o que se deseja fazer.
+A
+Figura\ref{fig:componente-ant-ex}
+mostra um exemplo de implementação de um componente em AntDesign.
+
+\begin{figure}[H]
+    \centering
+    \caption{Exemplo de componente em AntDesign}
+    \includegraphics[width=0.9\textwidth]{./images/componente-ant-ex.png}
+    \label{fig:componente-ant-ex} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Adaptado de: AndDesign. Disponível em: <https://ant.design/components/switch>}
+\end{figure}
+
+Nota-se que com apenas uma linha tem-se um componente completo com
+um visual totalmente moderno. Algo que com apenas
+\acrshort{html},
+\acrshort{css}
+e
+\acrshort{js},
+gastaria algumas dezenas de linhas de código.
+Tanto ReactJs quanto AntDesign significam economia
+em termos de tempo, código e simplicidade de projeto.
+
 \section{Do Back-End}
 
+Back-end se relaciona com o que está por trás das aplicações desenvolvidas na programação. Ou seja, tudo que dá estrutura e apoio às ações do usuário da máquina é chamado de back-end. Quando acessamos um site, por exemplo, por trás de toda sua apresentação amigável esteticamente, há uma comunicação das informações trocadas entre banco de dados e navegador. Portanto, por trás da interface gráfica do realizador, o back-end está sempre agindo.
+\cite{totvs-back-end}.
+
+\subsection{NodeJs}
+
+\begin{figure}[H]
+    \centering
+    \caption{Logotipo do NodeJs}
+    \includegraphics[width=0.7\textwidth]{./images/logotipo-nodejs.png}
+    \label{fig:logotipo-nodejs} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Adaptado de: NodeJs. Disponível em: <https://nodejs.org/en>}
+\end{figure}
+
+"Rode JavaScript em todo lugar".
+O NodeJs é um ambiente de
+\textit{runtime}\footnote{Do inglês: Tempo de execução. Um runtime é basicamente um interpretador
+    capaz de executar um script.
+}
+que permite ao desenvolvedor criar servidores, aplicativos
+\acrshort{web},
+ferramentas e linha de comando, entre outros...
+É a principal tecnologia deste projeto e o que permitirá
+a execução de todas as outras na sequência.
+
+Antes do NodeJs, o JavaScript era uma linguagem que
+rodava puramente em
+\textit{Browsers}\footnote{Do inglês: Navegadores. Aqui usado no sentido de
+    navegador da \acrshort{web}, ou seja,
+    o aplicativo no qual acessa-se páginas na internet.
+}
+como uma forma de adicionar interações às páginas da internet.
+Com o NodeJs, o JavaScript passou do ambiente dos Browsers
+ao ambiente dos Sistemas Operacionais. Abstraindo
+\acrshort{api}s
+dos mesmos. Hoje, com NojeJs, por exemplo, pode-se
+acessar a
+\acrshort{api}
+do sistema de arquivos do Sistema Operacional.
+Algo que há um tempo atrás só se fazia com
+linguagens de baixo nível como o C++.
+
+A plataforma desenvolvida neste trabalho será
+um servidor que distribuirá o Sistema
+\acrshort{web}
+que é a plataforma em si. O NextJs,
+tecnologia escolhida para este fim,
+é um servidor capaz de processar uma parte
+das interfaces do sistema estaticamente, e
+entregá-las ao cliente juntamente com os scripts
+de suas partes dinâmicas. Desta forma,
+ganha-se segurança no processamento back-end
+ao mesmo tempo que não perde-se em termos de
+interatividade com o usuário.
+Há também diversos ganhos de performance e simplificação
+de código, uma vez que back-end e front-end
+serão concentrados no mesmo lugar, não precisando
+separá-los em projetos diferentes.
+
 \section{O processo de Parsing}
+
+O processo de Parsing é uma das partes mais vitais deste projeto.
+Sem ele, não é possível obter o documento final formatado de acordo
+com as normas postas da
+\acrshort{abnt}
+e da
+\acrshort{pucgo}.
+Pode-se dizer que o Parsing é o código núcleo da aplicação, pois todas
+as outras partes, como edição em blocos e navegação, por exemplo,
+serão feitas com o auxílio de bibliotecas e frameworks. O Parsing,
+por sua vez, será escrito puramete em TypeScript para processar as
+saídas do EditorJs.
+
+Seu tratamento utilizar-se-á de uma combinação de expressões regulares
+para tratar os caracteres especiais de código
+\acrshort{latex},
+manipulação de código
+\acrshort{html}
+produzido pelos plugins do editor utilizando-se o Cheerio.
+E por fim, a compilação de código
+\acrshort{latex}
+utilizando-se o utilitário pdflatex
+para gerar o
+\acrshort{pdf}.
+
+\subsection{Expressões regulares}
+
+As expressões regulares, (as vezes denominadas
+\acrshort{regex}
+ou
+\acrshort{regexp}),
+podem ser descrevidas basicamente como uma sequência de
+caracteres que descrevem um padrão de busca em um texto.
+\cite{dp6-regex}.
+
+Uma expressão regular pode ser composta por uma cadeia simples de caracteres, como
+\textbf{abc};
+ou uma cadeia composta pela combinação de caracteres simples e caracteres especiais.
+Aos caracteres especiais, denominam-se metacaracteres. Os metacaracteres são usados
+quando a busca no texto requer algo mais do que uma simples correspondência direta.
+\cite{mdn-regex}.
+
+\subsubsection{\underline{Expressão regular simples}}
+
+No exemplo anterior, a expressão simples
+\textbf{abc}
+irá corresponder a uma letra
+\textbf{"a"},
+seguida de um
+\textbf{"b"},
+seguida de um
+\textbf{"c"}
+no texto ao qual se está avaliando.
+Estas letras terão de estar juntas e nesta exata ordem.
+Esta expressão irá encontrar correspondências nas strings
+"Vamos aprender o abc do Regex?"~
+e
+"Um bug no sistema dói como um abcesso.".
+Nestes dois casos, houve uma correspondência da substring
+\textbf{abc},
+mas a string
+"ab c"~
+não irá obter correspondência, pois aqui a exata substring
+\textbf{abc}
+não está contida. Observe as correspondências na
+Figura\ref{fig:abc-match}.
+\cite{mdn-regex}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Correspondêcias do Regex abc}
+    \includegraphics[width=0.8\textwidth]{./images/abc-match.png}
+    \label{fig:abc-match} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+\subsubsection{\underline{Expressão regular com metacaractere}}
+
+Como mencionado anteriormente, quando se quer algo que é mais do
+que uma simples correspondência direta, utilizam-se metacaracteres.
+O caractere
+\textbf{*}
+é um metacaractere de expressão regular. Por exemplo:
+\textbf{ab*c}
+utiliza o
+\textbf{*}
+como metacaractere. A expressão
+\textbf{ab*c}
+deve ser lida como: Corresponda ao caractere
+\textbf{a,}
+seguido por zero ou mais caracteres
+\textbf{b}s,
+seguido por um caractere
+\textbf{c.}
+Usar
+\textbf{*}
+após o
+\textbf{b}
+significa: zero ou mais ocorrências do item anterior, no caso
+\textbf{b.}
+Como vemos na
+Figura\ref{fig:abc-meta-match}
+as strings "cbbabbbbcdebc", "abbbbc"~ e "ac"~
+encontrarão correspondências. As strings "ab", "a"~ e "abbbbbb", por
+outro lado, não encontrarão correspondências, conforme a
+Figura\ref{fig:abc-meta-not-match}.
+\cite{mdn-regex}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Correspondêcias do Regex ab*c, com metacaractere}
+    \includegraphics[width=0.8\textwidth]{./images/abc-meta-match.png}
+    \label{fig:abc-meta-match} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Não correspondêcias do Regex ab*c, com metacaractere}
+    \includegraphics[width=0.8\textwidth]{./images/abc-meta-not-match.png}
+    \label{fig:abc-meta-not-match} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+Uma expressão regular é uma combinação de caracteres, alguns
+deles, como o metacaractere quantificador *, visto
+anteriormente, são caracteres especiais. Estes metacaracteres
+são simbolos especiais que definem como a é interpretada.
+\cite{dp6-regex}.
+
+\subsubsection{\underline{Expressões regulares em JavaScript}}
+
+Em JavaScript, as expressões regulares podem ser escritas diretamente dentro do código,
+desde que postas entre barras //. Por exemplo: /abc/ é uma expressão regular válida em
+\acrshort{js}.
+O tipo de dados das expressões regulares é
+o
+\textit{object}\footnote{Do inglês: Objeto
+}, assim como
+\textit{Array}\footnote{Do inglês: Variedade ou matriz. No contexto de JavaScript é um dado estruturado,
+    composto de uma sequencia de outros objetos ou dados puros.
+}
+ou
+\textit{Set}\footnote{Do inglês: Conjunto. Assim como Array, é um dado estruturado que agrupa outros
+    objetos, porém de forma não ordenada e não indexada.
+}. As expressões regulares no
+\acrshort{js}
+são usadas com dois objetos principais, a saber
+\acrshort{regex}
+e
+String.
+A
+\acrshort{api}
+de strings do
+\acrshort{js}
+fornece uma gama de métodos nos quais podemos utilizar
+juntamente com
+\acrshort{regex}.
+A Tabela\ref{tbl:string-methods-regex}
+fornece uma descrição destes métodos:
+
+\begin{table}[H]
+    \centering
+    \caption{Métodos de string que podem ser usados com regex}
+    \label{tbl:string-methods-regex}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{p{2.4cm} p{13.6cm}}
+        \hline
+        \textbf{Método} & \textbf{Descrição} \\
+        \hline
+        match & O método match retorna o resultado da correspodência de um dado
+            \cite{mdn-regex}
+            à string ao qual está sendo aplicado. Aplicação em códido:
+            "Meu abc".match(/abc/);
+         \\
+		matchAll & Faz o mesmo que match. Porém, ao contrário de match, que traz apenas
+            a primeira correspondência, matchAll traz todas as correspondências
+            encontradas.
+         \\
+		replace & O método replace de uma dada string, retorna uma nova string que substitui
+            a correspondência de uma expressão regular por alguma string de substituição.
+         \\
+		replaceAll & Um caminho diferente para fazer o mesmo que replace, porém para todas
+            as ocorrências.
+         \\
+		search & Faz uma busca pelo padrão na string e retorna o índice da primeira ocorrência. \\
+		split & Divide a string em uma lista ordenada de substrings em que o critério de divisão é a expressão regular fornecida. \\
+        \hline
+        \\\multicolumn{2}{c}{\fontsize{10pt}{12pt}Fonte: \cite{mdn-regex}.}
+    \end{tabular}
+\end{table}
+
+O objeto
+\acrshort{regex}
+também fornece dois métodos em que se usam as expressão regulares,
+a saber: exec() e test().
+\cite{mdn-regex}.
+
+\subsection{Lamport Tex, LaTex}
+
+\subsection{Cheerio}
+
+\chapter{Desenvolvimento}
+
+\begin{figure}[H]
+    \centering
+    \caption{Estrutura de pastas e arquivos básica do projeto}
+    \includegraphics[width=0.4\textwidth]{./images/estrutura-basica-projeto.png}
+    \label{fig:estrutura-basica-projeto} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{Estrutura de pastas básica do projeto e suas atribuições}
+    \label{tbl:pastas-projeto}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{p{3.2cm} p{12.8cm}}
+        \hline
+        \textbf{Arquivo/Pasta} & \textbf{Descrição} \\
+        \hline
+        public & Pasta pública para distribuição de arquivos estáticos. \\
+		src & Esta pasta é onde praticamente todas as coisas na aplicação vão acontecer,
+            aqui está as páginas e seus devidos roteamentos, o editor e seus plugins,
+            o parser e tudo mais.
+         \\
+		declaration.d.ts & Arquivo de declarações. Aqui é anotado algumas tipagens para serem usadas
+            globalmente durante o processo de desenvolvimento.
+         \\
+		.env.local & Arquivo de variáveis de ambiente para serem usadas como teste durante                o tempo de desenvolvimento \\
+		.git & Pasta de controle do git. \\
+		.gitignore & Arquivos a serem ignorados pela ferramenta de versionamento. \\
+		next.config.js & Arquivo de configurações do NextJs \\
+		next-env.d.ts &  \\
+		package.json & Arquivo que define que o projeto é um projeto NodeJs. Aqui está toda a informação sobre dependencias
+            do projeto, que são todos os pacotes usados de terceiros. Também possui definição
+            de scripts úteis para serem utilizados no processo de desenvolvimento.
+         \\
+		README.md & Documentação de apresentação do projeto. \\
+		tsconfig.json & Configurações do TypeScript. \\
+		yarn-error.log & Erros do gerenciador de pacotes yarn \\
+		yarn.lock & Arquivo de lock de dependências do gerenciador de pacotes yarn. \\
+        \hline
+        \\\multicolumn{2}{c}{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+    \end{tabular}
+\end{table}
+
+\section{NextJs e estrutura}
+
+\section{EditorJS}
+
+\subsection{Provider}
+
+\subsection{Plugins}
+
+\subsubsection{\underline{Classe base de plugin}}
+
+\subsubsection{\underline{Plugin 1}}
+
+\subsubsection{\underline{Plugin 2}}
+
+\subsubsection{\underline{Plugin N}}
+
+\section{Parsing, (parser)}
+
+\subsection{Tipagens}
+
+\subsection{Escape de caracteres especiais}
+
+\subsection{Processamento de HTML}

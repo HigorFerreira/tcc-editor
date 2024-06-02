@@ -74,6 +74,14 @@ export const refs = {
         year: 2021,
         url: 'https://www.totvs.com/blog/developers/front-end/'
     },
+    'totvs-back-end': {
+        type: 'misc',
+        title: 'O que é back-end e qual seu papel na programação?',
+        author: [ 'TOTVS' ],
+        note: '[Online: acessado em 01-Junho-2024]',
+        year: 2020,
+        url: 'https://www.totvs.com/blog/developers/back-end/'
+    },
     'molgado': {
         type: 'misc',
         author: [ 'Victória Molgado' ],
@@ -91,12 +99,13 @@ export const refs = {
         year: 2019,
     },
     'w3c': {
-        type: 'misc',
-        author: [ 'World Wide Web Consortium - W3C' ],
+        type: 'article',
+        author: [ 'W3C' ],
         note: '[Online: acessado em 16-Maio-2023]',
         year: 2023,
         title: 'HTML',
         url: 'https://html.spec.whatwg.org/multipage',
+        publisher: 'World Wide Web Consortium'
     },
     'marco-civil-art-2': {
         type: 'article',
@@ -124,22 +133,25 @@ export const refs = {
         title: 'Design Responsivo',
         year: 2023,
         note: '[Online: acessado em 28-Maio-2024]',
+        publisher: 'Mozilla Developer Network',
     },
     'mdn-css': {
         type: 'article',
         url: 'https://developer.mozilla.org/pt-BR/docs/Web/CSS',
-        author: [ 'Mozilla Developer Network - MDN' ],
+        author: [ 'MDN' ],
         title: 'CSS',
         year: 2023,
         note: '[Online: acessado em 16-Maio-2023]',
+        publisher: 'Mozilla Developer Network',
     },
     'mdn-js': {
         type: 'article',
         url: 'https://developer.mozilla.org/pt-BR/docs/Web/JavaScript',
-        author: [ 'Mozilla Developer Network - MDN' ],
+        author: [ 'MDN' ],
         title: 'JavaScript',
         year: 2023,
         note: '[Online: acessado em 16-Maio-2023]',
+        publisher: 'Mozilla Developer Network',
     },
     'ts-page': {
         type: 'misc',
@@ -149,11 +161,12 @@ export const refs = {
         note: '[Online: acessado em 29-Maio-2024]',
     },
     'ts-w3': {
-        type: 'misc',
-        author: [ 'W3Schools' ],
+        type: 'article',
+        author: [ 'w3C' ],
         title: 'TypeScript Introduction',
         url: 'https://www.w3schools.com/typescript/typescript_intro.php',
         note: '[Online: acessado em 29-Maio-2024]',
+        publisher: 'W3SCHOOLS',
         year: 2024
     },
     'morais-react': {
@@ -195,5 +208,53 @@ export const refs = {
         note: '[Online: acessado em 30-Maio-2024]',
         url: 'https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/JSON',
         year: 2024,
-    }
+        publisher: 'Mozilla Developer Network',
+    },
+    'react-jsx': {
+        type: 'article',
+        author: [ 'ReactJs' ],
+        year: 2024,
+        title: 'Writing Markup with JSX',
+        url: 'https://pt-br.react.dev/learn/writing-markup-with-jsx',
+        note: '[Online: acessado em 01-Junho-2024]',
+    },
+    'alura-dom': {
+        type: 'article',
+        author: [ 'Ellen Pimentel' ],
+        title: 'O que é DOM?',
+        year: 2022,
+        url: 'https://www.alura.com.br/artigos/o-que-e-o-dom',
+        publisher: 'Alura',
+        note: '[Online: acessado em 01-Junho-2024]',
+    },
+    'mdn-regex': {
+        type: 'article',
+        author: [ 'MDN' ],
+        title: 'Regular expressions',
+        year: 2024,
+        url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions',
+        publisher: 'Mozilla Developer Network',
+        journal: 'Web Docs',
+        note: '[Online: acessado em 01-Junho-2024]',
+    },
+    'mdn-regex-pt': {
+        type: 'article',
+        author: [ 'MDN' ],
+        title: 'Expressões Regulares',
+        year: 2024,
+        url: 'https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_expressions',
+        publisher: 'Mozilla Developer Network',
+        journal: 'Web Docs',
+        note: '[Online: acessado em 02-Junho-2024]',
+    },
+    'dp6-regex': {
+        type: 'article',
+        author: [ 'Carlos Magalhães' ],
+        title: 'Regex: o guia essencial das expressões regulares',
+        year: 2022,
+        url: 'https://blog.dp6.com.br/regex-o-guia-essencial-das-express%C3%B5es-regulares-2fc1df38a481',
+        publisher: 'Medium',
+        journal: 'Blog DP6',
+        note: '[Online: acessado em 01-Junho-2024]',
+    },
 } satisfies RefsObjectType
