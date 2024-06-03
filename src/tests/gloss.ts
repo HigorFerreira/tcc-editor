@@ -188,4 +188,14 @@ export const gloss = {
         label: 'Lamport TeX',
         short: 'LaTex'
     },
+    'uuid': {
+        type: 'abreviacao',
+        label: 'Universally Unique Identifier',
+        short: 'uuid',
+    },
+    'UUID': {
+        type: 'abreviacao',
+        label: 'Universally Unique Identifier',
+        short: 'UUID',
+    },
 } satisfies GlossaryObjectType

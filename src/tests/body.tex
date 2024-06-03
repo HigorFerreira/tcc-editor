@@ -101,7 +101,7 @@ Documento em
 O usuário interagirá com a aplicação escrevendo blocos que serão transformados
 no documento final em
 \acrshort{pdf}
-. A este processo daremos o nome de Parsing. Após este, bastará
+. A este processo denominar-se-á Parsing. Após este, bastará
 enviar o download do \acrshort{pdf}
 ao usuário com todo o padrão de formatação. Os trabalhos desenvolvidos nesta plataforma
 terão então duas versões: A versão de blocos, (sem formatação e interativa); e a versão
@@ -273,7 +273,7 @@ Back-End e Parsing. Cada qual com seus respectivos conceitos e tecnologias.
 
 O Front-End é, basicamente, a "linha de frente". É a parte da aplicação que interagirá
 diretamente com o usuário. Ao profissional que codifica e desenvolve esta parte do
-projeto, damos o nome de Desenvolvedor Front-End. A interface do usuário, que é
+projeto, denomina-se Desenvolvedor Front-End. A interface do usuário, que é
 onde o mesmo realiza suas interações com o sistema, normalmente é desenhada por
 um
 \textit{designer}\footnote{Profissional que atua com design.
@@ -298,7 +298,7 @@ significativas, marcada por um ritmo de evolução e aprimoramento sem precedent
 distribuição de conteúdo em massa. Juntamente com essas mudanças, surgiram novas
 tecnologias, variando de
 \textit{softwares}\footnote{O software é o conjunto de instruções dadas a um computador, de modo que
-    ele execute determinada tarefa. Podemos dizer que o software é
+    ele execute determinada tarefa. Pode-se dizer que o software é
     a parte lógica do sistema computacional.  \\  \cite{hardware-e-software}.
 }
 a
@@ -353,7 +353,7 @@ interação com interfaces digitais.
 
 \subsubsection{\underline{Linguagem de Marcação de Hipertexto, HTML}}
 
-A Linguagem de Marcação de Hipertexto, do inglês: HyperText Markup Language
+A Linguagem de Marcação de Hipertexto, do inglês: \textit{HyperText Markup Language}
 (\acrshort{html})
 foi criada por Tim Berners-Lee enquanto trabalhava na Organização Europeia para a
 Pesquisa Nuclear
@@ -388,8 +388,9 @@ e melhor suporte a
 
 Finalmente, o
 \acrshort{html}5,
-lançado oficialmente em 2014 pelo World Wide Web
-Consortium (\acrshort{w3c}), trouxe uma série de novas funcionalidades, incluindo suporte nativo para
+lançado oficialmente em 2014 pelo
+\textit{World Wide Web Consortium}
+(\acrshort{w3c}), trouxe uma série de novas funcionalidades, incluindo suporte nativo para
 vídeo e áudio; novos elementos semânticos; gráficos e animações; geolocalização;
 armazenamento local e muito mais.
 \cite{w3c}.
@@ -966,7 +967,7 @@ em termos de tempo, código e simplicidade de projeto.
 
 \section{Do Back-End}
 
-Back-end se relaciona com o que está por trás das aplicações desenvolvidas na programação. Ou seja, tudo que dá estrutura e apoio às ações do usuário da máquina é chamado de back-end. Quando acessamos um site, por exemplo, por trás de toda sua apresentação amigável esteticamente, há uma comunicação das informações trocadas entre banco de dados e navegador. Portanto, por trás da interface gráfica do realizador, o back-end está sempre agindo.
+Back-end se relaciona com o que está por trás das aplicações desenvolvidas na programação. Ou seja, tudo que dá estrutura e apoio às ações do usuário da máquina é chamado de back-end. Quando se acessa um site, por exemplo, por trás de toda sua apresentação amigável esteticamente, há uma comunicação das informações trocadas entre banco de dados e navegador. Portanto, por trás da interface gráfica do realizador, o back-end está sempre agindo.
 \cite{totvs-back-end}.
 
 \subsection{NodeJs}
@@ -1125,7 +1126,7 @@ após o
 \textbf{b}
 significa: zero ou mais ocorrências do item anterior, no caso
 \textbf{b.}
-Como vemos na
+Como observa-se na
 Figura\ref{fig:abc-meta-match}
 as strings "cbbabbbbcdebc", "abbbbc"~ e "ac"~
 encontrarão correspondências. As strings "ab", "a"~ e "abbbbbb", por
@@ -1180,7 +1181,7 @@ A
 \acrshort{api}
 de strings do
 \acrshort{js}
-fornece uma gama de métodos nos quais podemos utilizar
+fornece uma gama de métodos nos quais se pode utilizar
 juntamente com
 \acrshort{regex}.
 A Tabela\ref{tbl:string-methods-regex}
@@ -1530,8 +1531,8 @@ como o uso acidental de comandos do próprio
 \acrshort{latex},
 como:
 \textbackslash chapter; \textbackslash section ou \textbackslash subsection.
-Para evitar isto substituímos qualquer ocorrência de
-\textbackslash~no texto por \textbackslash textbackslash, que é um comando
+Para evitar isto qualquer ocorrência de
+\textbackslash~no texto será substituída por \textbackslash textbackslash, que é um comando
 \acrshort{latex}
 responsável por imprimir uma \textbackslash~no corpo
 do texto.
@@ -1848,8 +1849,8 @@ Figura\ref{fig:fluxo-processamento-texto}.
 Observe na linha 7 como o parâmetro block é anotado com o tipo ParagraphBlock.
 É neste caso que entra a utilidade do TypeScript. Pois além de prevenir erros
 não deixando que se passe um bloco incorreto para ser processado por essa função,
-tem se a condição de saber exatamente o que tem dentro da propriedade
-data na linha 11. Neste caso, apenas passamos o texto para o processamento.
+tem-se a condição de saber exatamente o que tem dentro da propriedade
+data na linha 11. Neste caso, apenas passa-se o texto para o processamento.
 
 \begin{getParagraphCode}
 import { escapeCharacters } from '@/parser/process_steps/escape';
@@ -1872,7 +1873,7 @@ export function getParagraph(block: ParagraphBlock){
 \subsubsection{\underline{Header, (cabeçalhos)}}
 
 O parse do bloco de Header já distoa-se um pouco do bloco de paragraph.
-Aqui podemos ver a aplicação do exposto na
+Aqui é notável a aplicação do exposto na
 Tabela\ref{tbl:header-level-latex}
 onde o cada level se traduz em um comando diferente no latex. Através da
 clausula switch, o level é testado afim de retornar as particularidades
@@ -1917,9 +1918,14 @@ de modo que o compilador de documentos
 possa renderizar a imagem corretamente e seja capaz
 de referenciá-la ao longo do texto.
 
-Nas linhas 8 a 12 temos a desconstrução das propriedades da
+Nas linhas 8 a 12 tem-se a desconstrução das propriedades da
 imagem que estão presentes na propriedade data do bloco.
-Estas propriades são: uuid; title; width; description e fileType.
+Estas propriades são:
+\acrshort{uuid}\footnote{\acrshort{UUID},
+    \textit{Universally Unique Identifier}
+    (Identificador Universalmente Único).
+};
+title; width; description e fileType.
 
 \begin{getImageCode1}
 import { escapeCharacters } from '@/parser/process_steps/escape';
@@ -1938,10 +1944,10 @@ export function getImage(block: ImageBlock){
 [...]
 \end{getImageCode1}
 
-Na linha 20 temos a inclusão do título da imagem. Note que
+Na linha 20 tem-se a inclusão do título da imagem. Note que
 o título somente precisa passar pelo processo de escape de caracteres,
 uma vez que no mesmo não haverá plugins no corpo do texto.
-Nas linhas 25 à 33 temos a inclusão da descrição da imagem.
+Nas linhas 25 à 33 há a inclusão da descrição da imagem.
 Note que diferente do título, a descrição passa por todo o
 ciclo de processamento, pois na descrição o usuário pode incluir
 referências e outras coisas que resultam na presença de tags
@@ -1949,12 +1955,18 @@ de plugin no corpo do texto.
 
 As linhas 21 a 23 tratam do tamanho que a imagem vai ocupar
 na tela, bem como a referência ao arquivo de imagem que
-será renderizado. As propriedades width, uuid, e fileType
+será renderizado. As propriedades width,
+\acrshort{uuid},
+e fileType
 são utilizadas neste processo. Cada imagem é guardada na
-pasta interna images com o nome do uuid que o software
+pasta interna images com o nome do
+\acrshort{uuid}
+que o software
 define, bem como sua extensão de arquivo.
 
-A linha 24 utiliza o uuid para definir a label da imagem.
+A linha 24 utiliza o
+\acrshort{uuid}
+para definir a label da imagem.
 Desta forma, a imagem a que se trata o bloco torna-se
 referenciável no texto do documento.
 

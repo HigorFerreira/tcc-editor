@@ -278,7 +278,13 @@ export function getHeader(block: HeaderBlock){
             text: `
                 Nas linhas 8 a 12 tem-se a desconstrução das propriedades da
                 imagem que estão presentes na propriedade data do bloco.
-                Estas propriades são: uuid; title; width; description e fileType.
+                Estas propriades são:
+                <plugin-gloss id="uuid"></plugin-gloss><plugin-footnote data-note="
+                    <plugin-gloss id='UUID'></plugin-gloss>,
+                    <i>Universally Unique Identifier</i>
+                    (Identificador Universalmente Único).
+                ">*</plugin-footnote>;
+                title; width; description e fileType.
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -326,9 +332,13 @@ export function getImage(block: ImageBlock){
             text: `
                 As linhas 21 a 23 tratam do tamanho que a imagem vai ocupar
                 na tela, bem como a referência ao arquivo de imagem que
-                será renderizado. As propriedades width, uuid, e fileType
+                será renderizado. As propriedades width,
+                <plugin-gloss id="uuid"></plugin-gloss>,
+                e fileType
                 são utilizadas neste processo. Cada imagem é guardada na
-                pasta interna images com o nome do uuid que o software
+                pasta interna images com o nome do
+                <plugin-gloss id="uuid"></plugin-gloss>
+                que o software
                 define, bem como sua extensão de arquivo.
             `.trim().replace(/^\s{16}/gm, '')
         }
@@ -337,7 +347,9 @@ export function getImage(block: ImageBlock){
         type: 'paragraph',
         data: {
             text: `
-                A linha 24 utiliza o uuid para definir a label da imagem.
+                A linha 24 utiliza o
+                <plugin-gloss id="uuid"></plugin-gloss>
+                para definir a label da imagem.
                 Desta forma, a imagem a que se trata o bloco torna-se
                 referenciável no texto do documento.
             `.trim().replace(/^\s{16}/gm, '')

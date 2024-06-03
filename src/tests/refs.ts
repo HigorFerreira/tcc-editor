@@ -262,5 +262,5 @@ export const refs = {
         author: [ 'Daniel Madeira' ],
         year: 2020,
         title: 'Tutorial básico de LATEX',
-    }
+    },
 } satisfies RefsObjectType
