@@ -221,7 +221,7 @@ para rodar o aplicativo da plataforma:
     \caption{Tecnologias do ambiente de desenvolvimento}
     \label{tbl:tecnologias-ambiente}
     \renewcommand{\arraystretch}{1.5}
-    \begin{tabular}{p{6.4cm} p{9.6cm}}
+    \begin{tabular}{p{6.4000cm} p{9.6000cm}}
         \hline
         \textbf{Tipo} & \textbf{Tecnologia} \\
         \hline
@@ -637,7 +637,7 @@ diferenças entre o JavaScript e o JSON.
     \caption{Diferenças entre o JavaScript e o JSON}
     \label{tbl:json-descs}
     \renewcommand{\arraystretch}{1.5}
-    \begin{tabular}{p{5.6cm} p{10.4cm}}
+    \begin{tabular}{p{5.6000cm} p{10.4000cm}}
         \hline
         \textbf{Tipos e valores JavaScript} & \textbf{Diferença para o JSON} \\
         \hline
@@ -1191,7 +1191,7 @@ fornece uma descrição destes métodos:
     \caption{Métodos de string que podem ser usados com regex}
     \label{tbl:string-methods-regex}
     \renewcommand{\arraystretch}{1.5}
-    \begin{tabular}{p{2.4cm} p{13.6cm}}
+    \begin{tabular}{p{2.4000cm} p{13.6000cm}}
         \hline
         \textbf{Método} & \textbf{Descrição} \\
         \hline
@@ -1242,7 +1242,7 @@ a saber: exec() e test().
     \caption{Estrutura de pastas básica do projeto e suas atribuições}
     \label{tbl:pastas-projeto}
     \renewcommand{\arraystretch}{1.5}
-    \begin{tabular}{p{3.2cm} p{12.8cm}}
+    \begin{tabular}{p{3.2000cm} p{12.8000cm}}
         \hline
         \textbf{Arquivo/Pasta} & \textbf{Descrição} \\
         \hline
@@ -1349,7 +1349,7 @@ a depender de sua natureza.
     \caption{Mapeamento de tags em código LaTex}
     \label{tbl:plugins-latex-mapping}
     \renewcommand{\arraystretch}{1.5}
-    \begin{tabular}{p{1.92cm} p{1.92cm} p{1.92cm} p{3.2cm} p{7.04cm}}
+    \begin{tabular}{p{1.9200cm} p{1.9200cm} p{1.9200cm} p{3.2000cm} p{7.0400cm}}
         \hline
         \textbf{Tag} & \textbf{Conteúdo} & \textbf{Atributo} & \textbf{Valor do Atributo} & \textbf{LaTex} \\
         \hline
@@ -1472,7 +1472,7 @@ que possua o mesmo significado textual:
     \caption{Mapeamento de escape de caracteres para código LaTex}
     \label{tbl:escape-characters}
     \renewcommand{\arraystretch}{1.5}
-    \begin{tabular}{p{2.5600000000000005cm} p{3.84cm}}
+    \begin{tabular}{p{2.5600cm} p{3.8400cm}}
         \hline
         \textbf{Caractere} & \textbf{Substituição} \\
         \hline
@@ -1568,7 +1568,7 @@ mapeia como cada plugin se comportará no código
     \caption{Mapeamento de pugins para código latex}
     \label{tbl:plugin-latex-mapping}
     \renewcommand{\arraystretch}{1.5}
-    \begin{tabular}{p{5.28cm} p{5.28cm} p{5.28cm}}
+    \begin{tabular}{p{3.4496cm} p{3.4496cm} p{6.5856cm}}
         \hline
         \textbf{Tag plugin} & \textbf{Atributo(s)} & \textbf{LaTex} \\
         \hline
@@ -1619,7 +1619,7 @@ import * as cheerio from 'cheerio';
 export function processHTML(text: string): string{
     const $ = cheerio.load(text);
     $('plugin-ref').replaceWith((_, node) => {
-return `\\cite{${$(node).attr('id')}}`;
+        return `\\cite{${$(node).attr('id')}}`;
     }); [...]
 \end{processHTML}
 
@@ -1667,11 +1667,171 @@ Escrever a conclusão.
 
 \subsection{Plugins}
 
+O parsing dos plugins é algo essencial na montagem
+do documento ao qual estar-se a escrever. São os plugins
+que formam cada pequena unidade de bloco que comporá
+um documento que muitas vezes se tornará gigantesco.
+
 \subsubsection{\underline{Tipagem}}
+
+\begin{figure}[H]
+    \centering
+    \caption{Caminho da pasta types dos plugins no parser}
+    \includegraphics[width=0.8\textwidth]{./images/src-parser-plugins-types.png}
+    \label{fig:src-parser-plugins-types} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+O arquivo de tipagem é onde é concentrada todas as anotações
+de tipo de cada bloco. O documento todo é um array de objetos,
+no qual cada um desses objetos corresponde a um bloco
+do documento. É através de cada tipo de bloco, que pode-se por exemplo,
+discriminar qual tipo de bloco está sendo tratado no momento do processamento.
+Observe por exemplo a anotação de tipo do ParagraphBlock:
+
+\begin{ParagraphBlockCode}
+[...]
+export interface ParagraphBlock {
+    type: 'paragraph'
+    id: string
+    data: {
+        text: string
+    }
+}
+[...]
+\end{ParagraphBlockCode}
+
+Todo bloco é composto basicamente por estas três propriedades:
+type; id e data. Sendo que a propriedade data variará sua
+forma a depender do bloco que está sendo definido. Este código
+nunca é executado ou incluido na versão de execução final em
+\acrshort{latex},
+(por se tratar de uma anotação de tipo). Mas é de extrema
+utilidade quando se trata de guiar o desenvolvedor na hora
+de instanciar um objeto do tipo que é definido pelo
+interface\footnote{Neste contexto, está-se utilizando o termo interface em seu original
+    inglês, conforme a documentação do TypeScript. Devido a este fato,
+    interface (não confundir com interface de usuário) será tratado
+    com pronome masculino.
+}
+ParagraphBlock.
+
+Observe como o interface do HeaderBlock se diferencia
+do ParagraphBlock em sua anotação de tipo:
+
+\begin{HeaderBlockCode}
+[...]
+export interface HeaderBlock {
+    type: 'header'
+    id: string
+    data: {
+        level: 1 | 2 | 3 | 4 | 5
+        text: string
+    }
+}
+[...]
+\end{HeaderBlockCode}
+
+No HeaderBlock, a propriedade data é composta por outras duas propriedades: text e level.
+Ao refletir sobre isso, percebe-se que essas duas propriedades são essenciais para definir
+o que é um título em um documento. O level (nível) indica o nível hierárquico do título,
+enquanto o text (texto) representa o conteúdo exibido como título. Perceba que há uma
+limitação na definição do nível do título, com valores variando apenas de 1 a 5.
+Cada um desses valores corresponde respectivamente às sessões: primária, secundária, terciária, quaternária e quinária.
+
+Observe na
+            Tabela\ref{tbl:header-level-latex}
+            a relação do level do título com o código
+            \acrshort{latex}
+            correspondente:
+
+\begin{table}[H]
+    \centering
+    \caption{Relação do level do título com o código latex}
+    \label{tbl:header-level-latex}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{p{1.0320cm} p{5.8480cm}}
+        \hline
+        \textbf{Level} & \textbf{Código LaTex} \\
+        \hline
+        1 & \textbackslash chapter\{<conteúdo>\} \\
+		2 & \textbackslash section\{<conteúdo>\} \\
+		3 & \textbackslash subsection\{<conteúdo>\} \\
+		4 & \textbackslash subsubsection\{<conteúdo>\} \\
+		5 & \textbackslash subsubsubsection\{<conteúdo>\} \\
+        \hline
+        
+    \end{tabular}
+\end{table}
 
 \subsubsection{\underline{Paragraph, (parágrafo)}}
 
+O bloco de parágrafo parece de longe o bloco mais simples de todos.
+Ele simplesmente retorna o texto do bloco recebido, fazendo-o passar
+pelas etapas de processamento conforme já descrito na
+Figura\ref{fig:fluxo-processamento-texto}.
+Observe na linha 7 como o parâmetro block é anotado com o tipo ParagraphBlock.
+É neste caso que entra a utilidade do TypeScript. Pois além de prevenir erros
+não deixando que se passe um bloco incorreto para ser processado por essa função,
+tem se a condição de saber exatamente o que tem dentro da propriedade
+data na linha 11. Neste caso, apenas passamos o texto para o processamento.
+
+\begin{getParagraphCode}
+import { escapeCharacters } from '@/parser/process_steps/escape';
+import { processHTML } from '@/parser/process_steps/processHTML';
+import { ParagraphBlock } from '@/parser/types';
+import { posProcess } from '@/parser/process_steps/posProcess';
+
+
+export function getParagraph(block: ParagraphBlock){
+    return posProcess(
+        processHTML(
+            escapeCharacters(
+                block.data.text
+            )
+        )
+    );
+}
+\end{getParagraphCode}
+
 \subsubsection{\underline{Header, (cabeçalhos)}}
+
+O parse do bloco de Header já distoa-se um pouco do bloco de paragraph.
+Aqui podemos ver a aplicação do exposto na
+Tabela\ref{tbl:header-level-latex}
+onde o cada level se traduz em um comando diferente no latex. Através da
+clausula switch, o level é testado afim de retornar as particularidades
+de cada tipo de título. Observe que o level 4, implementado na linha 13,
+possui um comando a mais de \textbackslash underline para que o título
+apareça como sublinhado. Este comando a mais foi implementado
+para atender as particularidades exidas pelo documento da
+\acrshort{pucgo}
+em:
+\cite{pucgo}.
+
+\begin{getHeaderCode}
+import { escapeCharacters } from '@/parser/process_steps/escape';
+import { HeaderBlock } from '@/parser/types';
+
+export function getHeader(block: HeaderBlock){
+    switch(block.data.level){
+        case 1:
+            return `\\chapter{${escapeCharacters(block.data.text)}}`
+        case 2:
+            return `\\section{${escapeCharacters(block.data.text)}}`
+        case 3:
+            return `\\subsection{${escapeCharacters(block.data.text)}}`
+        case 4:
+            return `\\subsubsection{\\underline{${
+                escapeCharacters(block.data.text)
+            }}}`
+        case 5:
+            return `\\subsubsubsection{${
+                escapeCharacters(block.data.text)
+            }}`
+    }
+}
+\end{getHeaderCode}
 
 \subsubsection{\underline{Image, (imagens)}}
 

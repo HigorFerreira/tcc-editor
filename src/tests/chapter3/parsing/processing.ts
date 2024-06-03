@@ -252,9 +252,9 @@ export function escapeCharacters(str: string){
             id: 'plugin-latex-mapping',
             title: 'Mapeamento de pugins para código latex',
             description: '',
-            width: 1,
+            width: 0.98,
             header: [ 'Tag plugin', 'Atributo(s)', 'LaTex' ],
-            column_sizes: [ 0.33, 0.33, 0.33 ],
+            column_sizes: [ 0.22, 0.22, 0.42 ],
             items: [
                 [ 'plugin-gloss', 'id', '\\acrshort{&lt;id&gt;}' ],
                 [ 'plugin-ref', 'id', '\\cite{&lt;id&gt;}' ],
