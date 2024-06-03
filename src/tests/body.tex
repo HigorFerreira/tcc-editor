@@ -1367,8 +1367,10 @@ a depender de sua natureza.
 
 \subsection{Visão geral}
 
-O parser da aplicação não depende de nenhuma biblioteca
-ou framework de terceiros. O processo de parsing é feito
+O parser da aplicação não depende de nenhuma biblioteca,
+ou framework de terceiros,
+(com excessão do processHTML que utiliza a biblioteca cheerio).
+O processo de parsing é feito
 apenas utilizando-se de recursos nativos da linguagem
 TypeScript, (consequentemente
 \acrshort{js}).
@@ -1508,28 +1510,158 @@ Tabela\ref{tbl:escape-characters}.
 Ao final, na linha 16, a nova string é retornada.
 
 \begin{codeEscape}
-	export function escapeCharacters(str: string){
-	    let newStr = str;
-	    newStr = newStr.replace(/\\/gm, '\\textbackslash ');
-	    newStr = newStr.replace(/#/gm, '\\#');
-	    newStr = newStr.replace(/\$/gm, '\\$$');
-	    newStr = newStr.replace(/%/gm, '\\%');
-	    newStr = newStr.replace(/\^/gm, '\\textasciicircum ');
-	    newStr = newStr.replace(/&/gm, '\\&');
-	    newStr = newStr.replace(/_/gm, '\\_');
-	    newStr = newStr.replace(/\{/gm, '\\{');
-	    newStr = newStr.replace(/\}/gm, '\\}');
-	    newStr = newStr.replace(/\[/gm, '{[}');
-	    newStr = newStr.replace(/\]/gm, '{]}');
-	    newStr = newStr.replace(/~/gm, '\\textasciitilde ');
-	
-	    return newStr;
-	}
+export function escapeCharacters(str: string){
+    let newStr = str;
+    newStr = newStr.replace(/\\/gm, '\\textbackslash ');
+    newStr = newStr.replace(/#/gm, '\\#');
+    newStr = newStr.replace(/\$/gm, '\\$$');
+    newStr = newStr.replace(/%/gm, '\\%');
+    newStr = newStr.replace(/\^/gm, '\\textasciicircum ');
+    newStr = newStr.replace(/&/gm, '\\&');
+    newStr = newStr.replace(/_/gm, '\\_');
+    newStr = newStr.replace(/\{/gm, '\\{');
+    newStr = newStr.replace(/\}/gm, '\\}');
+    newStr = newStr.replace(/\[/gm, '{[}');
+    newStr = newStr.replace(/\]/gm, '{]}');
+    newStr = newStr.replace(/~/gm, '\\textasciitilde ');
+
+    return newStr;
+}
 \end{codeEscape}
 
 \subsubsection{\underline{Processamento de HTML}}
 
+O processamento de
+\acrshort{html}
+é a segunda etapa do processo de parsing. É
+nele que os plugins in-line customizados são transformados
+comandos
+\acrshort{latex}.
+A figura
+Figura\ref{fig:html-processing-example}
+inlustra como os plugins de glossário e referência de figuras
+se comportam no código
+\acrshort{latex}
+através dos quadrados coloridos:
+
+\begin{figure}[H]
+    \centering
+    \caption{Conversão de plugins em código latex}
+    \includegraphics[width=1.0\textwidth]{./images/html-processing-example.png}
+    \label{fig:html-processing-example} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+No caso do plugin-gloss, há também um objeto de glossário que contém todas as definições
+de siglas e abreviaturas. Este objeto é transformado e montado em declarações
+\acrshort{latex}
+para serem usadas ao longo do documento.
+Para mais detalhes deste processo, verifique a sessão de montagem
+
+A
+Tabela\ref{tbl:plugin-latex-mapping}
+mapeia como cada plugin se comportará no código
+\acrshort{latex}:
+
+\begin{table}[H]
+    \centering
+    \caption{Mapeamento de pugins para código latex}
+    \label{tbl:plugin-latex-mapping}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{p{5.28cm} p{5.28cm} p{5.28cm}}
+        \hline
+        \textbf{Tag plugin} & \textbf{Atributo(s)} & \textbf{LaTex} \\
+        \hline
+        plugin-gloss & id & \textbackslash acrshort\{<id>\} \\
+		plugin-ref & id & \textbackslash cite\{<id>\} \\
+		plugin-footnote & data-note & \textbackslash footnote\{<data-note>\} \\
+		plugin-ref-fig & data-fig & Figura\textbackslash ref\{fig:<data-fig>\} \\
+		plugin-ref-table & data-table & Tabela\textbackslash ref\{fig:<data-table>\} \\
+		br & Não & \textbackslash \textbackslash  \\
+		strong & Não & \textbackslash textbf\{<conteúdo>\} \\
+		i & Não & \textbackslash textit\{<conteúdo>\} \\
+        \hline
+        
+    \end{tabular}
+\end{table}
+
+Observe que no processamento de
+\acrshort{html}
+o conteúdo da maioria das tags é irrelevante,
+com excessão das tags strong e i.
+Isso se dá pois na maioria das vezes a informação
+de interesse é guardada nos atributos, ficando
+o conteúdo servindo apenas para que se
+exiba o plugin de forma confortável no texto que o usuário
+está digitando na
+\acrshort{ui}.
+As tags strong e i, são respectivamente,
+o negrito e itálico. São padrões do
+\acrshort{html}
+e aqui seus conteúdos são aproveitados
+para dentro dos comandos equivalentes em
+\acrshort{latex}.
+
+\subsubsubsection{Código do processamento HTML}
+
+Para processar os plugins está sendo utilizada a biblioteca cheerio.
+A string a ser analisada, recebida na linha 3, passa por uma checagem de
+tags presentes. Por exemplo: Observe a linha 5. Sempre que houver
+qualquer ocorrência de plugin-ref, esta é substituída, através do
+comando replaceWith, pelo texto:
+\textbackslash cite\{\$\{\$(node).attr('id')\}\}.
+Observe que a parte \$(node).attr('id')
+é o que recupera o atributo "id"~  da tag.
+
+\begin{processHTML}
+import * as cheerio from 'cheerio';
+
+export function processHTML(text: string): string{
+    const $ = cheerio.load(text);
+    $('plugin-ref').replaceWith((_, node) => {
+return `\\cite{${$(node).attr('id')}}`;
+    }); [...]
+\end{processHTML}
+
+Por fim, na linha 40 é retornado o resultado do processamento
+em HTML. Note que ele é recuperado a partir do nó body do documento
+virtual, e então, a função text() é chamado para recuperar a
+representação textual do que foi processado.
+
+\begin{processHTML2}
+[...]
+    return $('body').text();
+}
+\end{processHTML2}
+
+O código completo do processHTML.ts juntamente com
+todos os plugins pode ser encontrado no repositório do projeto.
+
 \subsubsection{\underline{Pós processamento}}
+
+Após feito o processo de escape e processamento de HTML, ainda podem
+sobrar alguns caracteres remanescentes problemáticos à correta
+interpretação do código
+\acrshort{latex}.
+Por exemplo: Os caracteres < e > são escapados no
+\acrshort{html}
+como as entidades lt e gt, respectivamente. Eles por sua vez,
+ao passar pelo escape de caracteres, possuem o caractere
+\& escapado como \textbackslash \&. Seu código final acaba resultando em
+\textbackslash < e \textbackslash >, que tem de novamente ser convertido em
+< e >.
+Observe o código abaixo:
+
+\begin{posProcess1}
+export function posProcess(str: string): string{
+    let new_str = str.replace(/\\</gm, '<');
+    new_str = new_str.replace(/\\>/gm, '>');
+    new_str = new_str.replace(/\\"/gm, '"');
+    new_str = new_str.replace(/"(?!\w|\}|\)|\\|~|\.|,|\{|\(|\[)/gm, '"~');
+    new_str = new_str.replace(/(\\textbackslash)((\s?\n)|(\s{2,}))/gm, '$1~');
+    return new_str;
+}
+\end{posProcess1}
 
 \subsection{Plugins}
 
