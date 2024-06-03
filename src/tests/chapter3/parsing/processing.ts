@@ -94,8 +94,8 @@ export const processing: Block[] = [
                 <plugin-gloss id="latex"></plugin-gloss>,
                 como:
                 \\chapter; \\section ou \\subsection.
-                Para evitar isto substituímos qualquer ocorrência de
-                \\  no texto por \\textbackslash, que é um comando
+                Para evitar isto qualquer ocorrência de
+                \\  no texto será substituída por \\textbackslash, que é um comando
                 <plugin-gloss id="latex"></plugin-gloss>
                 responsável por imprimir uma \\ no corpo
                 do texto.

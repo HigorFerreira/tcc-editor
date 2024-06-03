@@ -20,7 +20,7 @@ export const parsing: Block[] = [
                 pela saída do EditorJs em um trecho de código em
                 <plugin-gloss id="latex" data-type="siglas"></plugin-gloss>.
                 Observe na
-                <plugin-ref-fig data-fig="parsing-example-header">Figura</plugin-ref-fig>                
+                <plugin-ref-fig data-fig="parsing-example-header">Figura</plugin-ref-fig>
                 e
                 <plugin-ref-fig data-fig="parsing-example-paragraph">Figura</plugin-ref-fig>
                 os exemplos de parsing aplicados a um objeto de

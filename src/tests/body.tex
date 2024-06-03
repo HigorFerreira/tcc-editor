@@ -1238,7 +1238,73 @@ este projeto não se preocupará com autenticação e autorização de usuários
 Consistirá apenas de um servidor simples a ser rodado localmente a fim de
 se desenvolver suas funcionalidades principais.
 
-\section{NextJs e estrutura}
+\section{O servidor NextJs}
+
+O servidor da aplicação será construído em cima do NextJs, a
+framewok React para a
+\acrshort{web}.
+Iniciar o projeto é uma tarefa simples. Basta apenas navegar
+para algum diretório onde deseja-se criar o projeto e
+digitar o seguinte comando em bash:
+
+\begin{createNextJsCommand}
+npx create-next-app@latest
+\end{createNextJsCommand}
+
+Vale ressaltar que é necessário ter o NodeJs na versão 18.17 ou superior
+para iniciar o projeto em NextJS. Após rodar este comando, o prompt fará uma
+série de perguntas para a configuração do projeto, observe o exemplo abaixo:
+
+\begin{createNextJsCommand}
+What is your project named? my-app
+Would you like to use TypeScript? No / Yes
+Would you like to use ESLint? No / Yes
+Would you like to use Tailwind CSS? No / Yes
+Would you like to use `src/` directory? No / Yes
+Would you like to use App Router? (recommended) No / Yes
+Would you like to customize the default import alias (@/*)? No / Yes
+What import alias would you like configured? @/*
+\end{createNextJsCommand}
+
+Os itens a serem configurados são:
+
+\begin{enumerate}
+        	\item Nome do projeto	\item Será feito o uso de TypeScript?	\item Será feito o uso de ESlint?	\item Será feito o uso de Tailwind CSS?	\item Será usado o diretório `src` como diretório padrão de código?	\item Será utilizado o App Router (Roteador de App)?	\item Deseja customizar o apelido padrão de importação (@/*)?	\item Qual apelido de importação gostaria de configurar?
+    \end{enumerate}
+
+A tabela
+Tabela\ref{tbl:config-next-app}
+mostra as opções escolhidas para este projeto:
+
+\begin{table}[H]
+    \centering
+    \caption{Configurações do servidor NextJs}
+    \label{tbl:config-next-app}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{p{13.0848cm} p{1.9552cm}}
+        \hline
+        \textbf{Pergunta} & \textbf{Resposta} \\
+        \hline
+        What is your project named? my-app & editor2 \\
+		Would you like to use TypeScript? No / Yes & Yes \\
+		Would you like to use ESLint? No / Yes & No \\
+		Would you like to use Tailwind CSS? No / Yes & No \\
+		Would you like to use `src/` directory? No / Yes & Yes \\
+		Would you like to use App Router? (recommended) No / Yes & Yes \\
+		Would you like to customize the default import alias (@/*)? No / Yes & Yes \\
+		What import alias would you like configured? @/* & @/* \\
+        \hline
+        
+    \end{tabular}
+\end{table}
+
+Após isso o utilitário de criação da aplicação NextJs
+irá criar uma estrutura de pastas e arquivos de projeto
+totalmente configurado e pronto para ser programado.
+A
+Figura\ref{fig:estrutura-basica-projeto}
+mostra a estrutura de pastas base do projeto, com todos os seus respectivos
+arquivos de configuração, roteamento e componentes básicos do react.
 
 \begin{figure}[H]
     \centering
@@ -1303,7 +1369,7 @@ O processo de Parsing transformará cada bloco provido
 pela saída do EditorJs em um trecho de código em
 \acrshort{latex}.
 Observe na
-Figura\ref{fig:parsing-example-header}                
+Figura\ref{fig:parsing-example-header}
 e
 Figura\ref{fig:parsing-example-paragraph}
 os exemplos de parsing aplicados a um objeto de

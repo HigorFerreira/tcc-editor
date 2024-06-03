@@ -5,7 +5,128 @@ import {
 export const nextjs: Block[] = [
     {
         type: 'header',
-        data: { level: 2, text: 'NextJs e estrutura' }
+        data: { level: 2, text: 'O servidor NextJs' }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O servidor da aplicação será construído em cima do NextJs, a
+                framewok React para a
+                <plugin-gloss id="web"></plugin-gloss>.
+                Iniciar o projeto é uma tarefa simples. Basta apenas navegar
+                para algum diretório onde deseja-se criar o projeto e
+                digitar o seguinte comando em bash:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'code',
+        data: {
+            uuid: 'createNextJsCommand',
+            start_line: 1,
+            text: `
+npx create-next-app@latest
+`.trim()
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Vale ressaltar que é necessário ter o NodeJs na versão 18.17 ou superior
+                para iniciar o projeto em NextJS. Após rodar este comando, o prompt fará uma
+                série de perguntas para a configuração do projeto, observe o exemplo abaixo:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'code',
+        data: {
+            uuid: 'createNextJsCommand',
+            start_line: 1,
+            text: `
+What is your project named? my-app
+Would you like to use TypeScript? No / Yes
+Would you like to use ESLint? No / Yes
+Would you like to use Tailwind CSS? No / Yes
+Would you like to use \`src/\` directory? No / Yes
+Would you like to use App Router? (recommended) No / Yes
+Would you like to customize the default import alias (@/*)? No / Yes
+What import alias would you like configured? @/*
+`.trim()
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Os itens a serem configurados são:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'list',
+        data: {
+            type: 'numbered',
+            list: [
+                'Nome do projeto',
+                'Será feito o uso de TypeScript?',
+                'Será feito o uso de ESlint?',
+                'Será feito o uso de Tailwind CSS?',
+                'Será usado o diretório \`src\` como diretório padrão de código?',
+                'Será utilizado o App Router (Roteador de App)?',
+                'Deseja customizar o apelido padrão de importação (@/*)?',
+                'Qual apelido de importação gostaria de configurar?'
+            ]
+        }
+    },
+    // <plugin-ref-table data-table="escape-characters">Tabela</plugin-ref-table>
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                A tabela
+                <plugin-ref-table data-table="config-next-app">Tabela</plugin-ref-table>
+                mostra as opções escolhidas para este projeto:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'table',
+        data: {
+            id: 'config-next-app',
+            title: 'Configurações do servidor NextJs',
+            description: '',
+            width: 0.94,
+            header: [ 'Pergunta', 'Resposta' ],
+            column_sizes: [ 0.87, 0.13 ],
+            items: [
+                [ 'What is your project named? my-app', 'editor2' ],
+                [ 'Would you like to use TypeScript? No / Yes', 'Yes' ],
+                [ 'Would you like to use ESLint? No / Yes', 'No' ],
+                [ 'Would you like to use Tailwind CSS? No / Yes', 'No' ],
+                [ 'Would you like to use \`src/\` directory? No / Yes', 'Yes' ],
+                [ 'Would you like to use App Router? (recommended) No / Yes', 'Yes' ],
+                [ 'Would you like to customize the default import alias (@/*)? No / Yes', 'Yes' ],
+                [ 'What import alias would you like configured? @/*', '@/*' ],
+
+            ]
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Após isso o utilitário de criação da aplicação NextJs
+                irá criar uma estrutura de pastas e arquivos de projeto
+                totalmente configurado e pronto para ser programado.
+                A
+                <plugin-ref-fig data-fig="estrutura-basica-projeto">Figura</plugin-ref-fig>
+                mostra a estrutura de pastas base do projeto, com todos os seus respectivos
+                arquivos de configuração, roteamento e componentes básicos do react.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
     },
     {
         type: 'image',

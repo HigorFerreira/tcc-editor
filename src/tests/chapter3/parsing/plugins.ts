@@ -173,8 +173,8 @@ export interface HeaderBlock {
                 Observe na linha 7 como o parâmetro block é anotado com o tipo ParagraphBlock.
                 É neste caso que entra a utilidade do TypeScript. Pois além de prevenir erros
                 não deixando que se passe um bloco incorreto para ser processado por essa função,
-                tem se a condição de saber exatamente o que tem dentro da propriedade
-                data na linha 11. Neste caso, apenas passamos o texto para o processamento.
+                tem-se a condição de saber exatamente o que tem dentro da propriedade
+                data na linha 11. Neste caso, apenas passa-se o texto para o processamento.
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -211,7 +211,7 @@ export function getParagraph(block: ParagraphBlock){
         data: {
             text: `
                 O parse do bloco de Header já distoa-se um pouco do bloco de paragraph.
-                Aqui podemos ver a aplicação do exposto na
+                Aqui é notável a aplicação do exposto na
                 <plugin-ref-table data-table="header-level-latex">Tabela</plugin-ref-table>
                 onde o cada level se traduz em um comando diferente no latex. Através da
                 clausula switch, o level é testado afim de retornar as particularidades
@@ -276,7 +276,7 @@ export function getHeader(block: HeaderBlock){
         type: 'paragraph',
         data: {
             text: `
-                Nas linhas 8 a 12 temos a desconstrução das propriedades da
+                Nas linhas 8 a 12 tem-se a desconstrução das propriedades da
                 imagem que estão presentes na propriedade data do bloco.
                 Estas propriades são: uuid; title; width; description e fileType.
             `.trim().replace(/^\s{16}/gm, '')
@@ -309,10 +309,10 @@ export function getImage(block: ImageBlock){
         type: 'paragraph',
         data: {
             text: `
-                Na linha 20 temos a inclusão do título da imagem. Note que
+                Na linha 20 tem-se a inclusão do título da imagem. Note que
                 o título somente precisa passar pelo processo de escape de caracteres,
                 uma vez que no mesmo não haverá plugins no corpo do texto.
-                Nas linhas 25 à 33 temos a inclusão da descrição da imagem.
+                Nas linhas 25 à 33 há a inclusão da descrição da imagem.
                 Note que diferente do título, a descrição passa por todo o
                 ciclo de processamento, pois na descrição o usuário pode incluir
                 referências e outras coisas que resultam na presença de tags

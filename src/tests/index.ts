@@ -173,7 +173,7 @@ export const data: Block[] = [
                 O usuário interagirá com a aplicação escrevendo blocos que serão transformados
                 no documento final em
                 <plugin-gloss id="pdf" data-type="siglas">pdf</plugin-gloss>
-                . A este processo daremos o nome de Parsing. Após este, bastará
+                . A este processo denominar-se-á Parsing. Após este, bastará
                 enviar o download do <plugin-gloss id="pdf" data-type="siglas">pdf</plugin-gloss>
                 ao usuário com todo o padrão de formatação. Os trabalhos desenvolvidos nesta plataforma
                 terão então duas versões: A versão de blocos, (sem formatação e interativa); e a versão
@@ -488,7 +488,7 @@ export const data: Block[] = [
             text: `
                 O Front-End é, basicamente, a "linha de frente". É a parte da aplicação que interagirá
                 diretamente com o usuário. Ao profissional que codifica e desenvolve esta parte do
-                projeto, damos o nome de Desenvolvedor Front-End. A interface do usuário, que é
+                projeto, denomina-se Desenvolvedor Front-End. A interface do usuário, que é
                 onde o mesmo realiza suas interações com o sistema, normalmente é desenhada por
                 um
                 <i>designer</i><plugin-footnote data-note="
@@ -528,7 +528,7 @@ export const data: Block[] = [
                 tecnologias, variando de
                 <i>softwares</i><plugin-footnote data-note="
                     O software é o conjunto de instruções dadas a um computador, de modo que
-                    ele execute determinada tarefa. Podemos dizer que o software é
+                    ele execute determinada tarefa. Pode-se dizer que o software é
                     a parte lógica do sistema computacional. <br> <plugin-ref id='hardware-e-software'></plugin-ref>.
                 ">
                 *</plugin-footnote>
@@ -614,7 +614,7 @@ export const data: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                A Linguagem de Marcação de Hipertexto, do inglês: HyperText Markup Language
+                A Linguagem de Marcação de Hipertexto, do inglês: <i>HyperText Markup Language</i>
                 (<plugin-gloss id="html" data-type="abreviacao">HTML</plugin-gloss>)
                 foi criada por Tim Berners-Lee enquanto trabalhava na Organização Europeia para a
                 Pesquisa Nuclear
@@ -665,8 +665,9 @@ export const data: Block[] = [
             text: `
                 Finalmente, o
                 <plugin-gloss id="html"></plugin-gloss>5,
-                lançado oficialmente em 2014 pelo World Wide Web
-                Consortium (<plugin-gloss id="w3c"></plugin-gloss>), trouxe uma série de novas funcionalidades, incluindo suporte nativo para
+                lançado oficialmente em 2014 pelo
+                <i>World Wide Web Consortium</i>
+                (<plugin-gloss id="w3c"></plugin-gloss>), trouxe uma série de novas funcionalidades, incluindo suporte nativo para
                 vídeo e áudio; novos elementos semânticos; gráficos e animações; geolocalização;
                 armazenamento local e muito mais.
                 <plugin-ref id="w3c">(W3C, 2023)</plugin-ref>.
@@ -1582,7 +1583,7 @@ export const data: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                Back-end se relaciona com o que está por trás das aplicações desenvolvidas na programação. Ou seja, tudo que dá estrutura e apoio às ações do usuário da máquina é chamado de back-end. Quando acessamos um site, por exemplo, por trás de toda sua apresentação amigável esteticamente, há uma comunicação das informações trocadas entre banco de dados e navegador. Portanto, por trás da interface gráfica do realizador, o back-end está sempre agindo.
+                Back-end se relaciona com o que está por trás das aplicações desenvolvidas na programação. Ou seja, tudo que dá estrutura e apoio às ações do usuário da máquina é chamado de back-end. Quando se acessa um site, por exemplo, por trás de toda sua apresentação amigável esteticamente, há uma comunicação das informações trocadas entre banco de dados e navegador. Portanto, por trás da interface gráfica do realizador, o back-end está sempre agindo.
                 <plugin-ref id="totvs-back-end"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
@@ -1815,7 +1816,7 @@ export const data: Block[] = [
                 <strong>b</strong>
                 significa: zero ou mais ocorrências do item anterior, no caso
                 <strong>b.</strong>
-                Como vemos na
+                Como observa-se na
                 <plugin-ref-fig data-fig="abc-meta-match">Figura</plugin-ref-fig>
                 as strings "cbbabbbbcdebc", "abbbbc" e "ac"
                 encontrarão correspondências. As strings "ab", "a" e "abbbbbb", por
@@ -1896,7 +1897,7 @@ export const data: Block[] = [
                 <plugin-gloss id="api"></plugin-gloss>
                 de strings do
                 <plugin-gloss id="js"></plugin-gloss>
-                fornece uma gama de métodos nos quais podemos utilizar
+                fornece uma gama de métodos nos quais se pode utilizar
                 juntamente com
                 <plugin-gloss id="regex"></plugin-gloss>.
                 A <plugin-ref-table data-table="string-methods-regex">Tabela</plugin-ref-table>
