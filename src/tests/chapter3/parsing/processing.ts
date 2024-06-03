@@ -397,4 +397,12 @@ export function posProcess(str: string): string{
 `.trim()
         }
     },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Escrever a conclusão.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
 ]
