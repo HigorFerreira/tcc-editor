@@ -166,7 +166,7 @@ export interface HeaderBlock {
         type: 'paragraph',
         data: {
             text: `
-                O bloco de parágrafo parece de longe o bloco mais simples de todos.
+                O bloco de parágrafo parece de longe um dos blocos mais simples de todos.
                 Ele simplesmente retorna o texto do bloco recebido, fazendo-o passar
                 pelas etapas de processamento conforme já descrito na
                 <plugin-ref-fig data-fig="fluxo-processamento-texto">Figura</plugin-ref-fig>.
@@ -260,15 +260,289 @@ export function getHeader(block: HeaderBlock){
         data: { level: 4, text: 'Image, (imagens)' }
     },
     {
+        type: 'paragraph',
+        data: {
+            text: `
+                O parse do plugin de imagem é um dos mais complexos em termos de comandos
+                <plugin-gloss id="latex"></plugin-gloss>. Ele retorna toda uma estrutura
+                de modo que o compilador de documentos
+                <plugin-gloss id="latex"></plugin-gloss>
+                possa renderizar a imagem corretamente e seja capaz
+                de referenciá-la ao longo do texto.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Nas linhas 8 a 12 temos a desconstrução das propriedades da
+                imagem que estão presentes na propriedade data do bloco.
+                Estas propriades são: uuid; title; width; description e fileType.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'code',
+        data: {
+            uuid: 'getImageCode1',
+            start_line: 1,
+            text: `
+import { escapeCharacters } from '@/parser/process_steps/escape';
+import { posProcess } from '@/parser/process_steps/posProcess';
+import { processHTML } from '@/parser/process_steps/processHTML';
+import { ImageBlock } from '@/parser/types';
+
+export function getImage(block: ImageBlock){
+    const {
+        uuid,
+        title,
+        width,
+        description,
+        fileType,
+    } = block.data;
+[...]
+`.trim()
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Na linha 20 temos a inclusão do título da imagem. Note que
+                o título somente precisa passar pelo processo de escape de caracteres,
+                uma vez que no mesmo não haverá plugins no corpo do texto.
+                Nas linhas 25 à 33 temos a inclusão da descrição da imagem.
+                Note que diferente do título, a descrição passa por todo o
+                ciclo de processamento, pois na descrição o usuário pode incluir
+                referências e outras coisas que resultam na presença de tags
+                de plugin no corpo do texto.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                As linhas 21 a 23 tratam do tamanho que a imagem vai ocupar
+                na tela, bem como a referência ao arquivo de imagem que
+                será renderizado. As propriedades width, uuid, e fileType
+                são utilizadas neste processo. Cada imagem é guardada na
+                pasta interna images com o nome do uuid que o software
+                define, bem como sua extensão de arquivo.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                A linha 24 utiliza o uuid para definir a label da imagem.
+                Desta forma, a imagem a que se trata o bloco torna-se
+                referenciável no texto do documento.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'code',
+        data: {
+            uuid: 'getImageCode2',
+            start_line: 13,
+            text: `
+[...]
+
+
+// H Prevents figure to be placed incorrectly
+return \`
+    \\\\begin{figure}[H]
+        \\\\centering
+        \\\\caption{\${escapeCharacters(title)}}
+        \\\\includegraphics[width=\${
+            width.toFixed(1)
+        }\\\\textwidth]{./images/\${uuid}.\${fileType}}
+        \\\\label{fig:\${uuid}} \\\\\\\\
+        \\\\textnormal{\\\\fontsize{10pt}{12pt}\${
+            posProcess(
+                processHTML(
+                    escapeCharacters(
+                        description
+                    )
+                )
+            )
+        }}
+    \\\\end{figure}
+\`.trim().replace(/^\\s{8}/gm, '');
+}
+`.trim()
+        }
+    },
+    {
         type: 'header',
         data: { level: 4, text: 'List, (listas)' }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Existem dois tipos de lista, as enumeradas e as não enumeradas, respectivamente
+                enumerate e itemize no código
+                <plugin-gloss id="latex"></plugin-gloss>.
+                A linha 9 utiliza a propriedade type para definir qual tipo de lista será utilizada.
+                Por fim, a lista é composta de uma iteração sobre as strings do array presente
+                na propriedade list. Este array, após ajustado com a função map, é transformado
+                em uma string unindo seus itens por uma quebra de linha com o auxílio da
+                função join na linha 11. Observe também o processamento textual presente na
+                linha 11. Isso se dá pela liberdade do usuário em utilizar plugins nos
+                campos de lista.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'code',
+        data: {
+            uuid: 'getListCode1',
+            start_line: 1,
+            text: `
+import { escapeCharacters } from "@/parser/process_steps/escape";
+import { processHTML } from "@/parser/process_steps/processHTML";
+import { ListBlock } from "@/parser/types";
+import { posProcess } from "@/parser/process_steps";
+
+export function getList(list: ListBlock){
+    const { data: { type, list: __list } } = list;
+    return \`
+    \\r\\\\begin{\${ type === 'bullet' ? 'itemize' : 'enumerate' }}
+        \${__list.map(el => \`\\r\\t\\\\item \${
+            posProcess(processHTML(escapeCharacters(el))) }\`).join('')
+        }
+    \\r\\\\end{\${ type === 'bullet' ? 'itemize' : 'enumerate' }}
+    \`.trim()
+}
+`.trim()
+        }
     },
     {
         type: 'header',
         data: { level: 4, text: 'Page Break, (quebra de página)' }
     },
     {
+        type: 'paragraph',
+        data: {
+            text: `
+                O bloco de PageBreak é o bloco de parser mais simples de todos.
+                Embora receba como parâmetro um bloco do tipo PageBreakBlock,
+                nem uso do mesmo é feito.
+                O PageBreak apenas retorna um comando em
+                <plugin-gloss id="latex"></plugin-gloss>
+                que limpa a página e faz com que o conteúdo após o mesmo
+                seja escrito na próxima página.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'code',
+        data: {
+            uuid: 'getPageBreak1',
+            start_line: 1,
+            text: `
+import { PageBreakBlock } from '@/parser/types';
+
+export function pageBreak(block: PageBreakBlock){
+    return '\\\\clearpage';
+}
+`.trim()
+        }
+    },
+    {
         type: 'header',
         data: { level: 4, text: 'Table, (tabelas)' }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Explicar o complexo parser do plugin de tabela.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'code',
+        data: {
+            uuid: 'getTableBlock1',
+            start_line: 1,
+            text: `
+import { escapeCharacters } from '@/parser/process_steps/escape';
+import { processHTML } from '@/parser/process_steps/processHTML';
+import { posProcess } from '@/parser/process_steps/posProcess';
+import { TableBlock } from '@/parser/types';
+
+
+export function getTable(block: TableBlock){
+    const {
+        id,
+        title,
+        description,
+        header,
+        items,
+        width,
+        column_sizes,
+    } = block.data;
+    
+    const MAX_WIDTH = 16*width;
+
+    return \`
+        \\\\begin{table}[H]
+            \\\\centering
+            \\\\caption{\${escapeCharacters(title)}}
+            \\\\label{tbl:\${id}}
+            \\\\renewcommand{\\\\arraystretch}{1.5}
+            \\\\begin{tabular}{\${
+                column_sizes.map(col => {
+                    return \`p{\${(MAX_WIDTH*col).toFixed(4)}cm}\`
+                }).join(' ')
+            }}
+                \\\\hline
+                \${
+                    header.map(
+                        h => \`\\\\textbf{\${
+                            posProcess(
+                                processHTML(
+                                    escapeCharacters(h)
+                                )
+                            )
+                        }}\`
+                    ).join(' & ')
+                } \\\\\\\\
+                \\\\hline
+                \${
+                    items.map(row => {
+                        return row.map(cell => {
+                            return posProcess(
+                                processHTML(
+                                    escapeCharacters(cell)
+                                )
+                            )
+                        }).join(' & ')
+                    }).join(' \\\\\\\\\\n\\t\\t')
+                } \\\\\\\\
+                \\\\hline
+                \${
+                    description &&
+                    \`\\\\\\\\\\\\multicolumn{\${
+                        header.length
+                    }}{c}{\\\\fontsize{10pt}{12pt}\${
+                        posProcess(
+                            processHTML(
+                                escapeCharacters(description)
+                            )
+                        )
+                    }}\`
+                }
+            \\\\end{tabular}
+        \\\\end{table}
+    \`.trim().replace(/^\\s{8}/gm, '');
+}
+`.trim()
+        }
     },
 ]
