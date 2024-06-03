@@ -1,5 +1,5 @@
-import { escapeCharacters } from '../process_steps/escape';
-import { HeaderBlock } from '../types';
+import { escapeCharacters } from '@/parser/process_steps/escape';
+import { HeaderBlock } from '@/parser/types';
 
 export function getHeader(block: HeaderBlock){
     switch(block.data.level){
@@ -10,8 +10,12 @@ export function getHeader(block: HeaderBlock){
         case 3:
             return `\\subsection{${escapeCharacters(block.data.text)}}`
         case 4:
-            return `\\subsubsection{\\underline{${escapeCharacters(block.data.text)}}}`
+            return `\\subsubsection{\\underline{${
+                escapeCharacters(block.data.text)
+            }}}`
         case 5:
-            return `\\subsubsubsection{${escapeCharacters(block.data.text)}}`
+            return `\\subsubsubsection{${
+                escapeCharacters(block.data.text)
+            }}`
     }
 }

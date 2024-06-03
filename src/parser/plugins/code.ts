@@ -10,8 +10,8 @@ export function getCode(block: CodeBlock){
         text,
     } = block.data;
     return `
-        \\begin{${uuid}}
-        ${ text }
-        \\end{${uuid}}
-    `.trim().replace(/^\s{8}/gm, '')
+\\begin{${uuid}}
+${ text }
+\\end{${uuid}}
+    `.trim()
 }

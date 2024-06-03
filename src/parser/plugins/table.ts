@@ -25,7 +25,7 @@ export function getTable(block: TableBlock){
             \\renewcommand{\\arraystretch}{1.5}
             \\begin{tabular}{${
                 column_sizes.map(col => {
-                    return `p{${MAX_WIDTH*col}cm}`
+                    return `p{${(MAX_WIDTH*col).toFixed(4)}cm}`
                 }).join(' ')
             }}
                 \\hline

@@ -1,7 +1,7 @@
-import { escapeCharacters } from '../process_steps/escape';
-import { processHTML } from '../process_steps/processHTML';
-import { ParagraphBlock } from '../types';
-import { posProcess } from '../process_steps/posProcess';
+import { escapeCharacters } from '@/parser/process_steps/escape';
+import { processHTML } from '@/parser/process_steps/processHTML';
+import { ParagraphBlock } from '@/parser/types';
+import { posProcess } from '@/parser/process_steps/posProcess';
 
 
 export function getParagraph(block: ParagraphBlock){
