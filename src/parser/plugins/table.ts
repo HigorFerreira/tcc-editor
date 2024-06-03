@@ -1,7 +1,7 @@
-import { escapeCharacters } from '../process_steps/escape';
-import { processHTML } from '../process_steps/processHTML';
-import { posProcess } from '../process_steps/posProcess';
-import { TableBlock } from '../types';
+import { escapeCharacters } from '@/parser/process_steps/escape';
+import { processHTML } from '@/parser/process_steps/processHTML';
+import { posProcess } from '@/parser/process_steps/posProcess';
+import { TableBlock } from '@/parser/types';
 
 
 export function getTable(block: TableBlock){
@@ -30,21 +30,39 @@ export function getTable(block: TableBlock){
             }}
                 \\hline
                 ${
-                    header.map(h => `\\textbf{${posProcess(processHTML(escapeCharacters(h)))}}`).join(' & ')
+                    header.map(
+                        h => `\\textbf{${
+                            posProcess(
+                                processHTML(
+                                    escapeCharacters(h)
+                                )
+                            )
+                        }}`
+                    ).join(' & ')
                 } \\\\
                 \\hline
                 ${
                     items.map(row => {
                         return row.map(cell => {
-                            return posProcess(processHTML(escapeCharacters(cell)))
+                            return posProcess(
+                                processHTML(
+                                    escapeCharacters(cell)
+                                )
+                            )
                         }).join(' & ')
                     }).join(' \\\\\n\t\t')
                 } \\\\
                 \\hline
                 ${
                     description &&
-                    `\\\\\\multicolumn{${header.length}}{c}{\\fontsize{10pt}{12pt}${
-                        posProcess(processHTML(escapeCharacters(description)))
+                    `\\\\\\multicolumn{${
+                        header.length
+                    }}{c}{\\fontsize{10pt}{12pt}${
+                        posProcess(
+                            processHTML(
+                                escapeCharacters(description)
+                            )
+                        )
                     }}`
                 }
             \\end{tabular}
