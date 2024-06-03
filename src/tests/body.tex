@@ -1229,6 +1229,17 @@ a saber: exec() e test().
 
 \chapter{Desenvolvimento}
 
+A base da aplicação se dará por meio de um servidor no qual todas as
+coisas irão acontecer. Este distribuirá o conteúdo estático e dinâmico
+para a interação com o usuário, além também de fornecer rotas e funções
+para o processamento do conteúdo gerado pelo usuário.
+Por se tratar de uma aplicação em seu estágio inicial de concepção,
+este projeto não se preocupará com autenticação e autorização de usuários.
+Consistirá apenas de um servidor simples a ser rodado localmente a fim de
+se desenvolver suas funcionalidades principais.
+
+\section{NextJs e estrutura}
+
 \begin{figure}[H]
     \centering
     \caption{Estrutura de pastas e arquivos básica do projeto}
@@ -1272,8 +1283,6 @@ a saber: exec() e test().
     \end{tabular}
 \end{table}
 
-\section{NextJs e estrutura}
-
 \section{EditorJS}
 
 \subsection{Provider}
@@ -1294,9 +1303,9 @@ O processo de Parsing transformará cada bloco provido
 pela saída do EditorJs em um trecho de código em
 \acrshort{latex}.
 Observe na
-Figura\ref{fig:parsing-example-paragraph}
+Figura\ref{fig:parsing-example-header}                
 e
-Figura\ref{fig:parsing-example-header}
+Figura\ref{fig:parsing-example-paragraph}
 os exemplos de parsing aplicados a um objeto de
 \textit{Header}\footnote{Do inglês: Cabeçalho. Neste contexto, os headers são os títulos utilizados no documento.
 }
@@ -1367,7 +1376,7 @@ a depender de sua natureza.
 
 \subsection{Visão geral}
 
-O parser da aplicação não depende de nenhuma biblioteca,
+O parser da aplicação não depende de nenhuma biblioteca
 ou framework de terceiros,
 (com excessão do processHTML que utiliza a biblioteca cheerio).
 O processo de parsing é feito
@@ -1388,7 +1397,7 @@ O process\_steps diz respeito a funções utilitárias do processamento de texto
 momento em outras partes do parsing. Provê segurança pois nele reside as funções
 de escape de caracteres especiais e entre outros.
 O plugins fornece o processamento respectivo de cada plugin da aplicação,
-e como cada um deverá ser convertido em código
+bem como o modo em que cada um deverá ser convertido em código
 \acrshort{latex}.
 O mounting diz respeito a montagens de partes dinâmicas do documento
 \acrshort{latex}.
@@ -1489,7 +1498,7 @@ que possua o mesmo significado textual:
 		{]} & \{{]}\} \\
 		\textasciitilde  & \textbackslash textasciitilde  \\
         \hline
-        
+        \\\multicolumn{2}{c}{\fontsize{10pt}{12pt}Fonte: Adaptado de: \cite{tutorial-latex}}
     \end{tabular}
 \end{table}
 
@@ -1500,8 +1509,8 @@ compilador
 
 \subsubsubsection{Código do escape.ts}
 
-Abaixo podemos ver a aplicação do processamento de escape de caracteres
-em javascript. a função escapeCharacters recebe uma string na linha 1,
+Abaixo tem-se a aplicação do processamento de escape de caracteres
+em typescript. a função escapeCharacters recebe uma string na linha 1,
 e das linhas 3 a 14 faz uma sucessão de novas atribuições desta nova string.
 As atribuições consistem de uma nova string que, através da função replace,
 substituem as expressões regulares pela nova string, que seguem de acordo
@@ -1535,7 +1544,7 @@ O processamento de
 \acrshort{html}
 é a segunda etapa do processo de parsing. É
 nele que os plugins in-line customizados são transformados
-comandos
+em comandos
 \acrshort{latex}.
 A figura
 Figura\ref{fig:html-processing-example}
@@ -1607,8 +1616,8 @@ para dentro dos comandos equivalentes em
 Para processar os plugins está sendo utilizada a biblioteca cheerio.
 A string a ser analisada, recebida na linha 3, passa por uma checagem de
 tags presentes. Por exemplo: Observe a linha 5. Sempre que houver
-qualquer ocorrência de plugin-ref, esta é substituída, através do
-comando replaceWith, pelo texto:
+qualquer ocorrência de plugin-ref, esta é substituída através do
+comando replaceWith pelo texto:
 \textbackslash cite\{\$\{\$(node).attr('id')\}\}.
 Observe que a parte \$(node).attr('id')
 é o que recupera o atributo "id"~  da tag.
@@ -1625,7 +1634,7 @@ export function processHTML(text: string): string{
 
 Por fim, na linha 40 é retornado o resultado do processamento
 em HTML. Note que ele é recuperado a partir do nó body do documento
-virtual, e então, a função text() é chamado para recuperar a
+virtual, e então, a função text() é chamada para recuperar a
 representação textual do que foi processado.
 
 \begin{processHTML2}
@@ -1685,7 +1694,7 @@ um documento que muitas vezes se tornará gigantesco.
 O arquivo de tipagem é onde é concentrada todas as anotações
 de tipo de cada bloco. O documento todo é um array de objetos,
 no qual cada um desses objetos corresponde a um bloco
-do documento. É através de cada tipo de bloco, que pode-se por exemplo,
+do documento. É através de cada tipo de bloco que pode-se por exemplo,
 discriminar qual tipo de bloco está sendo tratado no momento do processamento.
 Observe por exemplo a anotação de tipo do ParagraphBlock:
 
@@ -1705,7 +1714,7 @@ Todo bloco é composto basicamente por estas três propriedades:
 type; id e data. Sendo que a propriedade data variará sua
 forma a depender do bloco que está sendo definido. Este código
 nunca é executado ou incluido na versão de execução final em
-\acrshort{latex},
+\acrshort{js},
 (por se tratar de uma anotação de tipo). Mas é de extrema
 utilidade quando se trata de guiar o desenvolvedor na hora
 de instanciar um objeto do tipo que é definido pelo

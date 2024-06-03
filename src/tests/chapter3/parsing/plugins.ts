@@ -41,7 +41,7 @@ export const plugins: Block[] = [
                 O arquivo de tipagem é onde é concentrada todas as anotações
                 de tipo de cada bloco. O documento todo é um array de objetos,
                 no qual cada um desses objetos corresponde a um bloco
-                do documento. É através de cada tipo de bloco, que pode-se por exemplo,
+                do documento. É através de cada tipo de bloco que pode-se por exemplo,
                 discriminar qual tipo de bloco está sendo tratado no momento do processamento.
                 Observe por exemplo a anotação de tipo do ParagraphBlock:
             `.trim().replace(/^\s{16}/gm, '')
@@ -73,7 +73,7 @@ export interface ParagraphBlock {
                 type; id e data. Sendo que a propriedade data variará sua
                 forma a depender do bloco que está sendo definido. Este código
                 nunca é executado ou incluido na versão de execução final em
-                <plugin-gloss id="latex"></plugin-gloss>,
+                <plugin-gloss id="js"></plugin-gloss>,
                 (por se tratar de uma anotação de tipo). Mas é de extrema
                 utilidade quando se trata de guiar o desenvolvedor na hora
                 de instanciar um objeto do tipo que é definido pelo

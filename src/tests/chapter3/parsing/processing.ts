@@ -113,7 +113,7 @@ export const processing: Block[] = [
         data: {
             id: 'escape-characters',
             title: 'Mapeamento de escape de caracteres para código LaTex',
-            description: '',
+            description: 'Fonte: Adaptado de: <plugin-ref id="tutorial-latex"></plugin-ref>',
             width: 0.4,
             header: [ 'Caractere', 'Substituição' ],
             column_sizes: [ 0.4, 0.6 ],
@@ -152,8 +152,8 @@ export const processing: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                Abaixo podemos ver a aplicação do processamento de escape de caracteres
-                em javascript. a função escapeCharacters recebe uma string na linha 1,
+                Abaixo tem-se a aplicação do processamento de escape de caracteres
+                em typescript. a função escapeCharacters recebe uma string na linha 1,
                 e das linhas 3 a 14 faz uma sucessão de novas atribuições desta nova string.
                 As atribuições consistem de uma nova string que, através da função replace,
                 substituem as expressões regulares pela nova string, que seguem de acordo
@@ -201,7 +201,7 @@ export function escapeCharacters(str: string){
                 <plugin-gloss id="html"></plugin-gloss>
                 é a segunda etapa do processo de parsing. É
                 nele que os plugins in-line customizados são transformados
-                comandos
+                em comandos
                 <plugin-gloss id="latex"></plugin-gloss>.
                 A figura
                 <plugin-ref-fig data-fig="html-processing-example">Figura</plugin-ref-fig>
@@ -301,8 +301,8 @@ export function escapeCharacters(str: string){
                 Para processar os plugins está sendo utilizada a biblioteca cheerio.
                 A string a ser analisada, recebida na linha 3, passa por uma checagem de
                 tags presentes. Por exemplo: Observe a linha 5. Sempre que houver
-                qualquer ocorrência de plugin-ref, esta é substituída, através do
-                comando replaceWith, pelo texto:
+                qualquer ocorrência de plugin-ref, esta é substituída através do
+                comando replaceWith pelo texto:
                 \\cite{\${$(node).attr('id')}}.
                 Observe que a parte $(node).attr('id')
                 é o que recupera o atributo "id"  da tag.
@@ -331,7 +331,7 @@ export function processHTML(text: string): string{
             text: `
                 Por fim, na linha 40 é retornado o resultado do processamento
                 em HTML. Note que ele é recuperado a partir do nó body do documento
-                virtual, e então, a função text() é chamado para recuperar a
+                virtual, e então, a função text() é chamada para recuperar a
                 representação textual do que foi processado.
             `.trim().replace(/^\s{16}/gm, '')
         }
