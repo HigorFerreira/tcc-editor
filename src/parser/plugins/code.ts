@@ -11,7 +11,7 @@ export function getCode(block: CodeBlock){
     } = block.data;
     return `
         \\begin{${uuid}}
-        ${ text.replace(/^/gm, '\t') }
+        ${ text }
         \\end{${uuid}}
     `.trim().replace(/^\s{8}/gm, '')
 }
