@@ -1,7 +1,7 @@
-import { escapeCharacters } from '../process_steps/escape';
-import { posProcess } from '../process_steps/posProcess';
-import { processHTML } from '../process_steps/processHTML';
-import { ImageBlock } from '../types';
+import { escapeCharacters } from '@/parser/process_steps/escape';
+import { posProcess } from '@/parser/process_steps/posProcess';
+import { processHTML } from '@/parser/process_steps/processHTML';
+import { ImageBlock } from '@/parser/types';
 
 export function getImage(block: ImageBlock){
     const {
@@ -18,9 +18,19 @@ export function getImage(block: ImageBlock){
         \\begin{figure}[H]
             \\centering
             \\caption{${escapeCharacters(title)}}
-            \\includegraphics[width=${width.toFixed(1)}\\textwidth]{./images/${uuid}.${fileType}}
+            \\includegraphics[width=${
+                width.toFixed(1)
+            }\\textwidth]{./images/${uuid}.${fileType}}
             \\label{fig:${uuid}} \\\\
-            \\textnormal{\\fontsize{10pt}{12pt}${posProcess(processHTML(escapeCharacters(description)))}}
+            \\textnormal{\\fontsize{10pt}{12pt}${
+                posProcess(
+                    processHTML(
+                        escapeCharacters(
+                            description
+                        )
+                    )
+                )
+            }}
         \\end{figure}
     `.trim().replace(/^\s{8}/gm, '');
 }
