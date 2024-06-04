@@ -17,10 +17,10 @@ export function processHTML(text: string): string{
         return `\\footnote{${processed}}`;
     });
     $('plugin-ref-fig').replaceWith((_, node) => {
-        return `Figura\\ref{fig:${$(node).data().fig}}`;
+        return `Figura \\ref{fig:${$(node).data().fig}}`;
     });
     $('plugin-ref-table').replaceWith((_, node) => {
-        return `Tabela\\ref{tbl:${$(node).data().table}}`;
+        return `Tabela \\ref{tbl:${$(node).data().table}}`;
     });
     $('br').replaceWith((_, node) => {
         return ` \\\\ `;
