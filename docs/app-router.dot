@@ -1,0 +1,30 @@
+digraph project_directory {
+    rankdir=LR
+    node [shape=folder, style=filled, fillcolor="#FFEB99"]
+    
+    raiz[label="raiz"]
+    
+    src[label="src"]
+    
+    app[label="app"]
+    
+    favicon[label="favicon.ico", shape=note, style=unfilled]
+    globals[label="globals.css", shape=note, style=unfilled]
+    layout[label="layout.tsx", shape=note, style=filled, fillcolor="#E91E63"]
+    // marker[label="marker.ts", shape=note, style=unfilled]
+    page[label="page.module.css", shape=note, style=unfilled]
+    page[label="page.tsx", shape=note, style=filled, fillcolor="#AEC6CF"]
+    test[label="test"]
+
+        
+    raiz -> src
+    
+    src -> app
+    
+    app -> test
+    app -> favicon
+    app -> globals
+    app -> layout
+    // app -> marker
+    app -> page
+}

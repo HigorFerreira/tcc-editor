@@ -1230,8 +1230,8 @@ a saber: exec() e test().
 
 \chapter{Desenvolvimento}
 
-A base da aplicação se dará por meio de um servidor no qual todas as
-coisas irão acontecer. Este distribuirá o conteúdo estático e dinâmico
+A base da aplicação se dará por meio de um servidor onde serão realizadas
+todas as operações. Este distribuirá o conteúdo estático e dinâmico
 para a interação com o usuário, além também de fornecer rotas e funções
 para o processamento do conteúdo gerado pelo usuário.
 Por se tratar de uma aplicação em seu estágio inicial de concepção,
@@ -1245,18 +1245,20 @@ O servidor da aplicação será construído em cima do NextJs, a
 framewok React para a
 \acrshort{web}.
 Iniciar o projeto é uma tarefa simples. Basta apenas navegar
-para algum diretório onde deseja-se criar o projeto e
-digitar o seguinte comando em bash:
+para algum diretório onde se deseja criar o projeto e
+digitar o seguinte comando em
+\acrshort{bash}\footnote{Bash (\textit{Bourne Again Shell}): Interface de linha de comando do linux
+}:
 
 \begin{createNextJsCommand}
 npx create-next-app@latest
 \end{createNextJsCommand}
 
 Vale ressaltar que é necessário ter o NodeJs na versão 18.17 ou superior
-para iniciar o projeto em NextJS. Após rodar este comando, o prompt fará uma
-série de perguntas para a configuração do projeto, observe o exemplo abaixo:
+para iniciar o projeto em NextJs. Após rodar este comando, o prompt fará uma
+série de perguntas para a configuração do mesmo, observe o exemplo abaixo:
 
-\begin{createNextJsCommand}
+\begin{promptNextJs}
 What is your project named? my-app
 Would you like to use TypeScript? No / Yes
 Would you like to use ESLint? No / Yes
@@ -1265,7 +1267,7 @@ Would you like to use `src/` directory? No / Yes
 Would you like to use App Router? (recommended) No / Yes
 Would you like to customize the default import alias (@/*)? No / Yes
 What import alias would you like configured? @/*
-\end{createNextJsCommand}
+\end{promptNextJs}
 
 Os itens a serem configurados são:
 
@@ -1298,6 +1300,16 @@ mostra as opções escolhidas para este projeto:
         
     \end{tabular}
 \end{table}
+
+Os comandos a seguir instalam todas as dependências necessárias do projeto:
+
+\begin{yarnAddDpts}
+yarn add @editorjs/editorjs @editorjs/header @editorjs/list
+yarn add -D @types/editorjs__header @types/node @types/react
+yarn add @emotion/react @emotion/styled antd cheerio
+yarn add -D @types/react-dom @types/uuid typescript 
+yarn add node-latex react-icons uuid
+\end{yarnAddDpts}
 
 Após isso o utilitário de criação da aplicação NextJs
 irá criar uma estrutura de pastas e arquivos de projeto
@@ -1349,6 +1361,151 @@ arquivos de configuração, roteamento e componentes básicos do react.
         \\\multicolumn{2}{c}{\fontsize{10pt}{12pt}Fonte: Autoria própria}
     \end{tabular}
 \end{table}
+
+\subsection{Roteamento (App Router)}
+
+No ato de configuração do servidor, conforme mostrado na
+Tabela\ref{tbl:config-next-app},
+na pergunta:
+\textit{"Would you like to use App Router? (recommended) No / Yes"},
+foi escolhida a opção sim, \textit{"yes"}.
+Isto significa que no código fonte do projeto haverá uma pasta
+chamada
+\acrshort{app}
+onde serão arquivados os roteamentos, as páginas,
+layouts, páginas de erro, loading, entre outros.
+
+A
+Figura\ref{fig:app-router}
+mostra a estrutura da pasta
+\acrshort{app}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Estrutura da pasta de roteamento (App Router)}
+    \includegraphics[width=0.8\textwidth]{./images/app-router.png}
+    \label{fig:app-router} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+Observe os arquivos destacados em azul e rosa, respectivamente
+page.tsx e  layout.tsx. A extensão
+\acrshort{tsx}\footnote{TypeScript XML
+}
+significa o mesmo que
+\acrshort{jsx},
+com a difereça de que é um arquivo em TypeScript ao
+invés de JavaScript.
+
+Os arquivos page e layout são a primeira página da aplicação.
+Por estarem no nível do diretório
+\acrshort{jsx} (dentro da pasta app)
+esta página será mapeada para a rota / na navegação. Isto
+significa que quando o servidor estiver rodando e o usuário
+acessar o endereço do serviço, o código contido em
+page.tsx renderizará o conteúdo da página para o
+usuário.
+
+O arquivo layout.tsx serve como um template para a página.
+Pode-se pensá-lo como uma espécia de casca da aplicação.
+A página herda o que está em layout, de modo que o que será
+renderizado no Browser será o template, acrescido da page.
+
+Por estar no diretório raiz de app, todas as rotas de páginas
+da aplicação herdarão o que está em layout.tsx. Arquivos de 
+layout também podem ser escritos em rotas que não sejam a raiz.
+
+\subsubsection{\underline{Exemplo de criação de uma rota}}
+
+Para criar uma rota para uma nova página no NextJs, basta que
+uma pasta no diretótio app seja criada. Esta pasta deve conter
+pelo menos um arquivo page.tsx ou route.ts. Observe a
+Figura\ref{fig:page-route-example}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Estrutura da pasta de roteamento (App Router)}
+    \includegraphics[width=0.8\textwidth]{./images/page-route-example.png}
+    \label{fig:page-route-example} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+Ao criar a pasta example com o arquivo page.tsx. O servidor
+mapeará para a rota /example no Browser, renderizando o componente
+exportado em page. Observe a seguir o código em layout.tsx:
+
+\begin{layoutExample}
+import { PropsWithChildren } from "react";
+
+export default function Layout(
+    { children }: PropsWithChildren
+){
+    return <section>
+        <h1>Eu sou o Layout</h1>
+        { children }
+    </section>
+}
+\end{layoutExample}
+
+Observe que o arquivo exporta uma função
+denominada Layout, que retorna um código
+\acrshort{jsx}
+a ser renderizado na página.
+Observe na linha 4 que a função recebe um objeto
+como parâmetro que é anotado por PropsWithChildren.
+Dentro deste objeto há a propriedade children, que
+contém outros componentes React a serem renderizados.
+No caso, o NextJs injetará dentro de children o código que
+é exportado por page.tsx.
+A linha 8 é a posição onde este componente será renderizado.
+
+Observe abaixo o código de page.tsx:
+
+\begin{pageExample}
+export default function Page(){
+    return <div>
+        Olá mundo!
+        Eu sou uma page.
+    </div>
+}
+\end{pageExample}
+
+\subsubsection{\underline{Executando o exemplo}}
+
+Para executar o exemplo e ver como ele se comporta no navegador
+do usuário, basta a partir do diretório do projeto rodar o
+seguinte comando:
+
+\begin{05f688f11e384e8c963e5e9894c31022}
+yarn dev
+\end{05f688f11e384e8c963e5e9894c31022}
+
+Após rodar o comando o servidor iniciará localmente.
+A saída do terminal mostrará a porta do serviço a ser acessada
+afim de renderizar a página:
+
+\begin{Code9efeb3ffab5c4805888d52efe071a54c}
+yarn run v1.22.19
+$ next dev
+    Next.js 14.1.1
+    - Local:        http://localhost:3000
+    - Environments: .env.local
+
+    Ready in 2.7s
+\end{Code9efeb3ffab5c4805888d52efe071a54c}
+
+Ao acessar o endereço http://localhost:3000
+na rota /example, a página é renderizada
+conforme a
+Figura\ref{fig:example-route}
+
+\begin{figure}[H]
+    \centering
+    \caption{Exemplo de roteamento}
+    \includegraphics[width=0.6\textwidth]{./images/example-route.png}
+    \label{fig:example-route} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
 
 \section{EditorJS}
 

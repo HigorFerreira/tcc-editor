@@ -2,6 +2,19 @@ import {
     Block,
 } from '@/parser/types'
 
+import { Roteamento } from '@/tests/chapter3/nextjs/roteamento'
+
+/*
+<plugin-gloss id="regex"></plugin-gloss>
+<plugin-ref id="mdn-regex"></plugin-ref>
+<plugin-ref-fig data-fig="Passos para criar um documento">Figura 1</plugin-ref-fig>
+<plugin-ref-table data-table="json-descs">Tabela</plugin-ref-table>
+<plugin-footnote data-note="
+
+">
+*</plugin-footnote>
+*/
+
 export const nextjs: Block[] = [
     {
         type: 'header',
@@ -15,8 +28,12 @@ export const nextjs: Block[] = [
                 framewok React para a
                 <plugin-gloss id="web"></plugin-gloss>.
                 Iniciar o projeto é uma tarefa simples. Basta apenas navegar
-                para algum diretório onde deseja-se criar o projeto e
-                digitar o seguinte comando em bash:
+                para algum diretório onde se deseja criar o projeto e
+                digitar o seguinte comando em
+                <plugin-gloss id="bash"></plugin-gloss><plugin-footnote data-note="
+                    Bash (<i>Bourne Again Shell</i>): Interface de linha de comando do linux
+                ">
+                *</plugin-footnote>:
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -35,15 +52,15 @@ npx create-next-app@latest
         data: {
             text: `
                 Vale ressaltar que é necessário ter o NodeJs na versão 18.17 ou superior
-                para iniciar o projeto em NextJS. Após rodar este comando, o prompt fará uma
-                série de perguntas para a configuração do projeto, observe o exemplo abaixo:
+                para iniciar o projeto em NextJs. Após rodar este comando, o prompt fará uma
+                série de perguntas para a configuração do mesmo, observe o exemplo abaixo:
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
     {
         type: 'code',
         data: {
-            uuid: 'createNextJsCommand',
+            uuid: 'promptNextJs',
             start_line: 1,
             text: `
 What is your project named? my-app
@@ -118,6 +135,28 @@ What import alias would you like configured? @/*
         type: 'paragraph',
         data: {
             text: `
+                Os comandos a seguir instalam todas as dependências necessárias do projeto:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'code',
+        data: {
+            uuid: 'yarnAddDpts',
+            start_line: 1,
+            text: `
+yarn add @editorjs/editorjs @editorjs/header @editorjs/list
+yarn add -D @types/editorjs__header @types/node @types/react
+yarn add @emotion/react @emotion/styled antd cheerio
+yarn add -D @types/react-dom @types/uuid typescript 
+yarn add node-latex react-icons uuid
+`.trim()
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
                 Após isso o utilitário de criação da aplicação NextJs
                 irá criar uma estrutura de pastas e arquivos de projeto
                 totalmente configurado e pronto para ser programado.
@@ -177,4 +216,5 @@ What import alias would you like configured? @/*
             ]
         }
     },
+    ...Roteamento,
 ]

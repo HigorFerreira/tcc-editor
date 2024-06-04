@@ -198,4 +198,14 @@ export const gloss = {
         label: 'Universally Unique Identifier',
         short: 'UUID',
     },
+    'bash': {
+        type: 'abreviacao',
+        label: 'Bourne Again Shell',
+        short: 'bash',
+    },
+    'app': {
+        type: 'abreviacao',
+        label: 'Application',
+        short: 'App',
+    },
 } satisfies GlossaryObjectType

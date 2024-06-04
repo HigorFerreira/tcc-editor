@@ -11,8 +11,8 @@ export const initial: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                A base da aplicação se dará por meio de um servidor no qual todas as
-                coisas irão acontecer. Este distribuirá o conteúdo estático e dinâmico
+                A base da aplicação se dará por meio de um servidor onde serão realizadas
+                todas as operações. Este distribuirá o conteúdo estático e dinâmico
                 para a interação com o usuário, além também de fornecer rotas e funções
                 para o processamento do conteúdo gerado pelo usuário.
                 Por se tratar de uma aplicação em seu estágio inicial de concepção,
