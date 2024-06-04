@@ -80,6 +80,8 @@ export default function Header(
                     return <h3 ref={ref} onInput={inputHandler} contentEditable="true" data-placeholder ></h3>
                 case 4:
                     return <h4 ref={ref} onInput={inputHandler} contentEditable="true" data-placeholder ></h4>
+                case 5:
+                    return <h5 ref={ref} onInput={inputHandler} contentEditable="true" data-placeholder ></h5>
             }
         })()}
     </Container>
