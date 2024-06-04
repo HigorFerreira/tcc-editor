@@ -85,7 +85,7 @@ export const Roteamento: Block[] = [
             text: `
                 Os arquivos page e layout são a primeira página da aplicação.
                 Por estarem no nível do diretório
-                <plugin-gloss id="jsx"></plugin-gloss> (dentro da pasta app)
+                <plugin-gloss id="app"></plugin-gloss> (dentro da pasta app)
                 esta página será mapeada para a rota / na navegação. Isto
                 significa que quando o servidor estiver rodando e o usuário
                 acessar o endereço do serviço, o código contido em
@@ -99,7 +99,7 @@ export const Roteamento: Block[] = [
         data: {
             text: `
                 O arquivo layout.tsx serve como um template para a página.
-                Pode-se pensá-lo como uma espécia de casca da aplicação.
+                Pode-se pensá-lo como uma espécie de casca da aplicação.
                 A página herda o que está em layout, de modo que o que será
                 renderizado no Browser será o template, acrescido da page.
             `.trim().replace(/^\s{16}/gm, '')
@@ -179,11 +179,16 @@ export default function Layout(
             text: `
                 Observe que o arquivo exporta uma função
                 denominada Layout, que retorna um código
-                <plugin-gloss id="jsx"></plugin-gloss>
+                <plugin-gloss id="tsx"></plugin-gloss>
                 a ser renderizado na página.
                 Observe na linha 4 que a função recebe um objeto
                 como parâmetro que é anotado por PropsWithChildren.
-                Dentro deste objeto há a propriedade children, que
+                Dentro deste objeto há a propriedade
+                <i>children</i><plugin-footnote data-note="
+                    Do inglês: Filhos.
+                ">
+                *</plugin-footnote>,
+                que
                 contém outros componentes React a serem renderizados.
                 No caso, o NextJs injetará dentro de children o código que
                 é exportado por page.tsx.
@@ -212,6 +217,15 @@ export default function Page(){
     </div>
 }
 `.trim()
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                No código page apenas é exportada uma função (componente)
+                Page que retorna uma frase simples: "Olá mundo! Eu sou uma page".
+            `.trim().replace(/^\s{16}/gm, '')
         }
     },
     {

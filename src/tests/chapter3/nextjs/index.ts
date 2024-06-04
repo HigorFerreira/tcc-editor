@@ -3,6 +3,7 @@ import {
 } from '@/parser/types'
 
 import { Roteamento } from '@/tests/chapter3/nextjs/roteamento'
+import { PaginaPrincipal } from '@/tests/chapter3/nextjs/paginaPrincipal'
 
 /*
 <plugin-gloss id="regex"></plugin-gloss>
@@ -217,4 +218,5 @@ yarn add node-latex react-icons uuid
         }
     },
     ...Roteamento,
+    ...PaginaPrincipal,
 ]

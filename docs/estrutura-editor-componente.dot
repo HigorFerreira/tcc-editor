@@ -1,0 +1,41 @@
+digraph project_directory {
+    rankdir=LR
+    node [shape=folder, style=filled, fillcolor="#FFEB99"]
+    
+    raiz[label="raiz"]
+    
+    src[label="src"]
+
+    components[label="components"]
+    editor[label=Editor]
+    
+    BasePlugin[label="BasePlugin"]
+    hooks[label="hooks.ts", shape=note, fillcolor="#FFFF00"]
+    index[label="index.tsx", shape=note, style=filled, fillcolor="#AEC6CF"]
+    InlineBasePlugin[label="InlineBasePlugin"]
+    types[label="types"]
+    
+    index1[shape=note, style=filled, fillcolor="#AEC6CF", label="index.tsx"]
+    index2[shape=note, style=filled, fillcolor="#AEC6CF", label="index.tsx"]
+    index3[shape=note, style=filled, fillcolor="#AEC6CF", label="index.tsx"]
+    
+    type1[label="type.ts", shape=note, fillcolor="#77DD77"]
+        
+
+    raiz -> src
+
+    
+    src -> components
+    components -> editor
+    
+    editor -> BasePlugin
+    editor -> hooks
+    editor -> index
+    editor -> InlineBasePlugin
+    editor -> types
+    
+    BasePlugin -> index1
+    InlineBasePlugin -> index2
+    InlineBasePlugin -> type1
+    types -> index3
+}
