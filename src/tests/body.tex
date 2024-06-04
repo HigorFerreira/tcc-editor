@@ -1482,15 +1482,15 @@ Para executar o exemplo e ver como ele se comporta no navegador
 do usuário, basta a partir do diretório do projeto rodar o
 seguinte comando:
 
-\begin{6d0cbda298f844a38a4b9f27afac7b95}
+\begin{706206f59458401b920f516b1ca965f0}
 yarn dev
-\end{6d0cbda298f844a38a4b9f27afac7b95}
+\end{706206f59458401b920f516b1ca965f0}
 
 Após rodar o comando o servidor iniciará localmente.
 A saída do terminal mostrará a porta do serviço a ser acessada
 afim de renderizar a página:
 
-\begin{Codef7776ad5780c4876b5e38291a349784d}
+\begin{Code6aa14fc912dc499ba6712066ffe29b13}
 yarn run v1.22.19
 $ next dev
     Next.js 14.1.1
@@ -1498,7 +1498,7 @@ $ next dev
     - Environments: .env.local
 
     Ready in 2.7s
-\end{Codef7776ad5780c4876b5e38291a349784d}
+\end{Code6aa14fc912dc499ba6712066ffe29b13}
 
 Ao acessar o endereço http://localhost:3000
 na rota /example, a página é renderizada
@@ -1547,7 +1547,7 @@ da rota de página ao qual se está acessando.
 
 Observe abaixo o código de layout:
 
-\begin{Codeb5d587e5974145da80ddeafde26120f7}
+\begin{Coded77de4fa385048eda348aa7845f455dc}
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -1575,7 +1575,7 @@ export default function RootLayout({
         </html>
     )
 }
-\end{Codeb5d587e5974145da80ddeafde26120f7}
+\end{Coded77de4fa385048eda348aa7845f455dc}
 
 Na linha 13 há a exportação do componente em si. O código
 \acrshort{tsx}
@@ -1617,15 +1617,39 @@ dentro de head).
     \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
 \end{figure}
 
+\begin{figure}[H]
+    \centering
+    \caption{Componente React - Editor}
+    \includegraphics[width=0.6\textwidth]{./images/class-editor-component.png}
+    \label{fig:class-editor-component} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
 \subsection{Classe Editor}
 
 \subsection{Provider}
 
 \subsection{BasePlugin}
 
+\begin{figure}[H]
+    \centering
+    \caption{Classe - BasePlugin}
+    \includegraphics[width=0.6\textwidth]{./images/class-base-plugin.png}
+    \label{fig:class-base-plugin} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
 \subsection{InlineBasePlugin}
 
 \subsection{Plugins}
+
+\begin{figure}[H]
+    \centering
+    \caption{Estrutura de pastas dos plugins}
+    \includegraphics[width=1.0\textwidth]{./images/estrutura-plugins.png}
+    \label{fig:estrutura-plugins} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
 
 \subsubsection{\underline{Image}}
 

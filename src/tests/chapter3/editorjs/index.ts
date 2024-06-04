@@ -59,6 +59,17 @@ export const editorjs: Block[] = [
         }
     },
     {
+        type: 'image',
+        data: {
+            uuid: 'class-editor-component',
+            fileType: 'png',
+            imageUrl: '',
+            width: 0.6,
+            title: 'Componente React - Editor',
+            description: 'Fonte: Autoria própria'
+        }
+    },
+    {
         type: 'header',
         data: { level: 3, text: 'Classe Editor' }
     },
@@ -71,12 +82,34 @@ export const editorjs: Block[] = [
         data: { level: 3, text: 'BasePlugin' }
     },
     {
+        type: 'image',
+        data: {
+            uuid: 'class-base-plugin',
+            fileType: 'png',
+            imageUrl: '',
+            width: 0.6,
+            title: 'Classe - BasePlugin',
+            description: 'Fonte: Autoria própria'
+        }
+    },
+    {
         type: 'header',
         data: { level: 3, text: 'InlineBasePlugin' }
     },
     {
         type: 'header',
         data: { level: 3, text: 'Plugins' }
+    },
+    {
+        type: 'image',
+        data: {
+            uuid: 'estrutura-plugins',
+            fileType: 'png',
+            imageUrl: '',
+            width: 1,
+            title: 'Estrutura de pastas dos plugins',
+            description: 'Fonte: Autoria própria'
+        }
     },
     {
         type: 'header',

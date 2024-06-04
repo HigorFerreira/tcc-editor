@@ -1,0 +1,58 @@
+digraph project_directory {
+    rankdir=TB
+    node [shape=folder, style=filled, fillcolor="#FFEB99"]
+    
+    raiz[label="raiz"]
+    
+    src[label="src"]
+
+    components[label="components"]
+    plugins[label=Plugins]
+    
+    
+    class[label="class.ts", shape=note, fillcolor="#FFB347"]
+    exports[label="exports.ts", shape=note, style=unfilled]
+    hooks[label="hooks.ts", shape=note, fillcolor="#FFFF00"]
+    index[label="index.tsx", shape=note, fillcolor="#AEC6CF"]
+    settings[label="settings.tsx", shape=note, style=unfilled]
+    styles[label="styles.ts", shape=note, style=unfilled]
+    types[label="types.ts", shape=note, fillcolor="#77DD77"]
+    
+    class1[label="class.ts", shape=note, fillcolor="#FFB347"]
+    index1[label="index.tsx", shape=note, fillcolor="#AEC6CF"]
+    styles1[label="styles.ts", shape=note, style=unfilled]
+    types1[label="types.ts", shape=note, fillcolor="#77DD77"]
+    
+    class2[label="class.ts", shape=note, fillcolor="#FFB347"]
+    index2[label="index.tsx", shape=note, fillcolor="#AEC6CF"]
+
+
+
+
+    raiz -> src
+
+    
+    src -> components
+    components -> plugins
+    
+    plugins -> Footnote
+    plugins -> Header
+    plugins -> Image
+    
+    Image -> class
+    Image -> exports
+    Image -> hooks
+    Image -> index
+    Image -> settings
+    Image -> styles
+    Image -> types
+    
+    Header -> class1
+    Header -> index1
+    Header -> styles1
+    Header -> types1
+
+    Footnote -> class2
+    Footnote -> index2
+
+}
