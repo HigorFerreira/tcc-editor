@@ -68,10 +68,7 @@ export const Roteamento: Block[] = [
             text: `
                 Observe os arquivos destacados em azul e rosa, respectivamente
                 page.tsx e  layout.tsx. A extensão
-                <plugin-gloss id="tsx"></plugin-gloss><plugin-footnote data-note="
-                    TypeScript XML
-                ">
-                *</plugin-footnote>
+                <plugin-gloss id="tsx"></plugin-gloss>
                 significa o mesmo que
                 <plugin-gloss id="jsx"></plugin-gloss>,
                 com a difereça de que é um arquivo em TypeScript ao
@@ -181,7 +178,7 @@ export default function Layout(
                 denominada Layout, que retorna um código
                 <plugin-gloss id="tsx"></plugin-gloss>
                 a ser renderizado na página.
-                Observe na linha 4 que a função recebe um objeto
+                Na linha 4 a função recebe um objeto
                 como parâmetro que é anotado por PropsWithChildren.
                 Dentro deste objeto há a propriedade
                 <i>children</i><plugin-footnote data-note="

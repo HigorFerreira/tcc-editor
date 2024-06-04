@@ -191,22 +191,23 @@ yarn add node-latex react-icons uuid
             items: [
                 [ 'public', 'Pasta pública para distribuição de arquivos estáticos.' ],
                 [ 'src', `
-                    Esta pasta é onde praticamente todas as coisas na aplicação vão acontecer,
-                    aqui está as páginas e seus devidos roteamentos, o editor e seus plugins,
-                    o parser e tudo mais.
+                    Esta pasta é praticamente
+                    o código fonte da aplicação onde todas as operações acontecem, tais
+                    quais: Edição com seus respectivos plugins; parser dos arquivos de
+                    saída e tudo mais.
                 ` ],
                 [ 'declaration.d.ts', `
                     Arquivo de declarações. Aqui é anotado algumas tipagens para serem usadas
                     globalmente durante o processo de desenvolvimento.
                 ` ],
                 [ '.env.local', 'Arquivo de variáveis de ambiente para serem usadas como teste durante\
-                o tempo de desenvolvimento' ],
+                o tempo de desenvolvimento.' ],
                 [ '.git', 'Pasta de controle do git.' ],
                 [ '.gitignore', 'Arquivos a serem ignorados pela ferramenta de versionamento.' ],
-                [ 'next.config.js', 'Arquivo de configurações do NextJs' ],
+                [ 'next.config.js', 'Arquivo de configurações do NextJs.' ],
                 [ 'next-env.d.ts', '' ],
                 [ 'package.json', `
-                    Arquivo que define que o projeto é um projeto NodeJs. Aqui está toda a informação sobre dependencias
+                    Arquivo que define que o projeto é um projeto NodeJs. Aqui está toda a informação sobre dependências
                     do projeto, que são todos os pacotes usados de terceiros. Também possui definição
                     de scripts úteis para serem utilizados no processo de desenvolvimento.
                 ` ],

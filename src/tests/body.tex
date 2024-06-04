@@ -1337,19 +1337,20 @@ arquivos de configuração, roteamento e componentes básicos do react.
         \textbf{Arquivo/Pasta} & \textbf{Descrição} \\
         \hline
         public & Pasta pública para distribuição de arquivos estáticos. \\
-		src & Esta pasta é onde praticamente todas as coisas na aplicação vão acontecer,
-            aqui está as páginas e seus devidos roteamentos, o editor e seus plugins,
-            o parser e tudo mais.
+		src & Esta pasta é praticamente
+            o código fonte da aplicação onde todas as operações acontecem, tais
+            quais: Edição com seus respectivos plugins; parser dos arquivos de
+            saída e tudo mais.
          \\
 		declaration.d.ts & Arquivo de declarações. Aqui é anotado algumas tipagens para serem usadas
             globalmente durante o processo de desenvolvimento.
          \\
-		.env.local & Arquivo de variáveis de ambiente para serem usadas como teste durante                o tempo de desenvolvimento \\
+		.env.local & Arquivo de variáveis de ambiente para serem usadas como teste durante                o tempo de desenvolvimento. \\
 		.git & Pasta de controle do git. \\
 		.gitignore & Arquivos a serem ignorados pela ferramenta de versionamento. \\
-		next.config.js & Arquivo de configurações do NextJs \\
+		next.config.js & Arquivo de configurações do NextJs. \\
 		next-env.d.ts &  \\
-		package.json & Arquivo que define que o projeto é um projeto NodeJs. Aqui está toda a informação sobre dependencias
+		package.json & Arquivo que define que o projeto é um projeto NodeJs. Aqui está toda a informação sobre dependências
             do projeto, que são todos os pacotes usados de terceiros. Também possui definição
             de scripts úteis para serem utilizados no processo de desenvolvimento.
          \\
@@ -1390,8 +1391,7 @@ mostra a estrutura da pasta
 
 Observe os arquivos destacados em azul e rosa, respectivamente
 page.tsx e  layout.tsx. A extensão
-\acrshort{tsx}\footnote{TypeScript XML
-}
+\acrshort{tsx}
 significa o mesmo que
 \acrshort{jsx},
 com a difereça de que é um arquivo em TypeScript ao
@@ -1451,7 +1451,7 @@ Observe que o arquivo exporta uma função
 denominada Layout, que retorna um código
 \acrshort{tsx}
 a ser renderizado na página.
-Observe na linha 4 que a função recebe um objeto
+Na linha 4 a função recebe um objeto
 como parâmetro que é anotado por PropsWithChildren.
 Dentro deste objeto há a propriedade
 \textit{children}\footnote{Do inglês: Filhos.
@@ -1482,15 +1482,15 @@ Para executar o exemplo e ver como ele se comporta no navegador
 do usuário, basta a partir do diretório do projeto rodar o
 seguinte comando:
 
-\begin{706206f59458401b920f516b1ca965f0}
+\begin{cb9f1b71526443a289a59ed9dbb3c1e7}
 yarn dev
-\end{706206f59458401b920f516b1ca965f0}
+\end{cb9f1b71526443a289a59ed9dbb3c1e7}
 
 Após rodar o comando o servidor iniciará localmente.
 A saída do terminal mostrará a porta do serviço a ser acessada
 afim de renderizar a página:
 
-\begin{Code6aa14fc912dc499ba6712066ffe29b13}
+\begin{Code47d9c136838541d8b2e6440632212012}
 yarn run v1.22.19
 $ next dev
     Next.js 14.1.1
@@ -1498,7 +1498,7 @@ $ next dev
     - Environments: .env.local
 
     Ready in 2.7s
-\end{Code6aa14fc912dc499ba6712066ffe29b13}
+\end{Code47d9c136838541d8b2e6440632212012}
 
 Ao acessar o endereço http://localhost:3000
 na rota /example, a página é renderizada
@@ -1538,7 +1538,7 @@ a sub árvore de renderização do layout:
 \end{figure}
 
 Tem-se uma estrutura básica com a tag html, (a tag raiz do documento),
-logo após o body, que diz respeito a área de renderização do documento.
+logo após o body, que diz respeito à área de renderização do documento.
 Storage é um componente personalizado em React que será discutido mais adiante,
 ele serve basicamente para armazenar conteúdos no navegador do usuário.
 Logo em seguida há o último componente, (ou nó folha), que consiste no
@@ -1547,7 +1547,7 @@ da rota de página ao qual se está acessando.
 
 Observe abaixo o código de layout:
 
-\begin{Coded77de4fa385048eda348aa7845f455dc}
+\begin{Codee08fbb6cd7984b79b735e4e0752d5a63}
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -1575,7 +1575,7 @@ export default function RootLayout({
         </html>
     )
 }
-\end{Coded77de4fa385048eda348aa7845f455dc}
+\end{Codee08fbb6cd7984b79b735e4e0752d5a63}
 
 Na linha 13 há a exportação do componente em si. O código
 \acrshort{tsx}
@@ -1596,6 +1596,14 @@ dentro de head).
     \caption{Sub árvore de renderização da página principal}
     \includegraphics[width=0.5\textwidth]{./images/page-render-tree.png}
     \label{fig:page-render-tree} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Componente da página Home}
+    \includegraphics[width=0.7\textwidth]{./images/class-home-component.png}
+    \label{fig:class-home-component} \\
     \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
 \end{figure}
 

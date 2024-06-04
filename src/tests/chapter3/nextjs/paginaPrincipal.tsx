@@ -27,6 +27,20 @@ import { v4 as uuidv4 } from 'uuid';
     },
 */
 
+/*
+{
+    type: 'image',
+    data: {
+        uuid: '',
+        fileType: 'png',
+        imageUrl: '',
+        width: 0.4,
+        title: '',
+        description: 'Fonte: Autoria própria'
+    }
+},
+*/
+
 export const PaginaPrincipal: Block[] = [
     {
         type: 'header',
@@ -82,7 +96,7 @@ export const PaginaPrincipal: Block[] = [
         data: {
             text: `
                 Tem-se uma estrutura básica com a tag html, (a tag raiz do documento),
-                logo após o body, que diz respeito a área de renderização do documento.
+                logo após o body, que diz respeito à área de renderização do documento.
                 Storage é um componente personalizado em React que será discutido mais adiante,
                 ele serve basicamente para armazenar conteúdos no navegador do usuário.
                 Logo em seguida há o último componente, (ou nó folha), que consiste no
@@ -145,7 +159,7 @@ export default function RootLayout({
                 Note que aqui não há o uso da tag head, padrão comum do
                 <plugin-gloss id="html"></plugin-gloss>. Isso se dá
                 pois o gerenciamento das configurações desta tag fica
-                a cargo do NextJs. Observe que da linha 8 à 11
+                a cargo do NextJs. Nas linhas 8 à 11
                 há a exportação de uma constante denominada metadata. Nela
                 há a chave title que o Next utilizará para renderizar o
                 título da página, (que em um html normal seria configurado
@@ -168,6 +182,17 @@ export default function RootLayout({
             imageUrl: '',
             width: 0.5,
             title: 'Sub árvore de renderização da página principal',
+            description: 'Fonte: Autoria própria'
+        }
+    },
+    {
+        type: 'image',
+        data: {
+            uuid: 'class-home-component',
+            fileType: 'png',
+            imageUrl: '',
+            width: 0.7,
+            title: 'Componente da página Home',
             description: 'Fonte: Autoria própria'
         }
     },
