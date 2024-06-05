@@ -538,6 +538,18 @@ public render(){
         data: { level: 3, text: 'Plugins' }
     },
     {
+        type: 'paragraph',
+        data: {
+            text: `
+                Plugins são o principal objetivo em se usar o EditorJS, pois cada plugin é o que
+                se traduz nos blocos da escrita em blocos conceituada no capítulo 1.
+                A
+                <plugin-ref-fig data-fig="estrutura-plugins">Figura 1</plugin-ref-fig>
+                ilustra a estrutura de pastas dos plugins que foram desenvolvidos:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
         type: 'image',
         data: {
             uuid: 'estrutura-plugins',
@@ -549,15 +561,202 @@ public render(){
         }
     },
     {
-        type: 'header',
-        data: { level: 4, text: 'Image' }
+        type: 'paragraph',
+        data: {
+            text: `
+                Observe que as condições mínimas para a existência de um plugin é possuir
+                os arquivos index.tsx e class.ts. O arquivo class.ts é a classe propriamente
+                dita que é derivada de BasePlugin, que consequentemente há de se implementar
+                os dois métodos abstratos obrigatórios.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O arquivo index.tsx é o componente React interativo. É neste arquivo em que
+                se programa a aparência e comportamentos do mesmo.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
     },
     {
         type: 'header',
         data: { level: 4, text: 'Header' }
     },
     {
-        type: 'header',
-        data: { level: 4, text: 'FootNote' }
+        type: 'paragraph',
+        data: {
+            text: `
+                O plugin de Header, (até o momento de escrita deste trabalho), é o mais simples
+                que foi desenvolvido. Observe abaixo a implementação do arquivo class.tsx:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
     },
+    {
+        type: 'code',
+        data: {
+            uuid: `Code${uuidv4().replace(/-/g, '')}`,
+            start_line: 16,
+            text: `
+[...]
+export default class HeaderClass extends BasePlugin<DataType> {
+    text: string = ""
+    public setLevel: Dispatch<SetStateAction<HeaderLevelsType>> | null = null
+
+    static get conversionConfig() {
+        return {
+            export: 'text', // use 'text' property for other blocks
+            import: 'text', // fill 'text' property from other block's export string
+        };
+    }
+[...]
+`.trim()
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Na linha 17, é realizada a exportação da classe HeaderClass,
+                que estende a classe BasePlugin. Observe que nas linhas 18 e 19,
+                são definidas uma propriedade text (que armazenará o texto do Header)
+                e a função setLevel (que é uma função de atualização de estado do React).
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                No caso do plugin Header, é importante ter uma referência à função
+                de atualização do nível (level) do Header, pois é nesta classe que
+                o menu, onde o usuário selecionará o nível do título, é definido,
+                conforme o código abaixo:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'code',
+        data: {
+            uuid: `Code${uuidv4().replace(/-/g, '')}`,
+            start_line: 34,
+            text: `
+[...]
+public renderSettings(): TunesMenuConfigItem[] {
+    return ([1,2,3,4,5] as HeaderLevelsType[]).map(lv => ({
+        title: \`Nível \${lv}\`,
+        // @ts-ignore
+        onActivate: () => {
+            console.log({ setLevel: this.setLevel });
+            this.setLevel && this.setLevel(lv);
+        },
+        closeOnActivate: true,
+        isActive: lv === this?.pluginData?.level,
+[...]
+`.trim()
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Observe como a função de atualização de estado é chamada a partir de onActivate
+                na linha 41. Isso garante a comunicação do menu com o componente React, permitindo
+                ao usuário selecionar o nível de título a partir do menu.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                No código abaixo tem-se a implementação das duas funções abstratas obrigatórias
+                getName() e getUuid(). Observe que em getName retorna-se o nome header do plugin,
+                ao passo que em getUuid retorna-se um uuid versão 4 para criar um identificador
+                único para o plugin.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'code',
+        data: {
+            uuid: `Code${uuidv4().replace(/-/g, '')}`,
+            start_line: 50,
+            text: `
+[...]
+    getName(): string {
+        return 'header';
+    }
+
+    getUuid(): string {
+        return uuidv4();
+    }
+}
+`.trim()
+        }
+    },
+    {
+        type: 'header',
+        data: { level: 5, text: 'Plugin React' }
+    },
+    {
+        type: 'image',
+        data: {
+            uuid: 'header-plugin-component',
+            fileType: 'png',
+            imageUrl: '',
+            width: 0.7,
+            title: 'Plugin: Componente React',
+            description: 'Fonte: Autoria própria'
+        }
+    },
+    {
+        type: 'header',
+        data: { level: 4, text: 'Paragraph' }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Não há uma construção de um plugin paragraph pois se utiliza
+                o plugin padrão já pronto fornecido pelo EditorJS.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'header',
+        data: { level: 4, text: 'Image' }
+    },
+    {
+        type: 'header',
+        data: { level: 4, text: 'List' }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O plugin List que será utilizado será o padrão fornecido pelo
+                EditorJS.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'header',
+        data: { level: 4, text: 'Table' }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O plugin de Table, apesar de ter um parser desenvolvido para ele,
+                (checar a sessão Parsing), não será tratado neste trabalho devido,
+                ficando para a posteridade em trabalhos futuros.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    // {
+    //     type: 'header',
+    //     data: { level: 4, text: 'FootNote' }
+    // },
 ]

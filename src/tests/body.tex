@@ -1482,15 +1482,15 @@ Para executar o exemplo e ver como ele se comporta no navegador
 do usuário, basta a partir do diretório do projeto rodar o
 seguinte comando:
 
-\begin{3206ab79c6a24aa482648afc87e848d1}
+\begin{f5bb333cf7704bf4ba7775312b76dd67}
 yarn dev
-\end{3206ab79c6a24aa482648afc87e848d1}
+\end{f5bb333cf7704bf4ba7775312b76dd67}
 
 Após rodar o comando o servidor iniciará localmente.
 A saída do terminal mostrará a porta do serviço a ser acessada
 afim de renderizar a página:
 
-\begin{Code9261f8cad1e840589d0460b578c0bd01}
+\begin{Codea365a6c884004cc38a9d2e493c5879cd}
 yarn run v1.22.19
 $ next dev
     Next.js 14.1.1
@@ -1498,7 +1498,7 @@ $ next dev
     - Environments: .env.local
 
     Ready in 2.7s
-\end{Code9261f8cad1e840589d0460b578c0bd01}
+\end{Codea365a6c884004cc38a9d2e493c5879cd}
 
 Ao acessar o endereço http://localhost:3000
 na rota /example, a página é renderizada
@@ -1547,7 +1547,7 @@ da rota de página ao qual se está acessando.
 
 Observe abaixo o código de layout:
 
-\begin{Code0c8dd713af3c419db66fef60e6f55c0f}
+\begin{Codea649804db629451ea05f2ac1834489cf}
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -1575,7 +1575,7 @@ export default function RootLayout({
         </html>
     )
 }
-\end{Code0c8dd713af3c419db66fef60e6f55c0f}
+\end{Codea649804db629451ea05f2ac1834489cf}
 
 Na linha 13 há a exportação do componente em si. O código
 \acrshort{tsx}
@@ -1641,7 +1641,7 @@ Percebe-se que o componente Container possuí dois filhos: Um texto
 Observe a partir da linha 87 no código abaixo como a renderização
 do texto "Carregando editor..."~ está condicionada ao estado loading.
 
-\begin{Codefa466fbac1f2403e856b37e5a126a57a}
+\begin{Code339470698d094bf395237b7c4cb650fb}
 [...]
 return (
     <main>
@@ -1653,7 +1653,7 @@ return (
             }
             <Editor
 [...]
-\end{Codefa466fbac1f2403e856b37e5a126a57a}
+\end{Code339470698d094bf395237b7c4cb650fb}
 
 O estado loading inicialmente começa com o valor true, o que
 faz com que o texto seja renderizado. O componente
@@ -1666,14 +1666,14 @@ Note na linha 121 do código abaixo que a propriedade
 que pertence ao componente Editor, recebe uma função
 com o parâmetro \{ editor \}.
 
-\begin{Codef13178bd757f441e9701b32a6c262879}
+\begin{Code3f50c60c6c3e4663ba2b5f2e7bdaacb4}
 [...]
 onReady={ ({ editor }) => {
     setLoading(false);
     setEditor(editor);
 } }
 [...]
-\end{Codef13178bd757f441e9701b32a6c262879}
+\end{Code3f50c60c6c3e4663ba2b5f2e7bdaacb4}
 
 A propriedade onReady é um evento que chama
 a função passada quando a classe EditorJs está pronta e
@@ -1723,7 +1723,7 @@ de modo a enriquecer a experiência de usuário. A mudança de um estado também
 disparar um efeito. Efeito este que adiciona alguma ação ou modificação de outros estados.
 Observe o código abaixo:
 
-\begin{Code4abbf6e905834b85a1f962b234e4ac1c}
+\begin{Code3a4b47042114469bbcba3c1b27f1ff1e}
 [...]
 useEffect(() => {
     if(storageError){
@@ -1732,7 +1732,7 @@ useEffect(() => {
     }
 }, [ storageError ]);
 [...]
-\end{Code4abbf6e905834b85a1f962b234e4ac1c}
+\end{Code3a4b47042114469bbcba3c1b27f1ff1e}
 
 O código acima adiciona uma função que monitora o estado denominado
 storageError. Na primeira renderização da página, ou sempre que este
@@ -1796,14 +1796,14 @@ seguida repassa-o para putBlock.
 Os detalhes de implementação da Storage se encontram no repositório através
 do diretório: /src/components/Storage
 
-\begin{Codeb1dc1c7baf69469383ec2962514bf992}
+\begin{Codee954203ebb3f416b931080229705a4f7}
 [...]
 onChange={async (api, event) => {
     const blocks = await api.saver.save();
     putBlock(blocks as EditorSave);
 }}
 [...]
-\end{Codeb1dc1c7baf69469383ec2962514bf992}
+\end{Codee954203ebb3f416b931080229705a4f7}
 
 \section{Editor}
 
@@ -1906,7 +1906,7 @@ evento personalizado denominado \textit{editor-plugin-render}.
 Isto é importante pois este evento recebe a criação dos plugins que
 são disparados de dentro da classe EditorJs. Observe o código abaixo:
 
-\begin{Codee6400cb110584175a3a7d863c3ecd9f0}
+\begin{Codec391c0a635764d51aec6042bddf691c2}
 [...]
 document.addEventListener('editor-plugin-render', e => {
     // console.log('editor-plugin-render');
@@ -1921,7 +1921,7 @@ document.addEventListener('editor-plugin-render', e => {
     ]);
 });
 [...]
-\end{Codee6400cb110584175a3a7d863c3ecd9f0}
+\end{Codec391c0a635764d51aec6042bddf691c2}
 
 Na linha 137 o escutador é adicionado ao objeto
 \acrshort{dom}. Este evento monitora
@@ -1937,7 +1937,7 @@ pluginsList
 é memorizada em pluginsRender, que é então
 renderizado na linha 213 do código abaixo:
 
-\begin{Code135d6f8f1a4d4c78a9509b44e07291c2}
+\begin{Codec9afcee0a2c0430eb33fa2d9a02a5b93}
 [...]
     return <Context.Provider value={{
         editor: editor.current
@@ -1949,7 +1949,7 @@ renderizado na linha 213 do código abaixo:
         <div ref={ editorContainerRef } ></div>
     </Context.Provider>
 }
-\end{Code135d6f8f1a4d4c78a9509b44e07291c2}
+\end{Codec9afcee0a2c0430eb33fa2d9a02a5b93}
 
 \subsubsection{\underline{Instância do EditorJs}}
 
@@ -1973,7 +1973,7 @@ antes de chamar a função onReady na linha 192. Note que onReady só é chamada
 a mesma tenha sido repassada. Ao chamar, a instância do editor é repassada na linha
 193.
 
-\begin{Code49fd6eead0a948fda599a7e8d9891cc6}
+\begin{Code755654de9a3642df99c2f2fed5cd2ef7}
 [...]
 if(!editor.current && editorContainerRef.current){
     // console.log("Comming to assing editorjs...");
@@ -1999,7 +1999,7 @@ if(!editor.current && editorContainerRef.current){
     })
 }
 [...]
-\end{Code49fd6eead0a948fda599a7e8d9891cc6}
+\end{Code755654de9a3642df99c2f2fed5cd2ef7}
 
 \subsection{BasePlugin}
 
@@ -2064,7 +2064,7 @@ O método mais importante da classe base é o render(). É ele quem coloca o plu
 em tela quando o usuário escolhe um plugin a partir do menu de plugins.
 Observe no código abaixo o funcionamento da classe:
 
-\begin{Code38f31b19fcde4eb8a1e4cb3ea1eb9782}
+\begin{Codea3154fb80e0b42fb8451b8d2ffd0009e}
 [...]
 public render(){
     const wrapper = document.createElement('div');
@@ -2082,22 +2082,29 @@ public render(){
     return wrapper;
 }
 [...]
-\end{Code38f31b19fcde4eb8a1e4cb3ea1eb9782}
+\end{Codea3154fb80e0b42fb8451b8d2ffd0009e}
 
 Observe que o método render cria um wrapper a partir de um elemento
 div na linha 52. Na linha 53 é atribuído um id a partir da chamada do método
 getUuid(). Na linha 55 a 61 é criado um evento customizado que é despachado
-10 milissegundos após o retorno do wrapper.
+20 milissegundos após o retorno do wrapper.
 O wrapper é o que o EditorJS renderiza na ferramenta. O despache do evento
-juntamente com a referência a instância da classe é então capturada pelo
+juntamente com a referência à instância da classe é então capturada pelo
 escutador discutido na
 Figura \ref{fig:effect-ready-editor-component}
 da sessão Provider. Assim, o plugin do react vai para a lista de plugins ao mesmo
 tempo que é renderizado de forma integrada ao EditorJS.
+(Falar do código do portal)
 
 \subsection{InlineBasePlugin}
 
 \subsection{Plugins}
+
+Plugins são o principal objetivo em se usar o EditorJS, pois cada plugin é o que
+se traduz nos blocos da escrita em blocos conceituada no capítulo 1.
+A
+Figura \ref{fig:estrutura-plugins}
+ilustra a estrutura de pastas dos plugins que foram desenvolvidos:
 
 \begin{figure}[H]
     \centering
@@ -2107,11 +2114,107 @@ tempo que é renderizado de forma integrada ao EditorJS.
     \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
 \end{figure}
 
-\subsubsection{\underline{Image}}
+Observe que as condições mínimas para a existência de um plugin é possuir
+os arquivos index.tsx e class.ts. O arquivo class.ts é a classe propriamente
+dita que é derivada de BasePlugin, que consequentemente há de se implementar
+os dois métodos abstratos obrigatórios.
+
+O arquivo index.tsx é o componente React interativo. É neste arquivo em que
+se programa a aparência e comportamentos do mesmo.
 
 \subsubsection{\underline{Header}}
 
-\subsubsection{\underline{FootNote}}
+O plugin de Header, (até o momento de escrita deste trabalho), é o mais simples
+que foi desenvolvido. Observe abaixo a implementação do arquivo class.tsx:
+
+\begin{Code1ae6fc068cbe481fb1ea73a3550591ca}
+[...]
+export default class HeaderClass extends BasePlugin<DataType> {
+    text: string = ""
+    public setLevel: Dispatch<SetStateAction<HeaderLevelsType>> | null = null
+
+    static get conversionConfig() {
+        return {
+            export: 'text', // use 'text' property for other blocks
+            import: 'text', // fill 'text' property from other block's export string
+        };
+    }
+[...]
+\end{Code1ae6fc068cbe481fb1ea73a3550591ca}
+
+Na linha 17, é realizada a exportação da classe HeaderClass,
+que estende a classe BasePlugin. Observe que nas linhas 18 e 19,
+são definidas uma propriedade text (que armazenará o texto do Header)
+e a função setLevel (que é uma função de atualização de estado do React).
+
+No caso do plugin Header, é importante ter uma referência à função
+de atualização do nível (level) do Header, pois é nesta classe que
+o menu, onde o usuário selecionará o nível do título, é definido,
+conforme o código abaixo:
+
+\begin{Code251aa03368a141a0bc593dc89e0cb376}
+[...]
+public renderSettings(): TunesMenuConfigItem[] {
+    return ([1,2,3,4,5] as HeaderLevelsType[]).map(lv => ({
+        title: `Nível ${lv}`,
+        // @ts-ignore
+        onActivate: () => {
+            console.log({ setLevel: this.setLevel });
+            this.setLevel && this.setLevel(lv);
+        },
+        closeOnActivate: true,
+        isActive: lv === this?.pluginData?.level,
+[...]
+\end{Code251aa03368a141a0bc593dc89e0cb376}
+
+Observe como a função de atualização de estado é chamada a partir de onActivate
+na linha 41. Isso garante a comunicação do menu com o componente React, permitindo
+ao usuário selecionar o nível de título a partir do menu.
+
+No código abaixo tem-se a implementação das duas funções abstratas obrigatórias
+getName() e getUuid(). Observe que em getName retorna-se o nome header do plugin,
+ao passo que em getUuid retorna-se um uuid versão 4 para criar um identificador
+único para o plugin.
+
+\begin{Code7cf27fac4d98494c906e5dde84da5880}
+[...]
+    getName(): string {
+        return 'header';
+    }
+
+    getUuid(): string {
+        return uuidv4();
+    }
+}
+\end{Code7cf27fac4d98494c906e5dde84da5880}
+
+\subsubsubsection{Plugin React}
+
+\begin{figure}[H]
+    \centering
+    \caption{Plugin: Componente React}
+    \includegraphics[width=0.7\textwidth]{./images/header-plugin-component.png}
+    \label{fig:header-plugin-component} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+\subsubsection{\underline{Paragraph}}
+
+Não há uma construção de um plugin paragraph pois se utiliza
+o plugin padrão já pronto fornecido pelo EditorJS.
+
+\subsubsection{\underline{Image}}
+
+\subsubsection{\underline{List}}
+
+O plugin List que será utilizado será o padrão fornecido pelo
+EditorJS.
+
+\subsubsection{\underline{Table}}
+
+O plugin de Table, apesar de ter um parser desenvolvido para ele,
+(checar a sessão Parsing), não será tratado neste trabalho devido,
+ficando para a posteridade em trabalhos futuros.
 
 \section{Parsing, (parser)}
 
@@ -2798,80 +2901,6 @@ export function pageBreak(block: PageBreakBlock){
 \subsubsection{\underline{Table, (tabelas)}}
 
 Explicar o complexo parser do plugin de tabela.
-
-\begin{getTableBlock1}
-import { escapeCharacters } from '@/parser/process_steps/escape';
-import { processHTML } from '@/parser/process_steps/processHTML';
-import { posProcess } from '@/parser/process_steps/posProcess';
-import { TableBlock } from '@/parser/types';
-
-
-export function getTable(block: TableBlock){
-    const {
-        id,
-        title,
-        description,
-        header,
-        items,
-        width,
-        column_sizes,
-    } = block.data;
-    
-    const MAX_WIDTH = 16*width;
-
-    return `
-        \\begin{table}[H]
-            \\centering
-            \\caption{${escapeCharacters(title)}}
-            \\label{tbl:${id}}
-            \\renewcommand{\\arraystretch}{1.5}
-            \\begin{tabular}{${
-                column_sizes.map(col => {
-                    return `p{${(MAX_WIDTH*col).toFixed(4)}cm}`
-                }).join(' ')
-            }}
-                \\hline
-                ${
-                    header.map(
-                        h => `\\textbf{${
-                            posProcess(
-                                processHTML(
-                                    escapeCharacters(h)
-                                )
-                            )
-                        }}`
-                    ).join(' & ')
-                } \\\\
-                \\hline
-                ${
-                    items.map(row => {
-                        return row.map(cell => {
-                            return posProcess(
-                                processHTML(
-                                    escapeCharacters(cell)
-                                )
-                            )
-                        }).join(' & ')
-                    }).join(' \\\\\n\t\t')
-                } \\\\
-                \\hline
-                ${
-                    description &&
-                    `\\\\\\multicolumn{${
-                        header.length
-                    }}{c}{\\fontsize{10pt}{12pt}${
-                        posProcess(
-                            processHTML(
-                                escapeCharacters(description)
-                            )
-                        )
-                    }}`
-                }
-            \\end{tabular}
-        \\end{table}
-    `.trim().replace(/^\s{8}/gm, '');
-}
-\end{getTableBlock1}
 
 \subsection{Montagem}
 
