@@ -484,4 +484,43 @@ useEffect(() => {
             description: 'Fonte: Autoria própria'
         }
     },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Por fim, a função putBlock é utilizada por um evento disparado
+                pelo componente Editor. Observe como a propriedade
+                <i>onChange</i><plugin-footnote data-note="
+                    Do inglês: Quando mudar
+                ">
+                *</plugin-footnote>
+                recebe uma função que recupera o estado atual do editor, e em
+                seguida repassa-o para putBlock.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Os detalhes de implementação da Storage se encontram no repositório através
+                do diretório: /src/components/Storage
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'code',
+        data: {
+            uuid: `Code${uuidv4().replace(/-/g, '')}`,
+            start_line: 116,
+            text: `
+[...]
+onChange={async (api, event) => {
+    const blocks = await api.saver.save();
+    putBlock(blocks as EditorSave);
+}}
+[...]
+`.trim()
+        }
+    },
 ]

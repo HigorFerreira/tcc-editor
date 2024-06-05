@@ -1,0 +1,40 @@
+digraph G {
+    rankdir=TB;
+    size="8.5"
+
+    node [shape = squad]; // Define o formato dos nós como círculos
+    
+    ready[shape=point, xlabel=ready]
+    eff[label=Efeito, shape=circle]
+    condReady[label="ready?", shape=diamond]
+    event[label="addEventListener('editor-plugin-render')"]
+    condEditor[label="!editor.current\n&&\neditorContainerRef.current", shape=diamond]
+    
+    end[label=Fim, shape=doublecircle]
+    
+    nd1[label="Não faz nada", shape=none]
+    nd2[label="Não faz nada", shape=none]
+    
+    editor[label="Instancia EditorJs\ne guarda em editor.current"]
+    editor2[label="Aguarda o editor estar pronto"]
+    editor3[label="Chama a função onReady"]
+    
+    
+    ready -> eff [label=Dispara]
+    eff -> condReady
+    condReady -> nd1 [label=Não]
+    
+    condReady -> event [label=Sim]
+    event -> condEditor
+    
+    condEditor -> nd2 [label=Não]
+    condEditor -> editor [label=Sim]
+    
+    editor -> editor2
+    editor2 -> editor3
+    editor3 -> end
+    
+    
+    nd1 -> end
+    nd2 -> end
+}

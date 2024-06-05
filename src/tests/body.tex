@@ -1482,15 +1482,15 @@ Para executar o exemplo e ver como ele se comporta no navegador
 do usuário, basta a partir do diretório do projeto rodar o
 seguinte comando:
 
-\begin{c05be23f77134574b1f7bb206e04f1b7}
+\begin{3206ab79c6a24aa482648afc87e848d1}
 yarn dev
-\end{c05be23f77134574b1f7bb206e04f1b7}
+\end{3206ab79c6a24aa482648afc87e848d1}
 
 Após rodar o comando o servidor iniciará localmente.
 A saída do terminal mostrará a porta do serviço a ser acessada
 afim de renderizar a página:
 
-\begin{Code00041357d26c4e96ba12ce0888e14159}
+\begin{Code9261f8cad1e840589d0460b578c0bd01}
 yarn run v1.22.19
 $ next dev
     Next.js 14.1.1
@@ -1498,7 +1498,7 @@ $ next dev
     - Environments: .env.local
 
     Ready in 2.7s
-\end{Code00041357d26c4e96ba12ce0888e14159}
+\end{Code9261f8cad1e840589d0460b578c0bd01}
 
 Ao acessar o endereço http://localhost:3000
 na rota /example, a página é renderizada
@@ -1547,7 +1547,7 @@ da rota de página ao qual se está acessando.
 
 Observe abaixo o código de layout:
 
-\begin{Code6d33a9496209429da690d0a4c003791e}
+\begin{Code0c8dd713af3c419db66fef60e6f55c0f}
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -1575,7 +1575,7 @@ export default function RootLayout({
         </html>
     )
 }
-\end{Code6d33a9496209429da690d0a4c003791e}
+\end{Code0c8dd713af3c419db66fef60e6f55c0f}
 
 Na linha 13 há a exportação do componente em si. O código
 \acrshort{tsx}
@@ -1641,7 +1641,7 @@ Percebe-se que o componente Container possuí dois filhos: Um texto
 Observe a partir da linha 87 no código abaixo como a renderização
 do texto "Carregando editor..."~ está condicionada ao estado loading.
 
-\begin{Code5818f59a8332420b971fbaf697f8997d}
+\begin{Codefa466fbac1f2403e856b37e5a126a57a}
 [...]
 return (
     <main>
@@ -1653,7 +1653,7 @@ return (
             }
             <Editor
 [...]
-\end{Code5818f59a8332420b971fbaf697f8997d}
+\end{Codefa466fbac1f2403e856b37e5a126a57a}
 
 O estado loading inicialmente começa com o valor true, o que
 faz com que o texto seja renderizado. O componente
@@ -1666,14 +1666,14 @@ Note na linha 121 do código abaixo que a propriedade
 que pertence ao componente Editor, recebe uma função
 com o parâmetro \{ editor \}.
 
-\begin{Codea622d7da4d60496f97bfaab7c50d6d7b}
+\begin{Codef13178bd757f441e9701b32a6c262879}
 [...]
 onReady={ ({ editor }) => {
     setLoading(false);
     setEditor(editor);
 } }
 [...]
-\end{Codea622d7da4d60496f97bfaab7c50d6d7b}
+\end{Codef13178bd757f441e9701b32a6c262879}
 
 A propriedade onReady é um evento que chama
 a função passada quando a classe EditorJs está pronta e
@@ -1723,7 +1723,7 @@ de modo a enriquecer a experiência de usuário. A mudança de um estado também
 disparar um efeito. Efeito este que adiciona alguma ação ou modificação de outros estados.
 Observe o código abaixo:
 
-\begin{Code427e40d149c74ac7a8bd8f3347a09f70}
+\begin{Code4abbf6e905834b85a1f962b234e4ac1c}
 [...]
 useEffect(() => {
     if(storageError){
@@ -1732,7 +1732,7 @@ useEffect(() => {
     }
 }, [ storageError ]);
 [...]
-\end{Code427e40d149c74ac7a8bd8f3347a09f70}
+\end{Code4abbf6e905834b85a1f962b234e4ac1c}
 
 O código acima adiciona uma função que monitora o estado denominado
 storageError. Na primeira renderização da página, ou sempre que este
@@ -1786,7 +1786,34 @@ Figura \ref{fig:effect-editor-result}.
     \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
 \end{figure}
 
-\section{EditorJS}
+Por fim, a função putBlock é utilizada por um evento disparado
+pelo componente Editor. Observe como a propriedade
+\textit{onChange}\footnote{Do inglês: Quando mudar
+}
+recebe uma função que recupera o estado atual do editor, e em
+seguida repassa-o para putBlock.
+
+Os detalhes de implementação da Storage se encontram no repositório através
+do diretório: /src/components/Storage
+
+\begin{Codeb1dc1c7baf69469383ec2962514bf992}
+[...]
+onChange={async (api, event) => {
+    const blocks = await api.saver.save();
+    putBlock(blocks as EditorSave);
+}}
+[...]
+\end{Codeb1dc1c7baf69469383ec2962514bf992}
+
+\section{Editor}
+
+O Editor é o principal componente da aplicação em termos de interatividade
+com o usuário e
+\acrshort{ux}.
+Através dele o usuário poderá inserir os blocos a comporem o seu trabalho acadêmico.
+Veja na
+Figura \ref{fig:estrutura-editor-componente}
+a localização da estrutura de pastas no projeto.
 
 \begin{figure}[H]
     \centering
@@ -1796,13 +1823,16 @@ Figura \ref{fig:effect-editor-result}.
     \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \caption{Sub árvore de renderização do componente Editor}
-    \includegraphics[width=0.7\textwidth]{./images/sub-tree-render-editor.png}
-    \label{fig:sub-tree-render-editor} \\
-    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
-\end{figure}
+\subsection{Provider}
+
+O componente do Editor propriamente dito, aqui denominado
+Provider, é exportado pelo arquivo Editor/index.tsx. É Chamado de
+Provider pois em seu contexto são colocadas funções que poderão ser
+utilizadas no decorrer de toda a aplicação, com a condição de que os componentes
+utilizadores sejam filhos de Editor.
+A
+Figura \ref{fig:class-editor-component}
+contém a descrição do componente:
 
 \begin{figure}[H]
     \centering
@@ -1812,11 +1842,172 @@ Figura \ref{fig:effect-editor-result}.
     \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
 \end{figure}
 
-\subsection{Classe Editor}
+Os dois principais atributos deste componente são: editor e editorContainerRef,
+ambos anotados como Ref.
+Desta vez, estes atributos não são estados, mas sim referências. A referência,
+ao contrário do estado não possui função de atualização. São objetos especiais
+que podem guardar referências para objetos no
+\acrshort{dom}
+ou outros objetos JavaScript. Isso acontece pois editor guardará a instância
+do EditorJs, ao passo que editorContainerRef referenciará uma div no
+\acrshort{dom}.
+Esta div será utilizada por editor para inputar a ferramenta de edição de
+texto.
 
-\subsection{Provider}
+Observe na
+Figura \ref{fig:sub-tree-render-editor}
+que o Context.Provider renderiza dois elmentos div irmãos. O azul, que conterá
+os plugins nomais e in-line. E o vermelho que é a div na qual se define
+o atributo ref com editorContainerRef.
+
+\begin{figure}[H]
+    \centering
+    \caption{Sub árvore de renderização do componente Editor}
+    \includegraphics[width=0.7\textwidth]{./images/sub-tree-render-editor.png}
+    \label{fig:sub-tree-render-editor} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+Observe que a div azul não é exibida em tela através da propriedade
+style='display: none'. Isso acontece porque os plugins listados
+nela serão transportados para dentro da div vermelha por meio de
+um conceito chamado \textit{React Portals}. Virtualmente, para o React,
+os plugins estarão na div azul. Porém praticamente, eles estarão na verdade
+dentro da div vermelha num lugar a ser definido pelo EditorJs, que define
+isso automaticamente. Este recurso é usado para se injetar os componentes
+do React dentro do editor sem quebrar sua árvore lógica. Mais a frente
+será demonstrado que a classe EditorJs é quem é responsável por chamar
+e decidir a localização de cada componente através da
+instanciação de classes.
+
+A
+Figura \ref{fig:effect-ready-editor-component}
+ilustra o processo simplificado de quando o estado ready é disparado.
+Ready é disparado quando acontece a primeira renderização da página, por meio
+de um efeito que não monitora nenhum estado em particular. A tarefa deste efeito
+é apenas setar o estado ready para true. Isto funciona pois o efeito que
+não monitora nenhum estado é executado apenas uma vez, quando o componente é
+renderizado.
+
+\begin{figure}[H]
+    \centering
+    \caption{Simplificação do Efeito ready no componente Editor}
+    \includegraphics[width=0.7\textwidth]{./images/effect-ready-editor-component.png}
+    \label{fig:effect-ready-editor-component} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+\subsubsection{\underline{Event Listener}}
+
+O quadro vermelho na
+Figura \ref{fig:effect-ready-editor-component}
+corresponde a adição de um escutador de
+evento personalizado denominado \textit{editor-plugin-render}.
+Isto é importante pois este evento recebe a criação dos plugins que
+são disparados de dentro da classe EditorJs. Observe o código abaixo:
+
+\begin{Codee6400cb110584175a3a7d863c3ecd9f0}
+[...]
+document.addEventListener('editor-plugin-render', e => {
+    // console.log('editor-plugin-render');
+    // console.log({ e });
+    setPluginsList(prev => [
+        ...prev,
+        {
+            excluded: false,
+            // @ts-ignore
+            plugin: e.detail.context
+        }
+    ]);
+});
+[...]
+\end{Codee6400cb110584175a3a7d863c3ecd9f0}
+
+Na linha 137 o escutador é adicionado ao objeto
+\acrshort{dom}. Este evento monitora
+qualquer renderização de plugin que é despachada, seja ela da onde
+for. Quando acontece um despache a função é chamada, de modo que na linha
+140 tem-se a adição do plugin na lista de plugins.
+Note que o objeto adicionado possui uma propriedade excluded
+que controla quando o plugin sai de cena.
+
+Quando o estado
+pluginsList
+é atualizado por setPluginsList, a lista de plugins
+é memorizada em pluginsRender, que é então
+renderizado na linha 213 do código abaixo:
+
+\begin{Code135d6f8f1a4d4c78a9509b44e07291c2}
+[...]
+    return <Context.Provider value={{
+        editor: editor.current
+    }}>
+        <div style={{ display: 'none' }}>
+            { pluginsRender }
+            { inlinePluginsRender }
+        </div>
+        <div ref={ editorContainerRef } ></div>
+    </Context.Provider>
+}
+\end{Code135d6f8f1a4d4c78a9509b44e07291c2}
+
+\subsubsection{\underline{Instância do EditorJs}}
+
+Os quadros laranja, violeta e azul da
+Figura \ref{fig:effect-ready-editor-component}
+correspondem a instanciação do EditorJs e suas configurações.
+Quando a referência editor ainda não foi atribuida mas o editorContainerRef
+já está renderizado em tela conforme a linha 173, a linha 175 se encarrega
+de instanciar a classe EditorJS.
+
+Observe a importancia da linha 177 em que a referência editorContainerRef
+é repassada para a propriedade holder. O EditorJS utiliza essa propriedade para
+colocar a ferramenta de edição na
+\acrshort{dom}
+através da referência ao elemento repassado.
+
+A propriedade tools recebe o register na linha 178, que nada mais é do que a lista
+de plugins repassada quando o componente vai ser utilizado.
+na linha 190 há uma espécie de trava que aguarda até que o editor esteja pronto
+antes de chamar a função onReady na linha 192. Note que onReady só é chamada caso
+a mesma tenha sido repassada. Ao chamar, a instância do editor é repassada na linha
+193.
+
+\begin{Code49fd6eead0a948fda599a7e8d9891cc6}
+[...]
+if(!editor.current && editorContainerRef.current){
+    // console.log("Comming to assing editorjs...");
+    editor.current = new EditorJS({
+        ...config,
+        holder: editorContainerRef.current,
+        tools: Object.keys(register).reduce((prev, key) => {
+            const { component, ...restOfProps } = register[key];
+            return {
+                ...prev,
+                [key]: restOfProps
+            };
+        }, {}),
+        onChange: (api, event) => {
+            onChange && onChange(api, event);
+        },
+    });
+
+    await editor.current.isReady;
+
+    onReady && onReady({
+        editor: editor.current
+    })
+}
+[...]
+\end{Code49fd6eead0a948fda599a7e8d9891cc6}
 
 \subsection{BasePlugin}
+
+A classe BasePlugin será a classe na qual todos os plugins irão derivar.
+Ela implementa os métodos chamados pelo EditorJS quando um plugin customizado
+é chamado pela
+\acrshort{api}
+do EditorJS.
 
 \begin{figure}[H]
     \centering
@@ -1825,6 +2016,84 @@ Figura \ref{fig:effect-editor-result}.
     \label{fig:class-base-plugin} \\
     \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
 \end{figure}
+
+A tabela
+Tabela \ref{tbl:base-plugin-methods}
+mostra a descrição dos métodos da classe e suas atribuições.
+
+\begin{table}[H]
+    \centering
+    \caption{Métodos da classe BasePlugin}
+    \label{tbl:base-plugin-methods}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{p{5.6000cm} p{10.4000cm}}
+        \hline
+        \textbf{Método} & \textbf{Descrição} \\
+        \hline
+        toolbox() & Método estático que retorna o ícone do plugin a ser renderizado no menu \\
+		render() & Método que renderiza o plugin na ferramenta de edição
+             \\
+		renderSettings() & Método que renderiza o menu personalizado do plugin
+             \\
+		save() & Método que retorna o estado do componente quando saver da
+                \acrshort{api}
+                é chamado
+             \\
+		redered() & Método disparado quando o plugin é renderizado
+             \\
+		updated() & Método disparado quando o plugin é atualizado
+             \\
+		removed() & Método disparado quando o plugin é removido
+             \\
+		moved() & Método disparado quando o plugin é movido
+             \\
+		getName() & Método abstrado que retorna o nome do Plugin.
+                Toda implementação de plugin deve implementar essa
+                classe obrigatoriamente
+             \\
+		getUuid() & Método abstrado que retorna um identificador único ao instanciar o plugin.
+                Toda implementação de plugin deve implementar essa
+                classe obrigatoriamente
+             \\
+        \hline
+        
+    \end{tabular}
+\end{table}
+
+O método mais importante da classe base é o render(). É ele quem coloca o plugin
+em tela quando o usuário escolhe um plugin a partir do menu de plugins.
+Observe no código abaixo o funcionamento da classe:
+
+\begin{Code38f31b19fcde4eb8a1e4cb3ea1eb9782}
+[...]
+public render(){
+    const wrapper = document.createElement('div');
+    wrapper.id = this.pluginId;
+
+    const ev = new CustomEvent<{ context: BasePlugin }>(
+        'editor-plugin-render', {
+            detail: {
+                context: this
+            }
+        }
+    );
+    setTimeout(() => document.dispatchEvent(ev), 20);
+
+    return wrapper;
+}
+[...]
+\end{Code38f31b19fcde4eb8a1e4cb3ea1eb9782}
+
+Observe que o método render cria um wrapper a partir de um elemento
+div na linha 52. Na linha 53 é atribuído um id a partir da chamada do método
+getUuid(). Na linha 55 a 61 é criado um evento customizado que é despachado
+10 milissegundos após o retorno do wrapper.
+O wrapper é o que o EditorJS renderiza na ferramenta. O despache do evento
+juntamente com a referência a instância da classe é então capturada pelo
+escutador discutido na
+Figura \ref{fig:effect-ready-editor-component}
+da sessão Provider. Assim, o plugin do react vai para a lista de plugins ao mesmo
+tempo que é renderizado de forma integrada ao EditorJS.
 
 \subsection{InlineBasePlugin}
 

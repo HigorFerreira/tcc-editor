@@ -1,0 +1,14 @@
+digraph JSX_Render_Tree {
+    node [shape=box];
+
+    Provider [label="<Context.Provider>"];
+    div_hidden [label="<div style='display: none'>", style=filled, fillcolor="#4169E1"];
+    pluginsRender [label="pluginsRender"];
+    inlinePluginsRender [label="inlinePluginsRender"];
+    div_ref [label="<div ref={ editorContainerRef }>", style=filled, fillcolor="#FF6347"];
+
+    Provider -> div_hidden;
+    div_hidden -> pluginsRender;
+    div_hidden -> inlinePluginsRender;
+    Provider -> div_ref;
+}

@@ -52,11 +52,13 @@ export default abstract class BasePlugin<D = unknown> {
         const wrapper = document.createElement('div');
         wrapper.id = this.pluginId;
 
-        const ev = new CustomEvent<{ context: BasePlugin }>('editor-plugin-render', {
-            detail: {
-                context: this
+        const ev = new CustomEvent<{ context: BasePlugin }>(
+            'editor-plugin-render', {
+                detail: {
+                    context: this
+                }
             }
-        });
+        );
         setTimeout(() => document.dispatchEvent(ev), 20);
 
         return wrapper;
