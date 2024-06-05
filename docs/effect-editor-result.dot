@@ -1,0 +1,34 @@
+digraph G {
+    // layout=neato;
+    rankdir=TB;
+    size="8,5"
+
+    node [shape = sqaud]; // Define o formato dos nós como círculos
+    
+    eff[label=Efeito,shape=circle]
+    end[label=Fim, shape=doublecircle]
+    
+    getBlock[xlabel="getBlock", shape=point]
+    result[shape=point, xlabel="result"]
+    editor[shape=point, xlabel="editor"]
+    
+    cond[label="existe result?\ne\n editor foi instanciado?", shape=diamond]
+    
+    render[label="Renderiza result com editor.render\n\"await editor.render(result as any);\"", shape=squad]
+    nothing[label="Não faz nada", shape=none]
+    
+    result -> eff [label=Dispara]
+    editor -> eff [label=Dispara]
+    
+    eff -> cond
+    
+    cond -> render [label=Sim]
+    
+    cond -> nothing [label=Não]
+    
+    nothing -> end
+    render -> end
+    
+    getBlock -> result [label=Dispara]
+    
+}

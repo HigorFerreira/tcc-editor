@@ -175,6 +175,64 @@ export default function RootLayout({
         }
     },
     {
+        type: 'paragraph',
+        data: {
+            text: `
+                O arquivo page.tsx exporta o componente React denominado Home,
+                que é a tela inicial propriamente dita.
+                Embora os componentes em React sejam definidos como funções,
+                os mesmos serão representados em forma de diagrama de
+                classes para fins didáticos. Toda representação de
+                componente terá um método render() que retorna um código
+                <plugin-gloss id="jsx"></plugin-gloss>. Este método
+                não existe no componente em si, mas sim na implementação
+                do React. Pode-se pensar o render() como a função que
+                renderiza o que é retornado pela "função componente"
+                Home.
+                A
+                <plugin-ref-fig data-fig="class-home-component">Figura 1</plugin-ref-fig>
+                ilustra o componente em forma de diagrama de classe com seus estados e utilitários.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'image',
+        data: {
+            uuid: 'class-home-component',
+            fileType: 'png',
+            imageUrl: '',
+            width: 0.7,
+            title: 'Componente da página Home',
+            description: 'Fonte: Autoria própria'
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O campo editor é o mais importante de todos, pois é nele
+                que estará armazanada a referência à classe EditorJs em forma de estado.
+                É importante salientar que todo estado vem acompanhado com uma função
+                de atualização. Sempre que este estado é atualizado, a função de renderização
+                é chamada novamente, remotando o componente e consequentemente todas as referências
+                aos seus estados.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Note que o campo editor pode ser uma instância de EditorJs ou um valor nulo.
+                Isso se dá pois inicialmente este estado começa nulo até que a classe seja
+                carregada.
+                Observe na
+                <plugin-ref-fig data-fig="page-render-tree">Figura 1</plugin-ref-fig>
+                como o componente Home será renderizado:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
         type: 'image',
         data: {
             uuid: 'page-render-tree',
@@ -186,13 +244,243 @@ export default function RootLayout({
         }
     },
     {
+        type: 'paragraph',
+        data: {
+            text: `
+                Percebe-se que o componente Container possuí dois filhos: Um texto
+                ("Carregando editor...") e o componente Editor.
+                Observe a partir da linha 87 no código abaixo como a renderização
+                do texto "Carregando editor..." está condicionada ao estado loading.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'code',
+        data: {
+            uuid: `Code${uuidv4().replace(/-/g, '')}`,
+            start_line: 82,
+            text: `
+[...]
+return (
+    <main>
+        <Container>
+            {
+                loading
+                    ? 'Carregando editor...'
+                    : null
+            }
+            <Editor
+[...]
+`.trim()
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O estado loading inicialmente começa com o valor true, o que
+                faz com que o texto seja renderizado. O componente
+                Editor também estará em tela, mas como faz uso da classe EditorJs,
+                só aparecerá quando a mesma estiver pronta.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Note na linha 121 do código abaixo que a propriedade
+                <i>onReady</i><plugin-footnote data-note="
+                    Do inglês: Quando pronto.
+                ">
+                *</plugin-footnote>,
+                que pertence ao componente Editor, recebe uma função
+                com o parâmetro { editor }.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'code',
+        data: {
+            uuid: `Code${uuidv4().replace(/-/g, '')}`,
+            start_line: 120,
+            text: `
+[...]
+onReady={ ({ editor }) => {
+    setLoading(false);
+    setEditor(editor);
+} }
+[...]
+`.trim()
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                A propriedade onReady é um evento que chama
+                a função passada quando a classe EditorJs está pronta e
+                totalmente carregada. Note que a função passada chama dois
+                atualizadores de estado: setLoading e setEditor. Estes atualizadores
+                setam<plugin-footnote data-note="
+                    Neologismo derivado do verbo inglês 'To Set' que significa 'Definir',
+                    <plugin-ref id='setar'></plugin-ref>.
+                ">
+                *</plugin-footnote>
+                os estados loading como false, e editor com o valor { editor } presente
+                no parâmetro da função. O resultado disso é que a partir deste momento
+                o texto ("Carregando editor...") não aparecerá mais em tela; o editor
+                estará pronto para ser usado; e o estado editor possui a referência
+                à classe com toda a
+                <plugin-gloss id="api"></plugin-gloss>
+                do EditorJs.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+            A
+            <plugin-ref-table data-table="props-componente-home">Tabela</plugin-ref-table>
+            lista cada um dos estados do componente Home, bem como cada uma de suas
+            atribuições:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'table',
+        data: {
+            id: 'props-componente-home',
+            title: 'Propriedades do componente de tela Home',
+            description: 'Fonte: Autoria própria',
+            width: 1,
+            column_sizes: [ 0.22, 0.18, 0.6 ],
+            header: [ 'Propriedade', 'Atualizador', 'Descrição' ],
+            items: [
+                [ 'editor', 'setEditor', 'Armazena a referência à classe do EditorJs' ],
+                [ 'loading', 'setLoading', 'Estado de quando a tela está carregando' ],
+                [ 'isStorageLoading', 'Automático', 'Quando a <plugin-gloss id="api"></plugin-gloss>\
+                    da Storage está carregando' ],
+                [ 'storageError', 'Automático', 'Caso haja algum erro com a Storage' ],
+                [ 'result', 'Automático', 'Blocos guardados na Storage, (caso Hajam)' ],
+                [ 'putBlock', 'Automático', 'Função para guardar blocos na Storage' ],
+                [ 'getBlock', 'Automático', 'Função para pegar blocos da Storage' ],
+                // [ '', '', '' ],
+            ]
+        }
+    },
+    {
+        type: 'header',
+        data: {
+            level: 4,
+            text: 'Disparo de efeitos'
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Os estados podem alterar o comportamento da tela, bem como seu fluxo de renderização
+                de modo a enriquecer a experiência de usuário. A mudança de um estado também pode
+                disparar um efeito. Efeito este que adiciona alguma ação ou modificação de outros estados.
+                Observe o código abaixo:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'code',
+        data: {
+            uuid: `Code${uuidv4().replace(/-/g, '')}`,
+            start_line: 75,
+            text: `
+[...]
+useEffect(() => {
+    if(storageError){
+        console.error('Storage error', storageError);
+        message.error('Erro ao carregar storage');
+    }
+}, [ storageError ]);
+[...]
+`.trim()
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O código acima adiciona uma função que monitora o estado denominado
+                storageError. Na primeira renderização da página, ou sempre que este
+                estado muda, a função é disparada. Tudo que a função faz é checar se há
+                algum erro presente em storageError. Caso afirmativo, o erro é transcrito
+                na saída de erro do console através da linha 78, e uma mensagem
+                é exibida ao usuário na linha 79.
+                A
+                <plugin-ref-fig data-fig="effect-storageError">Figura 1</plugin-ref-fig>
+                ilustra este comportamento de forma visual:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
         type: 'image',
         data: {
-            uuid: 'class-home-component',
+            uuid: 'effect-storageError',
+            fileType: 'png',
+            imageUrl: '',
+            width: 0.5,
+            title: 'Disparo de efeito de storageError',
+            description: 'Fonte: Autoria própria'
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Diversos efeitos podem ser adicionados ao longo do componente, e cada
+                efeito pode monitorar um ou mais estados. Observe na
+                <plugin-ref-fig data-fig="effect-editor-result">Figura 1</plugin-ref-fig>
+                como os estados
+                result e editor se utilizam de um efeito para checar se existem blocos
+                salvos para então carregá-los através da
+                <plugin-gloss id="api"></plugin-gloss>
+                contida em editor:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'image',
+        data: {
+            uuid: 'effect-editor-result',
             fileType: 'png',
             imageUrl: '',
             width: 0.7,
-            title: 'Componente da página Home',
+            title: 'Disparo de efeito de result e editor',
+            description: 'Fonte: Autoria própria'
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Note como getBlock, que é uma função provida pelos estados do BlockStorage,
+                pode disparar uma mudança no estado result. Este é exatamente o fluxo desejado.
+                A
+                <plugin-ref-fig data-fig="effect-isStorageLoading">Figura 1</plugin-ref-fig>
+                mostra como a aplicação fica aguardando a Storage carregar, e assim
+                que ela carrega, getBlock é chamada, disparando o result, que porventura
+                seguirá o fluxo na
+                <plugin-ref-fig data-fig="effect-editor-result">Figura 1</plugin-ref-fig>.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'image',
+        data: {
+            uuid: 'effect-isStorageLoading',
+            fileType: 'png',
+            imageUrl: '',
+            width: 0.5,
+            title: 'Disparo de efeito isStorageLoading',
             description: 'Fonte: Autoria própria'
         }
     },

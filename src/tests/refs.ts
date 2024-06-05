@@ -263,4 +263,13 @@ export const refs = {
         year: 2020,
         title: 'Tutorial básico de LATEX',
     },
+    'setar': {
+        type: 'article',
+        author: [ 'Dicionário inFormal' ],
+        url: 'https://www.dicionarioinformal.com.br/significado/setar/17876/',
+        title: 'Setar',
+        year: 2018,
+        publisher: 'Dicionário inFormal (SP)',
+        note: '[Online: acessado em 04-Junho-2024]',
+    }
 } satisfies RefsObjectType

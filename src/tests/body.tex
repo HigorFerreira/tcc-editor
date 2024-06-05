@@ -1482,15 +1482,15 @@ Para executar o exemplo e ver como ele se comporta no navegador
 do usuário, basta a partir do diretório do projeto rodar o
 seguinte comando:
 
-\begin{080f9fa03799457c900cc94d4042c187}
+\begin{c05be23f77134574b1f7bb206e04f1b7}
 yarn dev
-\end{080f9fa03799457c900cc94d4042c187}
+\end{c05be23f77134574b1f7bb206e04f1b7}
 
 Após rodar o comando o servidor iniciará localmente.
 A saída do terminal mostrará a porta do serviço a ser acessada
 afim de renderizar a página:
 
-\begin{Code0579f3bfa1ed44ed8c6c63361f698163}
+\begin{Code00041357d26c4e96ba12ce0888e14159}
 yarn run v1.22.19
 $ next dev
     Next.js 14.1.1
@@ -1498,7 +1498,7 @@ $ next dev
     - Environments: .env.local
 
     Ready in 2.7s
-\end{Code0579f3bfa1ed44ed8c6c63361f698163}
+\end{Code00041357d26c4e96ba12ce0888e14159}
 
 Ao acessar o endereço http://localhost:3000
 na rota /example, a página é renderizada
@@ -1547,7 +1547,7 @@ da rota de página ao qual se está acessando.
 
 Observe abaixo o código de layout:
 
-\begin{Coded35270b9cd434a3b91d1303aa4089eeb}
+\begin{Code6d33a9496209429da690d0a4c003791e}
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -1575,7 +1575,7 @@ export default function RootLayout({
         </html>
     )
 }
-\end{Coded35270b9cd434a3b91d1303aa4089eeb}
+\end{Code6d33a9496209429da690d0a4c003791e}
 
 Na linha 13 há a exportação do componente em si. O código
 \acrshort{tsx}
@@ -1591,6 +1591,43 @@ dentro de head).
 
 \subsubsection{\underline{Page}}
 
+O arquivo page.tsx exporta o componente React denominado Home,
+que é a tela inicial propriamente dita.
+Embora os componentes em React sejam definidos como funções,
+os mesmos serão representados em forma de diagrama de
+classes para fins didáticos. Toda representação de
+componente terá um método render() que retorna um código
+\acrshort{jsx}. Este método
+não existe no componente em si, mas sim na implementação
+do React. Pode-se pensar o render() como a função que
+renderiza o que é retornado pela "função componente"~
+Home.
+A
+Figura \ref{fig:class-home-component}
+ilustra o componente em forma de diagrama de classe com seus estados e utilitários.
+
+\begin{figure}[H]
+    \centering
+    \caption{Componente da página Home}
+    \includegraphics[width=0.7\textwidth]{./images/class-home-component.png}
+    \label{fig:class-home-component} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+O campo editor é o mais importante de todos, pois é nele
+que estará armazanada a referência à classe EditorJs em forma de estado.
+É importante salientar que todo estado vem acompanhado com uma função
+de atualização. Sempre que este estado é atualizado, a função de renderização
+é chamada novamente, remotando o componente e consequentemente todas as referências
+aos seus estados.
+
+Note que o campo editor pode ser uma instância de EditorJs ou um valor nulo.
+Isso se dá pois inicialmente este estado começa nulo até que a classe seja
+carregada.
+Observe na
+Figura \ref{fig:page-render-tree}
+como o componente Home será renderizado:
+
 \begin{figure}[H]
     \centering
     \caption{Sub árvore de renderização da página principal}
@@ -1599,11 +1636,153 @@ dentro de head).
     \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
 \end{figure}
 
+Percebe-se que o componente Container possuí dois filhos: Um texto
+("Carregando editor...") e o componente Editor.
+Observe a partir da linha 87 no código abaixo como a renderização
+do texto "Carregando editor..."~ está condicionada ao estado loading.
+
+\begin{Code5818f59a8332420b971fbaf697f8997d}
+[...]
+return (
+    <main>
+        <Container>
+            {
+                loading
+                    ? 'Carregando editor...'
+                    : null
+            }
+            <Editor
+[...]
+\end{Code5818f59a8332420b971fbaf697f8997d}
+
+O estado loading inicialmente começa com o valor true, o que
+faz com que o texto seja renderizado. O componente
+Editor também estará em tela, mas como faz uso da classe EditorJs,
+só aparecerá quando a mesma estiver pronta.
+
+Note na linha 121 do código abaixo que a propriedade
+\textit{onReady}\footnote{Do inglês: Quando pronto.
+},
+que pertence ao componente Editor, recebe uma função
+com o parâmetro \{ editor \}.
+
+\begin{Codea622d7da4d60496f97bfaab7c50d6d7b}
+[...]
+onReady={ ({ editor }) => {
+    setLoading(false);
+    setEditor(editor);
+} }
+[...]
+\end{Codea622d7da4d60496f97bfaab7c50d6d7b}
+
+A propriedade onReady é um evento que chama
+a função passada quando a classe EditorJs está pronta e
+totalmente carregada. Note que a função passada chama dois
+atualizadores de estado: setLoading e setEditor. Estes atualizadores
+setam\footnote{Neologismo derivado do verbo inglês 'To Set' que significa 'Definir',
+    \cite{setar}.
+}
+os estados loading como false, e editor com o valor \{ editor \} presente
+no parâmetro da função. O resultado disso é que a partir deste momento
+o texto ("Carregando editor...") não aparecerá mais em tela; o editor
+estará pronto para ser usado; e o estado editor possui a referência
+à classe com toda a
+\acrshort{api}
+do EditorJs.
+
+A
+            Tabela \ref{tbl:props-componente-home}
+            lista cada um dos estados do componente Home, bem como cada uma de suas
+            atribuições:
+
+\begin{table}[H]
+    \centering
+    \caption{Propriedades do componente de tela Home}
+    \label{tbl:props-componente-home}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{p{3.5200cm} p{2.8800cm} p{9.6000cm}}
+        \hline
+        \textbf{Propriedade} & \textbf{Atualizador} & \textbf{Descrição} \\
+        \hline
+        editor & setEditor & Armazena a referência à classe do EditorJs \\
+		loading & setLoading & Estado de quando a tela está carregando \\
+		isStorageLoading & Automático & Quando a \acrshort{api}                    da Storage está carregando \\
+		storageError & Automático & Caso haja algum erro com a Storage \\
+		result & Automático & Blocos guardados na Storage, (caso Hajam) \\
+		putBlock & Automático & Função para guardar blocos na Storage \\
+		getBlock & Automático & Função para pegar blocos da Storage \\
+        \hline
+        \\\multicolumn{3}{c}{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+    \end{tabular}
+\end{table}
+
+\subsubsection{\underline{Disparo de efeitos}}
+
+Os estados podem alterar o comportamento da tela, bem como seu fluxo de renderização
+de modo a enriquecer a experiência de usuário. A mudança de um estado também pode
+disparar um efeito. Efeito este que adiciona alguma ação ou modificação de outros estados.
+Observe o código abaixo:
+
+\begin{Code427e40d149c74ac7a8bd8f3347a09f70}
+[...]
+useEffect(() => {
+    if(storageError){
+        console.error('Storage error', storageError);
+        message.error('Erro ao carregar storage');
+    }
+}, [ storageError ]);
+[...]
+\end{Code427e40d149c74ac7a8bd8f3347a09f70}
+
+O código acima adiciona uma função que monitora o estado denominado
+storageError. Na primeira renderização da página, ou sempre que este
+estado muda, a função é disparada. Tudo que a função faz é checar se há
+algum erro presente em storageError. Caso afirmativo, o erro é transcrito
+na saída de erro do console através da linha 78, e uma mensagem
+é exibida ao usuário na linha 79.
+A
+Figura \ref{fig:effect-storageError}
+ilustra este comportamento de forma visual:
+
 \begin{figure}[H]
     \centering
-    \caption{Componente da página Home}
-    \includegraphics[width=0.7\textwidth]{./images/class-home-component.png}
-    \label{fig:class-home-component} \\
+    \caption{Disparo de efeito de storageError}
+    \includegraphics[width=0.5\textwidth]{./images/effect-storageError.png}
+    \label{fig:effect-storageError} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+Diversos efeitos podem ser adicionados ao longo do componente, e cada
+efeito pode monitorar um ou mais estados. Observe na
+Figura \ref{fig:effect-editor-result}
+como os estados
+result e editor se utilizam de um efeito para checar se existem blocos
+salvos para então carregá-los através da
+\acrshort{api}
+contida em editor:
+
+\begin{figure}[H]
+    \centering
+    \caption{Disparo de efeito de result e editor}
+    \includegraphics[width=0.7\textwidth]{./images/effect-editor-result.png}
+    \label{fig:effect-editor-result} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+Note como getBlock, que é uma função provida pelos estados do BlockStorage,
+pode disparar uma mudança no estado result. Este é exatamente o fluxo desejado.
+A
+Figura \ref{fig:effect-isStorageLoading}
+mostra como a aplicação fica aguardando a Storage carregar, e assim
+que ela carrega, getBlock é chamada, disparando o result, que porventura
+seguirá o fluxo na
+Figura \ref{fig:effect-editor-result}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Disparo de efeito isStorageLoading}
+    \includegraphics[width=0.5\textwidth]{./images/effect-isStorageLoading.png}
+    \label{fig:effect-isStorageLoading} \\
     \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
 \end{figure}
 

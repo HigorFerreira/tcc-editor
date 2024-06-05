@@ -1,0 +1,43 @@
+digraph G {
+    rankdir=TB;
+    size="8,5"
+
+    node [shape = sqaud]; // Define o formato dos nós como círculos
+    
+    err[xlabel="storageError", shape=point]
+    
+    eff[label="Efeito", shape=circle]
+    
+    err -> eff [label="Dispara"]
+    
+    ccc[label="storageError existe?", shape=diamond]
+    
+    act1[label="Escreve storageError no console.error"]
+    act2[label="Exibe mensagem de erro ao usuário"]
+    nd[label="Não faz nada", shape=none]
+    
+    end[label=Fim, shape=doublecircle]
+    
+    eff -> ccc
+    ccc -> act1 [label=Sim]
+    act1 -> act2
+    
+    ccc -> nd [label=Não]
+    
+    nd -> end
+    act2 -> end
+    
+    // result[shape=point, xlabel="result"]
+    // editor[shape=point, xlabel="editor"]
+    
+    // cond[label="editor? e result?", shape=diamond]
+    
+    // render[label="editor.render(result as any)", shape=squad]
+    // nothing[label="Void", shape=none]
+    
+    // cond -> render [label="Verdadeiro"]
+    // cond -> nothing [label=Falso]
+    
+    // result -> cond [label="Disparo"]
+    // editor -> cond [label=Disparo]
+}
