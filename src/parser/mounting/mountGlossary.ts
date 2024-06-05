@@ -8,12 +8,20 @@ export function mountGlossary(glossary: GlossaryObjectType){
         \\newglossary*{simbolo}{Lista de símbolos}
     `.trim().replace(/^\s{8}/gm, '');
 
-    const gloss_arr = Object.keys(glossary).map(key => ({ ...glossary[key], key }));
+    const gloss_arr = Object.keys(glossary).map(
+        key => ({ ...glossary[key], key })
+    );
 
     const acronyms = gloss_arr
         .filter(({ type }) => type === 'sigla')
         .sort(({ label: a }, { label: b }) => a.localeCompare(b))
-        .map(({ short, label, type, key }) => `\\newacronym[type=${type}]{${key}}{${escapeCharacters(short)}}{${escapeCharacters(label)}}`)
+        .map(({ short, label, type, key }) => {
+            return `\\newacronym[type=${type}]{${key}}{${
+                escapeCharacters(short)
+            }}{${
+                escapeCharacters(label)
+            }}`
+        })
         .join('\n');
 
     const abbreviations = gloss_arr

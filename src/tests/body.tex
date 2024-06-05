@@ -213,7 +213,10 @@ foi desenvolvido, bem como todas as suas respectivas versões:
 Atender aos requisitos mínimos de hardware
 e software é fundamental para garantir uma experiência de usuário satisfatória
 e evitar problemas de desempenho ou compatibilidade com o aplicativo da plataforma.
-A seguir enumera-se o ambiente mínimo com seus respectivos softwares necessários
+A seguir
+na
+Tabela \ref{tbl:tecnologias-ambiente}
+enumera-se o ambiente mínimo com seus respectivos softwares necessários
 para rodar o aplicativo da plataforma:
 
 \begin{table}[H]
@@ -225,7 +228,8 @@ para rodar o aplicativo da plataforma:
         \hline
         \textbf{Tipo} & \textbf{Tecnologia} \\
         \hline
-        Interpretador & NodeJs 20.10.0 \\
+        Versionador & Git 2.34.1 \\
+		Interpretador & NodeJs 20.10.0 \\
 		Sistema Operacional & Ubuntu 20.04 \\
 		Gerenciador de pacotes & Npm 10.2.3 \\
 		Gerenciador de pacotes & Yarn 1.22.19 \\
@@ -235,6 +239,40 @@ para rodar o aplicativo da plataforma:
 		Navegador de Internet & Google Chrome 119.0.6045.199 \\
 		Compilador & pdfTeX 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) \\
 		Utilitário & makeglossaries (Utilitário \acrshort{latex}) \\
+        \hline
+        \\\multicolumn{2}{c}{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+    \end{tabular}
+\end{table}
+
+\subsection{Tecnologias do projeto}
+
+A seguir
+na
+Tabela \ref{tbl:tecnologias-projeto}
+estão listadas as tecnologias exatas do projeto juntamente com
+suas respectivas versões. As mesmas podem ser baixadas após o download do
+repositório com qualquer gerenciador de pacotes NodeJs, tais como: npm;
+yarn; pnpm e bun. Este trabalho utilizou o yarn:
+
+\begin{table}[H]
+    \centering
+    \caption{Tecnologias do projeto}
+    \label{tbl:tecnologias-projeto}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{p{3.2000cm} p{4.8000cm}}
+        \hline
+        \textbf{Nome} & \textbf{Versão} \\
+        \hline
+        antd & \textasciicircum 5.15.0 \\
+		next & \textasciicircum 14.1.1 \\
+		react & \textasciicircum 18.2.0 \\
+		node-latex & \textasciicircum 3.1.0 \\
+		cheerio & \textasciicircum 1.0.0-rc.12 \\
+		@editorjs/list & \textasciicircum 1.9.0 \\
+		@editorjs/header & \textasciicircum 2.8.1 \\
+		@emotion/react & \textasciicircum 11.11.4 \\
+		@emotion/styled & \textasciicircum 11.11.0 \\
+		@editorjs/editorjs & 2.29.1 \\
         \hline
         \\\multicolumn{2}{c}{\fontsize{10pt}{12pt}Fonte: Autoria própria}
     \end{tabular}
@@ -1482,15 +1520,15 @@ Para executar o exemplo e ver como ele se comporta no navegador
 do usuário, basta a partir do diretório do projeto rodar o
 seguinte comando:
 
-\begin{f5bb333cf7704bf4ba7775312b76dd67}
+\begin{08a8b62a97a84c358be7e5b8b70643e9}
 yarn dev
-\end{f5bb333cf7704bf4ba7775312b76dd67}
+\end{08a8b62a97a84c358be7e5b8b70643e9}
 
 Após rodar o comando o servidor iniciará localmente.
 A saída do terminal mostrará a porta do serviço a ser acessada
 afim de renderizar a página:
 
-\begin{Codea365a6c884004cc38a9d2e493c5879cd}
+\begin{Code4ed76863a6b14d058bd76e8be14cf7b3}
 yarn run v1.22.19
 $ next dev
     Next.js 14.1.1
@@ -1498,7 +1536,7 @@ $ next dev
     - Environments: .env.local
 
     Ready in 2.7s
-\end{Codea365a6c884004cc38a9d2e493c5879cd}
+\end{Code4ed76863a6b14d058bd76e8be14cf7b3}
 
 Ao acessar o endereço http://localhost:3000
 na rota /example, a página é renderizada
@@ -1547,7 +1585,7 @@ da rota de página ao qual se está acessando.
 
 Observe abaixo o código de layout:
 
-\begin{Codea649804db629451ea05f2ac1834489cf}
+\begin{Code64b78d6c21224f3ebe49cafd3e2c765a}
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -1575,7 +1613,7 @@ export default function RootLayout({
         </html>
     )
 }
-\end{Codea649804db629451ea05f2ac1834489cf}
+\end{Code64b78d6c21224f3ebe49cafd3e2c765a}
 
 Na linha 13 há a exportação do componente em si. O código
 \acrshort{tsx}
@@ -1641,7 +1679,7 @@ Percebe-se que o componente Container possuí dois filhos: Um texto
 Observe a partir da linha 87 no código abaixo como a renderização
 do texto "Carregando editor..."~ está condicionada ao estado loading.
 
-\begin{Code339470698d094bf395237b7c4cb650fb}
+\begin{Codeb7c5c27cfcc24b65bba2168db29c8b37}
 [...]
 return (
     <main>
@@ -1653,7 +1691,7 @@ return (
             }
             <Editor
 [...]
-\end{Code339470698d094bf395237b7c4cb650fb}
+\end{Codeb7c5c27cfcc24b65bba2168db29c8b37}
 
 O estado loading inicialmente começa com o valor true, o que
 faz com que o texto seja renderizado. O componente
@@ -1666,14 +1704,14 @@ Note na linha 121 do código abaixo que a propriedade
 que pertence ao componente Editor, recebe uma função
 com o parâmetro \{ editor \}.
 
-\begin{Code3f50c60c6c3e4663ba2b5f2e7bdaacb4}
+\begin{Codec4a93f34ea6946c1b5a30cc7470a2acd}
 [...]
 onReady={ ({ editor }) => {
     setLoading(false);
     setEditor(editor);
 } }
 [...]
-\end{Code3f50c60c6c3e4663ba2b5f2e7bdaacb4}
+\end{Codec4a93f34ea6946c1b5a30cc7470a2acd}
 
 A propriedade onReady é um evento que chama
 a função passada quando a classe EditorJs está pronta e
@@ -1723,7 +1761,7 @@ de modo a enriquecer a experiência de usuário. A mudança de um estado também
 disparar um efeito. Efeito este que adiciona alguma ação ou modificação de outros estados.
 Observe o código abaixo:
 
-\begin{Code3a4b47042114469bbcba3c1b27f1ff1e}
+\begin{Code1b93e4f8a2af45d9a4a6fd122a881238}
 [...]
 useEffect(() => {
     if(storageError){
@@ -1732,7 +1770,7 @@ useEffect(() => {
     }
 }, [ storageError ]);
 [...]
-\end{Code3a4b47042114469bbcba3c1b27f1ff1e}
+\end{Code1b93e4f8a2af45d9a4a6fd122a881238}
 
 O código acima adiciona uma função que monitora o estado denominado
 storageError. Na primeira renderização da página, ou sempre que este
@@ -1796,14 +1834,14 @@ seguida repassa-o para putBlock.
 Os detalhes de implementação da Storage se encontram no repositório através
 do diretório: /src/components/Storage
 
-\begin{Codee954203ebb3f416b931080229705a4f7}
+\begin{Code39cc4a40249d4904826d6d806f4e9c66}
 [...]
 onChange={async (api, event) => {
     const blocks = await api.saver.save();
     putBlock(blocks as EditorSave);
 }}
 [...]
-\end{Codee954203ebb3f416b931080229705a4f7}
+\end{Code39cc4a40249d4904826d6d806f4e9c66}
 
 \section{Editor}
 
@@ -1906,7 +1944,7 @@ evento personalizado denominado \textit{editor-plugin-render}.
 Isto é importante pois este evento recebe a criação dos plugins que
 são disparados de dentro da classe EditorJs. Observe o código abaixo:
 
-\begin{Codec391c0a635764d51aec6042bddf691c2}
+\begin{Code471a636a246640329f6355642b216696}
 [...]
 document.addEventListener('editor-plugin-render', e => {
     // console.log('editor-plugin-render');
@@ -1921,7 +1959,7 @@ document.addEventListener('editor-plugin-render', e => {
     ]);
 });
 [...]
-\end{Codec391c0a635764d51aec6042bddf691c2}
+\end{Code471a636a246640329f6355642b216696}
 
 Na linha 137 o escutador é adicionado ao objeto
 \acrshort{dom}. Este evento monitora
@@ -1937,7 +1975,7 @@ pluginsList
 é memorizada em pluginsRender, que é então
 renderizado na linha 213 do código abaixo:
 
-\begin{Codec9afcee0a2c0430eb33fa2d9a02a5b93}
+\begin{Code997d6bc996f54aedac8fa3816491ede2}
 [...]
     return <Context.Provider value={{
         editor: editor.current
@@ -1949,7 +1987,7 @@ renderizado na linha 213 do código abaixo:
         <div ref={ editorContainerRef } ></div>
     </Context.Provider>
 }
-\end{Codec9afcee0a2c0430eb33fa2d9a02a5b93}
+\end{Code997d6bc996f54aedac8fa3816491ede2}
 
 \subsubsection{\underline{Instância do EditorJs}}
 
@@ -1973,7 +2011,7 @@ antes de chamar a função onReady na linha 192. Note que onReady só é chamada
 a mesma tenha sido repassada. Ao chamar, a instância do editor é repassada na linha
 193.
 
-\begin{Code755654de9a3642df99c2f2fed5cd2ef7}
+\begin{Code8aa2eb7bcb7f47988f5104d8da5404ab}
 [...]
 if(!editor.current && editorContainerRef.current){
     // console.log("Comming to assing editorjs...");
@@ -1999,7 +2037,7 @@ if(!editor.current && editorContainerRef.current){
     })
 }
 [...]
-\end{Code755654de9a3642df99c2f2fed5cd2ef7}
+\end{Code8aa2eb7bcb7f47988f5104d8da5404ab}
 
 \subsection{BasePlugin}
 
@@ -2064,7 +2102,7 @@ O método mais importante da classe base é o render(). É ele quem coloca o plu
 em tela quando o usuário escolhe um plugin a partir do menu de plugins.
 Observe no código abaixo o funcionamento da classe:
 
-\begin{Codea3154fb80e0b42fb8451b8d2ffd0009e}
+\begin{Codeaf45002cf0dc45c69f990afd7cdf6aa5}
 [...]
 public render(){
     const wrapper = document.createElement('div');
@@ -2082,7 +2120,7 @@ public render(){
     return wrapper;
 }
 [...]
-\end{Codea3154fb80e0b42fb8451b8d2ffd0009e}
+\end{Codeaf45002cf0dc45c69f990afd7cdf6aa5}
 
 Observe que o método render cria um wrapper a partir de um elemento
 div na linha 52. Na linha 53 é atribuído um id a partir da chamada do método
@@ -2127,7 +2165,7 @@ se programa a aparência e comportamentos do mesmo.
 O plugin de Header, (até o momento de escrita deste trabalho), é o mais simples
 que foi desenvolvido. Observe abaixo a implementação do arquivo class.tsx:
 
-\begin{Code1ae6fc068cbe481fb1ea73a3550591ca}
+\begin{Code65de2e2285bc4962a9753e8ef58cf744}
 [...]
 export default class HeaderClass extends BasePlugin<DataType> {
     text: string = ""
@@ -2140,7 +2178,7 @@ export default class HeaderClass extends BasePlugin<DataType> {
         };
     }
 [...]
-\end{Code1ae6fc068cbe481fb1ea73a3550591ca}
+\end{Code65de2e2285bc4962a9753e8ef58cf744}
 
 Na linha 17, é realizada a exportação da classe HeaderClass,
 que estende a classe BasePlugin. Observe que nas linhas 18 e 19,
@@ -2152,7 +2190,7 @@ de atualização do nível (level) do Header, pois é nesta classe que
 o menu, onde o usuário selecionará o nível do título, é definido,
 conforme o código abaixo:
 
-\begin{Code251aa03368a141a0bc593dc89e0cb376}
+\begin{Codea3db8d30ea1b4172bdefd714abdd993b}
 [...]
 public renderSettings(): TunesMenuConfigItem[] {
     return ([1,2,3,4,5] as HeaderLevelsType[]).map(lv => ({
@@ -2165,7 +2203,7 @@ public renderSettings(): TunesMenuConfigItem[] {
         closeOnActivate: true,
         isActive: lv === this?.pluginData?.level,
 [...]
-\end{Code251aa03368a141a0bc593dc89e0cb376}
+\end{Codea3db8d30ea1b4172bdefd714abdd993b}
 
 Observe como a função de atualização de estado é chamada a partir de onActivate
 na linha 41. Isso garante a comunicação do menu com o componente React, permitindo
@@ -2176,7 +2214,7 @@ getName() e getUuid(). Observe que em getName retorna-se o nome header do plugin
 ao passo que em getUuid retorna-se um uuid versão 4 para criar um identificador
 único para o plugin.
 
-\begin{Code7cf27fac4d98494c906e5dde84da5880}
+\begin{Code141fa3100084492bb1367b414729e5c8}
 [...]
     getName(): string {
         return 'header';
@@ -2186,7 +2224,7 @@ ao passo que em getUuid retorna-se um uuid versão 4 para criar um identificador
         return uuidv4();
     }
 }
-\end{Code7cf27fac4d98494c906e5dde84da5880}
+\end{Code141fa3100084492bb1367b414729e5c8}
 
 \subsubsubsection{Plugin React}
 
@@ -2898,12 +2936,101 @@ export function pageBreak(block: PageBreakBlock){
 }
 \end{getPageBreak1}
 
-\subsubsection{\underline{Table, (tabelas)}}
-
-Explicar o complexo parser do plugin de tabela.
-
 \subsection{Montagem}
 
+O processo de montagem é o processo no qual algumas partes do código
+\acrshort{latex}
+são montadas separadamente para fins de organização.
+Após montadas, cada uma destas partes são incluídas no código principal
+através do comando \textbackslash input.
+
 \subsubsection{\underline{Glossário}}
+
+Cada item de glorrário, seja ele uma abreviação ou sigla,
+deve ser definido no documento antes que se possa fazer uso do mesmo.
+Observe abaixo o exemplo de uma definição de sigla em
+\acrshort{latex}:
+
+\begin{Codea4f7062fa9ce44a0bed3adc544106faf}
+\newacronym[type=sigla]{abnt}{ABNT}{Associação Brasileira de Normas Técnicas}
+\end{Codea4f7062fa9ce44a0bed3adc544106faf}
+
+Além de montados, cada clossário deve ser exibido com o comando
+\textbackslash printglossary. Veja o código abaixo:
+
+\begin{Codeb9e35110de7d46819ae466a98a8d891d}
+\printglossary[type=sigla,title=LISTA DE SIGLAS]
+\clearpage
+
+\printglossary[type=abreviacao,title=LISTA DE ABREVIATURAS]
+\clearpage
+\end{Codeb9e35110de7d46819ae466a98a8d891d}
+
+Isto garante que os devidos glossários sejam exibidos com
+folga de uma página, com seus respectivos títulos.
+
+A função mountGlossary exportada em mountGlossary.ts
+contém sua implementação, que faz todo o processamento dos
+items de glossário a partir de um GlossaryObjectType:
+
+\begin{Code50fafc00a6f84633ac670b340c68a4fa}
+[...]
+export function mountGlossary(glossary: GlossaryObjectType){
+    const header = `
+        \\newglossary*{abreviacao}{Lista de abreviaturas}
+        \\newglossary*{sigla}{Lista de siglas}
+        \\newglossary*{simbolo}{Lista de símbolos}
+    `.trim().replace(/^\s{8}/gm, '');
+
+    const gloss_arr = Object.keys(glossary).map(
+        key => ({ ...glossary[key], key })
+    );
+
+    const acronyms = gloss_arr
+        .filter(({ type }) => type === 'sigla')
+        .sort(({ label: a }, { label: b }) => a.localeCompare(b))
+        .map(({ short, label, type, key }) => {
+            return `\\newacronym[type=${type}]{${key}}{${
+                escapeCharacters(short)
+            }}{${
+                escapeCharacters(label)
+            }}`
+        })
+        .join('\n');
+\end{Code50fafc00a6f84633ac670b340c68a4fa}
+
+Note que todos os objetos de glossário vem misturados
+no parâmetro glossary da função.
+Para montar as siglas da linha 15,
+por exemplo, é feita uma filtragem no tipo de glorrário, uma
+ordenação através da função sort, e por fim, a conversão em código
+\acrshort{latex}
+através da função map na linha 18. Por fim, o array de siglas
+é unido através do caractere de quebra de linha por meio da função
+join em 25. O mesmo processo acontece com a lista de abreviações
+e de termos.
+
+Por fim, basta unir tudo em uma string conforme mostrado na linha
+65 abaixo. As linhas 67 e 68 foram uma tentativa de customizar o estilo
+do glossário e seu título. Por hora, esta parte está omitida do trabalho.
+A linha 66 adiciona o comando \textbackslash makeglossaries, que diz ao
+\acrshort{latex}
+para montar o glossário.
+
+\begin{Code48d5d6a597d74490bee59475c2789bf5}
+[...]
+    let str = `${header}\n\n${acronyms}\n${abbreviations}\n${symbols}\n\n`;
+    str = str.concat(`\\makeglossaries`);
+    // str = str.concat('\n\n').concat(custom_style);
+    // str = str.concat('\n\n').concat(custom_title);
+
+
+    return str;
+}
+\end{Code48d5d6a597d74490bee59475c2789bf5}
+
+Após todo o processamento seu resultado é guardado em um arquivo
+denominado makeGlossaries.tex a ser importado posteriormente
+pelo código fonte contruído no processo de Parsing.
 
 \subsubsection{\underline{Referências}}

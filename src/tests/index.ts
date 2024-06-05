@@ -388,7 +388,10 @@ export const data: Block[] = [
                 Atender aos requisitos mínimos de hardware
                 e software é fundamental para garantir uma experiência de usuário satisfatória
                 e evitar problemas de desempenho ou compatibilidade com o aplicativo da plataforma.
-                A seguir enumera-se o ambiente mínimo com seus respectivos softwares necessários
+                A seguir
+                na
+                <plugin-ref-table data-table="tecnologias-ambiente">Tabela</plugin-ref-table>
+                enumera-se o ambiente mínimo com seus respectivos softwares necessários
                 para rodar o aplicativo da plataforma:
             `.trim().replace(/^\s{16}/gm, '')
         }
@@ -413,6 +416,52 @@ export const data: Block[] = [
                 [ 'Utilitário', 'makeglossaries (Utilitário <plugin-gloss id="latex"></plugin-gloss>)' ],
                 [ 'Linguagem de Programação', 'TypeScript 5.3.3' ],
                 [ 'Navegador de Internet', 'Google Chrome 119.0.6045.199' ],
+                [ 'Versionador', 'Git 2.34.1' ],
+            ].sort((a, b) => {
+                const a_num = a.reduce((acc, e) => acc + e.length, 0);
+                const b_num = b.reduce((acc, e) => acc + e.length, 0);
+                return a_num - b_num;
+            })
+        }
+    },
+    {
+        type: 'header',
+        data: { level: 3, text: 'Tecnologias do projeto' }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                A seguir
+                na
+                <plugin-ref-table data-table="tecnologias-projeto">Tabela</plugin-ref-table>
+                estão listadas as tecnologias exatas do projeto juntamente com
+                suas respectivas versões. As mesmas podem ser baixadas após o download do
+                repositório com qualquer gerenciador de pacotes NodeJs, tais como: npm;
+                yarn; pnpm e bun. Este trabalho utilizou o yarn:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'table',
+        data: {
+            id: 'tecnologias-projeto',
+            title: 'Tecnologias do projeto',
+            description: 'Fonte: Autoria própria',
+            width: 0.5,
+            column_sizes: [ 0.4, 0.6 ],
+            header: [ 'Nome', 'Versão' ],
+            items: [
+                [ '@editorjs/editorjs', '2.29.1' ],
+                [ '@editorjs/header', '^2.8.1' ],
+                [ '@editorjs/list', '^1.9.0' ],
+                [ '@emotion/react', '^11.11.4' ],
+                [ '@emotion/styled', '^11.11.0' ],
+                [ 'antd', '^5.15.0' ],
+                [ 'cheerio', '^1.0.0-rc.12' ],
+                [ 'next', '^14.1.1' ],
+                [ 'node-latex', '^3.1.0' ],
+                [ 'react', '^18.2.0' ],
             ].sort((a, b) => {
                 const a_num = a.reduce((acc, e) => acc + e.length, 0);
                 const b_num = b.reduce((acc, e) => acc + e.length, 0);
