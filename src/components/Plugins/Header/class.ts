@@ -33,7 +33,7 @@ export default class HeaderClass extends BasePlugin<DataType> {
     }
 
     public renderSettings(): TunesMenuConfigItem[] {
-        return ([1,2,3,4] as HeaderLevelsType[]).map(lv => ({
+        return ([1,2,3,4,5] as HeaderLevelsType[]).map(lv => ({
             title: `Nível ${lv}`,
             // @ts-ignore
             onActivate: () => {
