@@ -417,6 +417,7 @@ export const data: Block[] = [
                 [ 'Linguagem de Programação', 'TypeScript 5.3.3' ],
                 [ 'Navegador de Internet', 'Google Chrome 119.0.6045.199' ],
                 [ 'Versionador', 'Git 2.34.1' ],
+                [ 'AbnTeX2', '1.9.7 2018-11-24' ]
             ].sort((a, b) => {
                 const a_num = a.reduce((acc, e) => acc + e.length, 0);
                 const b_num = b.reduce((acc, e) => acc + e.length, 0);
@@ -2081,6 +2082,85 @@ export const data: Block[] = [
     },
     {
         type: 'header',
+        data: { level: 4, text: 'AbnTex2' }
+    },
+    {
+        type: 'direct-cite',
+        data: {
+            text: `
+                O abnTeX2, evolução do abnTeX (ABsurd Norms for TeX), é uma suíte para LaTeX que atende os requisitos das normas da
+                <plugin-gloss id="abnt"></plugin-gloss>
+                (Associação Brasileira de Normas Técnicas) para elaboração de documentos técnicos e científicos brasileiros, como artigos científicos, relatórios técnicos, trabalhos acadêmicos como teses, dissertações, projetos de pesquisa e outros documentos do gênero.
+
+                A suíte abnTeX2 é composta por uma classe, por pacotes de citação e de formatação de estilos bibliográficos, por exemplos, modelos de documentos e por uma ampla documentação.
+
+                <plugin-ref id="abntex2"></plugin-ref>
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'header',
         data: { level: 3, text: 'Cheerio' }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Cheerio é uma biblioteca útil para processar linguagem de marcação.
+                Diferente do Browser, que renderiza uma página
+                <plugin-gloss id="html"></plugin-gloss>
+                e implementa a estilização, Cheerio analisa a linguagem de marcação
+                tornando-a em dado estruturado. Deste modo, tem-se a possibilidade
+                de percorrer e manipular a estrutura de dados resultante do
+                código
+                <plugin-gloss id="html"></plugin-gloss>.
+                Especificamente, o Cheerio não renderiza visualmente, aplica CSS,
+                carrega recursos externos ou executa JavaScript, o que é comum
+                em uma aplicação de página única
+                (<plugin-gloss id="spa"></plugin-gloss>,
+                na sigla em inglês).
+                Isso torna o Cheerio muito mais rápido do que outras soluções.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'header',
+        data: { level: 4, text: 'Recursos' }
+    },
+    {
+        type: 'list',
+        data: {
+            type: 'bullet',
+            list: [
+                `
+                Sintaxe familiar: O Cheerio implementa um subconjunto do core do jQuery.
+                O Cheerio elimina todas as inconsistências do
+                <plugin-gloss id="dom"></plugin-gloss>
+                e as peculiaridades dos navegadores da biblioteca jQuery, revelando sua
+                <plugin-gloss id="api"></plugin-gloss>
+                verdadeiramente esplêndida.
+                `,
+                `
+                Velocidade impressionante: O Cheerio trabalha com um modelo de 
+                <plugin-gloss id="dom"></plugin-gloss>
+                muito simples e consistente. Como resultado, a análise, manipulação e renderização são incrivelmente eficientes.
+                `,
+                `
+                Incrivelmente flexível: O Cheerio utiliza o analisador parse5 e pode opcionalmente usar o tolerante htmlparser2 de @FB55. O Cheerio pode analisar praticamente qualquer documento
+                <plugin-gloss id="html"></plugin-gloss>
+                ou
+                <plugin-gloss id="xml"></plugin-gloss>.
+                `,
+            ]
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Fonte:
+                <plugin-ref id="cheerio"></plugin-ref>
+            `.trim().replace(/^\s{16}/gm, '')
+        }
     },
 ]

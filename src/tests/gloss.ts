@@ -208,4 +208,9 @@ export const gloss = {
         label: 'Application',
         short: 'App',
     },
+    'spa': {
+        type: 'sigla',
+        label: 'Single Page Application',
+        short: 'SPA',
+    },
 } satisfies GlossaryObjectType

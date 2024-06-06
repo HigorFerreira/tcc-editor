@@ -281,6 +281,16 @@ export const refs = {
         url: 'https://pt.wikipedia.org/wiki/LaTeX',
         note: '[Online: acessado em 06-Junho-2024]',
     },
+    'abntex2': {
+        type: 'article',
+        author: [ 'Lauro César Araujo' ],
+        year: 2012,
+        title: 'AbnTex2',
+        publisher: 'Abntex',
+        // journal: 'Revista SBC Horizontes',
+        url: 'https://www.abntex.net.br/',
+        note: '[Online: acessado em 06-Junho-2024]',
+    },
     'setar': {
         type: 'article',
         author: [ 'Dicionário inFormal' ],
@@ -289,5 +299,15 @@ export const refs = {
         year: 2018,
         publisher: 'Dicionário inFormal (SP)',
         note: '[Online: acessado em 04-Junho-2024]',
-    }
+    },
+    'cheerio': {
+        type: 'article',
+        // author: [ 'Wikipedia' ],
+        year: 2022,
+        title: 'cheerio',
+        publisher: 'NPM',
+        // journal: 'Revista SBC Horizontes',
+        url: 'https://www.npmjs.com/package/cheerio',
+        note: '[Online: acessado em 06-Junho-2024]',
+    },
 } satisfies RefsObjectType
