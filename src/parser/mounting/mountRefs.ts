@@ -16,9 +16,16 @@ export function mountRefs(refs: RefsObjectType){
                                     // @ts-ignore
                                     const value = restRefs[ref_key];
                                     if(ref_key === 'author')
-                                        return `${ref_key}={${(value as string[]).join(' and ')}}`
+                                        return `${ref_key}={${
+                                            (value as string[])
+                                                .join(' and ')
+                                    }}`
                                     else if(ref_key === 'edition')
-                                        return `${ref_key}={${(value as number).toString().concat('st')}}`
+                                        return `${ref_key}={${
+                                            (value as number)
+                                                .toString()
+                                                .concat('st')
+                                    }}`
                                     else
                                         return `${ref_key}={${value}}`
                             }

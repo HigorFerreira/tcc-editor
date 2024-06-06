@@ -6,6 +6,7 @@ import {
     ParagraphBlock,
     TableBlock,
     CodeBlock,
+    DirectCite
 } from '@/parser/plugins/types';
 
 export type {
@@ -16,6 +17,7 @@ export type {
     ParagraphBlock,
     TableBlock,
     CodeBlock,
+    DirectCite,
 };
 
 export interface BookRefType {
@@ -84,3 +86,4 @@ export type Block = Partial<PageBreakBlock>
     | Partial<ParagraphBlock>
     | Partial<ImageBlock>
     | Partial<CodeBlock>
+    | Partial<DirectCite>

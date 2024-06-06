@@ -1,8 +1,10 @@
 import { data as initialData, refs, gloss } from '@/tests';
 import { data as chapter3 } from '@/tests/chapter3';
+import { chapter4 } from '@/tests/chapter4';
 import { getParagraph } from '@/parser/plugins/paragraph';
 import { getHeader } from '@/parser/plugins/header';
 import { getCode } from '@/parser/plugins/code';
+import { getDirectCite } from '@/parser/plugins/direct-cite';
 import { mountRefs } from '@/parser/mounting/mountRefs';
 import { mountGlossary } from '@/parser/mounting/mountGlossary';
 import { mountGlossaryPrint } from '@/parser/mounting/mountGlossaryPrint';
@@ -20,7 +22,9 @@ const TESTS_PATH = '/home/higor/Documents/TCC/editor2/src/tests'
 
 async function main() {
 
-    const data = initialData.concat(chapter3);
+    const data = initialData
+        .concat(chapter3)
+        .concat(chapter4);
     const codes: CodesObjectType = {};
 
 
@@ -50,6 +54,9 @@ async function main() {
                 codes[block.data?.uuid??''] = block;
                 // @ts-ignore
                 return getCode(block);
+            case 'direct-cite':
+                // @ts-ignore
+                return getDirectCite(block); 
         }
     }).join('\n\n');
 

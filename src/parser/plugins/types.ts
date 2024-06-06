@@ -43,6 +43,14 @@ export interface ParagraphBlock {
     }
 }
 
+export interface DirectCite {
+    type: 'direct-cite'
+    id: string
+    data: {
+        text: string
+    }
+}
+
 export interface ImageBlock {
     type: 'image'
     id: string
