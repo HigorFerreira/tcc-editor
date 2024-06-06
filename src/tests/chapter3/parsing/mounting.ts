@@ -66,7 +66,7 @@ export const mounting: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                Cada item de glorrário, seja ele uma abreviação ou sigla,
+                Cada item de glossário, seja ele uma abreviação ou sigla,
                 deve ser definido no documento antes que se possa fazer uso do mesmo.
                 Observe abaixo o exemplo de uma definição de sigla em
                 <plugin-gloss id="latex"></plugin-gloss>:
@@ -218,6 +218,73 @@ export function mountGlossary(glossary: GlossaryObjectType){
     {
         type: 'header',
         data: { level: 4, text: 'Referências' }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                A parte de referênciação é uma das automações mais úteis do projeto, pois
+                adiciona referências cruzadas ao projeto facilmente navegável na versão
+                digital do mesmo.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Observe a função mountRefs exportada a partir do arquivo mountRefs.ts:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'code',
+        data: {
+            uuid: `Code${uuidv4().replace(/-/g, '')}`,
+            start_line: 1,
+            text: `
+import { RefsObjectType } from '@/parser/types';
+
+export function mountRefs(refs: RefsObjectType){
+    return Object.keys(refs).map(key => {
+        const ref  = refs[key];
+        const { type, ...restRefs } = ref;
+        if(type){
+            return \`
+                @\${type}{\${key},
+                    \${(() => {
+                        return Object.keys(restRefs).map(ref_key => {
+                            switch(type){
+                                case 'misc':
+                                case 'book':
+                                case 'article':
+                                    // @ts-ignore
+                                    const value = restRefs[ref_key];
+                                    if(ref_key === 'author')
+                                        return \`\${ref_key}={\${
+                                            (value as string[])
+                                                .join(' and ')
+                                    }}\`
+                                    else if(ref_key === 'edition')
+                                        return \`\${ref_key}={\${
+                                            (value as number)
+                                                .toString()
+                                                .concat('st')
+                                    }}\`
+                                    else
+                                        return \`\${ref_key}={\${value}}\`
+                            }
+                        }).join(',\\n    ')
+                    })()}
+                }
+            \`.trim().replace(/^\\s{16}/gm, '');
+        }
+
+        return '';
+    }).join('\\n\\n');
+}
+`.trim()
+        }
     },
     // {
     //     type: 'header',

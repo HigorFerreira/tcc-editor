@@ -1005,7 +1005,7 @@ em termos de tempo, código e simplicidade de projeto.
 
 \section{Do Back-End}
 
-Back-end se relaciona com o que está por trás das aplicações desenvolvidas na programação. Ou seja, tudo que dá estrutura e apoio às ações do usuário da máquina é chamado de back-end. Quando se acessa um site, por exemplo, por trás de toda sua apresentação amigável esteticamente, há uma comunicação das informações trocadas entre banco de dados e navegador. Portanto, por trás da interface gráfica do realizador, o back-end está sempre agindo.
+Back-end se relaciona com o que está nos bastidores das aplicações desenvolvidas na programação. Ou seja, tudo que dá estrutura e apoio às ações do usuário da máquina é chamado de back-end. Quando se acessa um site, por exemplo, por trás de toda sua apresentação amigável esteticamente, há uma comunicação das informações trocadas entre banco de dados e navegador. Portanto, atrás da interface gráfica do realizador, o back-end está sempre agindo.
 \cite{totvs-back-end}.
 
 \subsection{NodeJs}
@@ -1264,6 +1264,65 @@ a saber: exec() e test().
 
 \subsection{Lamport Tex, LaTex}
 
+O
+\acrshort{latex}
+é um sistema de preparação de documentos e processamento de texto,
+desenvolvido na década de 1980 pelo norte-americano Leslie Lamport baseado
+no sistema tipográfico TeX, desenvolvido por Donald Knuth.
+\cite{latex-2}.
+
+\vspace{15mm}
+    \noindent
+    \begin{minipage}{\textwidth}
+        \noindent
+        \begin{minipage}{4cm}
+        \end{minipage}%
+        \hfill
+        \begin{minipage}{\dimexpr\textwidth-4cm}
+            \hspace*{\parindent}
+            \fontsize{10pt}{12pt}\selectfont % Ajusta o tamanho do texto para 10pt e altura da linha para 12pt
+            O
+\acrshort{latex}
+é utilizado para criar documentos dos mais variados tipos de
+publicação, como artigos, teses, dissertações, livros, cartas, relatórios ou qualquer
+outro tipo de documento. Possui um alto grau de exatidão e precisão na diagramação do
+conteúdo do documento e alta qualidade na formatação automática do documento. O
+\acrshort{latex}
+é uma ampliação do original sistema de tipografia TEX. Tornou-se um padrão
+para produção de documentos científicos.
+\cite{tutorial-latex}.
+        \end{minipage}
+    \end{minipage}
+    \vspace{15mm}
+
+O código escrito em
+\acrshort{latex}
+se utiliza de convenções de marcação (\textit{tagging}) para controlar o
+modo como o texto é exibido, por exemplo: negrito, itálico, citação,
+referências cruzadas e etc...
+Sua utilidade está na produção de um texto entendível tanto por humanos,
+quanto pela máquina que o compilará e formatará. Deste modo, o autor
+pode ser distanciado da apresentação visual da informação, se preocupando
+apenas com o conteúdo escrito.
+\cite{latex-wiki}.
+
+Observe como no exemplo da
+Figura \ref{fig:latex-pdf}
+o texto simples possui marcadores que demarcam sua exibição
+no arquivo final. O marcador \textbackslash chapter demarca o capítulo, ao
+passo que \textbackslash section uma subsessão, (ou sessão), do capítulo.
+Uma das grandes utilidades é que tanto a enumeração já é feita
+automaticamente, quanto sua presença no sumário já é automaticamente
+preenchida.
+
+\begin{figure}[H]
+    \centering
+    \caption{Exemplo de compilação de código LaTex}
+    \includegraphics[width=1.0\textwidth]{./images/latex-pdf.png}
+    \label{fig:latex-pdf} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
 \subsection{Cheerio}
 
 \chapter{Desenvolvimento}
@@ -1520,15 +1579,15 @@ Para executar o exemplo e ver como ele se comporta no navegador
 do usuário, basta a partir do diretório do projeto rodar o
 seguinte comando:
 
-\begin{08a8b62a97a84c358be7e5b8b70643e9}
+\begin{12c653c887eb4b4db032ff2c696ea3db}
 yarn dev
-\end{08a8b62a97a84c358be7e5b8b70643e9}
+\end{12c653c887eb4b4db032ff2c696ea3db}
 
 Após rodar o comando o servidor iniciará localmente.
 A saída do terminal mostrará a porta do serviço a ser acessada
 afim de renderizar a página:
 
-\begin{Code4ed76863a6b14d058bd76e8be14cf7b3}
+\begin{Codee0b90dc85426405886a50b811991c3e6}
 yarn run v1.22.19
 $ next dev
     Next.js 14.1.1
@@ -1536,7 +1595,7 @@ $ next dev
     - Environments: .env.local
 
     Ready in 2.7s
-\end{Code4ed76863a6b14d058bd76e8be14cf7b3}
+\end{Codee0b90dc85426405886a50b811991c3e6}
 
 Ao acessar o endereço http://localhost:3000
 na rota /example, a página é renderizada
@@ -1585,7 +1644,7 @@ da rota de página ao qual se está acessando.
 
 Observe abaixo o código de layout:
 
-\begin{Code64b78d6c21224f3ebe49cafd3e2c765a}
+\begin{Code4afe45285174405ea099381d5b964cd0}
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -1613,7 +1672,7 @@ export default function RootLayout({
         </html>
     )
 }
-\end{Code64b78d6c21224f3ebe49cafd3e2c765a}
+\end{Code4afe45285174405ea099381d5b964cd0}
 
 Na linha 13 há a exportação do componente em si. O código
 \acrshort{tsx}
@@ -1679,7 +1738,7 @@ Percebe-se que o componente Container possuí dois filhos: Um texto
 Observe a partir da linha 87 no código abaixo como a renderização
 do texto "Carregando editor..."~ está condicionada ao estado loading.
 
-\begin{Codeb7c5c27cfcc24b65bba2168db29c8b37}
+\begin{Codeebd6ccd9992a43a6882e7a4aadcd7285}
 [...]
 return (
     <main>
@@ -1691,7 +1750,7 @@ return (
             }
             <Editor
 [...]
-\end{Codeb7c5c27cfcc24b65bba2168db29c8b37}
+\end{Codeebd6ccd9992a43a6882e7a4aadcd7285}
 
 O estado loading inicialmente começa com o valor true, o que
 faz com que o texto seja renderizado. O componente
@@ -1704,14 +1763,14 @@ Note na linha 121 do código abaixo que a propriedade
 que pertence ao componente Editor, recebe uma função
 com o parâmetro \{ editor \}.
 
-\begin{Codec4a93f34ea6946c1b5a30cc7470a2acd}
+\begin{Code5743063d83794448ba9025fdc5194f7b}
 [...]
 onReady={ ({ editor }) => {
     setLoading(false);
     setEditor(editor);
 } }
 [...]
-\end{Codec4a93f34ea6946c1b5a30cc7470a2acd}
+\end{Code5743063d83794448ba9025fdc5194f7b}
 
 A propriedade onReady é um evento que chama
 a função passada quando a classe EditorJs está pronta e
@@ -1761,7 +1820,7 @@ de modo a enriquecer a experiência de usuário. A mudança de um estado também
 disparar um efeito. Efeito este que adiciona alguma ação ou modificação de outros estados.
 Observe o código abaixo:
 
-\begin{Code1b93e4f8a2af45d9a4a6fd122a881238}
+\begin{Codec9fd16a241ae4be6b4c43a3d4ab5f914}
 [...]
 useEffect(() => {
     if(storageError){
@@ -1770,7 +1829,7 @@ useEffect(() => {
     }
 }, [ storageError ]);
 [...]
-\end{Code1b93e4f8a2af45d9a4a6fd122a881238}
+\end{Codec9fd16a241ae4be6b4c43a3d4ab5f914}
 
 O código acima adiciona uma função que monitora o estado denominado
 storageError. Na primeira renderização da página, ou sempre que este
@@ -1834,14 +1893,14 @@ seguida repassa-o para putBlock.
 Os detalhes de implementação da Storage se encontram no repositório através
 do diretório: /src/components/Storage
 
-\begin{Code39cc4a40249d4904826d6d806f4e9c66}
+\begin{Code470f390fc04e49548cc17ad0f650d7bb}
 [...]
 onChange={async (api, event) => {
     const blocks = await api.saver.save();
     putBlock(blocks as EditorSave);
 }}
 [...]
-\end{Code39cc4a40249d4904826d6d806f4e9c66}
+\end{Code470f390fc04e49548cc17ad0f650d7bb}
 
 \section{Editor}
 
@@ -1944,7 +2003,7 @@ evento personalizado denominado \textit{editor-plugin-render}.
 Isto é importante pois este evento recebe a criação dos plugins que
 são disparados de dentro da classe EditorJs. Observe o código abaixo:
 
-\begin{Code471a636a246640329f6355642b216696}
+\begin{Code637fa2c00d54432d97b289cad470eb46}
 [...]
 document.addEventListener('editor-plugin-render', e => {
     // console.log('editor-plugin-render');
@@ -1959,7 +2018,7 @@ document.addEventListener('editor-plugin-render', e => {
     ]);
 });
 [...]
-\end{Code471a636a246640329f6355642b216696}
+\end{Code637fa2c00d54432d97b289cad470eb46}
 
 Na linha 137 o escutador é adicionado ao objeto
 \acrshort{dom}. Este evento monitora
@@ -1975,7 +2034,7 @@ pluginsList
 é memorizada em pluginsRender, que é então
 renderizado na linha 213 do código abaixo:
 
-\begin{Code997d6bc996f54aedac8fa3816491ede2}
+\begin{Code3509542fa8f84e3a9aa6218d4b5220ee}
 [...]
     return <Context.Provider value={{
         editor: editor.current
@@ -1987,7 +2046,7 @@ renderizado na linha 213 do código abaixo:
         <div ref={ editorContainerRef } ></div>
     </Context.Provider>
 }
-\end{Code997d6bc996f54aedac8fa3816491ede2}
+\end{Code3509542fa8f84e3a9aa6218d4b5220ee}
 
 \subsubsection{\underline{Instância do EditorJs}}
 
@@ -2011,7 +2070,7 @@ antes de chamar a função onReady na linha 192. Note que onReady só é chamada
 a mesma tenha sido repassada. Ao chamar, a instância do editor é repassada na linha
 193.
 
-\begin{Code8aa2eb7bcb7f47988f5104d8da5404ab}
+\begin{Code5a5e444bc6b8423b89edb3e2f4a9b2ba}
 [...]
 if(!editor.current && editorContainerRef.current){
     // console.log("Comming to assing editorjs...");
@@ -2037,7 +2096,7 @@ if(!editor.current && editorContainerRef.current){
     })
 }
 [...]
-\end{Code8aa2eb7bcb7f47988f5104d8da5404ab}
+\end{Code5a5e444bc6b8423b89edb3e2f4a9b2ba}
 
 \subsection{BasePlugin}
 
@@ -2102,7 +2161,7 @@ O método mais importante da classe base é o render(). É ele quem coloca o plu
 em tela quando o usuário escolhe um plugin a partir do menu de plugins.
 Observe no código abaixo o funcionamento da classe:
 
-\begin{Codeaf45002cf0dc45c69f990afd7cdf6aa5}
+\begin{Code51805e04b0f047498481d2df41382c74}
 [...]
 public render(){
     const wrapper = document.createElement('div');
@@ -2120,7 +2179,7 @@ public render(){
     return wrapper;
 }
 [...]
-\end{Codeaf45002cf0dc45c69f990afd7cdf6aa5}
+\end{Code51805e04b0f047498481d2df41382c74}
 
 Observe que o método render cria um wrapper a partir de um elemento
 div na linha 52. Na linha 53 é atribuído um id a partir da chamada do método
@@ -2165,7 +2224,7 @@ se programa a aparência e comportamentos do mesmo.
 O plugin de Header, (até o momento de escrita deste trabalho), é o mais simples
 que foi desenvolvido. Observe abaixo a implementação do arquivo class.tsx:
 
-\begin{Code65de2e2285bc4962a9753e8ef58cf744}
+\begin{Code21d5f6be818341148e270cea9e2454a7}
 [...]
 export default class HeaderClass extends BasePlugin<DataType> {
     text: string = ""
@@ -2178,7 +2237,7 @@ export default class HeaderClass extends BasePlugin<DataType> {
         };
     }
 [...]
-\end{Code65de2e2285bc4962a9753e8ef58cf744}
+\end{Code21d5f6be818341148e270cea9e2454a7}
 
 Na linha 17, é realizada a exportação da classe HeaderClass,
 que estende a classe BasePlugin. Observe que nas linhas 18 e 19,
@@ -2190,7 +2249,7 @@ de atualização do nível (level) do Header, pois é nesta classe que
 o menu, onde o usuário selecionará o nível do título, é definido,
 conforme o código abaixo:
 
-\begin{Codea3db8d30ea1b4172bdefd714abdd993b}
+\begin{Code0426182afc9e466698bbf49dfffff86c}
 [...]
 public renderSettings(): TunesMenuConfigItem[] {
     return ([1,2,3,4,5] as HeaderLevelsType[]).map(lv => ({
@@ -2203,7 +2262,7 @@ public renderSettings(): TunesMenuConfigItem[] {
         closeOnActivate: true,
         isActive: lv === this?.pluginData?.level,
 [...]
-\end{Codea3db8d30ea1b4172bdefd714abdd993b}
+\end{Code0426182afc9e466698bbf49dfffff86c}
 
 Observe como a função de atualização de estado é chamada a partir de onActivate
 na linha 41. Isso garante a comunicação do menu com o componente React, permitindo
@@ -2214,7 +2273,7 @@ getName() e getUuid(). Observe que em getName retorna-se o nome header do plugin
 ao passo que em getUuid retorna-se um uuid versão 4 para criar um identificador
 único para o plugin.
 
-\begin{Code141fa3100084492bb1367b414729e5c8}
+\begin{Codef74fa9f2e1c64575ace2a78ad89ff27f}
 [...]
     getName(): string {
         return 'header';
@@ -2224,7 +2283,7 @@ ao passo que em getUuid retorna-se um uuid versão 4 para criar um identificador
         return uuidv4();
     }
 }
-\end{Code141fa3100084492bb1367b414729e5c8}
+\end{Codef74fa9f2e1c64575ace2a78ad89ff27f}
 
 \subsubsubsection{Plugin React}
 
@@ -2946,25 +3005,25 @@ através do comando \textbackslash input.
 
 \subsubsection{\underline{Glossário}}
 
-Cada item de glorrário, seja ele uma abreviação ou sigla,
+Cada item de glossário, seja ele uma abreviação ou sigla,
 deve ser definido no documento antes que se possa fazer uso do mesmo.
 Observe abaixo o exemplo de uma definição de sigla em
 \acrshort{latex}:
 
-\begin{Codea4f7062fa9ce44a0bed3adc544106faf}
+\begin{Codeef16f4a7c2b545ddaef85e38e1d5bb03}
 \newacronym[type=sigla]{abnt}{ABNT}{Associação Brasileira de Normas Técnicas}
-\end{Codea4f7062fa9ce44a0bed3adc544106faf}
+\end{Codeef16f4a7c2b545ddaef85e38e1d5bb03}
 
 Além de montados, cada clossário deve ser exibido com o comando
 \textbackslash printglossary. Veja o código abaixo:
 
-\begin{Codeb9e35110de7d46819ae466a98a8d891d}
+\begin{Codec50b763174c749169b852d91e83820b1}
 \printglossary[type=sigla,title=LISTA DE SIGLAS]
 \clearpage
 
 \printglossary[type=abreviacao,title=LISTA DE ABREVIATURAS]
 \clearpage
-\end{Codeb9e35110de7d46819ae466a98a8d891d}
+\end{Codec50b763174c749169b852d91e83820b1}
 
 Isto garante que os devidos glossários sejam exibidos com
 folga de uma página, com seus respectivos títulos.
@@ -2973,7 +3032,7 @@ A função mountGlossary exportada em mountGlossary.ts
 contém sua implementação, que faz todo o processamento dos
 items de glossário a partir de um GlossaryObjectType:
 
-\begin{Code50fafc00a6f84633ac670b340c68a4fa}
+\begin{Code88d8d7c1125e402fa5f59bf2a8ef4e9b}
 [...]
 export function mountGlossary(glossary: GlossaryObjectType){
     const header = `
@@ -2997,7 +3056,7 @@ export function mountGlossary(glossary: GlossaryObjectType){
             }}`
         })
         .join('\n');
-\end{Code50fafc00a6f84633ac670b340c68a4fa}
+\end{Code88d8d7c1125e402fa5f59bf2a8ef4e9b}
 
 Note que todos os objetos de glossário vem misturados
 no parâmetro glossary da função.
@@ -3017,7 +3076,7 @@ A linha 66 adiciona o comando \textbackslash makeglossaries, que diz ao
 \acrshort{latex}
 para montar o glossário.
 
-\begin{Code48d5d6a597d74490bee59475c2789bf5}
+\begin{Codefb6a0bd89c8c4a1d96665e20bf75a385}
 [...]
     let str = `${header}\n\n${acronyms}\n${abbreviations}\n${symbols}\n\n`;
     str = str.concat(`\\makeglossaries`);
@@ -3027,10 +3086,61 @@ para montar o glossário.
 
     return str;
 }
-\end{Code48d5d6a597d74490bee59475c2789bf5}
+\end{Codefb6a0bd89c8c4a1d96665e20bf75a385}
 
 Após todo o processamento seu resultado é guardado em um arquivo
 denominado makeGlossaries.tex a ser importado posteriormente
 pelo código fonte contruído no processo de Parsing.
 
 \subsubsection{\underline{Referências}}
+
+A parte de referênciação é uma das automações mais úteis do projeto, pois
+adiciona referências cruzadas ao projeto facilmente navegável na versão
+digital do mesmo.
+
+Observe a função mountRefs exportada a partir do arquivo mountRefs.ts:
+
+\begin{Codeef5d005e6b6a40bcb027d38c11f7407b}
+import { RefsObjectType } from '@/parser/types';
+
+export function mountRefs(refs: RefsObjectType){
+    return Object.keys(refs).map(key => {
+        const ref  = refs[key];
+        const { type, ...restRefs } = ref;
+        if(type){
+            return `
+                @${type}{${key},
+                    ${(() => {
+                        return Object.keys(restRefs).map(ref_key => {
+                            switch(type){
+                                case 'misc':
+                                case 'book':
+                                case 'article':
+                                    // @ts-ignore
+                                    const value = restRefs[ref_key];
+                                    if(ref_key === 'author')
+                                        return `${ref_key}={${
+                                            (value as string[])
+                                                .join(' and ')
+                                    }}`
+                                    else if(ref_key === 'edition')
+                                        return `${ref_key}={${
+                                            (value as number)
+                                                .toString()
+                                                .concat('st')
+                                    }}`
+                                    else
+                                        return `${ref_key}={${value}}`
+                            }
+                        }).join(',\n    ')
+                    })()}
+                }
+            `.trim().replace(/^\s{16}/gm, '');
+        }
+
+        return '';
+    }).join('\n\n');
+}
+\end{Codeef5d005e6b6a40bcb027d38c11f7407b}
+
+\chapter{Considerações finais}
