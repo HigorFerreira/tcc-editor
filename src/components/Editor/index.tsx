@@ -110,7 +110,7 @@ export default function Editor(
     }, [ pluginsList ]);
 
     useEffect(() => {
-        console.log({ inlinePluginsList });
+        // console.log({ inlinePluginsList });
     }, [ inlinePluginsList ]);
 
     useEffect(() => {
