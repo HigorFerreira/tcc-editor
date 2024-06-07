@@ -120,23 +120,7 @@ export default abstract class InlineBasePlugin<D = unknown> {
     }
 
     public renderActions(){
-        setTimeout(() => {
-            const ev = new CustomEvent<DetailRenderEventType>('InlineToolRenderActions', {
-                detail: {
-                    context: this
-                }
-            });
-            document.dispatchEvent(ev);
-        }, 60);
-
         return this.actions;
-
-        // this.colorPicker = document.createElement('input');
-		// this.colorPicker.type = 'color';
-		// this.colorPicker.value = '#f5f1cc';
-		// this.colorPicker.hidden = true;
-
-		// return this.colorPicker;
     }
 
     public save(){

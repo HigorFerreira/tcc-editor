@@ -45,22 +45,12 @@ export default function Gloss({ context }: PropsWithChildren<Partial<{ context: 
         console.log("-".repeat(20));
     }
 
-    const inlineToolRenderActions = (_param: unknown) => {
-        const param = _param as CustomEvent<{ context: GlossClass }>;
-        const { context } = param.detail;
-        console.log('inlineToolRenderActions', param);
-        console.log({ context });
-        console.log("-".repeat(20));
-    }
-
     useEffect(() => {
         document.addEventListener('InlineToolSurround', inlineToolSurround);
         document.addEventListener('InlineToolCheckState', inlineToolCheckState);
-        document.addEventListener('InlineToolRenderActions', inlineToolRenderActions);
         return () => {
             document.removeEventListener('InlineToolSurround', inlineToolSurround);
             document.removeEventListener('InlineToolCheckState', inlineToolCheckState);
-            document.removeEventListener('InlineToolRenderActions', inlineToolRenderActions);
         }
     }, []);
 
