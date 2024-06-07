@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { PropsWithChildren, useState } from 'react';
 import {
 	DesktopOutlined,
 	FileOutlined,
@@ -40,7 +40,7 @@ const items: MenuItem[] = [
 	getItem('Files', '9', <FileOutlined />),
 ];
 
-const App: React.FC = () => {
+function App({ children }: PropsWithChildren){
 	const [collapsed, setCollapsed] = useState(true);
 	const {
 		token: { colorBgContainer, borderRadiusLG },
@@ -58,7 +58,12 @@ const App: React.FC = () => {
 					theme="dark"
 					mode="horizontal"
 					defaultSelectedKeys={['2']}
-					items={[]}
+					items={[
+                        getItem('nav1', 1),
+                        getItem('nav1', 2),
+                        getItem('nav1', 3),
+                        getItem('nav1', 4),
+                    ]}
 					style={{ flex: 1, minWidth: 0 }}
 				/>
 			</Header>
@@ -69,17 +74,24 @@ const App: React.FC = () => {
 					</Breadcrumb>
 					<div
 						style={{
-							padding: 24,
-							minHeight: 360,
+							// padding: 24,
+							// height: 'calc(100% - 112px)',
+                            // boxSizing: 'border-box',
 							background: colorBgContainer,
 							borderRadius: borderRadiusLG,
+                            height: 'calc(100% - 64px)',
+                            overflow: 'auto',
+                            position: 'relative',
+                            boxSizing: 'border-box',
 						}}
 					>
-						Bill is a cat.
+						<div style={{ position: 'absolute', inset: 0, padding: 24, }}>
+                            { children }
+                        </div>
 					</div>
 				</Content>
 				<Footer style={{ textAlign: 'center' }}>
-					Ant Design ©{new Date().getFullYear()} Created by Ant UED
+					Meu TCC ©{new Date().getFullYear()} Created by Higor Ferreira Alves Santos &lt;hfashigor@hotmail.com | hfashigor@gmail.com&gt;
 				</Footer>
 			</Layout>
 		</Layout>

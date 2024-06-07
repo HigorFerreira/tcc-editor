@@ -26,8 +26,9 @@ export default function RootLayout({
                 }
                 `}</style>
                 <Storage>
-                    {/* {children} */}
-                    <Template />
+                    <Template>
+                        {children}
+                    </Template>
                 </Storage>
             </body>
         </html>
