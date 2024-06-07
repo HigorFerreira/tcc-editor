@@ -1,9 +1,10 @@
 import { MdOutlineAbc } from "react-icons/md";
 import { Button } from 'antd';
-import { useEffect } from "react";
+import { PropsWithChildren, useEffect } from "react";
 import GlossClass from '@/components/Plugins/Gloss/class'
+import { createPortal } from "react-dom";
 
-export default function Gloss(){
+export default function Gloss({ context }: PropsWithChildren<Partial<{ context: GlossClass }>>){
 
     const inlineToolSurround = (_param: unknown) => {
         const param = _param as CustomEvent<{ context: GlossClass, range: Range }>;
@@ -11,7 +12,13 @@ export default function Gloss(){
 
         console.log("STATE", context.state);
 
-        if(context.state) return;
+        if(context.state) {
+            const plugin = context.api.selection.findParentTag(context.tag);
+            const text = range.extractContents();
+            plugin?.remove();
+            range.insertNode(text);
+            return;
+        }
 
         const selectedText = range.extractContents();
 
@@ -57,10 +64,20 @@ export default function Gloss(){
         }
     }, []);
 
-    return <Button
-        type="text"
-        title="Abreviações/Siglas"
-    >
-        <MdOutlineAbc size={60} />
-    </Button>
+    return <>
+        <Button
+            type="text"
+            title="Abreviações/Siglas"
+        >
+            <MdOutlineAbc size={60} />
+        </Button>
+        {
+            context?.actions &&
+            context.state &&
+            createPortal(
+                <div>Actions aqui</div>,
+                context.actions
+            )
+        }
+    </>
 }
