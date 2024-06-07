@@ -1,77 +1,87 @@
 "use client";
-import React from 'react';
-import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
+import React, { useState } from 'react';
+import {
+	DesktopOutlined,
+	FileOutlined,
+	PieChartOutlined,
+	TeamOutlined,
+	UserOutlined,
+} from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
 
-const items1: MenuProps['items'] = ['1', '2', '3'].map((key) => ({
-	key,
-	label: `nav ${key}`,
-}));
+type MenuItem = Required<MenuProps>['items'][number];
 
-const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
-	(icon, index) => {
-		const key = String(index + 1);
+function getItem(
+	label: React.ReactNode,
+	key: React.Key,
+	icon?: React.ReactNode,
+	children?: MenuItem[],
+): MenuItem {
+	return {
+		key,
+		icon,
+		children,
+		label,
+	} as MenuItem;
+}
 
-		return {
-			key: `sub${key}`,
-			icon: React.createElement(icon),
-			label: `subnav ${key}`,
+const items: MenuItem[] = [
+	getItem('Option 1', '1', <PieChartOutlined />),
+	getItem('Option 2', '2', <DesktopOutlined />),
+	getItem('User', 'sub1', <UserOutlined />, [
+		getItem('Tom', '3'),
+		getItem('Bill', '4'),
+		getItem('Alex', '5'),
+	]),
+	getItem('Team', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
+	getItem('Files', '9', <FileOutlined />),
+];
 
-			children: new Array(4).fill(null).map((_, j) => {
-				const subKey = index * 4 + j + 1;
-				return {
-					key: subKey,
-					label: `option${subKey}`,
-				};
-			}),
-		};
-	},
-);
-
-function App(){
+const App: React.FC = () => {
+	const [collapsed, setCollapsed] = useState(true);
 	const {
 		token: { colorBgContainer, borderRadiusLG },
 	} = theme.useToken();
 
 	return (
-		<Layout>
-			<Header style={{ display: 'flex', alignItems: 'center' }}>
-				<h1 style={{ color: 'white' }}>Meu TCC</h1>
+		<Layout style={{ minHeight: '100vh' }}>
+			<Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+				<div className="demo-logo-vertical" />
+				<Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
+			</Sider>
+			<Layout>
+            <Header style={{ display: 'flex', alignItems: 'center' }}>
 				<Menu
 					theme="dark"
 					mode="horizontal"
 					defaultSelectedKeys={['2']}
-					items={items1}
+					items={[]}
 					style={{ flex: 1, minWidth: 0 }}
 				/>
 			</Header>
-			<Content style={{ padding: '0 48px' }}>
-				<Breadcrumb style={{ margin: '16px 0' }}>
-					<Breadcrumb.Item>Home</Breadcrumb.Item>
-					<Breadcrumb.Item>List</Breadcrumb.Item>
-					<Breadcrumb.Item>App</Breadcrumb.Item>
-				</Breadcrumb>
-				<Layout
-					style={{ padding: '24px 0', background: colorBgContainer, borderRadius: borderRadiusLG }}
-				>
-					<Sider style={{ background: colorBgContainer }} width={200}>
-						<Menu
-							mode="inline"
-							defaultSelectedKeys={['1']}
-							defaultOpenKeys={['sub1']}
-							style={{ height: '100%' }}
-							items={items2}
-						/>
-					</Sider>
-					<Content style={{ padding: '0 24px', minHeight: 280 }}>Content</Content>
-				</Layout>
-			</Content>
-			<Footer style={{ textAlign: 'center' }}>
-				Meu TCC ©{new Date().getFullYear()} Created by Higor Ferreira Alves Santos &lt;hfashigor@gmail.com | hfashigor@hotmail.com&gt;
-			</Footer>
+				<Content style={{ margin: '0 16px' }}>
+					<Breadcrumb style={{ margin: '16px 0' }}>
+						<Breadcrumb.Item>User</Breadcrumb.Item>
+						<Breadcrumb.Item>Bill</Breadcrumb.Item>
+					</Breadcrumb>
+					<div
+						style={{
+							padding: 24,
+							minHeight: 360,
+							background: colorBgContainer,
+							borderRadius: borderRadiusLG,
+						}}
+					>
+						Bill is a cat.
+					</div>
+				</Content>
+				<Footer style={{ textAlign: 'center' }}>
+					Ant Design ©{new Date().getFullYear()} Created by Ant UED
+				</Footer>
+			</Layout>
 		</Layout>
 	);
 };
