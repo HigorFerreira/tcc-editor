@@ -19,6 +19,8 @@ import Image from '@/components/Plugins/Image';
 import ImageClass from '@/components/Plugins/Image/class';
 import MarkerTool from '@/components/Plugins/MarkerTool';
 import MarkerToolClass from '@/components/Plugins/MarkerTool/class';
+import GlossTool from '@/components/Plugins/Gloss';
+import GlossToolClass from '@/components/Plugins/Gloss/class';
 
 
 // import MarkerTool from '@/app/marker';
@@ -107,7 +109,11 @@ export default function Home() {
                         'marker': {
                             component: <MarkerTool />,
                             class: MarkerToolClass,
-                        }
+                        },
+                        'gloss': {
+                            component: <GlossTool />,
+                            class: GlossToolClass,
+                        },
                         // 'test-plugin': {
                         //     component: <PluginTest />,
                         //     // @ts-ignore
