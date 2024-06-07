@@ -12,7 +12,7 @@ import {
 export default abstract class InlineBasePlugin<D = unknown> {
     private observer: MutationObserver | null = null;
     private wrapper: HTMLDivElement;
-    private actions: HTMLDivElement;
+    public actions: HTMLDivElement;
     public api: EditorBlockConstructorProps['api'];
     public block: EditorBlockConstructorProps['block'];
     public config: EditorBlockConstructorProps['config'];
