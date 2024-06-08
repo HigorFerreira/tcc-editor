@@ -13,6 +13,8 @@ import {
     useGlossList,
 } from '@/components/Providers/Gloss';
 
+import NewItemButton from '@/components/Plugins/Gloss/components/NewItemButton'
+
 import NoData from '@/components/Plugins/Gloss/components/NoData';
 
 const {
@@ -51,17 +53,31 @@ export function AcronmModal(
     }, [ _isModalOpen ]);
 
     return <Modal
-        title={`Atribuir Abreviação/Sigla para: ${range?.toString()}${false ? ` ➙ Algo` : ''}`}
+        title={`Atribuir glossário para: ${range?.toString()}${false ? ` ➙ Algo` : ''}`}
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
         footer={<ModalFooter>
-            <Button
+            {/* <Button
                 type="primary"
                 onClick={() => addAcronm({ label: 'Test label', short: 'Label' })}
             >
                 Adicionar Sigla
-            </Button>
+            </Button> */}
+            <NewItemButton
+                label="Adicionar Sigla"
+                placement="topLeft"
+                placeholders={[ 'Sigla', 'Descrição' ]}
+                buttonProps={{
+                    type: 'primary',
+                }}
+                onAdd={([ short, label ]) => {
+                    addAcronm({
+                        short,
+                        label,
+                    });
+                }}
+            />
             <Button
                 type="primary"
             >
@@ -76,7 +92,7 @@ export function AcronmModal(
             </Button>
         </ModalFooter>}
     >
-        <Search placeholder="Buscar Abreviação/Sigla" />
+        <Search placeholder="Buscar Abreviação/Sigla/Termo" />
         <ModalContent>
             {
                 glossList.length === 0

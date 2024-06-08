@@ -12,6 +12,7 @@
     "tex-make": "npm run tex-pre; npm run tex-link"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.7",
     "@editorjs/editorjs": "2.29.1",
     "@editorjs/header": "^2.8.1",
     "@editorjs/list": "^1.9.0",
