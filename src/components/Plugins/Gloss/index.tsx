@@ -5,8 +5,8 @@ import GlossClass from '@/components/Plugins/Gloss/class'
 import { createPortal } from "react-dom";
 
 import {
-    AcronmModal,
-} from '@/components/Plugins/Gloss/components/AcronmModal'
+    GlossModal,
+} from '@/components/Plugins/Gloss/components/GlossModal'
 
 import {
     ModalContent,
@@ -53,7 +53,7 @@ export default function Gloss({ context }: PropsWithChildren<Partial<{ context: 
         >
             <MdOutlineAbc size={60} />
         </Button>
-        <AcronmModal
+        <GlossModal
             isModalOpen={isModalOpen}
             range={range}
         />

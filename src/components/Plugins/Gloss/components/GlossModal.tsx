@@ -21,7 +21,7 @@ const {
     Search
 } = Input;
 
-export function AcronmModal(
+export function GlossModal(
     {
         isModalOpen: _isModalOpen,
         range,
@@ -33,6 +33,7 @@ export function AcronmModal(
     const [ isModalOpen, setIsModalOpen ] = useState(false);
 
     const glossList = useGlossList();
+    const addAbbrev = useAddAbbrev();
     const addAcronm = useAddAcronm();
     const deleteGloss = useDeleteGloss();
 
@@ -58,12 +59,6 @@ export function AcronmModal(
         onOk={handleOk}
         onCancel={handleCancel}
         footer={<ModalFooter>
-            {/* <Button
-                type="primary"
-                onClick={() => addAcronm({ label: 'Test label', short: 'Label' })}
-            >
-                Adicionar Sigla
-            </Button> */}
             <NewItemButton
                 label="Adicionar Sigla"
                 placement="topLeft"
@@ -78,18 +73,31 @@ export function AcronmModal(
                     });
                 }}
             />
-            <Button
-                type="primary"
-            >
-                Adicionar Abreviação
-            </Button>
-            <Button
-                disabled
-                type="primary"
-                title="Em breve"
-            >
-                Adicionar Termo
-            </Button>
+            <NewItemButton
+                label="Adicionar Abreviação"
+                placement="top"
+                placeholders={[ 'Abreviação', 'Descrição' ]}
+                buttonProps={{
+                    type: 'primary',
+                }}
+                onAdd={([ short, label ]) => {
+                    addAbbrev({
+                        short,
+                        label,
+                    });
+                }}
+            />
+            <NewItemButton
+                label="Adicionar Termo"
+                placement="topRight"
+                placeholders={[ 'Abreviação', 'Descrição' ]}
+                buttonProps={{
+                    disabled: true,
+                    type: 'primary',
+                }}
+                onAdd={([ short, label ]) => {
+                }}
+            />
         </ModalFooter>}
     >
         <Search placeholder="Buscar Abreviação/Sigla/Termo" />
