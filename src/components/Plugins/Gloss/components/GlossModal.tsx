@@ -57,7 +57,13 @@ export function GlossModal(
         title={`Atribuir glossário para: ${range?.toString()}${false ? ` ➙ Algo` : ''}`}
         open={isModalOpen}
         onOk={handleOk}
-        onCancel={handleCancel}
+        onCancel={(e) => {
+            if((e.target as HTMLDialogElement).classList.contains('ant-modal-wrap')){
+            }
+            else{
+                handleCancel();
+            }
+        }}
         footer={<ModalFooter>
             <NewItemButton
                 label="Adicionar Sigla"
