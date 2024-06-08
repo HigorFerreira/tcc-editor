@@ -67,11 +67,19 @@ export function useGlossList(){
     return Object
         .keys(indexGloss)
         .map(key => {
-            const { created_at, uuid } = indexGloss[key];
-            return { created_at, uuid } as { created_at: Date, uuid: string }
+            const { created_at, uuid, complete } = indexGloss[key];
+            return {
+                uuid,
+                created_at,
+                indexed: complete
+            } as {
+                uuid: string
+                indexed: string
+                created_at: Date
+            }
         })
         .sort(({ created_at: a }, { created_at: b }) => a.getMilliseconds() - b.getMilliseconds())
-        .map(({ uuid }) => ({ ...gloss[uuid], uuid }))
+        .map(({ uuid, ...rest }) => ({ ...gloss[uuid], uuid, ...rest }))
 }
 
 export function useDeleteGloss(){

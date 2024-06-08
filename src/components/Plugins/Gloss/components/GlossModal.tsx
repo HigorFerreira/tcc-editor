@@ -13,7 +13,9 @@ import {
     useGlossList,
 } from '@/components/Providers/Gloss';
 
-import NewItemButton from '@/components/Plugins/Gloss/components/NewItemButton'
+import NewItemButton from '@/components/Plugins/Gloss/components/NewItemButton';
+
+import GlossList from '@/components/Plugins/Gloss/components/GlossList';
 
 import NoData from '@/components/Plugins/Gloss/components/NoData';
 
@@ -30,6 +32,9 @@ export function GlossModal(
         range?: Range
     }
 ){
+
+    const [ filter, setFilter ] = useState('');
+
     const [ isModalOpen, setIsModalOpen ] = useState(false);
 
     const glossList = useGlossList();
@@ -54,7 +59,9 @@ export function GlossModal(
     }, [ _isModalOpen ]);
 
     return <Modal
-        title={`Atribuir glossário para: ${range?.toString()}${false ? ` ➙ Algo` : ''}`}
+        title={`Atribuir glossário para: ${
+            range?.toString()}${false ? ` ➙ Algo` : ''
+        }`}
         open={isModalOpen}
         onOk={handleOk}
         onCancel={(e) => {
@@ -106,17 +113,12 @@ export function GlossModal(
             />
         </ModalFooter>}
     >
-        <Search placeholder="Buscar Abreviação/Sigla/Termo" />
+        <Search value={filter} onChange={e => setFilter(e.target.value)} placeholder="Buscar Abreviação/Sigla/Termo" />
         <ModalContent>
             {
                 glossList.length === 0
                     ? <NoData text="Sem glossário" />
-                    : glossList.map(({ label, uuid }) => {
-                        return <div>
-                            <span>{ label }</span>
-                            <Button onClick={() => deleteGloss(uuid)}>Del</Button>
-                        </div>
-                    })
+                    : <GlossList query={filter} items={glossList} />
             }
         </ModalContent>
     </Modal>
