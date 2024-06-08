@@ -5,6 +5,10 @@ import GlossClass from '@/components/Plugins/Gloss/class'
 import { createPortal } from "react-dom";
 
 import {
+    AcronmModal,
+} from '@/components/Plugins/Gloss/components/AcronmModal'
+
+import {
     ModalContent,
     ModalFooter,
 } from '@/components/Plugins/Gloss/style';
@@ -22,7 +26,7 @@ export default function Gloss({ context }: PropsWithChildren<Partial<{ context: 
         const param = _param as CustomEvent<{ context: GlossClass, range: Range }>;
         const { context, range } = param.detail;
         setRange(range);
-        showModal();
+        setIsModalOpen(true);
     }
 
     const inlineToolCheckState = (_param: unknown) => {
@@ -31,18 +35,6 @@ export default function Gloss({ context }: PropsWithChildren<Partial<{ context: 
         const plugin = context.api.selection.findParentTag(context.tag);
         context.state = Boolean(plugin);
     }
-
-    const showModal = () => {
-		setIsModalOpen(true);
-	};
-
-	const handleOk = () => {
-		setIsModalOpen(false);
-	};
-
-	const handleCancel = () => {
-		setIsModalOpen(false);
-	};
 
     useEffect(() => {
         document.addEventListener('InlineToolSurround', inlineToolSurround);
@@ -61,30 +53,10 @@ export default function Gloss({ context }: PropsWithChildren<Partial<{ context: 
         >
             <MdOutlineAbc size={60} />
         </Button>
-        <Modal
-            title={`Atribuir Abreviação/Sigla para: ${range?.toString()}`}
-            open={isModalOpen}
-            onOk={handleOk}
-            onCancel={handleCancel}
-            footer={<ModalFooter>
-                <Button type="primary">Adicionar Sigla</Button>
-                <Button type="primary">Adicionar Abreviação</Button>
-                <Button type="primary" disabled title="Em breve">Adicionar Termo</Button>
-            </ModalFooter>}
-        >
-            <Search placeholder="Buscar Abreviação/Sigla" />
-            <ModalContent>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-            </ModalContent>
-        </Modal>
+        <AcronmModal
+            isModalOpen={isModalOpen}
+            range={range}
+        />
         {
             context?.actions &&
             context.state &&
