@@ -7,11 +7,11 @@ import {
 import dynamic from 'next/dynamic';
 import styled from '@emotion/styled';
 import type EditorJS from '@editorjs/editorjs';
-import { EditorSave } from '@/components/Storage/types';
+import { EditorSave } from '@/components/Providers/Storage/types';
 import {
     useStorage,
     useBlocksStorage,
-} from '@/components/Storage';
+} from '@/components/Providers/Storage';
 
 import Header from '@/components/Plugins/Header';
 import HeaderClass from '@/components/Plugins/Header/class';
@@ -113,6 +113,7 @@ export default function Home() {
                         'gloss': {
                             component: <GlossTool />,
                             class: GlossToolClass,
+                            shortcut: 'Ctrl+G'
                         },
                         // 'test-plugin': {
                         //     component: <PluginTest />,

@@ -6,7 +6,7 @@ import {
     ImageSetter,
 } from "@/components/Plugins/Image/types";
 
-import { useImageStore } from '@/components/Storage'
+import { useImageStore } from '@/components/Providers/Storage'
 
 export function useImage(context?: ImageClass<DataType>){
     const [ ready, setReady ] = useState(false);
