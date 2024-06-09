@@ -196,7 +196,7 @@ export const data: Block[] = [
                 A escrita se dará de modo em que tudo será considerado um bloco.
                 A escrita em blocos consiste numa abordagem em que o texto vai sendo
                 escrito em seu fluxo natural, porém blocos podem ser adicionados à escrita.
-                Um bloco é um elemento adicionado ao fluxo de trabalho que desenpenha um papel
+                Um bloco é um elemento adicionado ao fluxo de trabalho que desempenha um papel
                 que o diferencia dos demais blocos.
                 Por exemplo: Uma imagem pode ser considerada um bloco nesta abordagem, uma vez
                 que não é um texto mas tem o objetivo de fornecer informações visuais. O próprio corpo
@@ -215,7 +215,7 @@ export const data: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                Um bloco é uma unidade lógica no documento que desenpenha um papel especializado que nenhum
+                Um bloco é uma unidade lógica no documento que desempenha um papel especializado que nenhum
                 outro bloco o faz. Por exemplo: O bloco mais importante da
                 plataforma<plugin-footnote
                     data-note="O termo plataforma será utilizado
@@ -1254,8 +1254,8 @@ export const data: Block[] = [
                     Do inglês: Rederização do Lado do Servidor
                 ">
                 *</plugin-footnote>, e o foco em componentes funcionais são algumas das áreas de
-                desenvolvimento. O React permanece como uma biblioteca consolidada no mercado de Front-
-                End, sendo amplamente adotado por grandes empresas em todo o mundo.
+                desenvolvimento. O React permanece como uma biblioteca consolidada no mercado de
+                Front-End, sendo amplamente adotado por grandes empresas em todo o mundo.
                 <plugin-ref id="morais-react"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }

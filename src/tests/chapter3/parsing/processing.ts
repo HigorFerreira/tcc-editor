@@ -203,7 +203,7 @@ export function escapeCharacters(str: string){
                 nele que os plugins in-line customizados são transformados
                 em comandos
                 <plugin-gloss id="latex"></plugin-gloss>.
-                A figura
+                A
                 <plugin-ref-fig data-fig="html-processing-example">Figura</plugin-ref-fig>
                 inlustra como os plugins de glossário e referência de figuras
                 se comportam no código
@@ -390,19 +390,25 @@ export function posProcess(str: string): string{
     let new_str = str.replace(/\\\\</gm, '<');
     new_str = new_str.replace(/\\\\>/gm, '>');
     new_str = new_str.replace(/\\\\"/gm, '"');
-    new_str = new_str.replace(/"(?!\\w|\\}|\\)|\\\\|~|\\.|,|\\{|\\(|\\[)/gm, '"~');
-    new_str = new_str.replace(/(\\\\textbackslash)((\\s?\\n)|(\\s{2,}))/gm, '$1~');
+    new_str = new_str.replace(
+        /"(?!\\w|\\}|\\)|\\\\|~|\\.|,|\\{|\\(|\\[)/gm,
+        '"~'
+    );
+    new_str = new_str.replace(
+        /(\\\\textbackslash)((\\s?\\n)|(\\s{2,}))/gm,
+        '$1~'
+    );
     return new_str;
 }
 `.trim()
         }
     },
-    {
-        type: 'paragraph',
-        data: {
-            text: `
-                Escrever a conclusão.
-            `.trim().replace(/^\s{16}/gm, '')
-        }
-    },
+    // {
+    //     type: 'paragraph',
+    //     data: {
+    //         text: `
+    //             Escrever a conclusão.
+    //         `.trim().replace(/^\s{16}/gm, '')
+    //     }
+    // },
 ]

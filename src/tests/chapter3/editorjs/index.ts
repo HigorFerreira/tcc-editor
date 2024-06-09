@@ -588,7 +588,7 @@ public render(){
         type: 'paragraph',
         data: {
             text: `
-                O plugin de Header, (até o momento de escrita deste trabalho), é o mais simples
+                O plugin de Header, (até o momento de escrita deste trabalho), pode ser considerado um dos mais simples
                 que foi desenvolvido. Observe abaixo a implementação do arquivo class.tsx:
             `.trim().replace(/^\s{16}/gm, '')
         }
@@ -602,12 +602,13 @@ public render(){
 [...]
 export default class HeaderClass extends BasePlugin<DataType> {
     text: string = ""
-    public setLevel: Dispatch<SetStateAction<HeaderLevelsType>> | null = null
+    public setLevel:
+        Dispatch<SetStateAction<HeaderLevelsType>> | null = null
 
     static get conversionConfig() {
         return {
-            export: 'text', // use 'text' property for other blocks
-            import: 'text', // fill 'text' property from other block's export string
+            export: 'text',
+            import: 'text',
         };
     }
 [...]
@@ -640,7 +641,7 @@ export default class HeaderClass extends BasePlugin<DataType> {
         type: 'code',
         data: {
             uuid: `Code${uuidv4().replace(/-/g, '')}`,
-            start_line: 34,
+            start_line: 35,
             text: `
 [...]
 public renderSettings(): TunesMenuConfigItem[] {
@@ -662,7 +663,7 @@ public renderSettings(): TunesMenuConfigItem[] {
         data: {
             text: `
                 Observe como a função de atualização de estado é chamada a partir de onActivate
-                na linha 41. Isso garante a comunicação do menu com o componente React, permitindo
+                na linha 40. Isso garante a comunicação do menu com o componente React, permitindo
                 ao usuário selecionar o nível de título a partir do menu.
             `.trim().replace(/^\s{16}/gm, '')
         }
@@ -682,7 +683,7 @@ public renderSettings(): TunesMenuConfigItem[] {
         type: 'code',
         data: {
             uuid: `Code${uuidv4().replace(/-/g, '')}`,
-            start_line: 50,
+            start_line: 51,
             text: `
 [...]
     getName(): string {

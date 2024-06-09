@@ -79,7 +79,9 @@ export const mounting: Block[] = [
             uuid: `Code${uuidv4().replace(/-/g, '')}`,
             start_line: 1,
             text: `
-\\newacronym[type=sigla]{abnt}{ABNT}{Associação Brasileira de Normas Técnicas}
+\\newacronym[type=sigla]{abnt}{ABNT}{
+    Associação Brasileira de Normas Técnicas
+}
 `.trim()
         }
     },
@@ -179,9 +181,9 @@ export function mountGlossary(glossary: GlossaryObjectType){
         data: {
             text: `
                 Por fim, basta unir tudo em uma string conforme mostrado na linha
-                65 abaixo. As linhas 67 e 68 foram uma tentativa de customizar o estilo
+                65 e 66 abaixo. As linhas 68 e 69 foram uma tentativa de customizar o estilo
                 do glossário e seu título. Por hora, esta parte está omitida do trabalho.
-                A linha 66 adiciona o comando \\makeglossaries, que diz ao
+                A linha 67 adiciona o comando \\makeglossaries, que diz ao
                 <plugin-gloss id="latex"></plugin-gloss>
                 para montar o glossário.
             `.trim().replace(/^\s{16}/gm, '')
@@ -194,7 +196,8 @@ export function mountGlossary(glossary: GlossaryObjectType){
             start_line: 64,
             text: `
 [...]
-    let str = \`\${header}\\n\\n\${acronyms}\\n\${abbreviations}\\n\${symbols}\\n\\n\`;
+    let str = \`\${header}\\n\\n\${acronyms}\\n\`;
+    str = str.concat(\`\${abbreviations}\\n\${symbols}\\n\\n\`);
     str = str.concat(\`\\\\makeglossaries\`);
     // str = str.concat('\\n\\n').concat(custom_style);
     // str = str.concat('\\n\\n').concat(custom_title);

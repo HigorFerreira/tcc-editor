@@ -62,7 +62,8 @@ export function mountGlossary(glossary: GlossaryObjectType){
         }
     `.trim().replace(/^(\s{8}|\t{2})/gm, '');
 
-    let str = `${header}\n\n${acronyms}\n${abbreviations}\n${symbols}\n\n`;
+    let str = `${header}\n\n${acronyms}\n`;
+    str = str.concat(`${abbreviations}\n${symbols}\n\n`);
     str = str.concat(`\\makeglossaries`);
     // str = str.concat('\n\n').concat(custom_style);
     // str = str.concat('\n\n').concat(custom_title);

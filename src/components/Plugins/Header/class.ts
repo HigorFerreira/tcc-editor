@@ -16,12 +16,13 @@ import { TunesMenuConfigItem } from '@editorjs/editorjs/types/tools/tool-setting
 
 export default class HeaderClass extends BasePlugin<DataType> {
     text: string = ""
-    public setLevel: Dispatch<SetStateAction<HeaderLevelsType>> | null = null
+    public setLevel:
+        Dispatch<SetStateAction<HeaderLevelsType>> | null = null
 
     static get conversionConfig() {
         return {
-            export: 'text', // use 'text' property for other blocks
-            import: 'text', // fill 'text' property from other block's export string
+            export: 'text',
+            import: 'text',
         };
     }
 
