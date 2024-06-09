@@ -4,6 +4,8 @@ import {
 
 import { v4 as uuidv4 } from 'uuid';
 
+import { image } from '@/tests/chapter3/editorjs/image'
+
 /*
 <plugin-gloss id=""></plugin-gloss>
 <plugin-ref id="mdn-regex"></plugin-ref>
@@ -529,10 +531,10 @@ public render(){
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
-    {
-        type: 'header',
-        data: { level: 3, text: 'InlineBasePlugin' }
-    },
+    // {
+    //     type: 'header',
+    //     data: { level: 3, text: 'InlineBasePlugin' }
+    // },
     {
         type: 'header',
         data: { level: 3, text: 'Plugins' }
@@ -773,10 +775,7 @@ public renderSettings(): TunesMenuConfigItem[] {
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
-    {
-        type: 'header',
-        data: { level: 4, text: 'Image' }
-    },
+    ...image,
     {
         type: 'header',
         data: { level: 4, text: 'List' }

@@ -1674,15 +1674,15 @@ Para executar o exemplo e ver como ele se comporta no navegador
 do usuário, basta a partir do diretório do projeto rodar o
 seguinte comando:
 
-\begin{5f9422f8f10b49ca92a90ac505d8dbd2}
+\begin{69df10132de74c66b986f559b97112d8}
 yarn dev
-\end{5f9422f8f10b49ca92a90ac505d8dbd2}
+\end{69df10132de74c66b986f559b97112d8}
 
 Após rodar o comando o servidor iniciará localmente.
 A saída do terminal mostrará a porta do serviço a ser acessada
 afim de renderizar a página:
 
-\begin{Code3bf6e8092d5d43cf908d6217154e1cbe}
+\begin{Code9c4569d72b13424ba3a6783238f51913}
 yarn run v1.22.19
 $ next dev
     Next.js 14.1.1
@@ -1690,7 +1690,7 @@ $ next dev
     - Environments: .env.local
 
     Ready in 2.7s
-\end{Code3bf6e8092d5d43cf908d6217154e1cbe}
+\end{Code9c4569d72b13424ba3a6783238f51913}
 
 Ao acessar o endereço http://localhost:3000
 na rota /example, a página é renderizada
@@ -1739,7 +1739,7 @@ da rota de página ao qual se está acessando.
 
 Observe abaixo o código de layout:
 
-\begin{Codea6e986c21cb04e17a0b584a4b83f0255}
+\begin{Codeb77a5064b1e84280accdefdc52c4f02b}
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -1767,7 +1767,7 @@ export default function RootLayout({
         </html>
     )
 }
-\end{Codea6e986c21cb04e17a0b584a4b83f0255}
+\end{Codeb77a5064b1e84280accdefdc52c4f02b}
 
 Na linha 13 há a exportação do componente em si. O código
 \acrshort{tsx}
@@ -1833,7 +1833,7 @@ Percebe-se que o componente Container possuí dois filhos: Um texto
 Observe a partir da linha 87 no código abaixo como a renderização
 do texto "Carregando editor..."~ está condicionada ao estado loading.
 
-\begin{Code65951ff4191f43b5a147cbd2d29d0997}
+\begin{Code45f4816b06924b6c92d52902de4b9e9f}
 [...]
 return (
     <main>
@@ -1845,7 +1845,7 @@ return (
             }
             <Editor
 [...]
-\end{Code65951ff4191f43b5a147cbd2d29d0997}
+\end{Code45f4816b06924b6c92d52902de4b9e9f}
 
 O estado loading inicialmente começa com o valor true, o que
 faz com que o texto seja renderizado. O componente
@@ -1858,14 +1858,14 @@ Note na linha 121 do código abaixo que a propriedade
 que pertence ao componente Editor, recebe uma função
 com o parâmetro \{ editor \}.
 
-\begin{Coded77e6ad668474c82be18e2f3d51a7705}
+\begin{Code6c981e3ba1054fb5a9829b58edb489fc}
 [...]
 onReady={ ({ editor }) => {
     setLoading(false);
     setEditor(editor);
 } }
 [...]
-\end{Coded77e6ad668474c82be18e2f3d51a7705}
+\end{Code6c981e3ba1054fb5a9829b58edb489fc}
 
 A propriedade onReady é um evento que chama
 a função passada quando a classe EditorJs está pronta e
@@ -1915,7 +1915,7 @@ de modo a enriquecer a experiência de usuário. A mudança de um estado também
 disparar um efeito. Efeito este que adiciona alguma ação ou modificação de outros estados.
 Observe o código abaixo:
 
-\begin{Code576b60c745934ed8991a228e4f7c7891}
+\begin{Codec1b6077c9f2a48038d58dc1efb63dbe1}
 [...]
 useEffect(() => {
     if(storageError){
@@ -1924,7 +1924,7 @@ useEffect(() => {
     }
 }, [ storageError ]);
 [...]
-\end{Code576b60c745934ed8991a228e4f7c7891}
+\end{Codec1b6077c9f2a48038d58dc1efb63dbe1}
 
 O código acima adiciona uma função que monitora o estado denominado
 storageError. Na primeira renderização da página, ou sempre que este
@@ -1988,14 +1988,14 @@ seguida repassa-o para putBlock.
 Os detalhes de implementação da Storage se encontram no repositório através
 do diretório: /src/components/Storage
 
-\begin{Code6815116651b24444a11d0596ad342c51}
+\begin{Codef150eb13695147d0903941b58536f0fd}
 [...]
 onChange={async (api, event) => {
     const blocks = await api.saver.save();
     putBlock(blocks as EditorSave);
 }}
 [...]
-\end{Code6815116651b24444a11d0596ad342c51}
+\end{Codef150eb13695147d0903941b58536f0fd}
 
 \section{Editor}
 
@@ -2098,7 +2098,7 @@ evento personalizado denominado \textit{editor-plugin-render}.
 Isto é importante pois este evento recebe a criação dos plugins que
 são disparados de dentro da classe EditorJs. Observe o código abaixo:
 
-\begin{Code55686b25a2b44b728eb3c0190bd78e4e}
+\begin{Codef2fcaf0a60cd4693876fd4a5191a73ec}
 [...]
 document.addEventListener('editor-plugin-render', e => {
     // console.log('editor-plugin-render');
@@ -2113,7 +2113,7 @@ document.addEventListener('editor-plugin-render', e => {
     ]);
 });
 [...]
-\end{Code55686b25a2b44b728eb3c0190bd78e4e}
+\end{Codef2fcaf0a60cd4693876fd4a5191a73ec}
 
 Na linha 137 o escutador é adicionado ao objeto
 \acrshort{dom}. Este evento monitora
@@ -2129,7 +2129,7 @@ pluginsList
 é memorizada em pluginsRender, que é então
 renderizado na linha 213 do código abaixo:
 
-\begin{Code4f8a1cb5accd4fccb936cc5db4dc36fc}
+\begin{Codef4adc60e213c4f68bc964018e8706ca4}
 [...]
     return <Context.Provider value={{
         editor: editor.current
@@ -2141,7 +2141,7 @@ renderizado na linha 213 do código abaixo:
         <div ref={ editorContainerRef } ></div>
     </Context.Provider>
 }
-\end{Code4f8a1cb5accd4fccb936cc5db4dc36fc}
+\end{Codef4adc60e213c4f68bc964018e8706ca4}
 
 \subsubsection{\underline{Instância do EditorJs}}
 
@@ -2165,7 +2165,7 @@ antes de chamar a função onReady na linha 192. Note que onReady só é chamada
 a mesma tenha sido repassada. Ao chamar, a instância do editor é repassada na linha
 193.
 
-\begin{Codeb1f05e50235e4907b05b96b12c2ea861}
+\begin{Codeea6b3a4b3d3d4271a6e84acc1db10281}
 [...]
 if(!editor.current && editorContainerRef.current){
     // console.log("Comming to assing editorjs...");
@@ -2191,7 +2191,7 @@ if(!editor.current && editorContainerRef.current){
     })
 }
 [...]
-\end{Codeb1f05e50235e4907b05b96b12c2ea861}
+\end{Codeea6b3a4b3d3d4271a6e84acc1db10281}
 
 \subsection{BasePlugin}
 
@@ -2256,7 +2256,7 @@ O método mais importante da classe base é o render(). É ele quem coloca o plu
 em tela quando o usuário escolhe um plugin a partir do menu de plugins.
 Observe no código abaixo o funcionamento da classe:
 
-\begin{Codedb32e4b19e8445d5a93830fc1a3e4566}
+\begin{Code8b0245f282974584b0ef64732fff9ed3}
 [...]
 public render(){
     const wrapper = document.createElement('div');
@@ -2274,7 +2274,7 @@ public render(){
     return wrapper;
 }
 [...]
-\end{Codedb32e4b19e8445d5a93830fc1a3e4566}
+\end{Code8b0245f282974584b0ef64732fff9ed3}
 
 Observe que o método render cria um wrapper a partir de um elemento
 div na linha 52. Na linha 53 é atribuído um id a partir da chamada do método
@@ -2287,8 +2287,6 @@ Figura \ref{fig:effect-ready-editor-component}
 da sessão Provider. Assim, o plugin do react vai para a lista de plugins ao mesmo
 tempo que é renderizado de forma integrada ao EditorJS.
 (Falar do código do portal)
-
-\subsection{InlineBasePlugin}
 
 \subsection{Plugins}
 
@@ -2319,7 +2317,7 @@ se programa a aparência e comportamentos do mesmo.
 O plugin de Header, (até o momento de escrita deste trabalho), pode ser considerado um dos mais simples
 que foi desenvolvido. Observe abaixo a implementação do arquivo class.tsx:
 
-\begin{Code3ebe71a2cd68490eba49433770b1fd72}
+\begin{Code0f6bba6cb35546bfbcfe9f1beb5834f9}
 [...]
 export default class HeaderClass extends BasePlugin<DataType> {
     text: string = ""
@@ -2333,7 +2331,7 @@ export default class HeaderClass extends BasePlugin<DataType> {
         };
     }
 [...]
-\end{Code3ebe71a2cd68490eba49433770b1fd72}
+\end{Code0f6bba6cb35546bfbcfe9f1beb5834f9}
 
 Na linha 17, é realizada a exportação da classe HeaderClass,
 que estende a classe BasePlugin. Observe que nas linhas 18 e 19,
@@ -2345,7 +2343,7 @@ de atualização do nível (level) do Header, pois é nesta classe que
 o menu, onde o usuário selecionará o nível do título, é definido,
 conforme o código abaixo:
 
-\begin{Code5359def56d0b416692f1d2310024ecd2}
+\begin{Code080b67a151684b628d8301fc3b7dc0a5}
 [...]
 public renderSettings(): TunesMenuConfigItem[] {
     return ([1,2,3,4,5] as HeaderLevelsType[]).map(lv => ({
@@ -2358,7 +2356,7 @@ public renderSettings(): TunesMenuConfigItem[] {
         closeOnActivate: true,
         isActive: lv === this?.pluginData?.level,
 [...]
-\end{Code5359def56d0b416692f1d2310024ecd2}
+\end{Code080b67a151684b628d8301fc3b7dc0a5}
 
 Observe como a função de atualização de estado é chamada a partir de onActivate
 na linha 40. Isso garante a comunicação do menu com o componente React, permitindo
@@ -2369,7 +2367,7 @@ getName() e getUuid(). Observe que em getName retorna-se o nome header do plugin
 ao passo que em getUuid retorna-se um uuid versão 4 para criar um identificador
 único para o plugin.
 
-\begin{Code9de9e761a7f64a079b8b7e219f13ac8f}
+\begin{Code78eec6a7b76247b18989d8d19a89a57a}
 [...]
     getName(): string {
         return 'header';
@@ -2379,7 +2377,7 @@ ao passo que em getUuid retorna-se um uuid versão 4 para criar um identificador
         return uuidv4();
     }
 }
-\end{Code9de9e761a7f64a079b8b7e219f13ac8f}
+\end{Code78eec6a7b76247b18989d8d19a89a57a}
 
 \subsubsubsection{Plugin React}
 
@@ -2426,16 +2424,155 @@ o plugin padrão já pronto fornecido pelo EditorJS.
 
 \subsubsection{\underline{Image}}
 
+O plugin de imagem é um dos mais importantes e complexos do projeto.
+É com ele que pode-se trazer ilustrações de imagens para o trabalho escrito,
+de forma a enriquecer a monografia, seja ela qual for.
+
+O plugin de imagem possui casos de uso interessantes, como: Trazer imagens
+a partir de links ou de arquivos do sistema; Atribuir um título à imagem;
+Atribuir uma descrição; Definir a porcentagem de ocupação na folha do documento;
+e etc...
+
+\subsubsubsection{O plugin}
+
+Observe na
+Figura \ref{fig:class-plugin-image}
+a modelagem do plugin de imagem:
+
+\begin{figure}[H]
+    \centering
+    \caption{Plugin Image}
+    \includegraphics[width=0.8\textwidth]{./images/class-plugin-image.png}
+    \label{fig:class-plugin-image} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+Tem-se primeiramente, as referências a titleRef e descriptionRef, que são
+os elementos
+\acrshort{html}
+que receberão o título e descrição, respectivamente.
+Note também que há um estado denominado settings juntamente com settingsContainer,
+que guarda um elmento
+\acrshort{html}.
+Isto se dá devido a uma particularidade do componente Header, pois o mesmo
+tem um menu personalizado que se difere do padrão do EditorJs. Este menu é
+um componente React que é guardado
+no estado settings, que por ventura é renderizado através do portal no elemento
+indicado por settingsContainer.
+
+Observe que state; error; loading e setImageState fazem parte de um estado especial
+denominado ImageState. Isto se dá devido a complexiade do plugin de imagem, que possui
+um hook personalizado em um código separado, de modo a ajudar a gerenciar os casos
+de uso do plugin.
+
+O método settingsHandler é o responsável por controlar o estado settings, de modo que
+é este quem define quando o menu aparecerá em tela. O controlador do menu é o EditorJs,
+que através da chamada de um evento em sua
+\acrshort{api}
+define quando tal estado será definido.
+Desta forma pode-se controlar a renderização de um menu personalizado no EditorJs.
+
+\subsubsubsection{Renderização do componente imagem}
+
+A
+Figura \ref{fig:image-component-tree}
+demonstra a sub-árvore de renderização do plugin de imagem:
+
+\begin{figure}[H]
+    \centering
+    \caption{Sub-árvore de renderização do plugin Image}
+    \includegraphics[width=0.8\textwidth]{./images/image-component-tree.png}
+    \label{fig:image-component-tree} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+Observe que há quatro componentes demarcados em azul. Estes componentes
+são componentes de renderização condicional, pois o plugin de imagem
+altera o seu visual diversas vezes a depender das ações de usuário.
+
+Observe primeiramente o \textit{SpinContainer}. Ele é renderizado sempre que
+o estado loading é verdadeiro, ao passo que seus outros três irmãos não.
+O SpinContainer nada mais é do que um receptáculo que possui um componente
+Spin, que é um indicador animado com papel de mostrar ao usuário que algo está
+sendo carregado.
+
+\textit{LoadingContainer} é renderizado quando não há nenhuma imagem atribuída ao componente
+e é controlado pelo estado \textit{state}. Possui como filhos um componete Input e Dragger.
+O componente Input é onde pode-se colar um link para uma imagem, ao passo que Dragger é
+onde se pode arrastar algum arquivo de imagem a partir do Sistema Operacional. O Dragger
+também possui três elementos de parágrfos que são textos que orientam o usuário em como
+o mesmo pode fazer uso do componente. A
+Figura \ref{fig:show-image}
+mostra como é a aparência desta parte na interface gráfica.
+
+\textit{CardContainer} é rederizado quando o usuário atribui alguma imagem ao compoente e também
+é controlado pelo estado \textit{state}.
+Possui um componente Card que vai abrigar a imagem propriamente dita, além também de uma área
+textual denominada \textit{TextEditionContainer} onde o usuário pode definir o título e a descrição
+da imagem. A
+Figura \ref{fig:show-image-image}
+demonstra a aparência de um componente imagem com uma imagem atribuída.
+
+Por fim o \textit{SettingsPortal} renderizará uma aparente quebra de árvore no
+\acrshort{dom}
+do menu do componente. A condição para tal renderização é a chamada do menu
+a partir da
+\acrshort{api}
+do EditorJs. Desta forma, tem-se um componente totalmente integrado ao seu
+menu que responde às ações do mesmo e vice versa.
+A
+Figura \ref{fig:show-image-menu}
+mostra a renderização deste menu personalizado.
+
+\subsubsubsection{Aparência do plugin de imagem}
+
+Abaixo é descutida as diversas aparências do plugin de imagem
+a depender de seus respectivos estados e ações do usuário.
+Inicialmente são renderizadas as instruções para que o usuário possa
+atribuir uma imagem ao componente. O desenho de tal tentou ser o mais
+simples e objetivo possível, de modo que o usuário não necessite de
+nenhum manual para entender o que está acontecendo.
+
+\begin{figure}[H]
+    \centering
+    \caption{Visual do plugin de imagem}
+    \includegraphics[width=1.0\textwidth]{./images/show-image.png}
+    \label{fig:show-image} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+Quando uma imagem é atribuida, como no caso abaixo, a imagem será exibida
+em tela através do editor com um título e uma descrição genérica.
+Caso o usuário tenha importando a imagem da internet através de um link, a
+descrição padrão automaticamente conterá a referência à sua fonte original.
+Note que os campos de título e descrição são editáveis.
+
+\begin{figure}[H]
+    \centering
+    \caption{Imagem atrelada no plugin}
+    \includegraphics[width=0.9\textwidth]{./images/show-image-image.png}
+    \label{fig:show-image-image} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+O menu de personalização do componente de imagem possui configurações
+adicionais. Pode-se alterar a porcentagem de ocupação da imagem no documento,
+bem como desatribuir a imagem corrente através do botão limpar. Caso o usuário
+desatribuia, o estado retorna para o exibido na
+Figura \ref{fig:show-image}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Sub-menu do plugin de imagem}
+    \includegraphics[width=0.6\textwidth]{./images/show-image-menu.png}
+    \label{fig:show-image-menu} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
 \subsubsection{\underline{List}}
 
 O plugin List que será utilizado será o padrão fornecido pelo
 EditorJS.
-
-\subsubsection{\underline{Table}}
-
-O plugin de Table, apesar de ter um parser desenvolvido para ele,
-(checar a sessão Parsing), não será tratado neste trabalho devido,
-ficando para a posteridade em trabalhos futuros.
 
 \section{Parsing, (parser)}
 
@@ -3138,22 +3275,22 @@ deve ser definido no documento antes que se possa fazer uso do mesmo.
 Observe abaixo o exemplo de uma definição de sigla em
 \acrshort{latex}:
 
-\begin{Code20ee6ec7cc804ebc968d38486325deca}
+\begin{Code4dfdf7e07ef040daa95f818906379c1b}
 \newacronym[type=sigla]{abnt}{ABNT}{
     Associação Brasileira de Normas Técnicas
 }
-\end{Code20ee6ec7cc804ebc968d38486325deca}
+\end{Code4dfdf7e07ef040daa95f818906379c1b}
 
 Além de montados, cada clossário deve ser exibido com o comando
 \textbackslash printglossary. Veja o código abaixo:
 
-\begin{Code19ad897f44334945a96d75ebe98275bb}
+\begin{Code7486608ec45542df8e9f21a8633507b0}
 \printglossary[type=sigla,title=LISTA DE SIGLAS]
 \clearpage
 
 \printglossary[type=abreviacao,title=LISTA DE ABREVIATURAS]
 \clearpage
-\end{Code19ad897f44334945a96d75ebe98275bb}
+\end{Code7486608ec45542df8e9f21a8633507b0}
 
 Isto garante que os devidos glossários sejam exibidos com
 folga de uma página, com seus respectivos títulos.
@@ -3162,7 +3299,7 @@ A função mountGlossary exportada em mountGlossary.ts
 contém sua implementação, que faz todo o processamento dos
 items de glossário a partir de um GlossaryObjectType:
 
-\begin{Code0264bd9370f04cc2a092f539cb2d7205}
+\begin{Code76496693f4634c1aa6e5117db172df9a}
 [...]
 export function mountGlossary(glossary: GlossaryObjectType){
     const header = `
@@ -3186,7 +3323,7 @@ export function mountGlossary(glossary: GlossaryObjectType){
             }}`
         })
         .join('\n');
-\end{Code0264bd9370f04cc2a092f539cb2d7205}
+\end{Code76496693f4634c1aa6e5117db172df9a}
 
 Note que todos os objetos de glossário vem misturados
 no parâmetro glossary da função.
@@ -3206,7 +3343,7 @@ A linha 67 adiciona o comando \textbackslash makeglossaries, que diz ao
 \acrshort{latex}
 para montar o glossário.
 
-\begin{Codec07f9c01965a46e093d4b5a3e8f9d306}
+\begin{Code9e19fbadb1b94ff6a31b8d4a0bd67cd5}
 [...]
     let str = `${header}\n\n${acronyms}\n`;
     str = str.concat(`${abbreviations}\n${symbols}\n\n`);
@@ -3217,7 +3354,7 @@ para montar o glossário.
 
     return str;
 }
-\end{Codec07f9c01965a46e093d4b5a3e8f9d306}
+\end{Code9e19fbadb1b94ff6a31b8d4a0bd67cd5}
 
 Após todo o processamento seu resultado é guardado em um arquivo
 denominado makeGlossaries.tex a ser importado posteriormente
@@ -3231,7 +3368,7 @@ digital do mesmo.
 
 Observe a função mountRefs exportada a partir do arquivo mountRefs.ts:
 
-\begin{Code6fa234f7ce9a48158b541af61dea511b}
+\begin{Code1f4bfedf3655469e958e23555113fdd3}
 import { RefsObjectType } from '@/parser/types';
 
 export function mountRefs(refs: RefsObjectType){
@@ -3272,6 +3409,6 @@ export function mountRefs(refs: RefsObjectType){
         return '';
     }).join('\n\n');
 }
-\end{Code6fa234f7ce9a48158b541af61dea511b}
+\end{Code1f4bfedf3655469e958e23555113fdd3}
 
 \chapter{Considerações finais}
