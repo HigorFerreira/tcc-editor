@@ -99,3 +99,13 @@ export function useDeleteGloss(){
 
     return deleteGloss
 }
+
+export function useGetGloss(){
+    const { gloss } = useContext(Context);
+    
+    function getGloss(uuid: string){
+        return gloss[uuid];
+    }
+
+    return getGloss;
+}

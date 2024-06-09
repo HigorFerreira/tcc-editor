@@ -22,6 +22,8 @@ import MarkerToolClass from '@/components/Plugins/MarkerTool/class';
 import GlossTool from '@/components/Plugins/Gloss';
 import GlossToolClass from '@/components/Plugins/Gloss/class';
 
+import { blue } from '@ant-design/colors';
+
 
 // import MarkerTool from '@/app/marker';
 
@@ -38,6 +40,9 @@ const Container = styled("div")(() => ({
     '.cdx-marker': {
         backgroundColor: 'rgba(245,235,111,0.29)',
         padding: '3px 0',
+    },
+    'plugin-gloss': {
+        backgroundColor: blue[1]
     }
 }));
 

@@ -1,7 +1,22 @@
 import { createColumnHelper, getCoreRowModel, getFilteredRowModel, useReactTable } from "@tanstack/react-table";
 import { useGlossList } from "@/components/Providers/Gloss";
 import { useEffect, useMemo, useState } from "react";
-import { List, Skeleton, Tag } from "antd";
+import {
+    List,
+    Skeleton,
+    Tag,
+} from "antd";
+import { PiTrashSimpleFill as TrashIcon } from "react-icons/pi";
+import { FaPen as EditIcon } from "react-icons/fa";
+import { red, blue } from '@ant-design/colors';
+
+import {
+    useDeleteGloss,
+} from '@/components/Providers/Gloss';
+
+import {
+    ItemContainer
+} from '@/components/Plugins/Gloss/components/style'
 
 
 type ItemType = ReturnType<typeof useGlossList>[number]
@@ -10,11 +25,15 @@ export default function GlossList(
     {
         items,
         query,
+        onSelect,
     }: {
         items: ItemType[]
         query?: string
+        onSelect?: (uuid: string) => void
     }
 ){
+    const deleteGloss = useDeleteGloss();
+
     const [ filter, setFilter ] = useState(query??'');
 
     const columnHelper = createColumnHelper<ItemType>();
@@ -30,10 +49,6 @@ export default function GlossList(
                 header: () => <b>Descrição</b>
             }),
             columnHelper.accessor('type', { cell: info => info.getValue() }),
-            // columnHelper.accessor('indexed', { cell: info => info.getValue() })
-            // columnHelper.display({
-            //     id: 
-            // })
         ]
     }, []);
 
@@ -67,27 +82,59 @@ export default function GlossList(
 
 
     
-    // return <List
-    //     dataSource={table.getRowModel().rows}
-    //     renderItem={row => {
-    //         return <List.Item>
-    //             <Skeleton active>
-    //                 <List.Item.Meta
-    //                     title={ row.getValue('short') }
-    //                     description={ row.getValue('description') }
-    //                 />
-    //             </Skeleton>
-    //         </List.Item>
-    //     }}
-    // />
+    return <List
+        style={{ margin: '12px 0' }}
+        dataSource={table.getRowModel().rows}
+        renderItem={row => {
+            const id = `GlossListItem-${row.id}`;
+            return <ItemContainer key={row.id}>
+                <input
+                    id={id}
+                    type="radio"
+                    name="gloss"
+                    style={{ display: 'none' }}
+                    onChange={e => {
+                        onSelect && onSelect(row.id);
+                    }}
+                />
+                <label htmlFor={id}>
+                    <List.Item
+                        actions={[
+                            <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                                <EditIcon
+                                    style={{ cursor: 'pointer' }}
+                                    size={18}
+                                    color={ blue[5] }
+                                    title={`Editar ${row.getValue('short')}`}
+                                />
+                                <TrashIcon
+                                    style={{ cursor: 'pointer' }}
+                                    size={22}
+                                    color={ red[5] }
+                                    title={`Remover ${row.getValue('short')}`}
+                                    onClick={() => deleteGloss(row.id)}
+                                />
+                            </div>,
+                        ]}
+                    >
+                        <List.Item.Meta
+                            title={ row.getValue('short') }
+                            description={ row.getValue('label') }
+                        />
+                        <Tag color="geekblue">{ row.getValue('type') }</Tag>
+                    </List.Item>
+                </label>
+            </ItemContainer>
+        }}
+    />
 
-    return <div>
-        {table.getRowModel().rows.map(row => {
-            return <div style={{ display: 'flex', justifyContent: 'space-between' }} key={row.id}>
-                <b><span>{ row.getValue('short') }</span></b>
-                <span>{ row.getValue('label') }</span>
-                <Tag color="geekblue">{ row.getValue('type') }</Tag>
-            </div>
-        })}
-    </div>;
+    // return <div>
+    //     {table.getRowModel().rows.map(row => {
+    //         return <div style={{ display: 'flex', justifyContent: 'space-between' }} key={row.id}>
+    //             <b><span>{ row.getValue('short') }</span></b>
+    //             <span>{ row.getValue('label') }</span>
+    //             <Tag color="geekblue">{ row.getValue('type') }</Tag>
+    //         </div>
+    //     })}
+    // </div>;
 }
