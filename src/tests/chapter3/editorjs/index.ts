@@ -714,6 +714,54 @@ public renderSettings(): TunesMenuConfigItem[] {
     },
     {
         type: 'header',
+        data: { level: 5, text: 'Aparência' }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                A
+                <plugin-ref-fig data-fig="show-header">Figura</plugin-ref-fig>
+                mostra como o plugin de Header se parece na interface do editor.
+                Também é possível observar seus subtítulos juntamente blocos de
+                parágrafo.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'image',
+        data: {
+            uuid: 'show-header',
+            fileType: 'png',
+            imageUrl: '',
+            width: 0.9,
+            title: 'Plugin de Header na interface gráfica',
+            description: 'Fonte: Autoria própria'
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                O nível do título, (Capítulo, sessão e subsessões), é escolhido
+                a partir do submenu do próprio bloco conforme a
+                <plugin-ref-fig data-fig="show-header-1">Figura</plugin-ref-fig>:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'image',
+        data: {
+            uuid: 'show-header-1',
+            fileType: 'png',
+            imageUrl: '',
+            width: 0.36,
+            title: 'Submenu do Header na interface gráfica',
+            description: 'Fonte: Autoria própria'
+        }
+    },
+    {
+        type: 'header',
         data: { level: 4, text: 'Paragraph' }
     },
     {
@@ -742,20 +790,20 @@ public renderSettings(): TunesMenuConfigItem[] {
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
-    {
-        type: 'header',
-        data: { level: 4, text: 'Table' }
-    },
-    {
-        type: 'paragraph',
-        data: {
-            text: `
-                O plugin de Table, apesar de ter um parser desenvolvido para ele,
-                (checar a sessão Parsing), não será tratado neste trabalho devido,
-                ficando para a posteridade em trabalhos futuros.
-            `.trim().replace(/^\s{16}/gm, '')
-        }
-    },
+    // {
+    //     type: 'header',
+    //     data: { level: 4, text: 'Table' }
+    // },
+    // {
+    //     type: 'paragraph',
+    //     data: {
+    //         text: `
+    //             O plugin de Table, apesar de ter um parser desenvolvido para ele,
+    //             (checar a sessão Parsing), não será tratado neste trabalho devido,
+    //             ficando para a posteridade em trabalhos futuros.
+    //         `.trim().replace(/^\s{16}/gm, '')
+    //     }
+    // },
     // {
     //     type: 'header',
     //     data: { level: 4, text: 'FootNote' }

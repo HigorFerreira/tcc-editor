@@ -80,9 +80,9 @@ export const data: Block[] = [
                 alunos de um curso superior em Tecnologia de Gestão em Recursos Humanos. Dentre suas
                 dificuldades, (dos alunos em questão), é destacada a questão da formatação do trabalho
                 acadêmico. Há também o fato de que as bancas avaliam os trabalhos baseadas em critérios da
-                própria Instituição de Ensino Superior (
-                <plugin-gloss id="ies" data-type="siglas">IES</plugin-gloss>
-                ), critérios estes que não estão necessariamente
+                própria Instituição de Ensino Superior
+                (<plugin-gloss id="ies" data-type="siglas">IES</plugin-gloss>),
+                critérios estes que não estão necessariamente
                 presentes nas normas da <plugin-gloss id="abnt" data-type="siglas">ABNT</plugin-gloss>, ou seja, há uma subjetividade presente que não é comum a
                 todas às <plugin-gloss id="ies" data-type="siglas">IES</plugin-gloss> quanto a questão da formatação. Essa subjetividade contribui para a confusão dos
                 alunos, pois a <plugin-gloss id="ies" data-type="siglas">IES</plugin-gloss> avaliará de acordo com aquilo que julga apropriado, o que muitas vezes
@@ -121,7 +121,9 @@ export const data: Block[] = [
         data: {
             text: `
                 Levando em consideração os problemas que os alunos de diversas instituições de ensino enfrentam ao elaborar seus respectivos
-                trabalhos (conforme apresentado acima), o objetivo deste instrumento é desenvolver uma plataforma web de alta
+                trabalhos (conforme apresentado acima), o objetivo deste instrumento é desenvolver uma plataforma
+                <plugin-gloss id="web" data-type="siglas">IES</plugin-gloss>
+                de alta
                 interatividade<plugin-footnote
                     data-note="Refere-se à capacidade de um sistema, aplicação ou interface de responder
                         às ações do usuário de maneira eficaz e intuitiva">
@@ -202,7 +204,7 @@ export const data: Block[] = [
                 que não é um texto mas tem o objetivo de fornecer informações visuais. O próprio corpo
                 do texto em si será considerado um bloco, denominado parágrafo. Um título será um bloco
                 textual cujo objetivo será separar sessões do texto coesas. Uma lista será um bloco para enumerar
-                intens e assim por diante. O documento será basicamente uma composição de diversos blocos dispostos de forma a formar
+                itens e assim por diante. O documento será basicamente uma composição de diversos blocos dispostos de forma a formar
                 uma unidade coesa final, que será o trabalho propiamente dito.
             `.trim().replace(/^\s{16}/gm, '')
         }
@@ -257,7 +259,7 @@ export const data: Block[] = [
             text: `
                 O submenu será a configuração que o usuário fará no bloco após escolhê-lo. No
                 caso do título, por exemplo: Após o usuário escolher este bloco, poderá configurar
-                o nível de título desejado. Nível este que varia do 1 ao 4, sendo 2; 3 e 4
+                o nível de título desejado. Nível este que varia do 1 ao 5, sendo 2; 3; 4 e 5
                 espécies de subtítulos. No caso de uma imagem, o submenu funcionará para que possa
                 ser definida a imagem, bem como seu título de sua descrição.
             `.trim().replace(/^\s{16}/gm, '')
@@ -267,7 +269,9 @@ export const data: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                A imagem abaixo ilustra a composição de um trabalho com seus respectivos blocos:
+                A
+                <plugin-ref-fig data-fig="blocos-no-documento">Figura</plugin-ref-fig>
+                ilustra a composição de um trabalho com seus respectivos blocos:
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -276,7 +280,7 @@ export const data: Block[] = [
         data: {
             uuid: 'blocos-no-documento',
             description: 'Fonte: Adaptado de <plugin-ref id="pucgo"></plugin-ref>',
-            title: 'Divisão de blocos em uma imagem',
+            title: 'Divisão de blocos em um documento',
             width: 0.8,
             fileType: 'png',
             imageUrl: '',
@@ -315,7 +319,7 @@ export const data: Block[] = [
                 como resultado das interações do usuário, que posteriormente
                 serão convertidos em código
                 <plugin-gloss id="latex"></plugin-gloss><plugin-footnote data-note="
-                Ver (sessão que trata do <plugin-gloss id="latex"></plugin-gloss>)
+                Ver (sessão que trata do <plugin-gloss id='latex'></plugin-gloss>)
                 ">
                 *</plugin-footnote>.
                 Só então, finalmente será utilizado um utilitário que converterá o código <plugin-gloss id="latex"></plugin-gloss>
@@ -369,7 +373,15 @@ export const data: Block[] = [
                 *</plugin-footnote>
                 e outros imprevistos impeditivos tanto para a correta execução, quanto
                 para a exeperiência de desenvolvimento.
-                A lista abaixo diz respeito às ferramentas e ao ambiente onde este <i>software</i>
+                A
+                <plugin-ref-table data-table="tecnologias-ambiente">Tabela</plugin-ref-table>                
+                diz respeito às ferramentas e ao ambiente onde este
+                <i>software</i><plugin-footnote data-note="
+                    O software é o conjunto de instruções dadas a um computador, de modo que
+                    ele execute determinada tarefa. Pode-se dizer que o software é
+                    a parte lógica do sistema computacional. <br> <plugin-ref id='hardware-e-software'></plugin-ref>.
+                ">
+                *</plugin-footnote>
                 foi desenvolvido, bem como todas as suas respectivas versões:
             `.trim().replace(/^\s{16}/gm, '')
         }
@@ -385,13 +397,20 @@ export const data: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                Atender aos requisitos mínimos de hardware
+                Atender aos requisitos mínimos de
+                <i>hardware</i><plugin-footnote data-note="
+                    Com hardware, compreende-se o equipamento físico de um sistema computacional.
+                    Suas unidades Lógicas de Processamento, memórias e unidades de armazenamento são
+                    hardware. <br> <plugin-ref id='hardware-e-software'></plugin-ref>.
+                "></plugin-footnote>
                 e software é fundamental para garantir uma experiência de usuário satisfatória
                 e evitar problemas de desempenho ou compatibilidade com o aplicativo da plataforma.
                 A seguir
                 na
                 <plugin-ref-table data-table="tecnologias-ambiente">Tabela</plugin-ref-table>
-                enumera-se o ambiente mínimo com seus respectivos softwares necessários
+                enumera-se o ambiente mínimo com seus respectivos
+                <i>softwares</i>
+                necessários
                 para rodar o aplicativo da plataforma:
             `.trim().replace(/^\s{16}/gm, '')
         }
@@ -470,6 +489,50 @@ export const data: Block[] = [
             })
         }
     },
+    {
+        type: 'header',
+        data: { level: 3, text: 'Versionador, (Versão do projeto)' }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Este trabalho utiliza o Git para controlar suas respectivas versões e
+                evolução. Como o código é dinâmico e está sempre evoluindo,
+                os exemplos fornecidos neste documento estão registrados numa determinada
+                versão específica afim de que não se perca o exemplo dado com código que
+                poderá estar diferente dependendo da data em que o trabalho for lido.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Todos os exemplos em código fornecidos, bem como a correspodência de linhas
+                estão presentes nos detalhes da versão de
+                commit<plugin-footnote data-note="
+                    Um commit, (nos termos do git), é como salvar o projeto, guardando uma versão do código naquele momento específico.
+                    O commit pode ser comparado a uma foto do projeto, capturando o estado atual e todas as mudanças feitas desde o último commit.
+                "></plugin-footnote>
+                abaixo:
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
+    {
+        type: 'code',
+        data: {
+            start_line: 1,
+            uuid: 'GitVersionCode',
+            text: `
+commit c0cab19296c46355d4bee5cc3e164616ed73fe49
+Author: Higor Ferreira <hfashigor@hotmail.com>
+Date:   Sun Jun 9 11:03:02 2024 -0300
+
+    updateDocs: README
+`.trim()
+        }
+    },
     // {
     //     type: 'header',
     //     data: { level: 2, text: 'Resultados' }
@@ -536,7 +599,9 @@ export const data: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                O Front-End é, basicamente, a "linha de frente". É a parte da aplicação que interagirá
+                O
+                <i>Front-End</i>
+                é, basicamente, a "linha de frente". É a parte da aplicação que interagirá
                 diretamente com o usuário. Ao profissional que codifica e desenvolve esta parte do
                 projeto, denomina-se Desenvolvedor Front-End. A interface do usuário, que é
                 onde o mesmo realiza suas interações com o sistema, normalmente é desenhada por
@@ -576,19 +641,9 @@ export const data: Block[] = [
                 significativas, marcada por um ritmo de evolução e aprimoramento sem precedentes, além da
                 distribuição de conteúdo em massa. Juntamente com essas mudanças, surgiram novas
                 tecnologias, variando de
-                <i>softwares</i><plugin-footnote data-note="
-                    O software é o conjunto de instruções dadas a um computador, de modo que
-                    ele execute determinada tarefa. Pode-se dizer que o software é
-                    a parte lógica do sistema computacional. <br> <plugin-ref id='hardware-e-software'></plugin-ref>.
-                ">
-                *</plugin-footnote>
+                <i>softwares</i>
                 a
-                <i>hardwares</i><plugin-footnote data-note="
-                    Com hardware, compreende-se o equipamento físico de um sistema computacional.
-                    Suas unidades Lógicas de Processamento, memórias e unidades de armazenamento são
-                    hardware. <br> <plugin-ref id='hardware-e-software'></plugin-ref>.
-                ">
-                *</plugin-footnote>,
+                <i>hardwares</i>,
                 aprimorando a experiência de navegação na
                 <plugin-gloss id="web" data-type="abreviacao">Web</plugin-gloss>
                 <plugin-ref id="molgado"></plugin-ref>.

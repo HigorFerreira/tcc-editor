@@ -42,9 +42,9 @@ vão analisar as percepções e dificuldades dos
 alunos de um curso superior em Tecnologia de Gestão em Recursos Humanos. Dentre suas
 dificuldades, (dos alunos em questão), é destacada a questão da formatação do trabalho
 acadêmico. Há também o fato de que as bancas avaliam os trabalhos baseadas em critérios da
-própria Instituição de Ensino Superior (
-\acrshort{ies}
-), critérios estes que não estão necessariamente
+própria Instituição de Ensino Superior
+(\acrshort{ies}),
+critérios estes que não estão necessariamente
 presentes nas normas da \acrshort{abnt}, ou seja, há uma subjetividade presente que não é comum a
 todas às \acrshort{ies} quanto a questão da formatação. Essa subjetividade contribui para a confusão dos
 alunos, pois a \acrshort{ies} avaliará de acordo com aquilo que julga apropriado, o que muitas vezes
@@ -68,7 +68,9 @@ na vida de boa parte dos estudantes em processo de escrita.
 \section{Objetivo}
 
 Levando em consideração os problemas que os alunos de diversas instituições de ensino enfrentam ao elaborar seus respectivos
-trabalhos (conforme apresentado acima), o objetivo deste instrumento é desenvolver uma plataforma web de alta
+trabalhos (conforme apresentado acima), o objetivo deste instrumento é desenvolver uma plataforma
+\acrshort{web}
+de alta
 interatividade\footnote{Refere-se à capacidade de um sistema, aplicação ou interface de responder
         às ações do usuário de maneira eficaz e intuitiva}
 e
@@ -120,7 +122,7 @@ Por exemplo: Uma imagem pode ser considerada um bloco nesta abordagem, uma vez
 que não é um texto mas tem o objetivo de fornecer informações visuais. O próprio corpo
 do texto em si será considerado um bloco, denominado parágrafo. Um título será um bloco
 textual cujo objetivo será separar sessões do texto coesas. Uma lista será um bloco para enumerar
-intens e assim por diante. O documento será basicamente uma composição de diversos blocos dispostos de forma a formar
+itens e assim por diante. O documento será basicamente uma composição de diversos blocos dispostos de forma a formar
 uma unidade coesa final, que será o trabalho propiamente dito.
 
 \subsection{Bloco}
@@ -147,15 +149,17 @@ subtítulo, e até o subtítulo do subtítulo.
 
 O submenu será a configuração que o usuário fará no bloco após escolhê-lo. No
 caso do título, por exemplo: Após o usuário escolher este bloco, poderá configurar
-o nível de título desejado. Nível este que varia do 1 ao 4, sendo 2; 3 e 4
+o nível de título desejado. Nível este que varia do 1 ao 5, sendo 2; 3; 4 e 5
 espécies de subtítulos. No caso de uma imagem, o submenu funcionará para que possa
 ser definida a imagem, bem como seu título de sua descrição.
 
-A imagem abaixo ilustra a composição de um trabalho com seus respectivos blocos:
+A
+Figura \ref{fig:blocos-no-documento}
+ilustra a composição de um trabalho com seus respectivos blocos:
 
 \begin{figure}[H]
     \centering
-    \caption{Divisão de blocos em uma imagem}
+    \caption{Divisão de blocos em um documento}
     \includegraphics[width=0.8\textwidth]{./images/blocos-no-documento.png}
     \label{fig:blocos-no-documento} \\
     \textnormal{\fontsize{10pt}{12pt}Fonte: Adaptado de \cite{pucgo}}
@@ -177,7 +181,8 @@ da aplicação. A plataforma gerará um código
 }
 como resultado das interações do usuário, que posteriormente
 serão convertidos em código
-\acrshort{latex}\footnote{Ver (sessão que trata do }.
+\acrshort{latex}\footnote{Ver (sessão que trata do \acrshort{latex})
+}.
 Só então, finalmente será utilizado um utilitário que converterá o código \acrshort{latex}
 em um documento
 \acrshort{pdf}. A
@@ -203,20 +208,32 @@ para se referir a problemas que afetam o funcionamento dos mesmos
 }
 e outros imprevistos impeditivos tanto para a correta execução, quanto
 para a exeperiência de desenvolvimento.
-A lista abaixo diz respeito às ferramentas e ao ambiente onde este \textit{software}
+A
+Tabela \ref{tbl:tecnologias-ambiente}                
+diz respeito às ferramentas e ao ambiente onde este
+\textit{software}\footnote{O software é o conjunto de instruções dadas a um computador, de modo que
+    ele execute determinada tarefa. Pode-se dizer que o software é
+    a parte lógica do sistema computacional.  \\  \cite{hardware-e-software}.
+}
 foi desenvolvido, bem como todas as suas respectivas versões:
 
 \clearpage
 
 \subsection{Tecnologias do ambiente de desenvolvimento}
 
-Atender aos requisitos mínimos de hardware
+Atender aos requisitos mínimos de
+\textit{hardware}\footnote{Com hardware, compreende-se o equipamento físico de um sistema computacional.
+    Suas unidades Lógicas de Processamento, memórias e unidades de armazenamento são
+    hardware.  \\  \cite{hardware-e-software}.
+}
 e software é fundamental para garantir uma experiência de usuário satisfatória
 e evitar problemas de desempenho ou compatibilidade com o aplicativo da plataforma.
 A seguir
 na
 Tabela \ref{tbl:tecnologias-ambiente}
-enumera-se o ambiente mínimo com seus respectivos softwares necessários
+enumera-se o ambiente mínimo com seus respectivos
+\textit{softwares}
+necessários
 para rodar o aplicativo da plataforma:
 
 \begin{table}[H]
@@ -279,6 +296,29 @@ yarn; pnpm e bun. Este trabalho utilizou o yarn:
     \end{tabular}
 \end{table}
 
+\subsection{Versionador, (Versão do projeto)}
+
+Este trabalho utiliza o Git para controlar suas respectivas versões e
+evolução. Como o código é dinâmico e está sempre evoluindo,
+os exemplos fornecidos neste documento estão registrados numa determinada
+versão específica afim de que não se perca o exemplo dado com código que
+poderá estar diferente dependendo da data em que o trabalho for lido.
+
+Todos os exemplos em código fornecidos, bem como a correspodência de linhas
+estão presentes nos detalhes da versão de
+commit\footnote{Um commit, (nos termos do git), é como salvar o projeto, guardando uma versão do código naquele momento específico.
+    O commit pode ser comparado a uma foto do projeto, capturando o estado atual e todas as mudanças feitas desde o último commit.
+}
+abaixo:
+
+\begin{GitVersionCode}
+commit c0cab19296c46355d4bee5cc3e164616ed73fe49
+Author: Higor Ferreira <hfashigor@hotmail.com>
+Date:   Sun Jun 9 11:03:02 2024 -0300
+
+    updateDocs: README
+\end{GitVersionCode}
+
 \chapter{Fundamentação teórica}
 
 A plataforma será construída sob alguns pilares fundamentais indispensáveis
@@ -310,7 +350,9 @@ Back-End e Parsing. Cada qual com seus respectivos conceitos e tecnologias.
 
 \section{Do Front-End}
 
-O Front-End é, basicamente, a "linha de frente". É a parte da aplicação que interagirá
+O
+\textit{Front-End}
+é, basicamente, a "linha de frente". É a parte da aplicação que interagirá
 diretamente com o usuário. Ao profissional que codifica e desenvolve esta parte do
 projeto, denomina-se Desenvolvedor Front-End. A interface do usuário, que é
 onde o mesmo realiza suas interações com o sistema, normalmente é desenhada por
@@ -336,15 +378,9 @@ na vida diária resultou em mudanças
 significativas, marcada por um ritmo de evolução e aprimoramento sem precedentes, além da
 distribuição de conteúdo em massa. Juntamente com essas mudanças, surgiram novas
 tecnologias, variando de
-\textit{softwares}\footnote{O software é o conjunto de instruções dadas a um computador, de modo que
-    ele execute determinada tarefa. Pode-se dizer que o software é
-    a parte lógica do sistema computacional.  \\  \cite{hardware-e-software}.
-}
+\textit{softwares}
 a
-\textit{hardwares}\footnote{Com hardware, compreende-se o equipamento físico de um sistema computacional.
-    Suas unidades Lógicas de Processamento, memórias e unidades de armazenamento são
-    hardware.  \\  \cite{hardware-e-software}.
-},
+\textit{hardwares},
 aprimorando a experiência de navegação na
 \acrshort{web}
 \cite{molgado}.
@@ -1638,15 +1674,15 @@ Para executar o exemplo e ver como ele se comporta no navegador
 do usuário, basta a partir do diretório do projeto rodar o
 seguinte comando:
 
-\begin{be1abcf2b41d4f41b98b2e0ea5a5a851}
+\begin{5f9422f8f10b49ca92a90ac505d8dbd2}
 yarn dev
-\end{be1abcf2b41d4f41b98b2e0ea5a5a851}
+\end{5f9422f8f10b49ca92a90ac505d8dbd2}
 
 Após rodar o comando o servidor iniciará localmente.
 A saída do terminal mostrará a porta do serviço a ser acessada
 afim de renderizar a página:
 
-\begin{Code25aab1d50657421292d15d823a4647b7}
+\begin{Code3bf6e8092d5d43cf908d6217154e1cbe}
 yarn run v1.22.19
 $ next dev
     Next.js 14.1.1
@@ -1654,7 +1690,7 @@ $ next dev
     - Environments: .env.local
 
     Ready in 2.7s
-\end{Code25aab1d50657421292d15d823a4647b7}
+\end{Code3bf6e8092d5d43cf908d6217154e1cbe}
 
 Ao acessar o endereço http://localhost:3000
 na rota /example, a página é renderizada
@@ -1703,7 +1739,7 @@ da rota de página ao qual se está acessando.
 
 Observe abaixo o código de layout:
 
-\begin{Code87fe3666f80041d1ac37e43621a74ebd}
+\begin{Codea6e986c21cb04e17a0b584a4b83f0255}
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -1731,7 +1767,7 @@ export default function RootLayout({
         </html>
     )
 }
-\end{Code87fe3666f80041d1ac37e43621a74ebd}
+\end{Codea6e986c21cb04e17a0b584a4b83f0255}
 
 Na linha 13 há a exportação do componente em si. O código
 \acrshort{tsx}
@@ -1797,7 +1833,7 @@ Percebe-se que o componente Container possuí dois filhos: Um texto
 Observe a partir da linha 87 no código abaixo como a renderização
 do texto "Carregando editor..."~ está condicionada ao estado loading.
 
-\begin{Codee517a42c3d45497c9d0c6e18bcff57d6}
+\begin{Code65951ff4191f43b5a147cbd2d29d0997}
 [...]
 return (
     <main>
@@ -1809,7 +1845,7 @@ return (
             }
             <Editor
 [...]
-\end{Codee517a42c3d45497c9d0c6e18bcff57d6}
+\end{Code65951ff4191f43b5a147cbd2d29d0997}
 
 O estado loading inicialmente começa com o valor true, o que
 faz com que o texto seja renderizado. O componente
@@ -1822,14 +1858,14 @@ Note na linha 121 do código abaixo que a propriedade
 que pertence ao componente Editor, recebe uma função
 com o parâmetro \{ editor \}.
 
-\begin{Codea278b8472c8d491b8fea90801a0e5014}
+\begin{Coded77e6ad668474c82be18e2f3d51a7705}
 [...]
 onReady={ ({ editor }) => {
     setLoading(false);
     setEditor(editor);
 } }
 [...]
-\end{Codea278b8472c8d491b8fea90801a0e5014}
+\end{Coded77e6ad668474c82be18e2f3d51a7705}
 
 A propriedade onReady é um evento que chama
 a função passada quando a classe EditorJs está pronta e
@@ -1879,7 +1915,7 @@ de modo a enriquecer a experiência de usuário. A mudança de um estado também
 disparar um efeito. Efeito este que adiciona alguma ação ou modificação de outros estados.
 Observe o código abaixo:
 
-\begin{Code06795a05a2574b76affb0236f69f6a35}
+\begin{Code576b60c745934ed8991a228e4f7c7891}
 [...]
 useEffect(() => {
     if(storageError){
@@ -1888,7 +1924,7 @@ useEffect(() => {
     }
 }, [ storageError ]);
 [...]
-\end{Code06795a05a2574b76affb0236f69f6a35}
+\end{Code576b60c745934ed8991a228e4f7c7891}
 
 O código acima adiciona uma função que monitora o estado denominado
 storageError. Na primeira renderização da página, ou sempre que este
@@ -1952,14 +1988,14 @@ seguida repassa-o para putBlock.
 Os detalhes de implementação da Storage se encontram no repositório através
 do diretório: /src/components/Storage
 
-\begin{Codec1faee3c56a24514a96b5eebac8175d1}
+\begin{Code6815116651b24444a11d0596ad342c51}
 [...]
 onChange={async (api, event) => {
     const blocks = await api.saver.save();
     putBlock(blocks as EditorSave);
 }}
 [...]
-\end{Codec1faee3c56a24514a96b5eebac8175d1}
+\end{Code6815116651b24444a11d0596ad342c51}
 
 \section{Editor}
 
@@ -2062,7 +2098,7 @@ evento personalizado denominado \textit{editor-plugin-render}.
 Isto é importante pois este evento recebe a criação dos plugins que
 são disparados de dentro da classe EditorJs. Observe o código abaixo:
 
-\begin{Codeb98075c8bc8d4118afaa23e1d309017d}
+\begin{Code55686b25a2b44b728eb3c0190bd78e4e}
 [...]
 document.addEventListener('editor-plugin-render', e => {
     // console.log('editor-plugin-render');
@@ -2077,7 +2113,7 @@ document.addEventListener('editor-plugin-render', e => {
     ]);
 });
 [...]
-\end{Codeb98075c8bc8d4118afaa23e1d309017d}
+\end{Code55686b25a2b44b728eb3c0190bd78e4e}
 
 Na linha 137 o escutador é adicionado ao objeto
 \acrshort{dom}. Este evento monitora
@@ -2093,7 +2129,7 @@ pluginsList
 é memorizada em pluginsRender, que é então
 renderizado na linha 213 do código abaixo:
 
-\begin{Codeb2e7905a259b4eb0ba3cd5ffa4b56b85}
+\begin{Code4f8a1cb5accd4fccb936cc5db4dc36fc}
 [...]
     return <Context.Provider value={{
         editor: editor.current
@@ -2105,7 +2141,7 @@ renderizado na linha 213 do código abaixo:
         <div ref={ editorContainerRef } ></div>
     </Context.Provider>
 }
-\end{Codeb2e7905a259b4eb0ba3cd5ffa4b56b85}
+\end{Code4f8a1cb5accd4fccb936cc5db4dc36fc}
 
 \subsubsection{\underline{Instância do EditorJs}}
 
@@ -2129,7 +2165,7 @@ antes de chamar a função onReady na linha 192. Note que onReady só é chamada
 a mesma tenha sido repassada. Ao chamar, a instância do editor é repassada na linha
 193.
 
-\begin{Codef59fe1eafba949f5b85aa20112f03531}
+\begin{Codeb1f05e50235e4907b05b96b12c2ea861}
 [...]
 if(!editor.current && editorContainerRef.current){
     // console.log("Comming to assing editorjs...");
@@ -2155,7 +2191,7 @@ if(!editor.current && editorContainerRef.current){
     })
 }
 [...]
-\end{Codef59fe1eafba949f5b85aa20112f03531}
+\end{Codeb1f05e50235e4907b05b96b12c2ea861}
 
 \subsection{BasePlugin}
 
@@ -2220,7 +2256,7 @@ O método mais importante da classe base é o render(). É ele quem coloca o plu
 em tela quando o usuário escolhe um plugin a partir do menu de plugins.
 Observe no código abaixo o funcionamento da classe:
 
-\begin{Code7fe6c2f3853043e0b1f768c8ddcaefab}
+\begin{Codedb32e4b19e8445d5a93830fc1a3e4566}
 [...]
 public render(){
     const wrapper = document.createElement('div');
@@ -2238,7 +2274,7 @@ public render(){
     return wrapper;
 }
 [...]
-\end{Code7fe6c2f3853043e0b1f768c8ddcaefab}
+\end{Codedb32e4b19e8445d5a93830fc1a3e4566}
 
 Observe que o método render cria um wrapper a partir de um elemento
 div na linha 52. Na linha 53 é atribuído um id a partir da chamada do método
@@ -2283,7 +2319,7 @@ se programa a aparência e comportamentos do mesmo.
 O plugin de Header, (até o momento de escrita deste trabalho), pode ser considerado um dos mais simples
 que foi desenvolvido. Observe abaixo a implementação do arquivo class.tsx:
 
-\begin{Code8a542fd939024c21849470bff9d4872b}
+\begin{Code3ebe71a2cd68490eba49433770b1fd72}
 [...]
 export default class HeaderClass extends BasePlugin<DataType> {
     text: string = ""
@@ -2297,7 +2333,7 @@ export default class HeaderClass extends BasePlugin<DataType> {
         };
     }
 [...]
-\end{Code8a542fd939024c21849470bff9d4872b}
+\end{Code3ebe71a2cd68490eba49433770b1fd72}
 
 Na linha 17, é realizada a exportação da classe HeaderClass,
 que estende a classe BasePlugin. Observe que nas linhas 18 e 19,
@@ -2309,7 +2345,7 @@ de atualização do nível (level) do Header, pois é nesta classe que
 o menu, onde o usuário selecionará o nível do título, é definido,
 conforme o código abaixo:
 
-\begin{Codeaf540b2fb546417db1853280deedeb0d}
+\begin{Code5359def56d0b416692f1d2310024ecd2}
 [...]
 public renderSettings(): TunesMenuConfigItem[] {
     return ([1,2,3,4,5] as HeaderLevelsType[]).map(lv => ({
@@ -2322,7 +2358,7 @@ public renderSettings(): TunesMenuConfigItem[] {
         closeOnActivate: true,
         isActive: lv === this?.pluginData?.level,
 [...]
-\end{Codeaf540b2fb546417db1853280deedeb0d}
+\end{Code5359def56d0b416692f1d2310024ecd2}
 
 Observe como a função de atualização de estado é chamada a partir de onActivate
 na linha 40. Isso garante a comunicação do menu com o componente React, permitindo
@@ -2333,7 +2369,7 @@ getName() e getUuid(). Observe que em getName retorna-se o nome header do plugin
 ao passo que em getUuid retorna-se um uuid versão 4 para criar um identificador
 único para o plugin.
 
-\begin{Codef8e32531f3e04e0a9af4f7b5c48f066e}
+\begin{Code9de9e761a7f64a079b8b7e219f13ac8f}
 [...]
     getName(): string {
         return 'header';
@@ -2343,7 +2379,7 @@ ao passo que em getUuid retorna-se um uuid versão 4 para criar um identificador
         return uuidv4();
     }
 }
-\end{Codef8e32531f3e04e0a9af4f7b5c48f066e}
+\end{Code9de9e761a7f64a079b8b7e219f13ac8f}
 
 \subsubsubsection{Plugin React}
 
@@ -2352,6 +2388,34 @@ ao passo que em getUuid retorna-se um uuid versão 4 para criar um identificador
     \caption{Plugin: Componente React}
     \includegraphics[width=0.7\textwidth]{./images/header-plugin-component.png}
     \label{fig:header-plugin-component} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+\subsubsubsection{Aparência}
+
+A
+Figura \ref{fig:show-header}
+mostra como o plugin de Header se parece na interface do editor.
+Também é possível observar seus subtítulos juntamente blocos de
+parágrafo.
+
+\begin{figure}[H]
+    \centering
+    \caption{Plugin de Header na interface gráfica}
+    \includegraphics[width=0.9\textwidth]{./images/show-header.png}
+    \label{fig:show-header} \\
+    \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
+\end{figure}
+
+O nível do título, (Capítulo, sessão e subsessões), é escolhido
+a partir do submenu do próprio bloco conforme a
+Figura \ref{fig:show-header-1}:
+
+\begin{figure}[H]
+    \centering
+    \caption{Submenu do Header na interface gráfica}
+    \includegraphics[width=0.4\textwidth]{./images/show-header-1.png}
+    \label{fig:show-header-1} \\
     \textnormal{\fontsize{10pt}{12pt}Fonte: Autoria própria}
 \end{figure}
 
@@ -3074,22 +3138,22 @@ deve ser definido no documento antes que se possa fazer uso do mesmo.
 Observe abaixo o exemplo de uma definição de sigla em
 \acrshort{latex}:
 
-\begin{Code8466c69e806c4fe09fc27de006699805}
+\begin{Code20ee6ec7cc804ebc968d38486325deca}
 \newacronym[type=sigla]{abnt}{ABNT}{
     Associação Brasileira de Normas Técnicas
 }
-\end{Code8466c69e806c4fe09fc27de006699805}
+\end{Code20ee6ec7cc804ebc968d38486325deca}
 
 Além de montados, cada clossário deve ser exibido com o comando
 \textbackslash printglossary. Veja o código abaixo:
 
-\begin{Code65bad5dc60b24bd79ba583755dd2fe15}
+\begin{Code19ad897f44334945a96d75ebe98275bb}
 \printglossary[type=sigla,title=LISTA DE SIGLAS]
 \clearpage
 
 \printglossary[type=abreviacao,title=LISTA DE ABREVIATURAS]
 \clearpage
-\end{Code65bad5dc60b24bd79ba583755dd2fe15}
+\end{Code19ad897f44334945a96d75ebe98275bb}
 
 Isto garante que os devidos glossários sejam exibidos com
 folga de uma página, com seus respectivos títulos.
@@ -3098,7 +3162,7 @@ A função mountGlossary exportada em mountGlossary.ts
 contém sua implementação, que faz todo o processamento dos
 items de glossário a partir de um GlossaryObjectType:
 
-\begin{Codef73d5c413d46481f8cc4664e9e54a7ce}
+\begin{Code0264bd9370f04cc2a092f539cb2d7205}
 [...]
 export function mountGlossary(glossary: GlossaryObjectType){
     const header = `
@@ -3122,7 +3186,7 @@ export function mountGlossary(glossary: GlossaryObjectType){
             }}`
         })
         .join('\n');
-\end{Codef73d5c413d46481f8cc4664e9e54a7ce}
+\end{Code0264bd9370f04cc2a092f539cb2d7205}
 
 Note que todos os objetos de glossário vem misturados
 no parâmetro glossary da função.
@@ -3142,7 +3206,7 @@ A linha 67 adiciona o comando \textbackslash makeglossaries, que diz ao
 \acrshort{latex}
 para montar o glossário.
 
-\begin{Code442e9ff4e74e4a87a43ffb26ff509ea5}
+\begin{Codec07f9c01965a46e093d4b5a3e8f9d306}
 [...]
     let str = `${header}\n\n${acronyms}\n`;
     str = str.concat(`${abbreviations}\n${symbols}\n\n`);
@@ -3153,7 +3217,7 @@ para montar o glossário.
 
     return str;
 }
-\end{Code442e9ff4e74e4a87a43ffb26ff509ea5}
+\end{Codec07f9c01965a46e093d4b5a3e8f9d306}
 
 Após todo o processamento seu resultado é guardado em um arquivo
 denominado makeGlossaries.tex a ser importado posteriormente
@@ -3167,7 +3231,7 @@ digital do mesmo.
 
 Observe a função mountRefs exportada a partir do arquivo mountRefs.ts:
 
-\begin{Code98024e9c54ae4f77a0ddeed01af0f90f}
+\begin{Code6fa234f7ce9a48158b541af61dea511b}
 import { RefsObjectType } from '@/parser/types';
 
 export function mountRefs(refs: RefsObjectType){
@@ -3208,6 +3272,6 @@ export function mountRefs(refs: RefsObjectType){
         return '';
     }).join('\n\n');
 }
-\end{Code98024e9c54ae4f77a0ddeed01af0f90f}
+\end{Code6fa234f7ce9a48158b541af61dea511b}
 
 \chapter{Considerações finais}
