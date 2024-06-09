@@ -22,7 +22,7 @@ import MarkerToolClass from '@/components/Plugins/MarkerTool/class';
 import GlossTool from '@/components/Plugins/Gloss';
 import GlossToolClass from '@/components/Plugins/Gloss/class';
 
-import { blue } from '@ant-design/colors';
+import { blue, red } from '@ant-design/colors';
 
 
 // import MarkerTool from '@/app/marker';
@@ -43,7 +43,10 @@ const Container = styled("div")(() => ({
     },
     'plugin-gloss': {
         backgroundColor: blue[1]
-    }
+    },
+    'plugin-footnote': {
+        color: red[9]
+    },
 }));
 
 
