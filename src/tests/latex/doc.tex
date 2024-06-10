@@ -29,19 +29,19 @@
 
 \titulo{Plataforma de Edição/Automação para trabalhos acadêmicos}
 \autor{Higor Ferreira Alves Santos}
-\orientador{Marcelo Antônio Adad}
+\orientador{Marcelo Antonio Adad de Araújo}
 
 \newcommand{\ies}{Pontifícia Universidade Católica de Goiás}
 \newcommand{\escola}{Escola Politécnica e de Artes}
 \newcommand{\curso}{Engenharia de Computação}
 
-\newcommand{\grauOrientador}{Prof. M.E.E.}
+\newcommand{\grauOrientador}{\acrshort{prof}. \acrshort{mee}.}
 \newcommand{\grauAluno}{Bacharel}
 
-\newcommand{\grauBancaUm}{Prof. Dra.}
+\newcommand{\grauBancaUm}{\acrshort{prof}.}
 \newcommand{\bancaUm}{Miriam Gusmão}
-\newcommand{\grauBancaDois}{}
-\newcommand{\bancaDois}{}
+\newcommand{\grauBancaDois}{\acrshort{prof}. \acrshort{mee}.}
+\newcommand{\bancaDois}{Carlos Alexandre Ferreira de Lima}
 
 \instituicao{%
     \ies
@@ -131,11 +131,11 @@
             \curso.\\\\
             Orientador:\\
             \begin{flushright}
-                \grauOrientador \imprimirorientador
+                \grauOrientador~\imprimirorientador
             \end{flushright}
             Banca examinadora:\\
             \begin{flushright}
-                \grauBancaUm \, \bancaUm
+                \grauBancaUm \, \bancaUm \\
                 \grauBancaDois \, \bancaDois
             \end{flushright}
         }
@@ -178,12 +178,12 @@
     \vspace*{10mm}
 
     \rule{10cm}{0.4pt}\\
-    \textnormal{Orientador1: \grauBancaUm \, \bancaUm}
+    \textnormal{Banca: \grauBancaUm \, \bancaUm}
 
     \vspace*{10mm}
 
     \rule{10cm}{0.4pt}\\
-    \textnormal{Orientador2: \grauBancaDois \, \bancaDois}
+    \textnormal{Banca: \grauBancaDois \, \bancaDois}
     \end{flushright}
 
     \vspace*{6cm}
@@ -229,7 +229,7 @@ o processo de escrita deste trabalho.
 \vspace{10mm}
 
 Em memória de minhas avós: Maria Tavares dos Santos e
-Jesuína Pereira Gomes.
+Jesuína Pereira dos Santos.
 
 \vspace{10mm}
 
@@ -238,7 +238,7 @@ torna a caminhada mais leve.
 
 \vspace{30mm}
 
-(Melhorar isso aqui)
+
 Às criaturas do Vale, cuja matéria de acolhimento e aceitação
 as vezes é tão boa quanto as extremas opostas criaturas do Caminho.
 
@@ -246,23 +246,23 @@ as vezes é tão boa quanto as extremas opostas criaturas do Caminho.
 
 \clearpage
 
-%Agradecimentos
-\centering
-\ABNTEXchapterfont\bfseries{\textsc{\MakeUppercase{Agradecimetos}}}\\
-\vspace*{3cm}
-\justifying
-\normalfont
-% \lipsum[1]
-\clearpage
+% %Agradecimentos
+% \centering
+% \ABNTEXchapterfont\bfseries{\textsc{\MakeUppercase{Agradecimetos}}}\\
+% \vspace*{3cm}
+% \justifying
+% \normalfont
+% % \lipsum[1]
+% \clearpage
 
-%Epígrafe
-\centering
-\ABNTEXchapterfont\bfseries{\textsc{\MakeUppercase{Epígrafe}}}\\
-\vspace*{3cm}
-\justifying
-\normalfont
-% \lipsum[1-3]
-\clearpage
+% %Epígrafe
+% \centering
+% \ABNTEXchapterfont\bfseries{\textsc{\MakeUppercase{Epígrafe}}}\\
+% \vspace*{3cm}
+% \justifying
+% \normalfont
+% % \lipsum[1-3]
+% \clearpage
 
 %Resumo
 \centering
@@ -270,6 +270,19 @@ as vezes é tão boa quanto as extremas opostas criaturas do Caminho.
 \vspace*{3cm}
 \justifying
 \normalfont
+Escrever um Trabalho de Conclusão de Curso (\acrshort{tcc}) pode ser uma tarefa dolorosa e penosa.
+Além de se preocupar com o conteúdo em si, os discentes muitas vezes devem se peocupar também com formatação e
+apresentação visual de seus projetos. As normas brasileiras de formatação reguladas pela Associação Brasileira de Normas Técnicas
+(ABNT) muitas vezes se tornam um gigantesco desafio para os egressos Brasileiros. Estas normas contém diversas regras
+e especificidades que devem ser seguidas a risca.
+
+Considerando tais dificuldades, este trabalho consiste em uma implementação na qual é desenvolvida uma plataforma de edição de texto
+simples, intuitiva e eficiente que possa ser facilmente utilizada pelo público geral.
+Desta forma, o escritor pode apenas se preocupar com seu conteúdo em si, deixando aspectos como formatação e apresentação
+a cargo da plataforma.
+
+O produto final consiste numa plataforma com um editor de texto visual que segue as normas da ABNT em conjunto com as
+normas específicas da Pontificia Universidade Católica de Goiás afim de ajudar os alunos formandos em suas publicações.
 % \lipsum[12-13]
 \clearpage
 
@@ -279,6 +292,12 @@ as vezes é tão boa quanto as extremas opostas criaturas do Caminho.
 \vspace*{3cm}
 \justifying
 \normalfont
+Writing a final paper or a monograph can be a difficult task. In addition to worrying about the content of the work itself, writers must also focus on the presentation and formatting of their project. Brazilian standards for formatting scientific papers are among the most challenging aspects for Brazilian students. These standards contain many rules and specificities that must be followed strictly.
+
+Considering these difficulties, this work involves the implementation of an application that aims to develop a rich text editor that can be used simply and efficiently by the general public. In this way, the writer only has to worry about the content, and the presentation is automatically formatted by the app.
+
+The final product is a platform with a visual editor that follows the rules of the "Associação Brasileira de Normas Técnicas"~(ABNT), the association that regulates formatting norms, in conjunction with rules provided by the Pontifical Catholic University of Goiás (Pontifícia Universidade Católica de Goiás) to help PUC-GO students with their academic publications.
+
 % \lipsum[7]
 \clearpage
 
@@ -287,7 +306,7 @@ as vezes é tão boa quanto as extremas opostas criaturas do Caminho.
 \listoffigures   % Lista de Figuras
 \clearpage
 
-\listoftables    % Lista de Tabelas
+\listoftables    % Lista de TabelasGomes
 \clearpage
 
 

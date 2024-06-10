@@ -100,7 +100,7 @@ export const gloss = {
     },
     'prof': {
         short: 'Prof',
-        label: 'Professor',
+        label: 'Professor(a)',
         type: 'abreviacao',
     },
     'w3c': {
