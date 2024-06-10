@@ -7,11 +7,11 @@ import {
 import dynamic from 'next/dynamic';
 import styled from '@emotion/styled';
 import type EditorJS from '@editorjs/editorjs';
-import { EditorSave } from '@/components/Storage/types';
+import { EditorSave } from '@/components/Providers/Storage/types';
 import {
     useStorage,
     useBlocksStorage,
-} from '@/components/Storage';
+} from '@/components/Providers/Storage';
 
 import Header from '@/components/Plugins/Header';
 import HeaderClass from '@/components/Plugins/Header/class';
@@ -19,6 +19,10 @@ import Image from '@/components/Plugins/Image';
 import ImageClass from '@/components/Plugins/Image/class';
 import MarkerTool from '@/components/Plugins/MarkerTool';
 import MarkerToolClass from '@/components/Plugins/MarkerTool/class';
+import GlossTool from '@/components/Plugins/Gloss';
+import GlossToolClass from '@/components/Plugins/Gloss/class';
+
+import { blue, red } from '@ant-design/colors';
 
 
 // import MarkerTool from '@/app/marker';
@@ -36,7 +40,13 @@ const Container = styled("div")(() => ({
     '.cdx-marker': {
         backgroundColor: 'rgba(245,235,111,0.29)',
         padding: '3px 0',
-    }
+    },
+    'plugin-gloss': {
+        backgroundColor: blue[1]
+    },
+    'plugin-footnote': {
+        color: red[9]
+    },
 }));
 
 
@@ -107,7 +117,12 @@ export default function Home() {
                         'marker': {
                             component: <MarkerTool />,
                             class: MarkerToolClass,
-                        }
+                        },
+                        'gloss': {
+                            component: <GlossTool />,
+                            class: GlossToolClass,
+                            shortcut: 'Ctrl+G'
+                        },
                         // 'test-plugin': {
                         //     component: <PluginTest />,
                         //     // @ts-ignore

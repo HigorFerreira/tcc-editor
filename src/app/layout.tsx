@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
-import Storage from '@/components/Storage';
+import Storage from '@/components/Providers/Storage';
+import Gloss from '@/components/Providers/Gloss';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +20,9 @@ export default function RootLayout({
         <html lang="pt-BR">
             <body className={inter.className}>
                 <Storage>
-                    {children}
+                    <Gloss>
+                        {children}
+                    </Gloss>
                 </Storage>
             </body>
         </html>

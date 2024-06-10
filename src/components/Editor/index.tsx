@@ -105,13 +105,27 @@ export default function Editor(
         });
     }
 
+    // const handleInlineToolbar = (e: KeyboardEvent) => {
+    //     if(e.key === '\\' && editor.current){
+    //         e.preventDefault();
+    //         // editor.current.toolbar.toggleToolbox();
+    //         editor.current.inlineToolbar.open();
+    //         console.log({ inlineToolbar: editor.current.inlineToolbar.open })
+    //     }
+    // }
+
     useEffect(() => {
         // console.log({ pluginsList });
     }, [ pluginsList ]);
 
     useEffect(() => {
-        console.log({ inlinePluginsList });
+        // console.log({ inlinePluginsList });
     }, [ inlinePluginsList ]);
+
+    // useEffect(() => {
+    //     editorContainerRef.current?.addEventListener('keydown', handleInlineToolbar);
+    //     return () => editorContainerRef.current?.removeEventListener('keydown', handleInlineToolbar);
+    // }, [ editor, editorContainerRef ]);
 
     useEffect(() => {
 

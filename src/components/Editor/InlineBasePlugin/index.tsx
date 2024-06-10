@@ -12,6 +12,7 @@ import {
 export default abstract class InlineBasePlugin<D = unknown> {
     private observer: MutationObserver | null = null;
     private wrapper: HTMLDivElement;
+    public actions: HTMLDivElement;
     public api: EditorBlockConstructorProps['api'];
     public block: EditorBlockConstructorProps['block'];
     public config: EditorBlockConstructorProps['config'];
@@ -51,6 +52,8 @@ export default abstract class InlineBasePlugin<D = unknown> {
         this.wrapper.style.display = 'flex';
         this.wrapper.style.justifyContent = 'center';
         this.wrapper.style.alignItems = 'center';
+
+        this.actions = document.createElement('div');
     }
 
     static get isInline() {
@@ -114,6 +117,10 @@ export default abstract class InlineBasePlugin<D = unknown> {
             }
         });
         document.dispatchEvent(ev);
+    }
+
+    public renderActions(){
+        return this.actions;
     }
 
     public save(){
