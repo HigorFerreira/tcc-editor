@@ -1674,15 +1674,15 @@ Para executar o exemplo e ver como ele se comporta no navegador
 do usuário, basta a partir do diretório do projeto rodar o
 seguinte comando:
 
-\begin{69df10132de74c66b986f559b97112d8}
+\begin{91f72ed673664800b6c72892322c15a7}
 yarn dev
-\end{69df10132de74c66b986f559b97112d8}
+\end{91f72ed673664800b6c72892322c15a7}
 
 Após rodar o comando o servidor iniciará localmente.
 A saída do terminal mostrará a porta do serviço a ser acessada
 afim de renderizar a página:
 
-\begin{Code9c4569d72b13424ba3a6783238f51913}
+\begin{Code5c8a35b00a9344cc8297b91a9cf3e4e9}
 yarn run v1.22.19
 $ next dev
     Next.js 14.1.1
@@ -1690,7 +1690,7 @@ $ next dev
     - Environments: .env.local
 
     Ready in 2.7s
-\end{Code9c4569d72b13424ba3a6783238f51913}
+\end{Code5c8a35b00a9344cc8297b91a9cf3e4e9}
 
 Ao acessar o endereço http://localhost:3000
 na rota /example, a página é renderizada
@@ -1739,7 +1739,7 @@ da rota de página ao qual se está acessando.
 
 Observe abaixo o código de layout:
 
-\begin{Codeb77a5064b1e84280accdefdc52c4f02b}
+\begin{Code8b94847c73294f40aaf93595d58ade21}
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -1767,7 +1767,7 @@ export default function RootLayout({
         </html>
     )
 }
-\end{Codeb77a5064b1e84280accdefdc52c4f02b}
+\end{Code8b94847c73294f40aaf93595d58ade21}
 
 Na linha 13 há a exportação do componente em si. O código
 \acrshort{tsx}
@@ -1833,7 +1833,7 @@ Percebe-se que o componente Container possuí dois filhos: Um texto
 Observe a partir da linha 87 no código abaixo como a renderização
 do texto "Carregando editor..."~ está condicionada ao estado loading.
 
-\begin{Code45f4816b06924b6c92d52902de4b9e9f}
+\begin{Codee8901af342174d5691e35ed6171b72d7}
 [...]
 return (
     <main>
@@ -1845,7 +1845,7 @@ return (
             }
             <Editor
 [...]
-\end{Code45f4816b06924b6c92d52902de4b9e9f}
+\end{Codee8901af342174d5691e35ed6171b72d7}
 
 O estado loading inicialmente começa com o valor true, o que
 faz com que o texto seja renderizado. O componente
@@ -1858,14 +1858,14 @@ Note na linha 121 do código abaixo que a propriedade
 que pertence ao componente Editor, recebe uma função
 com o parâmetro \{ editor \}.
 
-\begin{Code6c981e3ba1054fb5a9829b58edb489fc}
+\begin{Code4a4b4abf17814de5912b35cfea211dd3}
 [...]
 onReady={ ({ editor }) => {
     setLoading(false);
     setEditor(editor);
 } }
 [...]
-\end{Code6c981e3ba1054fb5a9829b58edb489fc}
+\end{Code4a4b4abf17814de5912b35cfea211dd3}
 
 A propriedade onReady é um evento que chama
 a função passada quando a classe EditorJs está pronta e
@@ -1915,7 +1915,7 @@ de modo a enriquecer a experiência de usuário. A mudança de um estado também
 disparar um efeito. Efeito este que adiciona alguma ação ou modificação de outros estados.
 Observe o código abaixo:
 
-\begin{Codec1b6077c9f2a48038d58dc1efb63dbe1}
+\begin{Code590edd29e08c4223befce2f4d51b5408}
 [...]
 useEffect(() => {
     if(storageError){
@@ -1924,7 +1924,7 @@ useEffect(() => {
     }
 }, [ storageError ]);
 [...]
-\end{Codec1b6077c9f2a48038d58dc1efb63dbe1}
+\end{Code590edd29e08c4223befce2f4d51b5408}
 
 O código acima adiciona uma função que monitora o estado denominado
 storageError. Na primeira renderização da página, ou sempre que este
@@ -1988,14 +1988,14 @@ seguida repassa-o para putBlock.
 Os detalhes de implementação da Storage se encontram no repositório através
 do diretório: /src/components/Storage
 
-\begin{Codef150eb13695147d0903941b58536f0fd}
+\begin{Codea207358058f54efe982dcf8ce851e78b}
 [...]
 onChange={async (api, event) => {
     const blocks = await api.saver.save();
     putBlock(blocks as EditorSave);
 }}
 [...]
-\end{Codef150eb13695147d0903941b58536f0fd}
+\end{Codea207358058f54efe982dcf8ce851e78b}
 
 \section{Editor}
 
@@ -2098,7 +2098,7 @@ evento personalizado denominado \textit{editor-plugin-render}.
 Isto é importante pois este evento recebe a criação dos plugins que
 são disparados de dentro da classe EditorJs. Observe o código abaixo:
 
-\begin{Codef2fcaf0a60cd4693876fd4a5191a73ec}
+\begin{Code4b3dfae7a1d74468991a3ead4fc45f41}
 [...]
 document.addEventListener('editor-plugin-render', e => {
     // console.log('editor-plugin-render');
@@ -2113,7 +2113,7 @@ document.addEventListener('editor-plugin-render', e => {
     ]);
 });
 [...]
-\end{Codef2fcaf0a60cd4693876fd4a5191a73ec}
+\end{Code4b3dfae7a1d74468991a3ead4fc45f41}
 
 Na linha 137 o escutador é adicionado ao objeto
 \acrshort{dom}. Este evento monitora
@@ -2129,7 +2129,7 @@ pluginsList
 é memorizada em pluginsRender, que é então
 renderizado na linha 213 do código abaixo:
 
-\begin{Codef4adc60e213c4f68bc964018e8706ca4}
+\begin{Code72884721ab07440d8f7b5c31dd0e53b8}
 [...]
     return <Context.Provider value={{
         editor: editor.current
@@ -2141,7 +2141,7 @@ renderizado na linha 213 do código abaixo:
         <div ref={ editorContainerRef } ></div>
     </Context.Provider>
 }
-\end{Codef4adc60e213c4f68bc964018e8706ca4}
+\end{Code72884721ab07440d8f7b5c31dd0e53b8}
 
 \subsubsection{\underline{Instância do EditorJs}}
 
@@ -2165,7 +2165,7 @@ antes de chamar a função onReady na linha 192. Note que onReady só é chamada
 a mesma tenha sido repassada. Ao chamar, a instância do editor é repassada na linha
 193.
 
-\begin{Codeea6b3a4b3d3d4271a6e84acc1db10281}
+\begin{Codebd6acd93dfba4899b8969d9eaec28b35}
 [...]
 if(!editor.current && editorContainerRef.current){
     // console.log("Comming to assing editorjs...");
@@ -2191,7 +2191,7 @@ if(!editor.current && editorContainerRef.current){
     })
 }
 [...]
-\end{Codeea6b3a4b3d3d4271a6e84acc1db10281}
+\end{Codebd6acd93dfba4899b8969d9eaec28b35}
 
 \subsection{BasePlugin}
 
@@ -2256,7 +2256,7 @@ O método mais importante da classe base é o render(). É ele quem coloca o plu
 em tela quando o usuário escolhe um plugin a partir do menu de plugins.
 Observe no código abaixo o funcionamento da classe:
 
-\begin{Code8b0245f282974584b0ef64732fff9ed3}
+\begin{Codef9095729a7ba4828a159e6077dd64be2}
 [...]
 public render(){
     const wrapper = document.createElement('div');
@@ -2274,7 +2274,7 @@ public render(){
     return wrapper;
 }
 [...]
-\end{Code8b0245f282974584b0ef64732fff9ed3}
+\end{Codef9095729a7ba4828a159e6077dd64be2}
 
 Observe que o método render cria um wrapper a partir de um elemento
 div na linha 52. Na linha 53 é atribuído um id a partir da chamada do método
@@ -2317,7 +2317,7 @@ se programa a aparência e comportamentos do mesmo.
 O plugin de Header, (até o momento de escrita deste trabalho), pode ser considerado um dos mais simples
 que foi desenvolvido. Observe abaixo a implementação do arquivo class.tsx:
 
-\begin{Code0f6bba6cb35546bfbcfe9f1beb5834f9}
+\begin{Codecf08991a1aa7493b94b9eeb585f05686}
 [...]
 export default class HeaderClass extends BasePlugin<DataType> {
     text: string = ""
@@ -2331,7 +2331,7 @@ export default class HeaderClass extends BasePlugin<DataType> {
         };
     }
 [...]
-\end{Code0f6bba6cb35546bfbcfe9f1beb5834f9}
+\end{Codecf08991a1aa7493b94b9eeb585f05686}
 
 Na linha 17, é realizada a exportação da classe HeaderClass,
 que estende a classe BasePlugin. Observe que nas linhas 18 e 19,
@@ -2343,7 +2343,7 @@ de atualização do nível (level) do Header, pois é nesta classe que
 o menu, onde o usuário selecionará o nível do título, é definido,
 conforme o código abaixo:
 
-\begin{Code080b67a151684b628d8301fc3b7dc0a5}
+\begin{Code7e41034e0a1f46679a74f17423171c4f}
 [...]
 public renderSettings(): TunesMenuConfigItem[] {
     return ([1,2,3,4,5] as HeaderLevelsType[]).map(lv => ({
@@ -2356,7 +2356,7 @@ public renderSettings(): TunesMenuConfigItem[] {
         closeOnActivate: true,
         isActive: lv === this?.pluginData?.level,
 [...]
-\end{Code080b67a151684b628d8301fc3b7dc0a5}
+\end{Code7e41034e0a1f46679a74f17423171c4f}
 
 Observe como a função de atualização de estado é chamada a partir de onActivate
 na linha 40. Isso garante a comunicação do menu com o componente React, permitindo
@@ -2367,7 +2367,7 @@ getName() e getUuid(). Observe que em getName retorna-se o nome header do plugin
 ao passo que em getUuid retorna-se um uuid versão 4 para criar um identificador
 único para o plugin.
 
-\begin{Code78eec6a7b76247b18989d8d19a89a57a}
+\begin{Codefb66668769f344ad860f4960e54bcf09}
 [...]
     getName(): string {
         return 'header';
@@ -2377,7 +2377,7 @@ ao passo que em getUuid retorna-se um uuid versão 4 para criar um identificador
         return uuidv4();
     }
 }
-\end{Code78eec6a7b76247b18989d8d19a89a57a}
+\end{Codefb66668769f344ad860f4960e54bcf09}
 
 \subsubsubsection{Plugin React}
 
@@ -3275,22 +3275,22 @@ deve ser definido no documento antes que se possa fazer uso do mesmo.
 Observe abaixo o exemplo de uma definição de sigla em
 \acrshort{latex}:
 
-\begin{Code4dfdf7e07ef040daa95f818906379c1b}
+\begin{Code775cc51a8d6b4527aa275e07da5f05fd}
 \newacronym[type=sigla]{abnt}{ABNT}{
     Associação Brasileira de Normas Técnicas
 }
-\end{Code4dfdf7e07ef040daa95f818906379c1b}
+\end{Code775cc51a8d6b4527aa275e07da5f05fd}
 
 Além de montados, cada clossário deve ser exibido com o comando
 \textbackslash printglossary. Veja o código abaixo:
 
-\begin{Code7486608ec45542df8e9f21a8633507b0}
+\begin{Codeffdde8ebec384da38a16e5958c4844ab}
 \printglossary[type=sigla,title=LISTA DE SIGLAS]
 \clearpage
 
 \printglossary[type=abreviacao,title=LISTA DE ABREVIATURAS]
 \clearpage
-\end{Code7486608ec45542df8e9f21a8633507b0}
+\end{Codeffdde8ebec384da38a16e5958c4844ab}
 
 Isto garante que os devidos glossários sejam exibidos com
 folga de uma página, com seus respectivos títulos.
@@ -3299,7 +3299,7 @@ A função mountGlossary exportada em mountGlossary.ts
 contém sua implementação, que faz todo o processamento dos
 items de glossário a partir de um GlossaryObjectType:
 
-\begin{Code76496693f4634c1aa6e5117db172df9a}
+\begin{Code89ec597f7492449c959a726f2e11f43c}
 [...]
 export function mountGlossary(glossary: GlossaryObjectType){
     const header = `
@@ -3323,7 +3323,7 @@ export function mountGlossary(glossary: GlossaryObjectType){
             }}`
         })
         .join('\n');
-\end{Code76496693f4634c1aa6e5117db172df9a}
+\end{Code89ec597f7492449c959a726f2e11f43c}
 
 Note que todos os objetos de glossário vem misturados
 no parâmetro glossary da função.
@@ -3343,7 +3343,7 @@ A linha 67 adiciona o comando \textbackslash makeglossaries, que diz ao
 \acrshort{latex}
 para montar o glossário.
 
-\begin{Code9e19fbadb1b94ff6a31b8d4a0bd67cd5}
+\begin{Code0b6acade90784739ac53a14c2f0b358b}
 [...]
     let str = `${header}\n\n${acronyms}\n`;
     str = str.concat(`${abbreviations}\n${symbols}\n\n`);
@@ -3354,7 +3354,7 @@ para montar o glossário.
 
     return str;
 }
-\end{Code9e19fbadb1b94ff6a31b8d4a0bd67cd5}
+\end{Code0b6acade90784739ac53a14c2f0b358b}
 
 Após todo o processamento seu resultado é guardado em um arquivo
 denominado makeGlossaries.tex a ser importado posteriormente
@@ -3368,7 +3368,7 @@ digital do mesmo.
 
 Observe a função mountRefs exportada a partir do arquivo mountRefs.ts:
 
-\begin{Code1f4bfedf3655469e958e23555113fdd3}
+\begin{Codeec5b675b37bf4985b491ef8a21898410}
 import { RefsObjectType } from '@/parser/types';
 
 export function mountRefs(refs: RefsObjectType){
@@ -3409,6 +3409,109 @@ export function mountRefs(refs: RefsObjectType){
         return '';
     }).join('\n\n');
 }
-\end{Code1f4bfedf3655469e958e23555113fdd3}
+\end{Codeec5b675b37bf4985b491ef8a21898410}
 
 \chapter{Considerações finais}
+
+Este instrumento visou durante seu processo de
+elaboração o desenvolvimento da plataforma de modo
+que a mesma seja uma ferramenta útil e de
+facil compreensão para o mais diverso público.
+Desta forma, o usuário da ferramenta precisa se preocupar
+apenas com seu conteúdo defendido, de modo que a forma de
+sua apresentação é um encargo da ferramenta.
+
+Esta concepção inicial constitui-se numa proposta de mudança 
+de paradigma na forma e no fluxo com que se escreve um trabalho
+acadêmico, fornecendo uma alternativa mais amigável às formas
+tradicionais de escrita utilizando-se o \textit{Microsoft Word},
+\textit{Libre Office} ou o próprio
+\acrshort{latex}
+em sua forma pura.
+
+\section{O que foi desenvolvido}
+
+Foi desenvolvido um programa aplicativo, no modelo cliente-servidor,
+que serve um sistema
+\acrshort{web}
+para o usuário final. O sistema consiste em um rico editor de texto
+baseado em blocos em que, através de plugins, monta-se todo um complexo
+trabalho de monografia constituído de pequenos blocos simples.
+
+O processo de parsing se encontra totalmente funcional para todos os seguintes blocos:
+
+\begin{itemize}
+        	\item Code, (código)	\item DirectCite, (citação direta)	\item Header, (cabeçalhos, títulos)	\item Image, (imagens)	\item List, (listas)	\item PageBreak, (quebra de página)	\item Paragraph, (parágrafo)	\item Table, (tabelas)
+    \end{itemize}
+
+Deste modo, qualquer bloco saída do editor já é devidamente transpilado para seu equivalente
+código
+\acrshort{latex}
+e consequentemente compilado no
+\acrshort{pdf} final.
+
+Em se tratando da interface do editor com o usuário, nem todos os blocos plugins foram desenvolvidos
+conforme a proposta inicial deste instrumento, (vide "O que deu errado"~ e "Trabalhos futuros").
+Os seguintes plugins encontram funcionais no editor:
+
+\begin{itemize}
+        	\item Paragraph, (parágrafo)	\item Header, (cabeçalho)	\item Image, (Imagem)
+    \end{itemize}
+
+Este trabalho não foi desenvolvido utilizando-se o aplicativo em sua interface gráfica, mas utilizou todos os recursos providos pelo processo de parsing. O código de saída do editor foi escrito manualmente e em seguida compilado. O processo de compilação pode ser repetido rodando o comando abaixo a partir da pasta raiz do projeto no GitHub:
+
+\begin{Code6ef2b5008bf941678ec95af3d9708862}
+yarn tex-make
+\end{Code6ef2b5008bf941678ec95af3d9708862}
+
+\section{O que deu errado}
+
+Devido a duração do processo de pesquisa e do prazo determinado para a finalização deste instrumento,
+alguns plugins não foram desenvolvidos ou foram desenvolvidos parcialmente. Os plugins in-line, que consistem
+na atribuição de glossários e referências bibliográficas, não foram desenvolvidos para a interface gráfica,
+porém possuem seus equivalentes em termos de parsing.
+
+\section{Performance}
+
+Todo este trabalho foi desenvolvido utilizando-se do processo de parsing desenvolvido pelo mesmo, ao passo que
+paralelamente foi desenvolvida a interface.
+O código
+\acrshort{latex}
+resultante gerou um arquivo texto de aproximadamente 176kb, que foi compilado sem demais problemas
+e com um tempo de menos de 60 segundos. Além também de mais de 2000kb em imagens.
+
+\section{Trabalhos futuros}
+
+Há muitas coisas novas que podem ser implementadas e desenvolvidas a partir da concepção inicial deste trabalho.
+Plugins novos podem ser desenvolvidos e ajustes de interface e melhorias de experiência de usuário podem
+ser implementados.
+
+\subsection{Plugins inline}
+
+Os plugin inline são de grande importância para uma boa experiência de usuário
+e escrita prazerosa. Através deles podem-se atribuir glossários, referências cruzadas
+a tabelas e figuras, e referências bibliográficas. Seus respectivos códigos de parsing
+encontram-se integrados ao projeto, porém seus equivalentes em termos de interface
+e experiência de usuário ainda não foram desenvolvidos.
+
+\subsection{Tabelas}
+
+As tabelas são plugins úteis na exbição e organização de determinados tipos de informação.
+Seu parsing encontra-se no projeto poŕém ainda não há o equivalente plugin integrado ao editor.
+
+\subsection{Matemática}
+
+O
+\acrshort{latex}
+é bastante versátil em termos de equações matemáticas. Neste sentido, pode-se
+desenvolver um plugin em que o usuário possa digitar as equações na sintaxe
+matemática do
+\acrshort{latex}
+ou ainda uma interface low code em que o mesmo possa
+escrevê-las clicando em ícones na tela.
+
+\subsection{Gráficos e diagramas}
+
+Uma grande utilidade poderia ser a integração com bibliotecas e frameworks
+como Mermaid e Graphviz. Estas bibliotecas são de facil compreensão e muito
+úteis na hora de criar qualquer tipo de gráfico ou diagrama.
