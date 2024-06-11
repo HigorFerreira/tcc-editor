@@ -191,7 +191,7 @@ export const image: Block[] = [
                 e é controlado pelo estado <i>state</i>. Possui como filhos um componete Input e Dragger.
                 O componente Input é onde pode-se colar um link para uma imagem, ao passo que Dragger é
                 onde se pode arrastar algum arquivo de imagem a partir do Sistema Operacional. O Dragger
-                também possui três elementos de parágrfos que são textos que orientam o usuário em como
+                também possui três elementos de parágrafos que são textos que orientam o usuário em como
                 o mesmo pode fazer uso do componente. A
                 <plugin-ref-fig data-fig="show-image">Figura</plugin-ref-fig>
                 mostra como é a aparência desta parte na interface gráfica.

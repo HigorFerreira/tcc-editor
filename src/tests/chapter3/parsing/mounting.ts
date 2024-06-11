@@ -166,7 +166,7 @@ export function mountGlossary(glossary: GlossaryObjectType){
                 Note que todos os objetos de glossário vem misturados
                 no parâmetro glossary da função.
                 Para montar as siglas da linha 15,
-                por exemplo, é feita uma filtragem no tipo de glorrário, uma
+                por exemplo, é feita uma filtragem no tipo de glossário, uma
                 ordenação através da função sort, e por fim, a conversão em código
                 <plugin-gloss id="latex"></plugin-gloss>
                 através da função map na linha 18. Por fim, o array de siglas

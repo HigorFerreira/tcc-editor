@@ -28,6 +28,11 @@ export const gloss = {
         label: 'Mestre em Engenharia Elétrica',
         type: 'sigla',
     },
+    'me': {
+        short: 'Me',
+        label: 'Mestre(a)',
+        type: 'abreviacao',
+    },
     'nbr': {
         short: 'NBR',
         label: 'Norma Brasileira Regulamentadora',

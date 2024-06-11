@@ -301,4 +301,21 @@ yarn tex-make
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
+    {
+        type: 'header',
+        data: {
+            level: 2,
+            text: 'Finalização'
+        }
+    },
+    {
+        type: 'paragraph',
+        data: {
+            text: `
+                Levando-se em consideração todas as funcionalidades desenvolvidas, (principalmente no que diz
+                respeito à questão de parsing), o sistema funcionou de forma coerente trazendo bons resultados,
+                se apresentando como uma solução sub-ótima, levando-se em consideração a concepção inicial.
+            `.trim().replace(/^\s{16}/gm, '')
+        }
+    },
 ]

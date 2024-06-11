@@ -1674,15 +1674,15 @@ Para executar o exemplo e ver como ele se comporta no navegador
 do usuário, basta a partir do diretório do projeto rodar o
 seguinte comando:
 
-\begin{c364334e6bbf484880b35fa7d5883ca7}
+\begin{8d1d527a4c16402ea86738c60b27118b}
 yarn dev
-\end{c364334e6bbf484880b35fa7d5883ca7}
+\end{8d1d527a4c16402ea86738c60b27118b}
 
 Após rodar o comando o servidor iniciará localmente.
 A saída do terminal mostrará a porta do serviço a ser acessada
 afim de renderizar a página:
 
-\begin{Code40908858cc4a40a0963a3ee70e233da4}
+\begin{Code24355911b8f048deb249aceaa039244d}
 yarn run v1.22.19
 $ next dev
     Next.js 14.1.1
@@ -1690,7 +1690,7 @@ $ next dev
     - Environments: .env.local
 
     Ready in 2.7s
-\end{Code40908858cc4a40a0963a3ee70e233da4}
+\end{Code24355911b8f048deb249aceaa039244d}
 
 Ao acessar o endereço http://localhost:3000
 na rota /example, a página é renderizada
@@ -1739,7 +1739,7 @@ da rota de página ao qual se está acessando.
 
 Observe abaixo o código de layout:
 
-\begin{Coded52f16d73cca42cda2a53182f7310ade}
+\begin{Code0e8c269c2a624e6aa2dd006890f71c24}
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -1767,7 +1767,7 @@ export default function RootLayout({
         </html>
     )
 }
-\end{Coded52f16d73cca42cda2a53182f7310ade}
+\end{Code0e8c269c2a624e6aa2dd006890f71c24}
 
 Na linha 13 há a exportação do componente em si. O código
 \acrshort{tsx}
@@ -1833,7 +1833,7 @@ Percebe-se que o componente Container possuí dois filhos: Um texto
 Observe a partir da linha 87 no código abaixo como a renderização
 do texto "Carregando editor..."~ está condicionada ao estado loading.
 
-\begin{Code189d32de2b3c4e9db1ebde707eb91e6e}
+\begin{Code0118eb22c6b8424ab7b7933a00291b99}
 [...]
 return (
     <main>
@@ -1845,7 +1845,7 @@ return (
             }
             <Editor
 [...]
-\end{Code189d32de2b3c4e9db1ebde707eb91e6e}
+\end{Code0118eb22c6b8424ab7b7933a00291b99}
 
 O estado loading inicialmente começa com o valor true, o que
 faz com que o texto seja renderizado. O componente
@@ -1858,14 +1858,14 @@ Note na linha 121 do código abaixo que a propriedade
 que pertence ao componente Editor, recebe uma função
 com o parâmetro \{ editor \}.
 
-\begin{Codedc153186f59a4b778e61c9ccc9841379}
+\begin{Code2cf6f64e2beb44d9932bec4aa1467d18}
 [...]
 onReady={ ({ editor }) => {
     setLoading(false);
     setEditor(editor);
 } }
 [...]
-\end{Codedc153186f59a4b778e61c9ccc9841379}
+\end{Code2cf6f64e2beb44d9932bec4aa1467d18}
 
 A propriedade onReady é um evento que chama
 a função passada quando a classe EditorJs está pronta e
@@ -1915,7 +1915,7 @@ de modo a enriquecer a experiência de usuário. A mudança de um estado também
 disparar um efeito. Efeito este que adiciona alguma ação ou modificação de outros estados.
 Observe o código abaixo:
 
-\begin{Codef8825857cb844d4bb93521b3b047ad25}
+\begin{Code2f7555bbd03244de899c6248eaa401b0}
 [...]
 useEffect(() => {
     if(storageError){
@@ -1924,7 +1924,7 @@ useEffect(() => {
     }
 }, [ storageError ]);
 [...]
-\end{Codef8825857cb844d4bb93521b3b047ad25}
+\end{Code2f7555bbd03244de899c6248eaa401b0}
 
 O código acima adiciona uma função que monitora o estado denominado
 storageError. Na primeira renderização da página, ou sempre que este
@@ -1988,14 +1988,14 @@ seguida repassa-o para putBlock.
 Os detalhes de implementação da Storage se encontram no repositório através
 do diretório: /src/components/Storage
 
-\begin{Code618abdf5c4604effb8cc5339d9a6c0b1}
+\begin{Codea2aa373b6f364fc68443fc29f242f8ac}
 [...]
 onChange={async (api, event) => {
     const blocks = await api.saver.save();
     putBlock(blocks as EditorSave);
 }}
 [...]
-\end{Code618abdf5c4604effb8cc5339d9a6c0b1}
+\end{Codea2aa373b6f364fc68443fc29f242f8ac}
 
 \section{Editor}
 
@@ -2098,7 +2098,7 @@ evento personalizado denominado \textit{editor-plugin-render}.
 Isto é importante pois este evento recebe a criação dos plugins que
 são disparados de dentro da classe EditorJs. Observe o código abaixo:
 
-\begin{Code093dbfc99aab427c9e5ceaf33f2b44d8}
+\begin{Codee0b833419a6644e284baa7ec8f8f0e3a}
 [...]
 document.addEventListener('editor-plugin-render', e => {
     // console.log('editor-plugin-render');
@@ -2113,7 +2113,7 @@ document.addEventListener('editor-plugin-render', e => {
     ]);
 });
 [...]
-\end{Code093dbfc99aab427c9e5ceaf33f2b44d8}
+\end{Codee0b833419a6644e284baa7ec8f8f0e3a}
 
 Na linha 137 o escutador é adicionado ao objeto
 \acrshort{dom}. Este evento monitora
@@ -2129,7 +2129,7 @@ pluginsList
 é memorizada em pluginsRender, que é então
 renderizado na linha 213 do código abaixo:
 
-\begin{Code0772b9a171d74b8cb69f69d9afcaaf66}
+\begin{Code95a5182535e043c0a57700bcb3519248}
 [...]
     return <Context.Provider value={{
         editor: editor.current
@@ -2141,7 +2141,7 @@ renderizado na linha 213 do código abaixo:
         <div ref={ editorContainerRef } ></div>
     </Context.Provider>
 }
-\end{Code0772b9a171d74b8cb69f69d9afcaaf66}
+\end{Code95a5182535e043c0a57700bcb3519248}
 
 \subsubsection{\underline{Instância do EditorJs}}
 
@@ -2165,7 +2165,7 @@ antes de chamar a função onReady na linha 192. Note que onReady só é chamada
 a mesma tenha sido repassada. Ao chamar, a instância do editor é repassada na linha
 193.
 
-\begin{Code1da6bc37a7294bc283afa5b2c5c0f88f}
+\begin{Code336b51387259490ea351aab88386836f}
 [...]
 if(!editor.current && editorContainerRef.current){
     // console.log("Comming to assing editorjs...");
@@ -2191,7 +2191,7 @@ if(!editor.current && editorContainerRef.current){
     })
 }
 [...]
-\end{Code1da6bc37a7294bc283afa5b2c5c0f88f}
+\end{Code336b51387259490ea351aab88386836f}
 
 \subsection{BasePlugin}
 
@@ -2256,7 +2256,7 @@ O método mais importante da classe base é o render(). É ele quem coloca o plu
 em tela quando o usuário escolhe um plugin a partir do menu de plugins.
 Observe no código abaixo o funcionamento da classe:
 
-\begin{Code9f626aabe2184d0fac620d8991aae203}
+\begin{Code2e72b56f8a7a4de3873e70ffeab7e4c7}
 [...]
 public render(){
     const wrapper = document.createElement('div');
@@ -2274,7 +2274,7 @@ public render(){
     return wrapper;
 }
 [...]
-\end{Code9f626aabe2184d0fac620d8991aae203}
+\end{Code2e72b56f8a7a4de3873e70ffeab7e4c7}
 
 Observe que o método render cria um wrapper a partir de um elemento
 div na linha 52. Na linha 53 é atribuído um id a partir da chamada do método
@@ -2317,7 +2317,7 @@ se programa a aparência e comportamentos do mesmo.
 O plugin de Header, (até o momento de escrita deste trabalho), pode ser considerado um dos mais simples
 que foi desenvolvido. Observe abaixo a implementação do arquivo class.tsx:
 
-\begin{Code95446d10d389481bb329e9659c17d7dc}
+\begin{Code481e74c0832c4ea5a959097b6a7d5b6a}
 [...]
 export default class HeaderClass extends BasePlugin<DataType> {
     text: string = ""
@@ -2331,7 +2331,7 @@ export default class HeaderClass extends BasePlugin<DataType> {
         };
     }
 [...]
-\end{Code95446d10d389481bb329e9659c17d7dc}
+\end{Code481e74c0832c4ea5a959097b6a7d5b6a}
 
 Na linha 17, é realizada a exportação da classe HeaderClass,
 que estende a classe BasePlugin. Observe que nas linhas 18 e 19,
@@ -2343,7 +2343,7 @@ de atualização do nível (level) do Header, pois é nesta classe que
 o menu, onde o usuário selecionará o nível do título, é definido,
 conforme o código abaixo:
 
-\begin{Codedbac2c76fda84e3eadac5b2b092778bc}
+\begin{Code1ad4c6daddd845c0bfd4c9e2f3151cdc}
 [...]
 public renderSettings(): TunesMenuConfigItem[] {
     return ([1,2,3,4,5] as HeaderLevelsType[]).map(lv => ({
@@ -2356,7 +2356,7 @@ public renderSettings(): TunesMenuConfigItem[] {
         closeOnActivate: true,
         isActive: lv === this?.pluginData?.level,
 [...]
-\end{Codedbac2c76fda84e3eadac5b2b092778bc}
+\end{Code1ad4c6daddd845c0bfd4c9e2f3151cdc}
 
 Observe como a função de atualização de estado é chamada a partir de onActivate
 na linha 40. Isso garante a comunicação do menu com o componente React, permitindo
@@ -2367,7 +2367,7 @@ getName() e getUuid(). Observe que em getName retorna-se o nome header do plugin
 ao passo que em getUuid retorna-se um uuid versão 4 para criar um identificador
 único para o plugin.
 
-\begin{Code9903f0180ce54cf985b038f02b6ac161}
+\begin{Code4c8b2488807644e99e1b8a1b6f7adb9b}
 [...]
     getName(): string {
         return 'header';
@@ -2377,7 +2377,7 @@ ao passo que em getUuid retorna-se um uuid versão 4 para criar um identificador
         return uuidv4();
     }
 }
-\end{Code9903f0180ce54cf985b038f02b6ac161}
+\end{Code4c8b2488807644e99e1b8a1b6f7adb9b}
 
 \subsubsubsection{Plugin React}
 
@@ -2500,7 +2500,7 @@ sendo carregado.
 e é controlado pelo estado \textit{state}. Possui como filhos um componete Input e Dragger.
 O componente Input é onde pode-se colar um link para uma imagem, ao passo que Dragger é
 onde se pode arrastar algum arquivo de imagem a partir do Sistema Operacional. O Dragger
-também possui três elementos de parágrfos que são textos que orientam o usuário em como
+também possui três elementos de parágrafos que são textos que orientam o usuário em como
 o mesmo pode fazer uso do componente. A
 Figura \ref{fig:show-image}
 mostra como é a aparência desta parte na interface gráfica.
@@ -3275,22 +3275,22 @@ deve ser definido no documento antes que se possa fazer uso do mesmo.
 Observe abaixo o exemplo de uma definição de sigla em
 \acrshort{latex}:
 
-\begin{Code8df7abd6c9ca408384001232ef09e57a}
+\begin{Code7bed7589eaa54baeb0d213c5b34ccb4c}
 \newacronym[type=sigla]{abnt}{ABNT}{
     Associação Brasileira de Normas Técnicas
 }
-\end{Code8df7abd6c9ca408384001232ef09e57a}
+\end{Code7bed7589eaa54baeb0d213c5b34ccb4c}
 
 Além de montados, cada clossário deve ser exibido com o comando
 \textbackslash printglossary. Veja o código abaixo:
 
-\begin{Code2597349ccbfa49799f4431836526eff1}
+\begin{Codef249f5ff1b3f4db38de706c2ee7ee702}
 \printglossary[type=sigla,title=LISTA DE SIGLAS]
 \clearpage
 
 \printglossary[type=abreviacao,title=LISTA DE ABREVIATURAS]
 \clearpage
-\end{Code2597349ccbfa49799f4431836526eff1}
+\end{Codef249f5ff1b3f4db38de706c2ee7ee702}
 
 Isto garante que os devidos glossários sejam exibidos com
 folga de uma página, com seus respectivos títulos.
@@ -3299,7 +3299,7 @@ A função mountGlossary exportada em mountGlossary.ts
 contém sua implementação, que faz todo o processamento dos
 items de glossário a partir de um GlossaryObjectType:
 
-\begin{Codee6b17097fd454eb2b7df357aa10dfdc1}
+\begin{Code6df017eb97364956a52b1b6c4a75b77b}
 [...]
 export function mountGlossary(glossary: GlossaryObjectType){
     const header = `
@@ -3323,12 +3323,12 @@ export function mountGlossary(glossary: GlossaryObjectType){
             }}`
         })
         .join('\n');
-\end{Codee6b17097fd454eb2b7df357aa10dfdc1}
+\end{Code6df017eb97364956a52b1b6c4a75b77b}
 
 Note que todos os objetos de glossário vem misturados
 no parâmetro glossary da função.
 Para montar as siglas da linha 15,
-por exemplo, é feita uma filtragem no tipo de glorrário, uma
+por exemplo, é feita uma filtragem no tipo de glossário, uma
 ordenação através da função sort, e por fim, a conversão em código
 \acrshort{latex}
 através da função map na linha 18. Por fim, o array de siglas
@@ -3343,7 +3343,7 @@ A linha 67 adiciona o comando \textbackslash makeglossaries, que diz ao
 \acrshort{latex}
 para montar o glossário.
 
-\begin{Codee28e8a7928164ed5bbdafe4afe895381}
+\begin{Code968de5b347094da9a1d530bcb60344aa}
 [...]
     let str = `${header}\n\n${acronyms}\n`;
     str = str.concat(`${abbreviations}\n${symbols}\n\n`);
@@ -3354,7 +3354,7 @@ para montar o glossário.
 
     return str;
 }
-\end{Codee28e8a7928164ed5bbdafe4afe895381}
+\end{Code968de5b347094da9a1d530bcb60344aa}
 
 Após todo o processamento seu resultado é guardado em um arquivo
 denominado makeGlossaries.tex a ser importado posteriormente
@@ -3368,7 +3368,7 @@ digital do mesmo.
 
 Observe a função mountRefs exportada a partir do arquivo mountRefs.ts:
 
-\begin{Codebd7f6b0796eb40c1a310de5d9a04ba5a}
+\begin{Coded8ef93fd69af4263988d31d444543504}
 import { RefsObjectType } from '@/parser/types';
 
 export function mountRefs(refs: RefsObjectType){
@@ -3409,7 +3409,7 @@ export function mountRefs(refs: RefsObjectType){
         return '';
     }).join('\n\n');
 }
-\end{Codebd7f6b0796eb40c1a310de5d9a04ba5a}
+\end{Coded8ef93fd69af4263988d31d444543504}
 
 \chapter{Considerações finais}
 
@@ -3460,9 +3460,9 @@ Os seguintes plugins encontram funcionais no editor:
 
 Este trabalho não foi desenvolvido utilizando-se o aplicativo em sua interface gráfica, mas utilizou todos os recursos providos pelo processo de parsing. O código de saída do editor foi escrito manualmente e em seguida compilado. O processo de compilação pode ser repetido rodando o comando abaixo a partir da pasta raiz do projeto no GitHub:
 
-\begin{Codee9e414d87c954e8ca0b7c0b6e82105ce}
+\begin{Code745a03e35dc943c285dfbd35ebdd1f56}
 yarn tex-make
-\end{Codee9e414d87c954e8ca0b7c0b6e82105ce}
+\end{Code745a03e35dc943c285dfbd35ebdd1f56}
 
 \section{O que deu errado}
 
@@ -3515,3 +3515,9 @@ escrevê-las clicando em ícones na tela.
 Uma grande utilidade poderia ser a integração com bibliotecas e frameworks
 como Mermaid e Graphviz. Estas bibliotecas são de facil compreensão e muito
 úteis na hora de criar qualquer tipo de gráfico ou diagrama.
+
+\section{Finalização}
+
+Levando-se em consideração todas as funcionalidades desenvolvidas, (principalmente no que diz
+respeito à questão de parsing), o sistema funcionou de forma coerente trazendo bons resultados,
+se apresentando como uma solução sub-ótima, levando-se em consideração a concepção inicial.
