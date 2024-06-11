@@ -18,6 +18,8 @@
 \usepackage{listings}
 \usepackage{caption}
 \usepackage{acronym}
+\usepackage{xcolor}
+
 
 \setlength{\parindent}{1.5cm}
 
@@ -152,52 +154,97 @@
 
 % Folha de aprovação
 \clearpage
-    \centering
-    \MakeUppercase{\imprimirautor}
+    % Primeira seção
+    \noindent\makebox[\textwidth][l]{ % Ajusta a largura da caixa para a largura do texto
+        \begin{minipage}[t][80mm][t]{\textwidth}
+            \centering
+            \MakeUppercase{\imprimirautor}
 
-    \vfill
+            \vfill
 
-    \ABNTEXchapterfont\bfseries{\MakeUppercase{\imprimirtitulo}}
+            \ABNTEXchapterfont\bfseries{\MakeUppercase{\imprimirtitulo}}
 
-    \vfill
+            \vfill
 
-    \justifying
+            \justifying
 
-    \textnormal{Trabalho de Conclusão de Curso aprovado em sua forma final pela Escola Politécnica e de
-    Artes, da Pontifícia Universidade Católica de Goiás, para obtenção do título de \grauAluno\,em
-    Engenharia de Computação, em: \rule{8mm}{0.4pt}/ \rule{8mm}{0.4pt}/ \rule{16mm}{0.4pt}}
+            \textnormal{Trabalho de Conclusão de Curso aprovado em sua forma final pela Escola Politécnica e de
+            Artes, da Pontifícia Universidade Católica de Goiás, para obtenção do título de \grauAluno\,em
+            Engenharia de Computação, em: \rule{8mm}{0.4pt}/ \rule{8mm}{0.4pt}/ \rule{16mm}{0.4pt}}
 
-    \centering
+            \centering
+        \end{minipage}
+    }
+    \vspace{1cm}
 
-    \vspace*{20mm}
+    % Segunda seção
+    \noindent\makebox[\textwidth][l]{ % Ajusta a largura da caixa para a largura do texto
+        \begin{minipage}[t][20mm][t]{\textwidth}
+            \begin{flushright}
+                \vfill
+                \rule{112mm}{0.4pt}\\
+                \textnormal{\acrshort{prof}. \acrshort{me}. Ludmillla Reis Pinheiro dos Santos}\\
+                Coordenadora de Trabalho de Conclusão de Curso
+                \vfill
+            \end{flushright}
+        \end{minipage}
+    }
+    \vspace{1cm}
 
-    \begin{flushright}
-    \rule{10cm}{0.4pt}\\
-    \textnormal{\acrshort{prof}. \acrshort{me}. Ludmillla Reis Pinheiro dos Santos}\\
-    Coordenadora de Trabalho de Conclusão de Curso
+    % Terceira seção - restante da página
+    \noindent\makebox[\textwidth][l]{
+        \begin{minipage}[t][\dimexpr\textheight-80mm-20mm-2cm-2cm\relax][t]{\textwidth}
+            \begin{flushright}
+            \vfill
 
-    \vspace*{25mm}
+            \rule{112mm}{0.4pt}\\
+            \textnormal{Orientador: \grauOrientador \imprimirorientador}
 
-    \rule{10cm}{0.4pt}\\
-    \textnormal{Orientador: \grauOrientador \imprimirorientador}
+            \vfill
 
-    \vspace*{10mm}
+            \rule{112mm}{0.4pt}\\
+            \textnormal{Banca: \grauBancaUm \, \bancaUm}
 
-    \rule{10cm}{0.4pt}\\
-    \textnormal{Banca: \grauBancaUm \, \bancaUm}
+            \vfill
 
-    \vspace*{10mm}
+            \rule{112mm}{0.4pt}\\
+            \textnormal{Banca: \grauBancaDois \, \bancaDois}
+            \end{flushright}
 
-    \rule{10cm}{0.4pt}\\
-    \textnormal{Banca: \grauBancaDois \, \bancaDois}
-    \end{flushright}
+            \vfill
 
-    \vspace*{6cm}
+            \centering
+            \bfseries{\imprimirlocal}\\
+            \bfseries{\imprimirdata}
+        \end{minipage}
+    }
+    
 
-    \bfseries{\imprimirlocal}
+    % \vfill
 
-    \bfseries{\imprimirdata}
-\clearpage % Começa uma nova página para a folha de rosto
+    % \begin{flushright}
+    % \rule{10cm}{0.4pt}\\
+    % \textnormal{\acrshort{prof}. \acrshort{me}. Ludmillla Reis Pinheiro dos Santos}\\
+    % Coordenadora de Trabalho de Conclusão de Curso
+
+    % \vfill
+
+    % \rule{10cm}{0.4pt}\\
+    % \textnormal{Orientador: \grauOrientador \imprimirorientador}
+
+    % \vfill
+
+    % \rule{10cm}{0.4pt}\\
+    % \textnormal{Banca: \grauBancaUm \, \bancaUm}
+
+    % \vfill
+
+    % \rule{10cm}{0.4pt}\\
+    % \textnormal{Banca: \grauBancaDois \, \bancaDois}
+    % \end{flushright}
+
+    % \vfill
+\clearpage
 
 %Dedicatória
 \centering
