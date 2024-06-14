@@ -37,17 +37,19 @@ export function mountGlossary(glossary: GlossaryObjectType){
         .join('\n');
 
     const custom_style = `
-        % Define a custom glossary style without page numbers
-        \\newglossarystyle{grid}{%
-            \\setglossarystyle{list}% base this style on the list style
-            \\renewcommand*{\\glossentry}[2]{%
-                \\begin{tabularx}{\\textwidth}{@{}p{0.2\\textwidth} p{0.8\\textwidth}@{}}
-                    \\textbf{\\glossentryname{##1}} & \\glossentrydesc{##1}%
-                \\end{tabularx}%
-            }%
+        % Define the custom glossary style
+        \\newglossarystyle{mygloss}{
+            \\renewenvironment{theglossary}
+                {\\noindent\\begin{longtable}{p{0.2\\textwidth} p{0.8\\textwidth}}}
+                {\\end{longtable}}%
+            \\renewcommand*{\\glossaryheader}{}
+            \\renewcommand*{\\glossentry}[2]{
+                \\noindent\\textbf{\\glossentryname{##1}} & \\glossentrydesc{##1}\\\\
+            }
+            \\renewcommand*{\\glsgroupskip}{}
         }
         % Apply the custom glossary style to each glossary
-        \\setglossarystyle{grid}
+        \\setglossarystyle{mygloss}
     `.trim().replace(/^(\s{8}|\t{2})/gm, '');
 
     const custom_title = `
