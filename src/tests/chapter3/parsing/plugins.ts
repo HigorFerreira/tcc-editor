@@ -11,7 +11,7 @@ export const plugins: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                O parsing dos plugins é algo essencial na montagem
+                O <i>parsing</i> dos plugins é algo essencial na montagem
                 do documento ao qual estar-se a escrever. São os plugins
                 que formam cada pequena unidade de bloco que comporá
                 um documento que muitas vezes se tornará gigantesco.

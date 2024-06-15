@@ -214,7 +214,7 @@ export function mountGlossary(glossary: GlossaryObjectType){
             text: `
                 Após todo o processamento seu resultado é guardado em um arquivo
                 denominado makeGlossaries.tex a ser importado posteriormente
-                pelo código fonte contruído no processo de Parsing.
+                pelo código fonte contruído no processo de <i>Parsing</i>.
             `.trim().replace(/^\s{16}/gm, '')
         }
     },

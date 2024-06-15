@@ -101,7 +101,7 @@ export const chapter4: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                O processo de parsing se encontra totalmente funcional para todos os seguintes blocos:
+                O processo de <i>parsing</i> se encontra totalmente funcional para todos os seguintes blocos:
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -158,7 +158,7 @@ export const chapter4: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                Este trabalho não foi desenvolvido utilizando-se o aplicativo em sua interface gráfica, mas utilizou todos os recursos providos pelo processo de parsing. O código de saída do editor foi escrito manualmente e em seguida compilado. O processo de compilação pode ser repetido rodando o comando abaixo a partir da pasta raiz do projeto no GitHub:
+                Este trabalho não foi desenvolvido utilizando-se o aplicativo em sua interface gráfica, mas utilizou todos os recursos providos pelo processo de <i>parsing</i>. O código de saída do editor foi escrito manualmente e em seguida compilado. O processo de compilação pode ser repetido rodando o comando abaixo a partir da pasta raiz do projeto no GitHub:
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -186,7 +186,7 @@ yarn tex-make
                 Devido a duração do processo de pesquisa e do prazo determinado para a finalização deste instrumento,
                 alguns plugins não foram desenvolvidos ou foram desenvolvidos parcialmente. Os plugins in-line, que consistem
                 na atribuição de glossários e referências bibliográficas, não foram desenvolvidos para a interface gráfica,
-                porém possuem seus equivalentes em termos de parsing.
+                porém possuem seus equivalentes em termos de <i>parsing</i>.
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -201,7 +201,7 @@ yarn tex-make
         type: 'paragraph',
         data: {
             text: `
-                Todo este trabalho foi desenvolvido utilizando-se do processo de parsing desenvolvido pelo mesmo, ao passo que
+                Todo este trabalho foi desenvolvido utilizando-se do processo de <i>parsing</i> desenvolvido pelo mesmo, ao passo que
                 paralelamente foi desenvolvida a interface.
                 O código
                 <plugin-gloss id="latex"></plugin-gloss>
@@ -240,7 +240,7 @@ yarn tex-make
             text: `
                 Os plugin inline são de grande importância para uma boa experiência de usuário
                 e escrita prazerosa. Através deles podem-se atribuir glossários, referências cruzadas
-                a tabelas e figuras, e referências bibliográficas. Seus respectivos códigos de parsing
+                a tabelas e figuras, e referências bibliográficas. Seus respectivos códigos de <i>parsing</i>
                 encontram-se integrados ao projeto, porém seus equivalentes em termos de interface
                 e experiência de usuário ainda não foram desenvolvidos.
             `.trim().replace(/^\s{16}/gm, '')
@@ -258,7 +258,7 @@ yarn tex-make
         data: {
             text: `
                 As tabelas são plugins úteis na exbição e organização de determinados tipos de informação.
-                Seu parsing encontra-se no projeto poŕém ainda não há o equivalente plugin integrado ao editor.
+                Seu <i>parsing</i> encontra-se no projeto poŕém ainda não há o equivalente plugin integrado ao editor.
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -313,7 +313,7 @@ yarn tex-make
         data: {
             text: `
                 Levando-se em consideração todas as funcionalidades desenvolvidas, (principalmente no que diz
-                respeito à questão de parsing), o sistema funcionou de forma coerente trazendo bons resultados,
+                respeito à questão de <i>parsing</i>), o sistema funcionou de forma coerente trazendo bons resultados,
                 se apresentando como uma solução sub-ótima, levando-se em consideração a concepção inicial.
             `.trim().replace(/^\s{16}/gm, '')
         }

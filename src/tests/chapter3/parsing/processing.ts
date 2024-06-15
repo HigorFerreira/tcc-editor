@@ -199,7 +199,7 @@ export function escapeCharacters(str: string){
             text: `
                 O processamento de
                 <plugin-gloss id="html"></plugin-gloss>
-                é a segunda etapa do processo de parsing. É
+                é a segunda etapa do processo de <i>parsing</i>. É
                 nele que os plugins in-line customizados são transformados
                 em comandos
                 <plugin-gloss id="latex"></plugin-gloss>.
