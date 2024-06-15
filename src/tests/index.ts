@@ -131,7 +131,7 @@ export const data: Block[] = [
                 e
                 inteligibilidade<plugin-footnote
                     data-note="Refere-se à clareza e compreensibilidade da interface, documentação e feedback fornecidos pelo
-                    sistema. Um software inteligível facilita o entendimento do usuário sobre como utilizá-lo e quais são os resultados de suas ações.">
+                    sistema. Um <i>software</i> inteligível facilita o entendimento do usuário sobre como utilizá-lo e quais são os resultados de suas ações.">
                     *</plugin-footnote>,
                 de modo que o discente possa se preocupar apenas com o conteúdo. Os detalhes de formatação, de acordo com os padrões da
                 <plugin-gloss id="abnt" data-type="siglas">ABNT</plugin-gloss>
@@ -377,8 +377,8 @@ export const data: Block[] = [
                 <plugin-ref-table data-table="tecnologias-ambiente">Tabela</plugin-ref-table>                
                 diz respeito às ferramentas e ao ambiente onde este
                 <i>software</i><plugin-footnote data-note="
-                    O software é o conjunto de instruções dadas a um computador, de modo que
-                    ele execute determinada tarefa. Pode-se dizer que o software é
+                    O <i>software</i> é o conjunto de instruções dadas a um computador, de modo que
+                    ele execute determinada tarefa. Pode-se dizer que o <i>software</i> é
                     a parte lógica do sistema computacional. <br> <plugin-ref id='hardware-e-software'></plugin-ref>.
                 ">
                 *</plugin-footnote>
@@ -403,7 +403,7 @@ export const data: Block[] = [
                     Suas unidades Lógicas de Processamento, memórias e unidades de armazenamento são
                     hardware. <br> <plugin-ref id='hardware-e-software'></plugin-ref>.
                 "></plugin-footnote>
-                e software é fundamental para garantir uma experiência de usuário satisfatória
+                e <i>software</i> é fundamental para garantir uma experiência de usuário satisfatória
                 e evitar problemas de desempenho ou compatibilidade com o aplicativo da plataforma.
                 A seguir
                 na
@@ -997,7 +997,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 *</plugin-footnote>
                 e
                 Adobe Acrobat<plugin-footnote data-note="
-                    Software que lê e converte arquivos em formato
+                    <i>Software</i> que lê e converte arquivos em formato
                     <plugin-gloss id='pdf'></plugin-gloss>. Veja mais em: <br>https://www.adobe.com/br/acrobat.html
                 ">
                 *</plugin-footnote>,
@@ -1233,7 +1233,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 utilização de componentes, os desenvolvedores podiam criar e reutilizar peças de interface
                 independentes e isoladas, o que simplificava o desenvolvimento e manutenção do código.
                 Além disso, a renderização virtual permitia atualizações de interface eficientes, otimizando o
-                desempenho da aplicação. O ReactJS foi lançado como um software de código aberto em
+                desempenho da aplicação. O ReactJS foi lançado como um <i>software</i> de código aberto em
                 2013, permitindo que desenvolvedores de todo o mundo o utilizassem em seus projetos.
                 <plugin-ref id="morais-react"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
@@ -1479,8 +1479,8 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                     <plugin-gloss id="api"></plugin-gloss><plugin-footnote data-note="
                         Do inglês: Interface de Programação de Aplicações. É uma forma na qual
                         dois ou mais aplicativos ou componentes de de computador se comunicam
-                        entre si. É uma interface de software que oferece um serviço para outras
-                        partes do mesmo ou de outros softwares.
+                        entre si. É uma interface de <i>software</i> que oferece um serviço para outras
+                        partes do mesmo ou de outros <i>softwares</i>.
                         <plugin-ref id='api-reddy'></plugin-ref>.
                     ">
                     *</plugin-footnote>

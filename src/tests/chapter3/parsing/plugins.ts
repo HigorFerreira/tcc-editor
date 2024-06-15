@@ -338,7 +338,7 @@ export function getImage(block: ImageBlock){
                 são utilizadas neste processo. Cada imagem é guardada na
                 pasta interna images com o nome do
                 <plugin-gloss id="uuid"></plugin-gloss>
-                que o software
+                que o <i>software</i>
                 define, bem como sua extensão de arquivo.
             `.trim().replace(/^\s{16}/gm, '')
         }
