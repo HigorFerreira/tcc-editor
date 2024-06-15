@@ -352,7 +352,7 @@ export function processHTML(text: string): string{
         type: 'paragraph',
         data: {
             text: `
-                O código completo do processHTML.ts juntamente com
+                O código completo do <i>processHTML</i>.ts juntamente com
                 todos os plugins pode ser encontrado no repositório do projeto.
             `.trim().replace(/^\s{16}/gm, '')
         }

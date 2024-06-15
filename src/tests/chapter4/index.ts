@@ -295,7 +295,7 @@ yarn tex-make
         type: 'paragraph',
         data: {
             text: `
-                Uma grande utilidade poderia ser a integração com bibliotecas e frameworks
+                Uma grande utilidade poderia ser a integração com bibliotecas e <i>frameworks</i>
                 como Mermaid e Graphviz. Estas bibliotecas são de facil compreensão e muito
                 úteis na hora de criar qualquer tipo de gráfico ou diagrama.
             `.trim().replace(/^\s{16}/gm, '')

@@ -202,7 +202,7 @@ yarn add node-latex react-icons uuid
                 ` ],
                 [ '.env.local', 'Arquivo de variáveis de ambiente para serem usadas como teste durante\
                 o tempo de desenvolvimento.' ],
-                [ '.git', 'Pasta de controle do git.' ],
+                [ '.git', 'Pasta de controle do <i>git</i>.' ],
                 [ '.gitignore', 'Arquivos a serem ignorados pela ferramenta de versionamento.' ],
                 [ 'next.config.js', 'Arquivo de configurações do NextJs.' ],
                 [ 'next-env.d.ts', '' ],

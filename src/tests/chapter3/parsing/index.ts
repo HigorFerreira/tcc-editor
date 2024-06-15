@@ -130,8 +130,8 @@ export const parsing: Block[] = [
         data: {
             text: `
                 O parser da aplicação não depende de nenhuma biblioteca
-                ou framework de terceiros,
-                (com excessão do processHTML que utiliza a biblioteca cheerio).
+                ou <i>framework</i> de terceiros,
+                (com excessão do <i>processHTML</i> que utiliza a biblioteca cheerio).
                 O processo de parsing é feito
                 apenas utilizando-se de recursos nativos da linguagem
                 TypeScript, (consequentemente
