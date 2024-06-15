@@ -330,7 +330,7 @@ export function processHTML(text: string): string{
         data: {
             text: `
                 Por fim, na linha 40 é retornado o resultado do processamento
-                em HTML. Note que ele é recuperado a partir do nó body do documento
+                em HTML. Note que ele é recuperado a partir do nó <i>body</i> do documento
                 virtual, e então, a função text() é chamada para recuperar a
                 representação textual do que foi processado.
             `.trim().replace(/^\s{16}/gm, '')

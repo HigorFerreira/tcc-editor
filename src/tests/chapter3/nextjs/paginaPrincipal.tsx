@@ -96,7 +96,7 @@ export const PaginaPrincipal: Block[] = [
         data: {
             text: `
                 Tem-se uma estrutura básica com a tag html, (a tag raiz do documento),
-                logo após o body, que diz respeito à área de renderização do documento.
+                logo após o <i>body</i>, que diz respeito à área de renderização do documento.
                 <i>Storage</i> é um componente personalizado em React que será discutido mais adiante,
                 ele serve basicamente para armazenar conteúdos no navegador do usuário.
                 Logo em seguida há o último componente, (ou nó folha), que consiste no
