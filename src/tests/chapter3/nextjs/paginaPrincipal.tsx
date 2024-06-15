@@ -97,7 +97,7 @@ export const PaginaPrincipal: Block[] = [
             text: `
                 Tem-se uma estrutura básica com a tag html, (a tag raiz do documento),
                 logo após o body, que diz respeito à área de renderização do documento.
-                Storage é um componente personalizado em React que será discutido mais adiante,
+                <i>Storage</i> é um componente personalizado em React que será discutido mais adiante,
                 ele serve basicamente para armazenar conteúdos no navegador do usuário.
                 Logo em seguida há o último componente, (ou nó folha), que consiste no
                 children. Neste contexto, children pode ser qualquer coisa a depender
@@ -361,11 +361,11 @@ onReady={ ({ editor }) => {
                 [ 'editor', 'setEditor', 'Armazena a referência à classe do EditorJs' ],
                 [ 'loading', 'setLoading', 'Estado de quando a tela está carregando' ],
                 [ 'isStorageLoading', 'Automático', 'Quando a <plugin-gloss id="api"></plugin-gloss>\
-                    da Storage está carregando' ],
-                [ 'storageError', 'Automático', 'Caso haja algum erro com a Storage' ],
-                [ 'result', 'Automático', 'Blocos guardados na Storage, (caso Hajam)' ],
-                [ 'putBlock', 'Automático', 'Função para guardar blocos na Storage' ],
-                [ 'getBlock', 'Automático', 'Função para pegar blocos da Storage' ],
+                    da <i>Storage</i> está carregando' ],
+                [ 'storageError', 'Automático', 'Caso haja algum erro com a <i>Storage</i>' ],
+                [ 'result', 'Automático', 'Blocos guardados na <i>Storage</i>, (caso Hajam)' ],
+                [ 'putBlock', 'Automático', 'Função para guardar blocos na <i>Storage</i>' ],
+                [ 'getBlock', 'Automático', 'Função para pegar blocos da <i>Storage</i>' ],
                 // [ '', '', '' ],
             ]
         }
@@ -466,7 +466,7 @@ useEffect(() => {
                 pode disparar uma mudança no estado result. Este é exatamente o fluxo desejado.
                 A
                 <plugin-ref-fig data-fig="effect-isStorageLoading">Figura 1</plugin-ref-fig>
-                mostra como a aplicação fica aguardando a Storage carregar, e assim
+                mostra como a aplicação fica aguardando a <i>Storage</i> carregar, e assim
                 que ela carrega, getBlock é chamada, disparando o result, que porventura
                 seguirá o fluxo na
                 <plugin-ref-fig data-fig="effect-editor-result">Figura 1</plugin-ref-fig>.
@@ -503,8 +503,8 @@ useEffect(() => {
         type: 'paragraph',
         data: {
             text: `
-                Os detalhes de implementação da Storage se encontram no repositório através
-                do diretório: /src/components/Storage
+                Os detalhes de implementação da <i>Storage</i> se encontram no repositório através
+                do diretório: /src/components/<i>Storage</i>
             `.trim().replace(/^\s{16}/gm, '')
         }
     },

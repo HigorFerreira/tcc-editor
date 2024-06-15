@@ -114,10 +114,10 @@ export default function Home() {
                             component: <Image />,
                             class: ImageClass,
                         },
-                        'marker': {
-                            component: <MarkerTool />,
-                            class: MarkerToolClass,
-                        },
+                        // 'marker': {
+                        //     component: <MarkerTool />,
+                        //     class: MarkerToolClass,
+                        // },
                         'gloss': {
                             component: <GlossTool />,
                             class: GlossToolClass,

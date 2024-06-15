@@ -852,7 +852,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 como o
                 <i><plugin-gloss id="web"></plugin-gloss> Storage</i><plugin-footnote data-note="
                     O termo
-                    <plugin-gloss id='web'></plugin-gloss> Storage pode ser entendido, em tradução
+                    <plugin-gloss id='web'></plugin-gloss> <i>Storage</i> pode ser entendido, em tradução
                     livre, como: Armazém da <plugin-gloss id='web'></plugin-gloss>
                 ">
                 *</plugin-footnote>
