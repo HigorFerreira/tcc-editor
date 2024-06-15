@@ -16,14 +16,14 @@ export const parsing: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                O processo de Parsing transformará cada bloco provido
+                O processo de <i>Parsing</i> transformará cada bloco provido
                 pela saída do EditorJs em um trecho de código em
                 <plugin-gloss id="latex" data-type="siglas"></plugin-gloss>.
                 Observe na
                 <plugin-ref-fig data-fig="parsing-example-header">Figura</plugin-ref-fig>
                 e
                 <plugin-ref-fig data-fig="parsing-example-paragraph">Figura</plugin-ref-fig>
-                os exemplos de parsing aplicados a um objeto de
+                os exemplos de <i>parsing</i> aplicados a um objeto de
                 <i>Header</i><plugin-footnote data-note="
                     Do inglês: Cabeçalho. Neste contexto, os headers são os títulos utilizados no documento.
                 ">*</plugin-footnote>
@@ -132,7 +132,7 @@ export const parsing: Block[] = [
                 O parser da aplicação não depende de nenhuma biblioteca
                 ou <i>framework</i> de terceiros,
                 (com excessão do <i>processHTML</i> que utiliza a biblioteca cheerio).
-                O processo de parsing é feito
+                O processo de <i>parsing</i> é feito
                 apenas utilizando-se de recursos nativos da linguagem
                 TypeScript, (consequentemente
                 <plugin-gloss id="js"></plugin-gloss>).
@@ -160,7 +160,7 @@ export const parsing: Block[] = [
             text: `
                 O process_steps diz respeito a funções utilitárias do processamento de texto.
                 É uma das mais importantes partes pois fornece funções que serão utilizadas a todo
-                momento em outras partes do parsing. Provê segurança pois nele reside as funções
+                momento em outras partes do <i>parsing</i>. Provê segurança pois nele reside as funções
                 de escape de caracteres especiais e entre outros.
                 O plugins fornece o processamento respectivo de cada plugin da aplicação,
                 bem como o modo em que cada um deverá ser convertido em código

@@ -148,7 +148,7 @@ export const data: Block[] = [
                 A criação de um trabalho de
                 <plugin-gloss id="tcc" data-type="siglas">TCC</plugin-gloss>
                 se dará basicamente por três passos básicos: Escrita em blocos;
-                <i>Parsing</i><plugin-footnote data-note="O termo Parsing, (do inglês: análise), será utilizado no
+                <i>Parsing</i><plugin-footnote data-note="O termo <i>Parsing</i>, (do inglês: análise), será utilizado no
                 sentido de analisar e transformar algo em outra coisa.">*</plugin-footnote>
                 e
                 Documento em
@@ -175,7 +175,7 @@ export const data: Block[] = [
                 O usuário interagirá com a aplicação escrevendo blocos que serão transformados
                 no documento final em
                 <plugin-gloss id="pdf" data-type="siglas">pdf</plugin-gloss>
-                . A este processo denominar-se-á Parsing. Após este, bastará
+                . A este processo denominar-se-á <i>Parsing</i>. Após este, bastará
                 enviar o download do <plugin-gloss id="pdf" data-type="siglas">pdf</plugin-gloss>
                 ao usuário com todo o padrão de formatação. Os trabalhos desenvolvidos nesta plataforma
                 terão então duas versões: A versão de blocos, (sem formatação e interativa); e a versão
@@ -294,7 +294,7 @@ export const data: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                O processo de Parsing é o processo que acontecerá sempre que o usuário desejar
+                O processo de <i>Parsing</i> é o processo que acontecerá sempre que o usuário desejar
                 ver o
                 <i>layout</i><plugin-footnote data-note="
                 Do inglês: Disposição, ou esboço. Esta palavra geralmente está associada ao desenho ou visual de algo.
@@ -562,7 +562,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 o aplicativo será contruído. Estes pilares são formados por diversas
                 tecnologias, bibliotecas,
                 <i>frameworks</i><plugin-footnote data-note="
-                    Uma framework é como um kit de ferramentas pré-pronto que fornece uma gama
+                    Uma <i>framework</i> é como um kit de ferramentas pré-pronto que fornece uma gama
                     de funcionalidades pré-construídas e testadas afim de facilitar o processo
                     de desenvolvimento. <plugin-ref id='amazon-framework'></plugin-ref>
                 ">
@@ -586,8 +586,8 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
         type: 'paragraph',
         data: {
             text: `
-                Estes pilares estão subdivididos em três grandes subcategorias, a saber: Front-End;
-                Back-End e Parsing. Cada qual com seus respectivos conceitos e tecnologias.
+                Estes pilares estão subdivididos em três grandes subcategorias, a saber: <i>Front-End</i>;
+                <i>Back-End</i> e <i>Parsing</i>. Cada qual com seus respectivos conceitos e tecnologias.
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -603,7 +603,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 <i>Front-End</i>
                 é, basicamente, a "linha de frente". É a parte da aplicação que interagirá
                 diretamente com o usuário. Ao profissional que codifica e desenvolve esta parte do
-                projeto, denomina-se Desenvolvedor Front-End. A interface do usuário, que é
+                projeto, denomina-se Desenvolvedor <i>Front-End</i>. A interface do usuário, que é
                 onde o mesmo realiza suas interações com o sistema, normalmente é desenhada por
                 um
                 <i>designer</i><plugin-footnote data-note="
@@ -1310,7 +1310,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 ">
                 *</plugin-footnote>, e o foco em componentes funcionais são algumas das áreas de
                 desenvolvimento. O React permanece como uma biblioteca consolidada no mercado de
-                Front-End, sendo amplamente adotado por grandes empresas em todo o mundo.
+                <i>Front-End</i>, sendo amplamente adotado por grandes empresas em todo o mundo.
                 <plugin-ref id="morais-react"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
@@ -1408,9 +1408,9 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
         type: 'paragraph',
         data: {
             text: `
-                O NextJs é uma framework em ReactJs voltada à construção de aplicações
+                O NextJs é uma <i>framework</i> em ReactJs voltada à construção de aplicações
                 <plugin-gloss id="web"></plugin-gloss>
-                tando na parte do Front-End quanto no Back-End.
+                tando na parte do <i>Front-End</i> quanto no <i>Back-End</i>.
                 Com NextJs, utiliza-se os componentes em React para construir as interfaces
                 de usuário, com o NextJs provendo recursos adicionais e otimizações.
                 <plugin-ref id="nexjs-docs"></plugin-ref>.
@@ -1439,8 +1439,8 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
         type: 'paragraph',
         data: {
             text: `
-                Devido à natureza desta framework, O NextJs é um pilar que aparece
-                tanto no Back-End quanto no Front-End. Estas duas frentes serão abordadas
+                Devido à natureza desta <i>framework</i>, O NextJs é um pilar que aparece
+                tanto no <i>Back-End</i> quanto no <i>Front-End</i>. Estas duas frentes serão abordadas
                 com a utilização desta ferramenta, aproveitando ao máximo os recursos fornecidos
                 pela mesma. Os principais recursos oferecidos pelo NextJs são:
             `.trim().replace(/^\s{16}/gm, '')
@@ -1688,7 +1688,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
         type: 'paragraph',
         data: {
             text: `
-                Back-end se relaciona com o que está nos bastidores das aplicações desenvolvidas na programação. Ou seja, tudo que dá estrutura e apoio às ações do usuário da máquina é chamado de back-end. Quando se acessa um site, por exemplo, por trás de toda sua apresentação amigável esteticamente, há uma comunicação das informações trocadas entre banco de dados e navegador. Portanto, atrás da interface gráfica do realizador, o back-end está sempre agindo.
+                <i>Back-end</i> se relaciona com o que está nos bastidores das aplicações desenvolvidas na programação. Ou seja, tudo que dá estrutura e apoio às ações do usuário da máquina é chamado de <i>back-end</i>. Quando se acessa um site, por exemplo, por trás de toda sua apresentação amigável esteticamente, há uma comunicação das informações trocadas entre banco de dados e navegador. Portanto, atrás da interface gráfica do realizador, o <i>back-end</i> está sempre agindo.
                 <plugin-ref id="totvs-back-end"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
@@ -1765,11 +1765,11 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 das interfaces do sistema estaticamente, e
                 entregá-las ao cliente juntamente com os scripts
                 de suas partes dinâmicas. Desta forma,
-                ganha-se segurança no processamento back-end
+                ganha-se segurança no processamento <i>back-end</i>
                 ao mesmo tempo que não perde-se em termos de
                 interatividade com o usuário.
                 Há também diversos ganhos de performance e simplificação
-                de código, uma vez que back-end e front-end
+                de código, uma vez que <i>back-end</i> e <i>front-end</i>
                 serão concentrados no mesmo lugar, não precisando
                 separá-los em projetos diferentes.
             `.trim().replace(/^\s{16}/gm, '')
@@ -1783,15 +1783,15 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
         type: 'paragraph',
         data: {
             text: `
-                O processo de Parsing é uma das partes mais vitais deste projeto.
+                O processo de <i>Parsing</i> é uma das partes mais vitais deste projeto.
                 Sem ele, não é possível obter o documento final formatado de acordo
                 com as normas postas da
                 <plugin-gloss id="abnt"></plugin-gloss>
                 e da
                 <plugin-gloss id="pucgo"></plugin-gloss>.
-                Pode-se dizer que o Parsing é o código núcleo da aplicação, pois todas
+                Pode-se dizer que o <i>Parsing</i> é o código núcleo da aplicação, pois todas
                 as outras partes, como edição em blocos e navegação, por exemplo,
-                serão feitas com o auxílio de bibliotecas e frameworks. O Parsing,
+                serão feitas com o auxílio de bibliotecas e <i>frameworks</i>. O <i>Parsing</i>,
                 por sua vez, será escrito puramete em TypeScript para processar as
                 saídas do EditorJs.
             `.trim().replace(/^\s{16}/gm, '')
