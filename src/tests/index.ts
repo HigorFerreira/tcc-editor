@@ -399,9 +399,9 @@ export const data: Block[] = [
             text: `
                 Atender aos requisitos mínimos de
                 <i>hardware</i><plugin-footnote data-note="
-                    Com hardware, compreende-se o equipamento físico de um sistema computacional.
+                    Com <i>hardware</i>, compreende-se o equipamento físico de um sistema computacional.
                     Suas unidades Lógicas de Processamento, memórias e unidades de armazenamento são
-                    hardware. <br> <plugin-ref id='hardware-e-software'></plugin-ref>.
+                    <i>hardware</i>. <br> <plugin-ref id='hardware-e-software'></plugin-ref>.
                 "></plugin-footnote>
                 e <i>software</i> é fundamental para garantir uma experiência de usuário satisfatória
                 e evitar problemas de desempenho ou compatibilidade com o aplicativo da plataforma.
