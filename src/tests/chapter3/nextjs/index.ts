@@ -25,7 +25,7 @@ export const nextjs: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                O servidor da aplicação será construído em cima do NextJs, a
+                O servidor da aplicação será construído em cima do <i>NextJs</i>, a
                 framewok React para a
                 <plugin-gloss id="web"></plugin-gloss>.
                 Iniciar o projeto é uma tarefa simples. Basta apenas navegar
@@ -53,7 +53,7 @@ npx create-next-app@latest
         data: {
             text: `
                 Vale ressaltar que é necessário ter o NodeJs na versão 18.17 ou superior
-                para iniciar o projeto em NextJs. Após rodar este comando, o prompt fará uma
+                para iniciar o projeto em <i>NextJs</i>. Após rodar este comando, o prompt fará uma
                 série de perguntas para a configuração do mesmo, observe o exemplo abaixo:
             `.trim().replace(/^\s{16}/gm, '')
         }
@@ -158,7 +158,7 @@ yarn add node-latex react-icons uuid
         type: 'paragraph',
         data: {
             text: `
-                Após isso o utilitário de criação da aplicação NextJs
+                Após isso o utilitário de criação da aplicação <i>NextJs</i>
                 irá criar uma estrutura de pastas e arquivos de projeto
                 totalmente configurado e pronto para ser programado.
                 A
@@ -204,7 +204,7 @@ yarn add node-latex react-icons uuid
                 o tempo de desenvolvimento.' ],
                 [ '.git', 'Pasta de controle do <i>git</i>.' ],
                 [ '.gitignore', 'Arquivos a serem ignorados pela ferramenta de versionamento.' ],
-                [ 'next.config.js', 'Arquivo de configurações do NextJs.' ],
+                [ 'next.config.js', 'Arquivo de configurações do <i>NextJs</i>.' ],
                 [ 'next-env.d.ts', '' ],
                 [ 'package.json', `
                     Arquivo que define que o projeto é um projeto NodeJs. Aqui está toda a informação sobre dependências
@@ -212,7 +212,7 @@ yarn add node-latex react-icons uuid
                     de scripts úteis para serem utilizados no processo de desenvolvimento.
                 ` ],
                 [ 'README.md', 'Documentação de apresentação do projeto.' ],
-                [ 'tsconfig.json', 'Configurações do TypeScript.' ],
+                [ 'tsconfig.json', 'Configurações do <i>TypeScript</i>.' ],
                 [ 'yarn-error.log', 'Erros do gerenciador de pacotes yarn' ],
                 [ 'yarn.lock', 'Arquivo de lock de dependências do gerenciador de pacotes yarn.' ],
             ]

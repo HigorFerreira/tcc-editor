@@ -159,7 +159,7 @@ export default function RootLayout({
                 Note que aqui não há o uso da tag head, padrão comum do
                 <plugin-gloss id="html"></plugin-gloss>. Isso se dá
                 pois o gerenciamento das configurações desta tag fica
-                a cargo do NextJs. Nas linhas 8 à 11
+                a cargo do <i>NextJs</i>. Nas linhas 8 à 11
                 há a exportação de uma constante denominada metadata. Nela
                 há a chave title que o Next utilizará para renderizar o
                 título da página, (que em um html normal seria configurado

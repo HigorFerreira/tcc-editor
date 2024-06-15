@@ -153,7 +153,7 @@ export const processing: Block[] = [
         data: {
             text: `
                 Abaixo tem-se a aplicação do processamento de escape de caracteres
-                em typescript. a função escapeCharacters recebe uma string na linha 1,
+                em <i>typescript</i>. a função escapeCharacters recebe uma string na linha 1,
                 e das linhas 3 a 14 faz uma sucessão de novas atribuições desta nova string.
                 As atribuições consistem de uma nova string que, através da função replace,
                 substituem as expressões regulares pela nova string, que seguem de acordo

@@ -79,7 +79,7 @@ export interface ParagraphBlock {
                 de instanciar um objeto do tipo que é definido pelo
                 interface<plugin-footnote data-note="
                     Neste contexto, está-se utilizando o termo interface em seu original
-                    inglês, conforme a documentação do TypeScript. Devido a este fato,
+                    inglês, conforme a documentação do <i>TypeScript</i>. Devido a este fato,
                     interface (não confundir com interface de usuário) será tratado
                     com pronome masculino.
                 ">*</plugin-footnote>
@@ -171,7 +171,7 @@ export interface HeaderBlock {
                 pelas etapas de processamento conforme já descrito na
                 <plugin-ref-fig data-fig="fluxo-processamento-texto">Figura</plugin-ref-fig>.
                 Observe na linha 7 como o parâmetro block é anotado com o tipo ParagraphBlock.
-                É neste caso que entra a utilidade do TypeScript. Pois além de prevenir erros
+                É neste caso que entra a utilidade do <i>TypeScript</i>. Pois além de prevenir erros
                 não deixando que se passe um bloco incorreto para ser processado por essa função,
                 tem-se a condição de saber exatamente o que tem dentro da propriedade
                 data na linha 11. Neste caso, apenas passa-se o texto para o processamento.

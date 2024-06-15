@@ -134,7 +134,7 @@ export const parsing: Block[] = [
                 (com excessão do <i>processHTML</i> que utiliza a biblioteca cheerio).
                 O processo de <i>parsing</i> é feito
                 apenas utilizando-se de recursos nativos da linguagem
-                TypeScript, (consequentemente
+                <i>TypeScript</i>, (consequentemente
                 <plugin-gloss id="js"></plugin-gloss>).
                 A
                 <plugin-ref-fig data-fig="estrutura-parser">Figura</plugin-ref-fig>

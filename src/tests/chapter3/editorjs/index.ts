@@ -114,7 +114,7 @@ export const editorjs: Block[] = [
                 ao contrário do estado não possui função de atualização. São objetos especiais
                 que podem guardar referências para objetos no
                 <plugin-gloss id="dom"></plugin-gloss>
-                ou outros objetos JavaScript. Isso acontece pois editor guardará a instância
+                ou outros objetos <i>JavaScript</i>. Isso acontece pois editor guardará a instância
                 do EditorJs, ao passo que editorContainerRef referenciará uma div no
                 <plugin-gloss id="dom"></plugin-gloss>.
                 Esta div será utilizada por editor para inputar a ferramenta de edição de

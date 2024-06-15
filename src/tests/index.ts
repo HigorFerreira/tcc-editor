@@ -980,12 +980,12 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
         type: 'paragraph',
         data: {
             text: `
-                JavaScript é uma linguagem de programação notavelmente versátil que, apesar de ser
+                <i>JavaScript</i> é uma linguagem de programação notavelmente versátil que, apesar de ser
                 comumente conhecida pela sua utilização em páginas
                 <plugin-gloss id="web"></plugin-gloss>, vai muito além disso.
                 Frequentemente abreviada para 
                 <plugin-gloss id="js"></plugin-gloss>, essa linguagem é leve, interpretada e orientada a objetos
-                com funções de primeira classe. Graças à sua flexibilidade, o JavaScript se expandiu para uma
+                com funções de primeira classe. Graças à sua flexibilidade, o <i>JavaScript</i> se expandiu para uma
                 variedade de ambientes que não são navegadores, incluindo
                 Node.Js<plugin-footnote data-note="
                     Ver sessão que trata do Node.Js
@@ -1014,7 +1014,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 suporta múltiplos paradigmas de programação. Isso significa que, além de ser orientada a
                 objetos, ela também suporta estilos de programação imperativos e declarativos, como a
                 programação funcional. Essa capacidade de suportar diferentes estilos de programação torna o
-                JavaScript uma ferramenta poderosa e flexível para os desenvolvedores.
+                <i>JavaScript</i> uma ferramenta poderosa e flexível para os desenvolvedores.
                 <plugin-ref id="mdn-js"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
         }
@@ -1023,7 +1023,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
         type: 'paragraph',
         data: {
             text: `
-                O padrão para JavaScript é o
+                O padrão para <i>JavaScript</i> é o
                 <plugin-gloss id="ecma"></plugin-gloss>Script.
                 Desde 2012, todos os navegadores
                 modernos oferecem suporte completo ao
@@ -1051,20 +1051,20 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
         type: 'paragraph',
         data: {
             text: `
-                O TypeScript, as vezes abreviado como
+                O <i>TypeScript</i>, as vezes abreviado como
                 <plugin-gloss id="ts"></plugin-gloss>, é uma linguagem fortemente
-                tipada construída em cima do JavaScript,
+                tipada construída em cima do <i>JavaScript</i>,
                 <plugin-ref id="ts-page"></plugin-ref>.
-                Typescript traz uma sintaxe adicional para o JavaScript de modo
+                <i>Typescript</i> traz uma sintaxe adicional para o <i>JavaScript</i> de modo
                 que o mesmo possa suportar checagem de tipos estática.
                 Sem o <plugin-gloss id="ts"></plugin-gloss>,
                 fica difícil saber com quais tipos de dados estar-se a trabalhar
-                durante o processo de desenvolvimento, pois o JavaScript é uma
+                durante o processo de desenvolvimento, pois o <i>JavaScript</i> é uma
                 linguagem fracamente tipada. Os parâmetros das funções e variáveis
                 não possuem nenhuma informação, forçando os desenvolvedores
                 a recorrerem a todo momento à documentação ou intuir sobre
                 as tipagens.
-                Typescript resolve esse problema, permitindo tipar o código
+                <i>Typescript</i> resolve esse problema, permitindo tipar o código
                 de modo que erros possam ser reportados quando a tipagem estiver
                 incorreta, por exemplo: ao tentar-se passar uma
                 string<plugin-footnote data-note="
@@ -1074,8 +1074,8 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                     são formados por estas cadeias denominadas strings,
                 ">
                 *</plugin-footnote>
-                para uma função que espera um número, TypeScript lançará um erro.
-                O JavaScript, por outro lado, permitirá a execução deste código
+                para uma função que espera um número, <i>TypeScript</i> lançará um erro.
+                O <i>JavaScript</i>, por outro lado, permitirá a execução deste código
                 podendo gerar erros de tempo de execução.
                 <plugin-ref id="ts-w3"></plugin-ref>.
             `.trim().replace(/^\s{16}/gm, '')
@@ -1085,14 +1085,14 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
         type: 'paragraph',
         data: {
             text: `
-                O TypeScript possui um compilador, que nada mais é do que um
+                O <i>TypeScript</i> possui um compilador, que nada mais é do que um
                 transpilador. Este transpilador é responsável por transformar o
                 código
                 <plugin-gloss id="ts"></plugin-gloss> em
                 <plugin-gloss id="js"></plugin-gloss>.
-                Desta forma, o código JavaScript resultante da
+                Desta forma, o código <i>JavaScript</i> resultante da
                 transpilação pode ser rodado em praticamente qualquer
-                navegador ou ambiente que suporte o JavaScript.
+                navegador ou ambiente que suporte o <i>JavaScript</i>.
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -1104,26 +1104,26 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
         type: 'paragraph',
         data: {
             text: `
-                <i>JavaScript Object Notation</i>, (Notação de Objeto JavaScript),
+                <i>JavaScript Object Notation</i>, (Notação de Objeto <i>JavaScript</i>),
                 popularmente chamado de <plugin-gloss id="json"></plugin-gloss>. É uma sintaxe para a serialização de
-                objetos do javascript. Com objetos do javascript, compreende-se seus tipos
+                objetos do <i>javascript</i>. Com objetos do <i>javascript</i>, compreende-se seus tipos
                 de dados e valores, como: objetos; matrizes; números; strings; booleanos;
                 <i>null</i><plugin-footnote data-note="
-                    Do inglês: Nulo. Neste contexto é um valor especial do JavaScript para
+                    Do inglês: Nulo. Neste contexto é um valor especial do <i>JavaScript</i> para
                     representar a nulidade de um objeto/variável.
                 ">
                 *</plugin-footnote>
                 e
                 <i>undefined</i><plugin-footnote data-note="
-                    Do inglês: Indefinido. Neste contexto é um tipo de dado do JavaScript
+                    Do inglês: Indefinido. Neste contexto é um tipo de dado do <i>JavaScript</i>
                     para variáveis indefinidas.
                 ">
                 *</plugin-footnote>.
-                Apesar de baseado na sintaxe do JavaScript, distingue-se desta
+                Apesar de baseado na sintaxe do <i>JavaScript</i>, distingue-se desta
                 no sentido da forma de escrita. A serialização é o processo
                 de converter dados estruturados, (ou objetos), em um formato que pode
                 facilmente ser armazenado e transmitido pela rede. O <plugin-gloss id="json"></plugin-gloss>
-                basicamente converte os objetos JavaScript em strings. Uma caracteristica deste,
+                basicamente converte os objetos <i>JavaScript</i> em strings. Uma caracteristica deste,
                 é que <plugin-gloss id="json"></plugin-gloss> é legível tanto por humanos, quanto por máquinas,
                 (na maioria dos casos).
                 <plugin-ref id="mdn-json"></plugin-ref>.
@@ -1137,7 +1137,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 A
                 <plugin-ref-table data-table="json-descs">Tabela</plugin-ref-table>
                 mostra as principais
-                diferenças entre o JavaScript e o JSON.
+                diferenças entre o <i>JavaScript</i> e o JSON.
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -1188,7 +1188,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
         data: {
             text: `
                 "Biblioteca para interfaces de usuário <plugin-gloss id="web"></plugin-gloss> e nativas".
-                O React é uma biblioteca de JavaScript criada pelo Facebook para solucionar
+                O React é uma biblioteca de <i>JavaScript</i> criada pelo Facebook para solucionar
                 desafios de manutenção e escalabilidade em suas aplicações. No início de 2011, a equipe de
                 desenvolvedores do Facebook enfrentava dificuldades em lidar com o crescimento da
                 aplicação de anúncios, que estava se tornando cada vez mais complexa e difícil de ser
@@ -1209,7 +1209,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 uma versão do
                 <plugin-gloss id="php"></plugin-gloss>,
                 para o navegador usando
-                JavaScript. O 
+                <i>JavaScript</i>. O 
                 XHP
                 era uma tecnologia desenvolvida para minimizar ataques de Cross-Site
                 Scripting
@@ -1326,10 +1326,10 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
         type: 'paragraph',
         data: {
             text: `
-                O JavaScript XML, (<plugin-gloss id="jsx"></plugin-gloss>),
-                é uma extensão de sintaxe para o JavaScript que permite escrever
+                O <i>JavaScript</i> XML, (<plugin-gloss id="jsx"></plugin-gloss>),
+                é uma extensão de sintaxe para o <i>JavaScript</i> que permite escrever
                 código de marcação, (como o <plugin-gloss id="html"></plugin-gloss>),
-                dentro do JavaScript. Os componentes React nada mais são do que
+                dentro do <i>JavaScript</i>. Os componentes React nada mais são do que
                 funções ou classes chamadas a partir do código
                 <plugin-gloss id="js"></plugin-gloss>
                 que atualizam o
@@ -1338,7 +1338,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 <i>Document Object Model</i><plugin-footnote data-note="
                     Do inglês: Modelo de Documento de Objeto. O
                     <plugin-gloss id='dom'></plugin-gloss>
-                    é utilizado pelo JavaScript para manipular o documento
+                    é utilizado pelo <i>JavaScript</i> para manipular o documento
                     <plugin-gloss id='html'></plugin-gloss>
                     exibido em tela.
                     <plugin-ref id='alura-dom'></plugin-ref>
@@ -1349,7 +1349,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 O
                 <plugin-gloss id="jsx"></plugin-gloss>
                 facilita esse trabalho. Pois ao invés de chamar
-                funcões ou instanciar classes no código JavaScript,
+                funcões ou instanciar classes no código <i>JavaScript</i>,
                 pode-se escrever a marcação diretamente no mesmo,
                 como se o 
                 <plugin-gloss id="html"></plugin-gloss>
@@ -1472,7 +1472,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 `
                     Busca de dados: Há um processo de busca de dados simplificado com o uso de
                     <i>async/await</i><plugin-footnote data-note="
-                        Recurso do JavaScript para lidar com a execuçao de código assíncrono.
+                        Recurso do <i>JavaScript</i> para lidar com a execuçao de código assíncrono.
                     ">
                     *</plugin-footnote>
                     nos componentes de servidor, além de uma
@@ -1508,7 +1508,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                     o núcleo do aplicativo e a experiência de usuário.
                 `,
                 `
-                    TypeScript: Suporte total ao TypeScript, com uma melhor checagem de tipos e compilação eficiente.
+                    <i>TypeScript</i>: Suporte total ao <i>TypeScript</i>, com uma melhor checagem de tipos e compilação eficiente.
                 `
             ]
         }
@@ -1712,7 +1712,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
         type: 'paragraph',
         data: {
             text: `
-                "Rode JavaScript em todo lugar".
+                "Rode <i>JavaScript</i> em todo lugar".
                 O NodeJs é um ambiente de
                 <i>runtime</i><plugin-footnote data-note="
                     Do inglês: Tempo de execução. Um runtime é basicamente um interpretador
@@ -1731,7 +1731,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
         type: 'paragraph',
         data: {
             text: `
-                Antes do NodeJs, o JavaScript era uma linguagem que
+                Antes do NodeJs, o <i>JavaScript</i> era uma linguagem que
                 rodava puramente em
                 <i>Browsers</i><plugin-footnote data-note="
                     Do inglês: Navegadores. Aqui usado no sentido de
@@ -1740,7 +1740,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 ">
                 *</plugin-footnote>
                 como uma forma de adicionar interações às páginas da internet.
-                Com o NodeJs, o JavaScript passou do ambiente dos Browsers
+                Com o NodeJs, o <i>JavaScript</i> passou do ambiente dos Browsers
                 ao ambiente dos Sistemas Operacionais. Abstraindo
                 <plugin-gloss id="api"></plugin-gloss>s
                 dos mesmos. Hoje, com NojeJs, por exemplo, pode-se
@@ -1792,7 +1792,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 Pode-se dizer que o <i>Parsing</i> é o código núcleo da aplicação, pois todas
                 as outras partes, como edição em blocos e navegação, por exemplo,
                 serão feitas com o auxílio de bibliotecas e <i>frameworks</i>. O <i>Parsing</i>,
-                por sua vez, será escrito puramete em TypeScript para processar as
+                por sua vez, será escrito puramete em <i>TypeScript</i> para processar as
                 saídas do EditorJs.
             `.trim().replace(/^\s{16}/gm, '')
         }
@@ -1973,7 +1973,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
         type: 'paragraph',
         data: {
             text: `
-                Em JavaScript, as expressões regulares podem ser escritas diretamente dentro do código,
+                Em <i>JavaScript</i>, as expressões regulares podem ser escritas diretamente dentro do código,
                 desde que postas entre barras //. Por exemplo: /abc/ é uma expressão regular válida em
                 <plugin-gloss id="js"></plugin-gloss>.
                 O tipo de dados das expressões regulares é
@@ -1983,7 +1983,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 ">
                 *</plugin-footnote>, assim como
                 <i>Array</i><plugin-footnote data-note="
-                    Do inglês: Variedade ou matriz. No contexto de JavaScript é um dado estruturado,
+                    Do inglês: Variedade ou matriz. No contexto de <i>JavaScript</i> é um dado estruturado,
                     composto de uma sequencia de outros objetos ou dados puros.
                 ">
                 *</plugin-footnote>
@@ -2170,7 +2170,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 código
                 <plugin-gloss id="html"></plugin-gloss>.
                 Especificamente, o Cheerio não renderiza visualmente, aplica CSS,
-                carrega recursos externos ou executa JavaScript, o que é comum
+                carrega recursos externos ou executa <i>JavaScript</i>, o que é comum
                 em uma aplicação de página única
                 (<plugin-gloss id="spa"></plugin-gloss>,
                 na sigla em inglês).

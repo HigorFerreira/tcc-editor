@@ -71,8 +71,8 @@ export const Roteamento: Block[] = [
                 <plugin-gloss id="tsx"></plugin-gloss>
                 significa o mesmo que
                 <plugin-gloss id="jsx"></plugin-gloss>,
-                com a difereça de que é um arquivo em TypeScript ao
-                invés de JavaScript.
+                com a difereça de que é um arquivo em <i>TypeScript</i> ao
+                invés de <i>JavaScript</i>.
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -123,7 +123,7 @@ export const Roteamento: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                Para criar uma rota para uma nova página no NextJs, basta que
+                Para criar uma rota para uma nova página no <i>NextJs</i>, basta que
                 uma pasta no diretótio app seja criada. Esta pasta deve conter
                 pelo menos um arquivo page.tsx ou route.ts. Observe a
                 <plugin-ref-fig data-fig="page-route-example">Figura 1</plugin-ref-fig>.
@@ -187,7 +187,7 @@ export default function Layout(
                 *</plugin-footnote>,
                 que
                 contém outros componentes React a serem renderizados.
-                No caso, o NextJs injetará dentro de children o código que
+                No caso, o <i>NextJs</i> injetará dentro de children o código que
                 é exportado por page.tsx.
                 A linha 8 é a posição onde este componente será renderizado.
             `.trim().replace(/^\s{16}/gm, '')
