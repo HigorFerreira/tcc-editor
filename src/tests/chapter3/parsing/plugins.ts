@@ -400,9 +400,9 @@ return \`
                 enumerate e itemize no código
                 <plugin-gloss id="latex"></plugin-gloss>.
                 A linha 9 utiliza a propriedade type para definir qual tipo de lista será utilizada.
-                Por fim, a lista é composta de uma iteração sobre as strings do array presente
+                Por fim, a lista é composta de uma iteração sobre as <i>strings</i> do array presente
                 na propriedade list. Este array, após ajustado com a função map, é transformado
-                em uma string unindo seus itens por uma quebra de linha com o auxílio da
+                em uma <i>string</i> unindo seus itens por uma quebra de linha com o auxílio da
                 função join na linha 11. Observe também o processamento textual presente na
                 linha 11. Isso se dá pela liberdade do usuário em utilizar plugins nos
                 campos de lista.

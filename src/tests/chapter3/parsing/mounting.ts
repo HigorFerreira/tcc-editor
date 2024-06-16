@@ -180,7 +180,7 @@ export function mountGlossary(glossary: GlossaryObjectType){
         type: 'paragraph',
         data: {
             text: `
-                Por fim, basta unir tudo em uma string conforme mostrado na linha
+                Por fim, basta unir tudo em uma <i>string</i> conforme mostrado na linha
                 65 e 66 abaixo. As linhas 68 e 69 foram uma tentativa de customizar o estilo
                 do glossário e seu título. Por hora, esta parte está omitida do trabalho.
                 A linha 67 adiciona o comando \\makeglossaries, que diz ao

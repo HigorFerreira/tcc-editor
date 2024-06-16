@@ -426,9 +426,9 @@ export const data: Block[] = [
             header: [ 'Tipo', 'Tecnologia' ],
             items: [
                 [ 'Sistema Operacional', 'Ubuntu 20.04' ],
-                [ 'Interpretador', 'NodeJs 20.10.0' ],
+                [ 'Interpretador', '<i>NodeJs</i> 20.10.0' ],
                 [ 'Gerenciador de pacotes', 'Npm 10.2.3' ],
-                [ 'Gerenciador de pacotes', 'Yarn 1.22.19' ],
+                [ 'Gerenciador de pacotes', '<i>Yarn</i> 1.22.19' ],
                 [ 'Compilador', 'pdfTeX 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian)' ],
                 [ 'Utilitário', 'kpathsea version 6.3.4/dev' ],
                 [ 'Utilitário', 'BibTeX 0.99d (TeX Live 2022/dev/Debian)' ],
@@ -457,8 +457,8 @@ export const data: Block[] = [
                 <plugin-ref-table data-table="tecnologias-projeto">Tabela</plugin-ref-table>
                 estão listadas as tecnologias exatas do projeto juntamente com
                 suas respectivas versões. As mesmas podem ser baixadas após o download do
-                repositório com qualquer gerenciador de pacotes NodeJs, tais como: npm;
-                yarn; pnpm e bun. Este trabalho utilizou o yarn:
+                repositório com qualquer gerenciador de pacotes <i>NodeJs</i>, tais como: npm;
+                <i>yarn</i>; pnpm e bun. Este trabalho utilizou o <i>yarn</i>:
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -478,7 +478,7 @@ export const data: Block[] = [
                 [ '@emotion/react', '^11.11.4' ],
                 [ '@emotion/styled', '^11.11.0' ],
                 [ 'antd', '^5.15.0' ],
-                [ 'cheerio', '^1.0.0-rc.12' ],
+                [ '<i>cheerio</i>', '^1.0.0-rc.12' ],
                 [ 'next', '^14.1.1' ],
                 [ 'node-latex', '^3.1.0' ],
                 [ 'react', '^18.2.0' ],
@@ -795,10 +795,10 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 ">
                 *</plugin-footnote>
                 para definir diferentes partes de um documento. Essas tags informam ao navegador
-                como exibir o conteúdo da página. Por exemplo, a tag
+                como exibir o conteúdo da página. Por exemplo, a <i>tag</i>
                 &lt;p&gt;
                 é usada para definir um parágrafo,
-                enquanto a tag
+                enquanto a <i>tag</i>
                 &lt;h1&gt;
                 é usada para definir um cabeçalho de primeiro nível.
                 <plugin-ref id="w3c"></plugin-ref>.
@@ -988,7 +988,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 com funções de primeira classe. Graças à sua flexibilidade, o <i>JavaScript</i> se expandiu para uma
                 variedade de ambientes que não são navegadores, incluindo
                 Node.Js<plugin-footnote data-note="
-                    Ver sessão que trata do Node.Js
+                    Ver sessão que trata do <i>Node.Js</i>
                 ">
                 *</plugin-footnote>,
                 Apache CouchDB<plugin-footnote data-note="
@@ -1071,7 +1071,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                     Do inglês: Corda, barbante ou fio. No contexto de programação,
                     é usado como termo para cadeira de caracteres. O caractere é, na
                     maioria das linguagens de programação, um tipo de dado. E textos
-                    são formados por estas cadeias denominadas strings,
+                    são formados por estas cadeias denominadas <i>strings</i>,
                 ">
                 *</plugin-footnote>
                 para uma função que espera um número, <i>TypeScript</i> lançará um erro.
@@ -1107,7 +1107,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 <i>JavaScript Object Notation</i>, (Notação de Objeto <i>JavaScript</i>),
                 popularmente chamado de <plugin-gloss id="json"></plugin-gloss>. É uma sintaxe para a serialização de
                 objetos do <i>javascript</i>. Com objetos do <i>javascript</i>, compreende-se seus tipos
-                de dados e valores, como: objetos; matrizes; números; strings; booleanos;
+                de dados e valores, como: objetos; matrizes; números; <i>strings</i>; booleanos;
                 <i>null</i><plugin-footnote data-note="
                     Do inglês: Nulo. Neste contexto é um valor especial do <i>JavaScript</i> para
                     representar a nulidade de um objeto/variável.
@@ -1123,7 +1123,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 no sentido da forma de escrita. A serialização é o processo
                 de converter dados estruturados, (ou objetos), em um formato que pode
                 facilmente ser armazenado e transmitido pela rede. O <plugin-gloss id="json"></plugin-gloss>
-                basicamente converte os objetos <i>JavaScript</i> em strings. Uma caracteristica deste,
+                basicamente converte os objetos <i>JavaScript</i> em <i>strings</i>. Uma caracteristica deste,
                 é que <plugin-gloss id="json"></plugin-gloss> é legível tanto por humanos, quanto por máquinas,
                 (na maioria dos casos).
                 <plugin-ref id="mdn-json"></plugin-ref>.
@@ -1153,12 +1153,12 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 'Tipos e valores JavaScript', 'Diferença para o JSON'
             ],
             items: [
-                [ 'Objetos e Arrays', 'Os nomes das propriedades devem ser strings com aspas duplas; as vírgulas à direita são proibidas.' ],
+                [ 'Objetos e Arrays', 'Os nomes das propriedades devem ser <i>strings</i> com aspas duplas; as vírgulas à direita são proibidas.' ],
                 [ 'Números', 'Zeros à esquerda são proibidos; um ponto decimal deve ser seguido por pelo menos um dígito.' ],
                 [
-                    'Strings',
+                    '<i>Strings</i>',
                     `
-                    Apenas um conjunto limitado de caracteres pode ser escapado; certos caracteres de controle são proibidos; o separador de linha Unicode (U+2028) e o separador de parágrafo (U+2029) são permitidos; strings devem ter aspas duplas.
+                    Apenas um conjunto limitado de caracteres pode ser escapado; certos caracteres de controle são proibidos; o separador de linha Unicode (U+2028) e o separador de parágrafo (U+2029) são permitidos; <i>strings</i> devem ter aspas duplas.
                     `
                 ]
             ]
@@ -1457,9 +1457,9 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                     em pastas do projeto são mapeados para links, que fornecem os componentes de servidor
                     com suporte a
                     layouts<plugin-footnote data-note="
-                        Layouts são como templates que são comuns às páginas roteadas. Ajudam no processo
+                        <i>Layouts</i> são como <i>templates</i> que são comuns às páginas roteadas. Ajudam no processo
                         de reaproveitamento de componentes pois eles podem ser extendidos às páginas,
-                        que herdam características destes layouts.
+                        que herdam características destes <i>layouts</i>.
                     ">
                     *</plugin-footnote>,
                     rotas aninhadas, estados de carregamento, manipulação de erros,
@@ -1713,7 +1713,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
         data: {
             text: `
                 "Rode <i>JavaScript</i> em todo lugar".
-                O NodeJs é um ambiente de
+                O <i>NodeJs</i> é um ambiente de
                 <i>runtime</i><plugin-footnote data-note="
                     Do inglês: Tempo de execução. Um runtime é basicamente um interpretador
                     capaz de executar um script.
@@ -1731,7 +1731,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
         type: 'paragraph',
         data: {
             text: `
-                Antes do NodeJs, o <i>JavaScript</i> era uma linguagem que
+                Antes do <i>NodeJs</i>, o <i>JavaScript</i> era uma linguagem que
                 rodava puramente em
                 <i>Browsers</i><plugin-footnote data-note="
                     Do inglês: Navegadores. Aqui usado no sentido de
@@ -1740,7 +1740,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 ">
                 *</plugin-footnote>
                 como uma forma de adicionar interações às páginas da internet.
-                Com o NodeJs, o <i>JavaScript</i> passou do ambiente dos Browsers
+                Com o <i>NodeJs</i>, o <i>JavaScript</i> passou do ambiente dos <i>Browsers</i>
                 ao ambiente dos Sistemas Operacionais. Abstraindo
                 <plugin-gloss id="api"></plugin-gloss>s
                 dos mesmos. Hoje, com NojeJs, por exemplo, pode-se
@@ -1806,7 +1806,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 <plugin-gloss id="latex"></plugin-gloss>,
                 manipulação de código
                 <plugin-gloss id="html"></plugin-gloss>
-                produzido pelos plugins do editor utilizando-se o Cheerio.
+                produzido pelos plugins do editor utilizando-se o <i>Cheerio</i>.
                 E por fim, a compilação de código
                 <plugin-gloss id="latex"></plugin-gloss>
                 utilizando-se o utilitário pdflatex
@@ -1864,13 +1864,13 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 <strong>"c"</strong>
                 no texto ao qual se está avaliando.
                 Estas letras terão de estar juntas e nesta exata ordem.
-                Esta expressão irá encontrar correspondências nas strings
+                Esta expressão irá encontrar correspondências nas <i>strings</i>
                 "Vamos aprender o abc do Regex?"
                 e
                 "Um bug no sistema dói como um abcesso.".
                 Nestes dois casos, houve uma correspondência da substring
                 <strong>abc</strong>,
-                mas a string
+                mas a <i>string</i>
                 "ab c"
                 não irá obter correspondência, pois aqui a exata substring
                 <strong>abc</strong>
@@ -1923,8 +1923,8 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 <strong>b.</strong>
                 Como observa-se na
                 <plugin-ref-fig data-fig="abc-meta-match">Figura</plugin-ref-fig>
-                as strings "cbbabbbbcdebc", "abbbbc" e "ac"
-                encontrarão correspondências. As strings "ab", "a" e "abbbbbb", por
+                as <i>strings</i> "cbbabbbbcdebc", "abbbbc" e "ac"
+                encontrarão correspondências. As <i>strings</i> "ab", "a" e "abbbbbb", por
                 outro lado, não encontrarão correspondências, conforme a
                 <plugin-ref-fig data-fig="abc-meta-not-match">Figura</plugin-ref-fig>.
                 <plugin-ref id="mdn-regex"></plugin-ref>.
@@ -1997,10 +1997,10 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 são usadas com dois objetos principais, a saber
                 <plugin-gloss id="regex"></plugin-gloss>
                 e
-                String.
+                <i>String</i>.
                 A
                 <plugin-gloss id="api"></plugin-gloss>
-                de strings do
+                de <i>strings</i> do
                 <plugin-gloss id="js"></plugin-gloss>
                 fornece uma gama de métodos nos quais se pode utilizar
                 juntamente com
@@ -2025,7 +2025,7 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                 [ 'match', `
                     O método match retorna o resultado da correspodência de um dado
                     <plugin-ref id="mdn-regex"></plugin-ref>
-                    à string ao qual está sendo aplicado. Aplicação em códido:
+                    à <i>string</i> ao qual está sendo aplicado. Aplicação em códido:
                     "Meu abc".match(/abc/);
                 ` ],
                 [ 'matchAll', `
@@ -2034,15 +2034,15 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
                     encontradas.
                 ` ],
                 [ 'replace', `
-                    O método replace de uma dada string, retorna uma nova string que substitui
-                    a correspondência de uma expressão regular por alguma string de substituição.
+                    O método replace de uma dada <i>string</i>, retorna uma nova <i>string</i> que substitui
+                    a correspondência de uma expressão regular por alguma <i>string</i> de substituição.
                 ` ],
                 [ 'replaceAll', `
                     Um caminho diferente para fazer o mesmo que replace, porém para todas
                     as ocorrências.
                 ` ],
-                [ 'search', 'Faz uma busca pelo padrão na string e retorna o índice da primeira ocorrência.' ],
-                [ 'split', 'Divide a string em uma lista ordenada de substrings em que o critério de divisão é a expressão regular fornecida.' ],
+                [ 'search', 'Faz uma busca pelo padrão na <i>string</i> e retorna o índice da primeira ocorrência.' ],
+                [ 'split', 'Divide a <i>string</i> em uma lista ordenada de substrings em que o critério de divisão é a expressão regular fornecida.' ],
             ]
         }
     },
@@ -2161,20 +2161,20 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
         type: 'paragraph',
         data: {
             text: `
-                Cheerio é uma biblioteca útil para processar linguagem de marcação.
-                Diferente do Browser, que renderiza uma página
+                <i>Cheerio</i> é uma biblioteca útil para processar linguagem de marcação.
+                Diferente do <i>Browser</i>, que renderiza uma página
                 <plugin-gloss id="html"></plugin-gloss>
-                e implementa a estilização, Cheerio analisa a linguagem de marcação
+                e implementa a estilização, <i>Cheerio</i> analisa a linguagem de marcação
                 tornando-a em dado estruturado. Deste modo, tem-se a possibilidade
                 de percorrer e manipular a estrutura de dados resultante do
                 código
                 <plugin-gloss id="html"></plugin-gloss>.
-                Especificamente, o Cheerio não renderiza visualmente, aplica CSS,
+                Especificamente, o <i>Cheerio</i> não renderiza visualmente, aplica CSS,
                 carrega recursos externos ou executa <i>JavaScript</i>, o que é comum
                 em uma aplicação de página única
                 (<plugin-gloss id="spa"></plugin-gloss>,
                 na sigla em inglês).
-                Isso torna o Cheerio muito mais rápido do que outras soluções.
+                Isso torna o <i>Cheerio</i> muito mais rápido do que outras soluções.
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -2188,20 +2188,20 @@ Date:   Sun Jun 9 11:03:02 2024 -0300
             type: 'bullet',
             list: [
                 `
-                Sintaxe familiar: O Cheerio implementa um subconjunto do core do jQuery.
-                O Cheerio elimina todas as inconsistências do
+                Sintaxe familiar: O <i>Cheerio</i> implementa um subconjunto do core do <i>jQuery</i>.
+                O <i>Cheerio</i> elimina todas as inconsistências do
                 <plugin-gloss id="dom"></plugin-gloss>
-                e as peculiaridades dos navegadores da biblioteca jQuery, revelando sua
+                e as peculiaridades dos navegadores da biblioteca <i>jQuery</i>, revelando sua
                 <plugin-gloss id="api"></plugin-gloss>
                 verdadeiramente esplêndida.
                 `,
                 `
-                Velocidade impressionante: O Cheerio trabalha com um modelo de 
+                Velocidade impressionante: O <i>Cheerio</i> trabalha com um modelo de 
                 <plugin-gloss id="dom"></plugin-gloss>
                 muito simples e consistente. Como resultado, a análise, manipulação e renderização são incrivelmente eficientes.
                 `,
                 `
-                Incrivelmente flexível: O Cheerio utiliza o analisador parse5 e pode opcionalmente usar o tolerante htmlparser2 de @FB55. O Cheerio pode analisar praticamente qualquer documento
+                Incrivelmente flexível: O <i>Cheerio</i> utiliza o analisador parse5 e pode opcionalmente usar o tolerante htmlparser2 de @FB55. O Cheerio pode analisar praticamente qualquer documento
                 <plugin-gloss id="html"></plugin-gloss>
                 ou
                 <plugin-gloss id="xml"></plugin-gloss>.

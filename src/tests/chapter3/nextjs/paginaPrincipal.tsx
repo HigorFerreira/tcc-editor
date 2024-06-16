@@ -58,7 +58,7 @@ export const PaginaPrincipal: Block[] = [
                 e ilustrado na
                 <plugin-ref-fig data-fig="app-router">Figura 1</plugin-ref-fig>,
                 a página principal está contida ao nível da pasta app, juntamente com
-                seu layout.
+                seu <i>layout</i>.
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -73,10 +73,10 @@ export const PaginaPrincipal: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                O arquivo de layout é o template base no qual todas as outras páginas herdarão.
+                O arquivo de <i>layout</i> é o <i>template</i> base no qual todas as outras páginas herdarão.
                 Observe na
                 <plugin-ref-fig data-fig="layout-render-tree">Figura 1</plugin-ref-fig>
-                a sub árvore de renderização do layout:
+                a sub árvore de renderização do <i>layout</i>:
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -95,12 +95,12 @@ export const PaginaPrincipal: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                Tem-se uma estrutura básica com a tag html, (a tag raiz do documento),
+                Tem-se uma estrutura básica com a <i>tag</i> html, (a <i>tag</i> raiz do documento),
                 logo após o <i>body</i>, que diz respeito à área de renderização do documento.
-                <i>Storage</i> é um componente personalizado em React que será discutido mais adiante,
+                <i>Storage</i> é um componente personalizado em <i>React</i> que será discutido mais adiante,
                 ele serve basicamente para armazenar conteúdos no navegador do usuário.
                 Logo em seguida há o último componente, (ou nó folha), que consiste no
-                children. Neste contexto, children pode ser qualquer coisa a depender
+                <i>children</i>. Neste contexto, <i>children</i> pode ser qualquer coisa a depender
                 da rota de página ao qual se está acessando.
             `.trim().replace(/^\s{16}/gm, '')
         }
@@ -109,7 +109,7 @@ export const PaginaPrincipal: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                Observe abaixo o código de layout:
+                Observe abaixo o código de <i>layout</i>:
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -156,9 +156,9 @@ export default function RootLayout({
                 Na linha 13 há a exportação do componente em si. O código
                 <plugin-gloss id="tsx"></plugin-gloss>
                 é retornado a partir da linha 18.
-                Note que aqui não há o uso da tag head, padrão comum do
+                Note que aqui não há o uso da <i>tag</i> head, padrão comum do
                 <plugin-gloss id="html"></plugin-gloss>. Isso se dá
-                pois o gerenciamento das configurações desta tag fica
+                pois o gerenciamento das configurações desta <i>tag</i> fica
                 a cargo do <i>NextJs</i>. Nas linhas 8 à 11
                 há a exportação de uma constante denominada metadata. Nela
                 há a chave title que o Next utilizará para renderizar o
@@ -178,17 +178,17 @@ export default function RootLayout({
         type: 'paragraph',
         data: {
             text: `
-                O arquivo page.tsx exporta o componente React denominado Home,
+                O arquivo page.tsx exporta o componente <i>React</i> denominado <i>Home</i>,
                 que é a tela inicial propriamente dita.
-                Embora os componentes em React sejam definidos como funções,
+                Embora os componentes em <i>React</i> sejam definidos como funções,
                 os mesmos serão representados em forma de diagrama de
                 classes para fins didáticos. Toda representação de
                 componente terá um método render() que retorna um código
                 <plugin-gloss id="jsx"></plugin-gloss>. Este método
                 não existe no componente em si, mas sim na implementação
-                do React. Pode-se pensar o render() como a função que
+                do <i>React</i>. Pode-se pensar o render() como a função que
                 renderiza o que é retornado pela "função componente"
-                Home.
+                <i>Home</i>.
                 A
                 <plugin-ref-fig data-fig="class-home-component">Figura 1</plugin-ref-fig>
                 ilustra o componente em forma de diagrama de classe com seus estados e utilitários.
@@ -228,7 +228,7 @@ export default function RootLayout({
                 carregada.
                 Observe na
                 <plugin-ref-fig data-fig="page-render-tree">Figura 1</plugin-ref-fig>
-                como o componente Home será renderizado:
+                como o componente <i>Home</i> será renderizado:
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -250,7 +250,7 @@ export default function RootLayout({
                 Percebe-se que o componente Container possuí dois filhos: Um texto
                 ("Carregando editor...") e o componente Editor.
                 Observe a partir da linha 87 no código abaixo como a renderização
-                do texto "Carregando editor..." está condicionada ao estado loading.
+                do texto "Carregando editor..." está condicionada ao estado <i>loading</i>.
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -278,7 +278,7 @@ return (
         type: 'paragraph',
         data: {
             text: `
-                O estado loading inicialmente começa com o valor true, o que
+                O estado <i>loading</i> inicialmente começa com o valor <i>true</i>, o que
                 faz com que o texto seja renderizado. O componente
                 Editor também estará em tela, mas como faz uso da classe EditorJs,
                 só aparecerá quando a mesma estiver pronta.
@@ -321,13 +321,13 @@ onReady={ ({ editor }) => {
                 A propriedade onReady é um evento que chama
                 a função passada quando a classe EditorJs está pronta e
                 totalmente carregada. Note que a função passada chama dois
-                atualizadores de estado: setLoading e setEditor. Estes atualizadores
+                atualizadores de estado: <i>setLoading</i> e setEditor. Estes atualizadores
                 setam<plugin-footnote data-note="
                     Neologismo derivado do verbo inglês 'To Set' que significa 'Definir',
                     <plugin-ref id='setar'></plugin-ref>.
                 ">
                 *</plugin-footnote>
-                os estados loading como false, e editor com o valor { editor } presente
+                os estados <i>loading</i> como <i>false</i>, e editor com o valor { editor } presente
                 no parâmetro da função. O resultado disso é que a partir deste momento
                 o texto ("Carregando editor...") não aparecerá mais em tela; o editor
                 estará pronto para ser usado; e o estado editor possui a referência
@@ -343,7 +343,7 @@ onReady={ ({ editor }) => {
             text: `
             A
             <plugin-ref-table data-table="props-componente-home">Tabela</plugin-ref-table>
-            lista cada um dos estados do componente Home, bem como cada uma de suas
+            lista cada um dos estados do componente <i>Home</i>, bem como cada uma de suas
             atribuições:
             `.trim().replace(/^\s{16}/gm, '')
         }
@@ -358,11 +358,11 @@ onReady={ ({ editor }) => {
             column_sizes: [ 0.22, 0.18, 0.6 ],
             header: [ 'Propriedade', 'Atualizador', 'Descrição' ],
             items: [
-                [ 'editor', 'setEditor', 'Armazena a referência à classe do EditorJs' ],
-                [ 'loading', 'setLoading', 'Estado de quando a tela está carregando' ],
+                [ 'editor', '<i>setEditor</i>', 'Armazena a referência à classe do EditorJs' ],
+                [ '<i>loading</i>', '<i>setLoading</i>', 'Estado de quando a tela está carregando' ],
                 [ 'isStorageLoading', 'Automático', 'Quando a <plugin-gloss id="api"></plugin-gloss>\
                     da <i>Storage</i> está carregando' ],
-                [ 'storageError', 'Automático', 'Caso haja algum erro com a <i>Storage</i>' ],
+                [ '<i>storageError</i>', 'Automático', 'Caso haja algum erro com a <i>Storage</i>' ],
                 [ 'result', 'Automático', 'Blocos guardados na <i>Storage</i>, (caso Hajam)' ],
                 [ 'putBlock', 'Automático', 'Função para guardar blocos na <i>Storage</i>' ],
                 [ 'getBlock', 'Automático', 'Função para pegar blocos da <i>Storage</i>' ],
@@ -410,9 +410,9 @@ useEffect(() => {
         data: {
             text: `
                 O código acima adiciona uma função que monitora o estado denominado
-                storageError. Na primeira renderização da página, ou sempre que este
+                <i>storageError</i>. Na primeira renderização da página, ou sempre que este
                 estado muda, a função é disparada. Tudo que a função faz é checar se há
-                algum erro presente em storageError. Caso afirmativo, o erro é transcrito
+                algum erro presente em <i>storageError</i>. Caso afirmativo, o erro é transcrito
                 na saída de erro do console através da linha 78, e uma mensagem
                 é exibida ao usuário na linha 79.
                 A

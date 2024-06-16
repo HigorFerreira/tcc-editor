@@ -106,7 +106,7 @@ export const image: Block[] = [
                 <plugin-gloss id="html"></plugin-gloss>.
                 Isto se dá devido a uma particularidade do componente Header, pois o mesmo
                 tem um menu personalizado que se difere do padrão do EditorJs. Este menu é
-                um componente React que é guardado
+                um componente <i>React</i> que é guardado
                 no estado settings, que por ventura é renderizado através do portal no elemento
                 indicado por settingsContainer.
             `.trim().replace(/^\s{16}/gm, '')
@@ -116,7 +116,7 @@ export const image: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                Observe que state; error; loading e setImageState fazem parte de um estado especial
+                Observe que <i>state</i>; <i>error</i>; <i>loading</i> e setImageState fazem parte de um estado especial
                 denominado ImageState. Isto se dá devido a complexiade do plugin de imagem, que possui
                 um hook personalizado em um código separado, de modo a ajudar a gerenciar os casos
                 de uso do plugin.
@@ -176,7 +176,7 @@ export const image: Block[] = [
         data: {
             text: `
                 Observe primeiramente o <i>SpinContainer</i>. Ele é renderizado sempre que
-                o estado loading é verdadeiro, ao passo que seus outros três irmãos não.
+                o estado <i>loading</i> é verdadeiro, ao passo que seus outros três irmãos não.
                 O SpinContainer nada mais é do que um receptáculo que possui um componente
                 Spin, que é um indicador animado com papel de mostrar ao usuário que algo está
                 sendo carregado.

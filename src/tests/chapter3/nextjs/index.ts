@@ -26,7 +26,7 @@ export const nextjs: Block[] = [
         data: {
             text: `
                 O servidor da aplicação será construído em cima do <i>NextJs</i>, a
-                framewok React para a
+                framewok <i>React</i> para a
                 <plugin-gloss id="web"></plugin-gloss>.
                 Iniciar o projeto é uma tarefa simples. Basta apenas navegar
                 para algum diretório onde se deseja criar o projeto e
@@ -52,7 +52,7 @@ npx create-next-app@latest
         type: 'paragraph',
         data: {
             text: `
-                Vale ressaltar que é necessário ter o NodeJs na versão 18.17 ou superior
+                Vale ressaltar que é necessário ter o <i>NodeJs</i> na versão 18.17 ou superior
                 para iniciar o projeto em <i>NextJs</i>. Após rodar este comando, o prompt fará uma
                 série de perguntas para a configuração do mesmo, observe o exemplo abaixo:
             `.trim().replace(/^\s{16}/gm, '')
@@ -164,7 +164,7 @@ yarn add node-latex react-icons uuid
                 A
                 <plugin-ref-fig data-fig="estrutura-basica-projeto">Figura</plugin-ref-fig>
                 mostra a estrutura de pastas base do projeto, com todos os seus respectivos
-                arquivos de configuração, roteamento e componentes básicos do react.
+                arquivos de configuração, roteamento e componentes básicos do <i>react</i>.
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -207,14 +207,14 @@ yarn add node-latex react-icons uuid
                 [ 'next.config.js', 'Arquivo de configurações do <i>NextJs</i>.' ],
                 [ 'next-env.d.ts', '' ],
                 [ 'package.json', `
-                    Arquivo que define que o projeto é um projeto NodeJs. Aqui está toda a informação sobre dependências
+                    Arquivo que define que o projeto é um projeto <i>NodeJs</i>. Aqui está toda a informação sobre dependências
                     do projeto, que são todos os pacotes usados de terceiros. Também possui definição
                     de scripts úteis para serem utilizados no processo de desenvolvimento.
                 ` ],
                 [ 'README.md', 'Documentação de apresentação do projeto.' ],
                 [ 'tsconfig.json', 'Configurações do <i>TypeScript</i>.' ],
-                [ 'yarn-error.log', 'Erros do gerenciador de pacotes yarn' ],
-                [ 'yarn.lock', 'Arquivo de lock de dependências do gerenciador de pacotes yarn.' ],
+                [ 'yarn-error.log', 'Erros do gerenciador de pacotes <i>yarn</i>' ],
+                [ 'yarn.lock', 'Arquivo de lock de dependências do gerenciador de pacotes <i>yarn</i>.' ],
             ]
         }
     },

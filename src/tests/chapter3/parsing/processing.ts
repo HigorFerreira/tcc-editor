@@ -153,13 +153,13 @@ export const processing: Block[] = [
         data: {
             text: `
                 Abaixo tem-se a aplicação do processamento de escape de caracteres
-                em <i>typescript</i>. a função escapeCharacters recebe uma string na linha 1,
-                e das linhas 3 a 14 faz uma sucessão de novas atribuições desta nova string.
-                As atribuições consistem de uma nova string que, através da função replace,
-                substituem as expressões regulares pela nova string, que seguem de acordo
+                em <i>typescript</i>. a função escapeCharacters recebe uma <i>string</i> na linha 1,
+                e das linhas 3 a 14 faz uma sucessão de novas atribuições desta nova <i>string</i>.
+                As atribuições consistem de uma nova <i>string</i> que, através da função replace,
+                substituem as expressões regulares pela nova <i>string</i>, que seguem de acordo
                 com a
                 <plugin-ref-table data-table="escape-characters">Tabela</plugin-ref-table>.
-                Ao final, na linha 16, a nova string é retornada.
+                Ao final, na linha 16, a nova <i>string</i> é retornada.
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -298,14 +298,14 @@ export function escapeCharacters(str: string){
         type: 'paragraph',
         data: {
             text: `
-                Para processar os plugins está sendo utilizada a biblioteca cheerio.
-                A string a ser analisada, recebida na linha 3, passa por uma checagem de
+                Para processar os plugins está sendo utilizada a biblioteca <i>cheerio</i>.
+                A <i>string</i> a ser analisada, recebida na linha 3, passa por uma checagem de
                 tags presentes. Por exemplo: Observe a linha 5. Sempre que houver
                 qualquer ocorrência de plugin-ref, esta é substituída através do
                 comando replaceWith pelo texto:
                 \\cite{\${$(node).attr('id')}}.
                 Observe que a parte $(node).attr('id')
-                é o que recupera o atributo "id"  da tag.
+                é o que recupera o atributo "id"  da <i>tag</i>.
             `.trim().replace(/^\s{16}/gm, '')
         }
     },

@@ -169,10 +169,10 @@ export const editorjs: Block[] = [
             text: `
                 A
                 <plugin-ref-fig data-fig="effect-ready-editor-component">Figura 1</plugin-ref-fig>
-                ilustra o processo simplificado de quando o estado ready é disparado.
-                Ready é disparado quando acontece a primeira renderização da página, por meio
+                ilustra o processo simplificado de quando o estado <i>ready</i> é disparado.
+                <i>Ready</i> é disparado quando acontece a primeira renderização da página, por meio
                 de um efeito que não monitora nenhum estado em particular. A tarefa deste efeito
-                é apenas setar o estado ready para true. Isto funciona pois o efeito que
+                é apenas setar o estado <i>ready</i> para <i>true</i>. Isto funciona pois o efeito que
                 não monitora nenhum estado é executado apenas uma vez, quando o componente é
                 renderizado.
             `.trim().replace(/^\s{16}/gm, '')

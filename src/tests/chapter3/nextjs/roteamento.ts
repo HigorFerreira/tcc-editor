@@ -36,7 +36,7 @@ export const Roteamento: Block[] = [
                 chamada
                 <plugin-gloss id="app"></plugin-gloss>
                 onde serão arquivados os roteamentos, as páginas,
-                layouts, páginas de erro, loading, entre outros.
+                <i>layouts</i>, páginas de erro, <i>loading</i>, entre outros.
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -80,13 +80,13 @@ export const Roteamento: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                Os arquivos page e layout são a primeira página da aplicação.
+                Os arquivos <i>page</i> e layout são a primeira página da aplicação.
                 Por estarem no nível do diretório
                 <plugin-gloss id="app"></plugin-gloss> (dentro da pasta app)
                 esta página será mapeada para a rota / na navegação. Isto
                 significa que quando o servidor estiver rodando e o usuário
                 acessar o endereço do serviço, o código contido em
-                page.tsx renderizará o conteúdo da página para o
+                <i>page</i>.tsx renderizará o conteúdo da página para o
                 usuário.
             `.trim().replace(/^\s{16}/gm, '')
         }
@@ -95,10 +95,10 @@ export const Roteamento: Block[] = [
         type: 'paragraph',
         data: {
             text: `
-                O arquivo layout.tsx serve como um template para a página.
+                O arquivo layout.tsx serve como um <i>template</i> para a página.
                 Pode-se pensá-lo como uma espécie de casca da aplicação.
-                A página herda o que está em layout, de modo que o que será
-                renderizado no Browser será o template, acrescido da page.
+                A página herda o que está em <i>layout</i>, de modo que o que será
+                renderizado no <i>Browser</i> será o <i>template</i>, acrescido da <i>page</i>.
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -107,8 +107,8 @@ export const Roteamento: Block[] = [
         data: {
             text: `
                 Por estar no diretório raiz de app, todas as rotas de páginas
-                da aplicação herdarão o que está em layout.tsx. Arquivos de 
-                layout também podem ser escritos em rotas que não sejam a raiz.
+                da aplicação herdarão o que está em <i>layout</i>.tsx. Arquivos de 
+                <i>layout</i> também podem ser escritos em rotas que não sejam a raiz.
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -146,8 +146,8 @@ export const Roteamento: Block[] = [
         data: {
             text: `
                 Ao criar a pasta example com o arquivo page.tsx. O servidor
-                mapeará para a rota /example no Browser, renderizando o componente
-                exportado em page. Observe a seguir o código em layout.tsx:
+                mapeará para a rota /example no <i>Browser</i>, renderizando o componente
+                exportado em <i>page</i>. Observe a seguir o código em layout.tsx:
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
@@ -175,7 +175,7 @@ export default function Layout(
         data: {
             text: `
                 Observe que o arquivo exporta uma função
-                denominada Layout, que retorna um código
+                denominada <i>Layout</i>, que retorna um código
                 <plugin-gloss id="tsx"></plugin-gloss>
                 a ser renderizado na página.
                 Na linha 4 a função recebe um objeto
@@ -186,8 +186,8 @@ export default function Layout(
                 ">
                 *</plugin-footnote>,
                 que
-                contém outros componentes React a serem renderizados.
-                No caso, o <i>NextJs</i> injetará dentro de children o código que
+                contém outros componentes <i>React</i> a serem renderizados.
+                No caso, o <i>NextJs</i> injetará dentro de <i>children</i> o código que
                 é exportado por page.tsx.
                 A linha 8 é a posição onde este componente será renderizado.
             `.trim().replace(/^\s{16}/gm, '')
@@ -220,8 +220,8 @@ export default function Page(){
         type: 'paragraph',
         data: {
             text: `
-                No código page apenas é exportada uma função (componente)
-                Page que retorna uma frase simples: "Olá mundo! Eu sou uma page".
+                No código <i>page</i> apenas é exportada uma função (componente)
+                <i>Page</i> que retorna uma frase simples: "Olá mundo! Eu sou uma <i>page</i>".
             `.trim().replace(/^\s{16}/gm, '')
         }
     },
