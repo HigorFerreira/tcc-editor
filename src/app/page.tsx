@@ -91,7 +91,7 @@ export default function Home() {
     }, [ storageError ]);
 
     return (
-        <main>
+        <div>
             <Container>
                 {
                     loading
@@ -139,6 +139,6 @@ export default function Home() {
                     } }
                 />
             </Container>
-        </main>
+        </div>
     )
 }
